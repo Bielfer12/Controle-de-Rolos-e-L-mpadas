@@ -1867,7 +1867,7 @@ return
 Static function geraCod()
 
     Local aArea := FWGetArea()
-    Local cQryR
+    Local cQry
     Local cNumG := ""
     Local cTira := ''
     Local nRec
@@ -1882,14 +1882,14 @@ Static function geraCod()
 
             if oCombo3:Nat == 2
 
-                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I')"
 
-                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
                 nRec := (REC_ZCA -> REC)
 
                     cNumG := SOMA1(nRec) 
-                    cTira := strTran(cNumG, '', "0")
+                    cTira := cNumG
 
                     REC_ZCA -> (DbCloseArea())
 
@@ -1901,14 +1901,14 @@ Static function geraCod()
 
             elseif oCombo3:Nat == 3
 
-                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E')"
 
-                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
                 nRec := (REC_ZCA -> REC)
 
                     cNumG := SOMA1(nRec) 
-                    cTira := strTran(cNumG, '', "0")
+                    cTira := cNumG
 
                     REC_ZCA -> (DbCloseArea())
 
@@ -1919,14 +1919,14 @@ Static function geraCod()
 // -------------------------------------------------------------------------------
             elseif oCombo3:Nat == 4
 
-                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R')"
 
-                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
                 nRec := (REC_ZCA -> REC)
 
                     cNumG := SOMA1(nRec) 
-                    cTira := strTran(cNumG, '', "0")
+                    cTira := cNumG
 
                     REC_ZCA -> (DbCloseArea())
 
@@ -1936,14 +1936,14 @@ Static function geraCod()
 // 
 // -------------------------------------------------------------------------------
             elseif oCombo3:Nat == 5
-                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L')"
 
-                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
                 nRec := (REC_ZCA -> REC)
 
                     cNumG := SOMA1(nRec) 
-                    cTira := strTran(cNumG, '', "0")
+                    cTira := cNumG
 
                     REC_ZCA -> (DbCloseArea())
 
@@ -4710,99 +4710,45 @@ Return
 Static function geraCodM()
 
     Local aArea := FWGetArea()
-    Local oTempTable 
-    Local aFields := {}
     Local cQry 
     Local cNumG := ""
     Local cTira := ''
-    Local cAliasTemp := GetNextAlias()
-    Local cTableName := ''
-
-    oTempTable := FWTemporaryTable():NEW(cAliasTemp)
-   
-    AADD(aFields,{'COD_GR'  , "C", 6, 0})
-    AADD(aFields,{'COD_MRL' , "C", 6, 0})
-    AADD(aFields,{'COD_MLP' , "C", 6, 0})
-    
-    oTempTable:SetFields(aFields)
-
-    oTempTable:AddIndex('1',{"COD_GR", "COD_MRL", "COD_MLP"})
-    // oTempTable:SetPrimaryKey({'COD_GR'})
-
-    oTempTable:Create()
-
-    cTableName := oTempTable:GetRealName()
+    Local nRec  
 
     IF SELECT('ZM1') > 0
 
     DbSelectArea('ZM1')
-    ZM1 -> (DbGoTop())
+        
+        cQry := "SELECT ZM1_COD AS REC1 FROM "+ RetSqlName('ZM1')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZM1')+")"
 
-            while ZM1->(!EoF())
-                    if Empty(ZM1->(ZM1_COD)) 
-                        RecLock(cAliasTemp,.T.)
-                            (cAliasTemp)->COD_MRL := '000001'
-                        (cAliasTemp)->(MSUNLOCK())
-                    else
-                    RecLock(cAliasTemp,.T.)
-                        (cAliasTemp)->COD_MRL := ZM1->ZM1_COD
-                    (cAliasTemp)->(MSUNLOCK())
-                    endif
-                
-                ZM1->(DbSkip())
-            EndDo
+        TCQUERY cQry NEW ALIAS 'REC_ZM1'
+
+        nRec := (REC_ZM1 -> REC1)
+
+            cNumG := SOMA1(nRec) 
+            cTira := cNumG
+
+        REC_ZM1 -> (DbCloseArea())   
+
     ZM1 -> (DbCloseArea())
-
-                DbSelectArea(cAliasTemp)
-
-                cQry := 'SELECT MAX(COD_MRL) AS CCOD FROM ' + cTableName 
-
-                    TCQUERY cQry NEW ALIAS "QRYG_ZM1"
-
-                    cNumG := SOMA1(QRYG_ZM1 -> CCOD) 
-                    cTira := strTran(cNumg, '', "0")
-
-                    QRYG_ZM1 -> (DbCloseArea())
-                (cAliasTemp) -> (DbCloseArea())   
-
-    oTempTable:Delete()
 
     cGet2MM := cTira
 
     ELSEIF SELECT('ZM2') > 0
 
     DbSelectArea('ZM2')
-    ZM2 -> (DbGoTop())
+     cQry := "SELECT ZM2_COD AS REC2 FROM "+ RetSqlName('ZM2')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZM2')+")"
 
-            while ZM2->(!EoF())
-                    if Empty(ZM2->(ZM2_COD)) 
-                        RecLock(cAliasTemp,.T.)
-                            (cAliasTemp)->COD_MLP := '000001'
-                        (cAliasTemp)->(MSUNLOCK())
-                    else
-                    RecLock(cAliasTemp,.T.)
-                        (cAliasTemp)->COD_MLP := ZM2->ZM2_COD
-                    (cAliasTemp)->(MSUNLOCK())
-                    endif
-                
-                ZM2->(DbSkip())
-            EndDo
+        TCQUERY cQry NEW ALIAS 'REC_ZM2'
+
+        nRec := (REC_ZM2 -> REC2)
+
+            cNumG := SOMA1(nRec) 
+            cTira := cNumG
+
+        REC_ZM2 -> (DbCloseArea())   
+
     ZM2 -> (DbCloseArea())
-
-                DbSelectArea(cAliasTemp)
-
-                cQry := 'SELECT MAX(COD_MLP) AS CCOD FROM ' + cTableName 
-
-                    TCQUERY cQry NEW ALIAS "QRYG_ZM2"
-
-                    cNumG := SOMA1(QRYG_ZM2 -> CCOD) 
-                    cTira := strTran(cNumg, '', "0")
-
-                    QRYG_ZM2 -> (DbCloseArea())
-                (cAliasTemp) -> (DbCloseArea())   
-
-
-    oTempTable:Delete()
 
     xGet2LL := cTira
 
