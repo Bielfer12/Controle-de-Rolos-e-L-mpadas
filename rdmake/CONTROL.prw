@@ -147,6 +147,7 @@ User Function RLLP23INC()
     
     // // objeto3
     Private oCombo3
+    // Local cCombT2      := 'XX'
     Private aCombA3      := {'XX = Nenhum Item','I = Impressora','E = Estação', 'R = Rolo', 'L = Lâmpada'}
 
     // Objeto4
@@ -249,16 +250,20 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
     Local cFont          := 'Tahoma'
     Local oFontPadrao  
 
+    // nHeaderClick = 1
+
     Local nObjLarg      := 0
     Local nObjAltu      := 0
     Local nObjColu      := 0
     Local nObjLinh      := 0
 
     Local cJanTitulo    := ''
-
+   
+    //variaveis getdados
     Private aHeader     := {}
     Private aCols       := {}
 
+         
     Private oDlgCad
 
     Private oSay1T
@@ -477,7 +482,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao,,, lDimPixels,,,,,,,,,,,,,,.T.)
+        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu, , , , , oFontPadrao, , , lDimPixels, , , , ,  ,  ,  , /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oGet2T:lActive := .F.
 
@@ -494,7 +499,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao,,, lDimPixels,,,,,,,,,,,,,, .T.)
+        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -1862,85 +1867,12 @@ return
 Static function geraCod()
 
     Local aArea := FWGetArea()
-    Local oTempTable 
-    Local aFields := {}
-    Local cQry 
+    Local cQryR
     Local cNumG := ""
     Local cTira := ''
-    Local cAliasTemp := GetNextAlias()
-    Local cTableName := ''
-
-    oTempTable := FWTemporaryTable():NEW(cAliasTemp)
-   
-    AADD(aFields,{'COD_GR', "C", 6, 0})
-    AADD(aFields,{'COD_I' , "C", 6, 0})
-    AADD(aFields,{'COD_E' , "C", 6, 0})
-    AADD(aFields,{'COD_R' , "C", 6, 0})
-    AADD(aFields,{'COD_L' , "C", 6, 0})
-
-    oTempTable:SetFields(aFields)
-
-    oTempTable:AddIndex('1',{"COD_GR", "COD_I"})
-    // oTempTable:SetPrimaryKey({'COD_GR'})
-
-    oTempTable:Create()
-
-    cTableName := oTempTable:GetRealName()
-
-// -------------------------------------------------------------------------------
-// 
-//              CODIGO GERACODIGO ITENS GERAL - GABRIEL
-// 
-// -------------------------------------------------------------------------------
+    Local nRec
 
     DbSelectArea('ZCA')
-    ZCA -> (DbGoTop())
-
-            while ZCA->(!EoF())
-                if ZCA -> (ZCA_TIPO) == 'I'
-                    if Empty(ZCA->(ZCA_COD)) 
-                        RecLock(cAliasTemp,.T.)
-                            (cAliasTemp)->COD_I := '000001'
-                        (cAliasTemp)->(MSUNLOCK())
-                    else
-                    RecLock(cAliasTemp,.T.)
-                        (cAliasTemp)->COD_I := ZCA->ZCA_COD
-                    (cAliasTemp)->(MSUNLOCK())
-                    endif
-                ELSEIF ZCA -> (ZCA_TIPO) == 'E'
-                    if Empty(ZCA->(ZCA_COD)) 
-                        RecLock(cAliasTemp,.T.)
-                            (cAliasTemp)->COD_E := '000001'
-                        (cAliasTemp)->(MSUNLOCK())
-                    else
-                    RecLock(cAliasTemp,.T.)
-                        (cAliasTemp)->COD_E := ZCA -> ZCA_COD
-                    (cAliasTemp)->(MSUNLOCK())
-                    endif
-                ELSEIF ZCA -> (ZCA_TIPO) == 'R'
-                    if Empty(ZCA->(ZCA_COD)) 
-                        RecLock(cAliasTemp,.T.)
-                            (cAliasTemp)->COD_R := '000001'
-                        (cAliasTemp)->(MSUNLOCK())
-                    else
-                    RecLock(cAliasTemp,.T.)
-                        (cAliasTemp)->COD_R := ZCA -> ZCA_COD
-                    (cAliasTemp)->(MSUNLOCK())
-                    endif
-                ELSEIF ZCA -> (ZCA_TIPO) == 'L'
-                    if Empty(ZCA->(ZCA_COD)) 
-                        RecLock(cAliasTemp,.T.)
-                            (cAliasTemp)->COD_L := '000001'
-                        (cAliasTemp)->(MSUNLOCK())
-                    else
-                    RecLock(cAliasTemp,.T.)
-                        (cAliasTemp)->COD_L := ZCA -> ZCA_COD
-                    (cAliasTemp)->(MSUNLOCK())
-                    endif
-                ENDIF
-                ZCA->(DbSkip())
-            EndDo
-    ZCA -> (DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -1949,17 +1881,17 @@ Static function geraCod()
 // -------------------------------------------------------------------------------
 
             if oCombo3:Nat == 2
-                DbSelectArea(cAliasTemp)
 
-                cQry := 'SELECT MAX(COD_I) AS CCOD FROM ' + cTableName 
+                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I')"
 
-                    TCQUERY cQry NEW ALIAS "QRYG_ZCA"
+                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
 
-                    cNumG := SOMA1(QRYG_ZCA -> CCOD) 
-                    cTira := strTran(cNumg, '', "0")
+                nRec := (REC_ZCA -> REC)
 
-                    QRYG_ZCA -> (DbCloseArea())
-                (cAliasTemp) -> (DbCloseArea())   
+                    cNumG := SOMA1(nRec) 
+                    cTira := strTran(cNumG, '', "0")
+
+                    REC_ZCA -> (DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -1968,18 +1900,17 @@ Static function geraCod()
 // -------------------------------------------------------------------------------
 
             elseif oCombo3:Nat == 3
-                DbSelectArea(cAliasTemp)
 
-                cQry := 'SELECT MAX(COD_E) AS CCOD FROM ' + cTableName
+                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E')"
 
-                    TCQUERY cQry NEW ALIAS "QRYG_ZCA"
+                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
 
-                    cNumG := SOMA1(QRYG_ZCA -> CCOD) 
-                    cTira := strTran(cNumg, '', "0")
+                nRec := (REC_ZCA -> REC)
 
-                    QRYG_ZCA -> (DbCloseArea())
-                (cAliasTemp) -> (DbCloseArea())
+                    cNumG := SOMA1(nRec) 
+                    cTira := strTran(cNumG, '', "0")
 
+                    REC_ZCA -> (DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -1987,17 +1918,17 @@ Static function geraCod()
 // 
 // -------------------------------------------------------------------------------
             elseif oCombo3:Nat == 4
-                DbSelectArea(cAliasTemp)
 
-                cQry := 'SELECT MAX(COD_R) AS CCOD FROM ' + cTableName
+                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R')"
 
-                    TCQUERY cQry NEW ALIAS "QRYG_ZCA"
+                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
 
-                    cNumG := SOMA1(QRYG_ZCA -> CCOD)    
-                    cTira := strTran(cNumg, '', "0")
+                nRec := (REC_ZCA -> REC)
 
-                    QRYG_ZCA -> (DbCloseArea())
-                (cAliasTemp) -> (DbCloseArea())   
+                    cNumG := SOMA1(nRec) 
+                    cTira := strTran(cNumG, '', "0")
+
+                    REC_ZCA -> (DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -2005,21 +1936,20 @@ Static function geraCod()
 // 
 // -------------------------------------------------------------------------------
             elseif oCombo3:Nat == 5
-                DbSelectArea(cAliasTemp)
+                cQryR := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L')"
 
-                cQry := 'SELECT MAX(COD_L) AS CCOD FROM ' + cTableName
+                TCQUERY cQryR NEW ALIAS 'REC_ZCA'
 
-                    TCQUERY cQry NEW ALIAS "QRYG_ZCA"
+                nRec := (REC_ZCA -> REC)
 
-                    cNumG := SOMA1(QRYG_ZCA -> CCOD) 
-                    cTira := strTran(cNumg, '', "0")
+                    cNumG := SOMA1(nRec) 
+                    cTira := strTran(cNumG, '', "0")
 
-                    QRYG_ZCA -> (DbCloseArea())
-                (cAliasTemp) -> (DbCloseArea())   
+                    REC_ZCA -> (DbCloseArea())
 
             endif 
 
-    oTempTable:Delete()
+    ZCA->(DbCloseArea())
 
     cGet2TT := cTira
 
@@ -4183,19 +4113,9 @@ static function excBtn()
     Local aArea := FWGetArea()
 
     DbSelectArea('ZCA')
-    ZCA->(DbSetOrder(1))
 
         Begin Transaction
         RecLock('ZCA', .F.)
-        if ZCA->(ZCA_TIPO) == 'I'
-            ZCA -> (DbSeek(xFilial() + Alltrim(oGet2E:BUFFER) + 'I'))
-        ELSEif ZCA->(ZCA_TIPO) == 'E'
-            ZCA -> (DbSeek(xFilial() + Alltrim(oGet2E:BUFFER) + 'E'))
-        ELSEif ZCA->(ZCA_TIPO) == 'R'
-            ZCA -> (DbSeek(xFilial() + Alltrim(oGet2E:BUFFER) + 'R'))
-        ELSEif ZCA->(ZCA_TIPO) == 'L'
-            ZCA -> (DbSeek(xFilial() + Alltrim(oGet2E:BUFFER) + 'L'))
-        ENDIF
             ZCA -> (DbDelete())
         ZCA -> (MsUnlock())  
         lEsc := MsgYesNo('Deseja remover mesmo?')
@@ -6290,7 +6210,7 @@ Local aArea := FWGetArea()
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2L:SetCss(" TSay {Font: Semi-Bold}")
 
         DbSelectArea('ZM2')
@@ -6746,7 +6666,11 @@ Static function incBtnMLP()
                 geraCodM()
                 oGet2L:BUFFER   := Space(TamSX3('ZM2_COD')[1])
                 oGet3L:BUFFER   := Space(TamSX3('ZM2_IMPRES')[1])
+                // oGet4L:BUFFER   := Space(TamSX3('ZM2_USU')[1])
+                // oGet5L:BUFFER   := Space(TamSX3('ZM2_DATAM')[1]) 
                 oGet6L:BUFFER   := Space(TamSX3('ZM2_LAMP')[1])
+                // oCombo7L:BUFFER := Space(TamSX3('ZM2_TROCLP')[1])
+                // oCombo8L:BUFFER := Space(TamSX3('ZM2_TROCRL')[1])
                 oGet9L:BUFFER   := Space(TamSX3('ZM2_MATER')[1])
                 oGet10L:BUFFER  := Space(TamSX3('ZM2_TEMPM')[1])
                 oGet11L:BUFFER  := Space(TamSX3('ZM2_UMIDAD')[1])
@@ -6761,7 +6685,8 @@ Static function incBtnMLP()
                 oGet20L:BUFFER  := Space(TamSX3('ZM2_SETP')[1])
                 oGet21L:BUFFER  := Space(TamSX3('ZM2_POT')[1])
                 oGet22L:BUFFER  := Space(TamSX3('ZM2_OBS')[1])
-
+                // oCombo23L:BUFFER := Space(TamSX3('ZM2_ATIVO')[1])
+                // oGet24L:BUFFER  := Space(TamSX3('ZM2_DATAC')[1])
             
             ENDIF
             
@@ -8429,7 +8354,7 @@ User function zConsImp()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqImp()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqImp()}, 075, 040,,,,lDimPixels,,,,,,/*lHasButton*/)  
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -8554,6 +8479,7 @@ Static Function fConfImp()
 
     Local aArea := FwGetArea()
 
+    // if cEsnM == 'I'
         if nEscBD == 1
             if nEsc == 3
                 oGet15T:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2])
@@ -8575,6 +8501,9 @@ Static Function fConfImp()
                 oGet3L:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2])
             endif 
         endif
+    // elseif cEsnNm == 'E'
+    // elseif cEsnNm == 'R'
+    // endif
     oDlgCE:End()
 
     FwRestArea(aArea)
@@ -8643,7 +8572,7 @@ User function zConsEst()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqEst()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqEst()}, 075, 040,,,,lDimPixels,,,,,,/*lHasButton*/)  
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -8844,7 +8773,7 @@ User function zConsRl()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqRl()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqRl()}, 075, 040,,,,lDimPixels,,,,,,/*lHasButton*/)  
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -9045,7 +8974,7 @@ User function zConsLp()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqLp()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqLp()}, 075, 040,,,,lDimPixels,,,,,,/*lHasButton*/)  
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -9342,7 +9271,7 @@ Static Function geraExcell(aDados)
             cTabela    := "Manutenção de Rolos"
             cArquivo   := "Manutenção-Rolos_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"  
 
-            if !ApOleClient("MSExcel") 
+            if !ApOleClient("MSExcel") //função que checa se o excel esta instalado
                 MsAlert("Microsoft excel não esta instalado")
                 return
             endif   
@@ -9392,7 +9321,7 @@ Static Function geraExcell(aDados)
             cTabela    := "Manutenção de Lampadas"
             cArquivo   := "Manutenção-Lampadas_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"
 
-            if !ApOleClient("MSExcel")
+            if !ApOleClient("MSExcel") //função que checa se o excel esta instalado
                 MsAlert("Microsoft excel não esta instalado")
                 return
             endif
@@ -9475,7 +9404,7 @@ Static function getParam()
     aAdd(aParamBox, {1, "Data De",  CTOD(''),  "", ".T.", "", ".T.", 80,  .T.})
     aAdd(aParamBox, {1, "Data Até", CTOD(''),  "", ".T.", "", ".T.", 80,  .T.})
 
-    lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
+    lRet := ParamBox(aParamBox,cTitulo,aParams,,,/*lCentered*/,nPosX,nPosY,,.T.,.T.)
 
     if (lRet)
         cData1 := DTOC(aParams[1])
@@ -9652,7 +9581,7 @@ Static Function R2geraExcell(aDados)
             cTabela    := "Manutenção de Rolos"
             cArquivo   := "Manutenção-Rolos_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"  
 
-            if !ApOleClient("MSExcel") 
+            if !ApOleClient("MSExcel") //função que checa se o excel esta instalado
                 MsAlert("Microsoft excel não esta instalado")
                 return
             endif   
@@ -9702,7 +9631,7 @@ Static Function R2geraExcell(aDados)
             cTabela    := "Manutenção de Lampadas"
             cArquivo   := "Manutenção-Lampadas_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"
 
-            if !ApOleClient("MSExcel") 
+            if !ApOleClient("MSExcel") //função que checa se o excel esta instalado
                 MsAlert("Microsoft excel não esta instalado")
                 return
             endif
@@ -9764,7 +9693,7 @@ Static Function R2geraExcell(aDados)
                 oExcelApp := MsExcel():New()
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
-                oExcellApp:Destroy()
+                oExcelApp:Destroy()
                 MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
             endif
         endif
@@ -9792,76 +9721,76 @@ Static function getParamR2()
 
     If SELECT('ZM1') > 0
 
-        fPopulaImp()
+    fPopulaImp()
 
-        for nI := 1 to len(aColsAux)
+    for nI := 1 to len(aColsAux)
 
-            AADD(aColsImp,aColsAux[nI][2])
+        AADD(aColsImp,aColsAux[nI][2])
 
-        next
+    next
 
-        aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
+    aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
 
-        fPopulaEst()
+    fPopulaEst()
 
-        for nI := 1 to len(aColsAux)
+    for nI := 1 to len(aColsAux)
 
-            AADD(aColsEst,aColsAux[nI][2])
+        AADD(aColsEst,aColsAux[nI][2])
 
-        next
-        aAdd(aParamBox, {2, "Estação"   , 0 ,  aColsEst, 80, ".T.",.T.})
+    next
+    aAdd(aParamBox, {2, "Estação"   , 0 ,  aColsEst, 80, ".T.",.T.})
 
-        fPopulaRl()
+    fPopulaRl()
 
-        for nI := 1 to len(aColsAux)
+    for nI := 1 to len(aColsAux)
 
-            AADD(aColsRl,aColsAux[nI][2])
+        AADD(aColsRl,aColsAux[nI][2])
 
-        next
-        aAdd(aParamBox, {2, "Rolo"     , 0 ,  aColsRl , 80, ".T.",.T.})
-        aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-        aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+    next
+    aAdd(aParamBox, {2, "Rolo"     , 0 ,  aColsRl , 80, ".T.",.T.})
+    aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+    aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
 
-        lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
+    lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
 
-        if (lRet)
-            //Lugar que ira citar uma variavel para receber o que foi escolhido no combobox a cima. Como faço isso ?
-            cImp   := aParams[1]
-            cEst   := aParams[2]
-            cRolo  := aParams[3]
-            cData1 := DTOC(aParams[4])
-            cData2 := DTOC(aParams[5])
-        else
-            Sleep(10)
-        endif
+    if (lRet)
+        //Lugar que ira citar uma variavel para receber o que foi escolhido no combobox a cima. Como faço isso ?
+        cImp   := aParams[1]
+        cEst   := aParams[2]
+        cRolo  := aParams[3]
+        cData1 := DTOC(aParams[4])
+        cData2 := DTOC(aParams[5])
+    else
+        Sleep(10)
+    endif
+    
+    ELSEIF SELECT('ZM2') > 0 
 
-        ELSEIF SELECT('ZM2') > 0 
+    fPopulaImp()
 
-        fPopulaImp()
+    for nI := 1 to len(aColsAux)
 
-        for nI := 1 to len(aColsAux)
+        AADD(aColsImp,aColsAux[nI][2])
 
-            AADD(aColsImp,aColsAux[nI][2])
+    next
 
-        next
+    aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
+    aAdd(aParamBox, {2, "Troca lampada"   , 0 ,  aColsLP, 80, ".T.",.T.})
+    aAdd(aParamBox, {2, "Troca Refletor"     , 0 ,  aColsRef , 80, ".T.",.T.})
+    aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+    aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
 
-        aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
-        aAdd(aParamBox, {2, "Troca lampada"   , 0 ,  aColsLP, 80, ".T.",.T.})
-        aAdd(aParamBox, {2, "Troca Refletor"     , 0 ,  aColsRef , 80, ".T.",.T.})
-        aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-        aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+    lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
 
-        lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
-
-        if (lRet)
-            cImp   := aParams[1]
-            cRef   := aParams[2]
-            cLamp  := aParams[3]
-            cData1 := DTOC(aParams[4])
-            cData2 := DTOC(aParams[5])
-        else
-            Sleep(10)
-        endif
+    if (lRet)
+        cImp   := aParams[1]
+        cRef   := aParams[2]
+        cLamp  := aParams[3]
+        cData1 := DTOC(aParams[4])
+        cData2 := DTOC(aParams[5])
+    else
+        Sleep(10)
+    endif
 
     ENDIF
 
@@ -9912,35 +9841,35 @@ Static Function proqR3()
 
     If SELECT('ZM1') > 0 
 
-        cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
+    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
 
-        cAlias := 'QZC_ZM1'
+    cAlias := 'QZC_ZM1'
 
-        TCQUERY cQry NEW ALIAS (cAlias)
+    TCQUERY cQry NEW ALIAS (cAlias)
 
-        (cAlias)->(DbGoTop())
+    (cAlias)->(DbGoTop())
 
-        Do While !(cAlias)->(Eof())
+    Do While !(cAlias)->(Eof())
+    
+    AaDd(aDados,{(cAlias)->ZM1_COD,;
+                 (cAlias)->ZM1_IMPRES,;
+                 (cAlias)->ZM1_EST,;
+                 (cAlias)->ZM1_USU,;
+                 (cAlias)->ZM1_ROLO,;
+                 (cAlias)->ZM1_FAB,;
+                 (cAlias)->ZM1_DATAIN,;
+                 (cAlias)->ZM1_OBS,;
+                 (cAlias)->ZM1_DATACA,;
+                 (cAlias)->ZM1_ATIVO,;
+                 (cAlias)->ZM1_METRA,;
+                 .F.})
 
-        AaDd(aDados,{(cAlias)->ZM1_COD,;
-                     (cAlias)->ZM1_IMPRES,;
-                     (cAlias)->ZM1_EST,;
-                     (cAlias)->ZM1_USU,;
-                     (cAlias)->ZM1_ROLO,;
-                     (cAlias)->ZM1_FAB,;
-                     (cAlias)->ZM1_DATAIN,;
-                     (cAlias)->ZM1_OBS,;
-                     (cAlias)->ZM1_DATACA,;
-                     (cAlias)->ZM1_ATIVO,;
-                     (cAlias)->ZM1_METRA,;
-                     .F.})
+    (cAlias)->(DbSkip())
+    enddo
 
-        (cAlias)->(DbSkip())
-        enddo
+    (cAlias)->(DbCloseArea())
 
-        (cAlias)->(DbCloseArea())
-
-        R2geraExcell(aDados)
+    R2geraExcell(aDados)
     endif
 
     FwRestArea(aArea)
@@ -9963,9 +9892,7 @@ Static function getParamR3()
         fPopulaImp()
 
         for nI := 1 to len(aColsAux)
-
             AADD(aColsImp,aColsAux[nI][2])
-
         next
 
         aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
@@ -9980,9 +9907,8 @@ Static function getParamR3()
             cData1 := DTOC(aParams[2])
             cData2 := DTOC(aParams[3])
         else
-            Sleep(100)
+            Sleep(10)
         endif
-
+        
     endif
-
 return
