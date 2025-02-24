@@ -2,13 +2,13 @@ Anotações projeto
 
 - TELA INICIAL
 
-Ser Fetio com dialog, aonde abre um popup e voc escolhe as funções que quer
+Ser Feito com dialog, aonde abre um popup e voce escolhe as funções que quer
 
 Ser feito de algum jeito que traga botoes 
 
 -- campos com grid -- 
 
-Com o modelo 2 em mvc, da de fazer uma inclusão aonde aparece os campos e a grid a baixao, oq ue é normal ate para um axacadastor, mas que da de fazer varias modificações. 
+Feito com modelo 2 normal, aonde usou objetos TGet e MsNeWGetDados. 
 
 -- DAR UMA OLHADA --
 
@@ -22,7 +22,7 @@ oBrowse:AddLegend( "Z1_TIPO=='LAMPADA'", "BLACK" , "Lampada"  )
 
 OU
 
-Ao clicar no botao de incluri, aparece um popup com um listbox, aonde voce tem que botar qual cadastro que voce quer e ter que apertar em ok, ao fazer isso te leva direto para a inclusão daquele tal item. 
+Ao clicar no botao de incluir, aparece um popup com um listbox, aonde voce tem que botar qual cadastro que voce quer e ter que apertar em ok, ao fazer isso te leva direto para a inclusão daquele tal item. 
 
 ex:
 
@@ -103,7 +103,7 @@ IF ZC1_TIPO == 'R' OU 'I'...
 -- FILTROS --
 
 FILTRAR POR TIPOS COM GRID MOVIDO A SQL, SE ZC1_TIPO FOR IGUAL A R ELE PUXA UM GRID DIFERENTE SE FOR IGUAL A I ELE PUXA DE OUTRO JEITO, MAS SEMPRE FAZENDO EM TORNO DO INDICE, FILIAL + CODIGO + TIPO. 
-
+OBS: SO DA DE FAZER COM MSNEWGETDADOS, OU MBROWSE, FWMBROWSE QUE USEI SO DA POR SETFILTERDEFAUTL OU SET FILTER, SEM SQL, OU POR LEGENDAS TAMBEM, ADICIONADNO LEGENDAS ELE JA ADICIOANA UM FILTRO AUTOMATICO. 
 
 
 
