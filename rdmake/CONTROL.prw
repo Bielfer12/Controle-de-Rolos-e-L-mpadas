@@ -9791,37 +9791,37 @@ Static function getParamR2()
     If SELECT('ZM1') > 0
 
         fPopulaImp()
-    
+
         for nI := 1 to len(aColsAux)
-    
+
             AADD(aColsImp,aColsAux[nI][2])
-    
+
         next
-    
+
         aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
-    
+
         fPopulaEst()
-    
+
         for nI := 1 to len(aColsAux)
-    
+
             AADD(aColsEst,aColsAux[nI][2])
-    
+
         next
         aAdd(aParamBox, {2, "Estação"   , 0 ,  aColsEst, 80, ".T.",.T.})
-    
+
         fPopulaRl()
-    
+
         for nI := 1 to len(aColsAux)
-    
+
             AADD(aColsRl,aColsAux[nI][2])
-    
+
         next
         aAdd(aParamBox, {2, "Rolo"     , 0 ,  aColsRl , 80, ".T.",.T.})
         aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
         aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-    
+
         lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
-    
+
         if (lRet)
             //Lugar que ira citar uma variavel para receber o que foi escolhido no combobox a cima. Como faço isso ?
             cImp   := aParams[1]
@@ -9832,25 +9832,25 @@ Static function getParamR2()
         else
             Sleep(10)
         endif
-        
+
         ELSEIF SELECT('ZM2') > 0 
-    
+
         fPopulaImp()
-    
+
         for nI := 1 to len(aColsAux)
-    
+
             AADD(aColsImp,aColsAux[nI][2])
-    
+
         next
-    
+
         aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
         aAdd(aParamBox, {2, "Troca lampada"   , 0 ,  aColsLP, 80, ".T.",.T.})
         aAdd(aParamBox, {2, "Troca Refletor"     , 0 ,  aColsRef , 80, ".T.",.T.})
         aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
         aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-    
+
         lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
-    
+
         if (lRet)
             cImp   := aParams[1]
             cRef   := aParams[2]
@@ -9978,7 +9978,7 @@ Static function getParamR3()
             cData1 := DTOC(aParams[2])
             cData2 := DTOC(aParams[3])
         else
-            Sleep(10)
+            Sleep(100)
         endif
 
     endif
