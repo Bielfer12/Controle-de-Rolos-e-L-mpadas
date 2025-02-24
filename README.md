@@ -21,7 +21,7 @@ O sistema tem como foco ser um controlador eficiente de manutenção de rolos e 
 ```advpl
 User Function ControleRolosLamps()
     Local cTitulo := "Controle de Rolos e Lâmpadas"
-    Local aItens := {"Rolo 1", "Lâmpada 2", "Rolo 3"}
+    Local aItens := {"Impressora 1", "Estação 2", "Rolos 3", "Lampadas 3"}
 
     ConOut(cTitulo)
     For Each cItem In aItens
