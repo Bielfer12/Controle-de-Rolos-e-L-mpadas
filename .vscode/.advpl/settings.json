@@ -1,0 +1,6 @@
+{
+    "totvsLanguageServer.welcomePage": false,
+    "totvsLanguageServer.editor.linter.includes": "C:\\TOTVS\\Protheus2310\\Protheus\\include",
+    "editor.suggest.selectionMode": "never",
+    "editor.suggest.showDeprecated": false
+}

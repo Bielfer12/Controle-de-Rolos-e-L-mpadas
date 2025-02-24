@@ -1,0 +1,113 @@
+Anotações projeto
+
+- TELA INICIAL
+
+Ser Fetio com dialog, aonde abre um popup e voc escolhe as funções que quer
+
+Ser feito de algum jeito que traga botoes 
+
+-- campos com grid -- 
+
+Com o modelo 2 em mvc, da de fazer uma inclusão aonde aparece os campos e a grid a baixao, oq ue é normal ate para um axacadastor, mas que da de fazer varias modificações. 
+
+-- DAR UMA OLHADA --
+
+Entra na tabela geral, quando clicar em incluir ele vai para a inclusão base, e adicionasse mais um campo com tipo de cadastro, aonde tera impressora estação rolo e lampada, dependendo se ele colocar rolo, muda os campos, se ele colocar lampada, vai para outros campos, e no grid do começo aparecera uma legenda com bolinhas coloridas de cada tipo de cadastro 
+
+Ex: 
+oBrowse:AddLegend( "Z1_TIPO=='IMPRESSORA'", "YELLOW", "Impressora"  )
+oBrowse:AddLegend( "Z1_TIPO=='ESTACAO'", "GREEN" , "Estação"  )
+oBrowse:AddLegend( "Z1_TIPO=='ROLO'", "RED"   , "Rolo"  )
+oBrowse:AddLegend( "Z1_TIPO=='LAMPADA'", "BLACK" , "Lampada"  )
+
+OU
+
+Ao clicar no botao de incluri, aparece um popup com um listbox, aonde voce tem que botar qual cadastro que voce quer e ter que apertar em ok, ao fazer isso te leva direto para a inclusão daquele tal item. 
+
+ex:
+
+#Include "protheus.ch"
+
+User Function CadastroDinamico()
+
+    // Criando o formulário
+    Local oView := FWFormView():New()
+    Local cTipoProduto := "" // Variável para capturar o tipo de produto
+
+    // Adicionando campos básicos
+    oView:AddField("Código", "CODIGO", .T.)
+    oView:AddField("Descrição", "DESC", .T.)
+    oView:AddField("Data", "DATA", .T.)
+
+    // ListBox para seleção do tipo de produto
+    oView:AddField("Tipo", "TIPO", .T., { "Rolo", "Lâmpada", "Impressora", "Estação" }, { |cTipo| FWTrocaCampos(oView, cTipo) } )
+
+    // Exibindo o formulário
+    If oView:Show()
+        MsgInfo("Cadastro salvo com sucesso!")
+    Else
+        MsgInfo("Cadastro cancelado.")
+    EndIf
+
+Return
+
+// Função para manipular campos dinamicamente
+Static Function FWTrocaCampos(oView, cTipo)
+    // Limpando campos adicionais
+    oView:DelField("CampoExtra1")
+    oView:DelField("CampoExtra2")
+
+    // Configurando novos campos baseados no tipo
+    Do Case
+        Case cTipo == "Rolo" .Or. cTipo == "Lâmpada"
+            oView:AddField("CampoExtra1", "ESPECIFICAÇÃO", .T.)
+            oView:AddField("CampoExtra2", "QUANTIDADE", .T.)
+
+        Case cTipo == "Impressora" .Or. cTipo == "Estação"
+            // Não adiciona campos extras
+    EndCase
+
+Return
+
+-- MUDANÇA TABELA --
+
+-- IMPRESSORA E ESTAÇÃO -- FEITO
+ZC1_FILIAL
+ZC1_COD    
+ZC1_DESC
+ZC1_TIPO
+ZC1_ATIVO
+ZC1_DATA
+-- ROLO -- FEITO
+ZC1_NOMERL
+ZC1_DIAMRL
+ZC1_COMPRL
+ZC1_MATRL
+ZC1_DURERL
+-- LAMPADA -- FEITO 
+ZC1_IMPRELP
+ZC1_NOMELP
+ZC1_MODLP
+ZC1_TENSLP
+ZC1_CORRLP
+ZC1_POTLP
+ZC1_MODREF
+
+I=IMPRESSORA;E=ESTACAO;R=ROLO;L=LAMPADA;                                                                                        
+
+-- NUMERAÇÃO AUTOMATICA --
+
+IF ZC1_TIPO == 'R' OU 'I'...
+	ENTRE NA BASE DE DADOS, VEJA QUAL O ULTIMO CODIGO DIGITADO PARA O TIPO X, E FAÇA O PROXIMO NUMERO DESSE CODIGO, EX: ULTIMO CODIGO DO TIPO R FOI 5, COLOQUE 6 
+
+-- FILTROS --
+
+FILTRAR POR TIPOS COM GRID MOVIDO A SQL, SE ZC1_TIPO FOR IGUAL A R ELE PUXA UM GRID DIFERENTE SE FOR IGUAL A I ELE PUXA DE OUTRO JEITO, MAS SEMPRE FAZENDO EM TORNO DO INDICE, FILIAL + CODIGO + TIPO. 
+
+
+
+
+
+
+ 
+
