@@ -9382,6 +9382,7 @@ Static Function geraExcell(aDados)
                 oExcelApp := MsExcel():New()
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
+                oExcelApp:Destroy()
                 MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
             endif
 
@@ -9453,7 +9454,7 @@ Static Function geraExcell(aDados)
                 oExcelApp := MsExcel():New()
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
-                oExcellApp:Destroy()
+                oExcelApp:Destroy()
                 MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
             endif
         endif
@@ -9691,6 +9692,7 @@ Static Function R2geraExcell(aDados)
                 oExcelApp := MsExcel():New()
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
+                oExcelApp:Destroy()
                 MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
             endif
 
