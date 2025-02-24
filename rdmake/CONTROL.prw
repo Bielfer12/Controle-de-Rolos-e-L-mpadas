@@ -302,7 +302,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
     Private oGrp8
 
     Private oSay9T
-    Private cSay9TT     := 'Nome Rolo'
+    Private cSay9TT     := 'Descrição'
     Private oGet9T
     Private xGet9TT     := SPACE(50)
 
@@ -809,10 +809,10 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
                       "C",;            
                       ""})
 
-        AADD(aHeader,{"Descrição",;
-                      "ZCA_DESC",;
+        AADD(aHeader,{"Nome Rolo",;
+                      "ZCA_NOMERL",;
                       "@!",;
-                       100,;
+                       50,;
                        0,;
                       "AlwaysTrue()",;
                       "",;
@@ -849,10 +849,10 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
                       "D",;
                       ""})
         
-        AADD(aHeader,{"Nome Rolo",;
-                      "ZCA_NOMERL",;
+        AADD(aHeader,{"Descrição",;
+                      "ZCA_DESC",;
                       "@!",;
-                       50,;
+                       100,;
                        0,;
                       "AlwaysTrue()",;
                       "",;
@@ -958,14 +958,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         oGet2T:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
+        cSay3TT     := 'Nome Rolo'
         nObjLinh := 80
         nObjColu := 100 
-        nObjLarg := 30
+        nObjLarg := 70
         nObjAltu := 20
         oSay3T   := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3T:SetCss(" TSay {Font: Semi-Bold}")
 
-        
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 90
         nObjColu := 100
@@ -1034,13 +1034,13 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
         nObjColu := 25
-        nObjLarg := 100
+        nObjLarg := 165
         nObjAltu := 15
         oGet9T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9TT := u, xGet9TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 140 
+        nObjColu := 200 
         nObjLarg := 30
         nObjAltu := 20
         oSay10T   := TSay():New(nObjLinh, nObjColu, {|| cSay10TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -1048,14 +1048,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 140
+        nObjColu := 200
         nObjLarg := 30
         nObjAltu := 15
         oGet10T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10TT := u, xGet10TT)} , oDlgCad, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 190
+        nObjColu := 253
         nObjLarg := 50
         nObjAltu := 20
         oSay11T   := TSay():New(nObjLinh, nObjColu, {|| cSay11TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -1063,14 +1063,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 190
+        nObjColu := 253
         nObjLarg := 50
         nObjAltu := 15
         oGet11T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11TT := u, xGet11TT)} , oDlgCad, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 255
+        nObjColu := 310
         nObjLarg := 80
         nObjAltu := 20
         oSay12T   := TSay():New(nObjLinh, nObjColu, {|| cSay12TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -1078,14 +1078,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 255
+        nObjColu := 310
         nObjLarg := 80
         nObjAltu := 15
         oGet12T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12TT := u, xGet12TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 350
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 20
         oSay13T   := TSay():New(nObjLinh, nObjColu, {|| cSay13TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -1093,7 +1093,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 350
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
         oGet13T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13TT := u, xGet13TT)} , oDlgCad, nObjLarg, nObjAltu, "@!", /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -1266,7 +1266,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         // Criação objetos 01
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1TT  := 'Cadastro de Item - ROLOS'
+        cSay1TT  := 'Cadastro de Item - LÂMPADA'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -1605,7 +1605,7 @@ Static Function fCarAcols()
 
     elseif oCombo3:Nat == 4
 
-     cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_NOMERL,ZCA_DIAMRL,ZCA_COMPRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -1623,11 +1623,11 @@ Static Function fCarAcols()
             IncProc("Adicionando")
 
             AAdd(aCols,{QRY_ZCA->ZCA_COD,;
-                        QRY_ZCA->ZCA_DESC,;
+                        QRY_ZCA->ZCA_NOMERL,;
                         QRY_ZCA->ZCA_TIPO,;
                         QRY_ZCA->ZCA_ATIVO,;
                         QRY_ZCA->ZCA_DATA,;
-                        QRY_ZCA->ZCA_NOMERL,;
+                        QRY_ZCA->ZCA_DESC,;
                         QRY_ZCA->ZCA_DIAMRL,;
                         QRY_ZCA->ZCA_COMPRL,;
                         QRY_ZCA->ZCA_DURERL,;
@@ -1758,7 +1758,7 @@ Static function CadBtnSalv()
                 begin transaction 
                 RecLock(cAlias, .T.)
                     ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
-                    ZCA->ZCA_DESC  := Alltrim(oGet3T:BUFFER)
+                    ZCA->ZCA_DESC  := Alltrim(oGet9T:BUFFER)
                     ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
                         ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
@@ -1770,7 +1770,7 @@ Static function CadBtnSalv()
                         Return
                     ENDIF
                     ZCA->ZCA_DATA    := CTOD(oGet6T:BUFFER)
-                    ZCA->ZCA_NOMERL  := Alltrim(oGet9T:BUFFER)
+                    ZCA->ZCA_NOMERL  := Alltrim(oGet3T:BUFFER)
                     ZCA->ZCA_DIAMRL  := AllTrim(oGet10T:BUFFER)
                     ZCA->ZCA_COMPRL  := AllTrim(oGet11T:BUFFER)
                     ZCA->ZCA_MATRL   := Alltrim(oGet12T:BUFFER)
@@ -2246,7 +2246,7 @@ static Function dialogAlt(aDados)
     Private oGrp8A
 
     Private oSay9A
-    Private cSay9AA     := 'Nome Rolo'
+    Private cSay9AA     := 'Descrição'
     Private oGet9A
     Private xGet9AA     
 
@@ -2514,6 +2514,7 @@ static Function dialogAlt(aDados)
         oGet2A:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
+        cSay3AA     := 'Nome Rolos'
         nObjLinh := 80
         nObjColu := 100 
         nObjLarg := 30
@@ -2521,9 +2522,8 @@ static Function dialogAlt(aDados)
         oSay3A   := TSay():New(nObjLinh, nObjColu, {|| cSay3AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3A:SetCss(" TSay {Font: Semi-Bold}")
 
-        
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet3AA := aDados[2][1]
+        xGet3AA := aDados[7][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -2591,16 +2591,16 @@ static Function dialogAlt(aDados)
         oSay9T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet9AA := aDados[7][1]
+        xGet9AA := aDados[2][1]
         nObjLinh := 125
         nObjColu := 25
-        nObjLarg := 100
+        nObjLarg := 165
         nObjAltu := 15
         oGet9A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9AA := u, xGet9AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 140 
+        nObjColu := 200 
         nObjLarg := 30
         nObjAltu := 20
         oSay10A  := TSay():New(nObjLinh, nObjColu, {|| cSay10AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -2609,14 +2609,14 @@ static Function dialogAlt(aDados)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet10AA := aDados[8][1]
         nObjLinh := 125
-        nObjColu := 140
+        nObjColu := 200
         nObjLarg := 30
         nObjAltu := 15
         oGet10A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10AA := u, xGet10AA)} , oDlgAlt, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 190
+        nObjColu := 253
         nObjLarg := 50
         nObjAltu := 20
         oSay11A   := TSay():New(nObjLinh, nObjColu, {|| cSay11AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -2625,14 +2625,14 @@ static Function dialogAlt(aDados)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet11AA := aDados[9][1]
         nObjLinh := 125
-        nObjColu := 190
+        nObjColu := 253
         nObjLarg := 50
         nObjAltu := 15
         oGet11A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11AA := u, xGet11AA)} , oDlgAlt, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 255
+        nObjColu := 310
         nObjLarg := 80
         nObjAltu := 20
         oSay12A   := TSay():New(nObjLinh, nObjColu, {|| cSay12AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -2641,14 +2641,14 @@ static Function dialogAlt(aDados)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet12AA := aDados[10][1]
         nObjLinh := 125
-        nObjColu := 255
+        nObjColu := 310
         nObjLarg := 80
         nObjAltu := 15
         oGet12A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12AA := u, xGet12AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 350
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 20
         oSay13A   := TSay():New(nObjLinh, nObjColu, {|| cSay13AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -2657,7 +2657,7 @@ static Function dialogAlt(aDados)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet13AA := aDados[11][1]
         nObjLinh := 125
-        nObjColu := 350
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
         oGet13A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13AA := u, xGet13AA)} , oDlgAlt, nObjLarg, nObjAltu, '@!', /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -2993,7 +2993,7 @@ static function altBtn()
 
             DbSelectArea(cAlias)
 
-            if (oGet3A:BUFFER == aDados[2][1]) .AND. (oCombo5A:Nat == 0 .OR. oCombo5A:Nat == Val(aDados[6][1])) .AND. (oGet9A:BUFFER == aDados[7][1]) .AND. (oGet10A:BUFFER == aDados[8][1]) .AND. (oGet11A:BUFFER == aDados[9][1]) .AND. (oGet12A:BUFFER == aDados[10][1]) .AND. (oGet13A:BUFFER == aDados[11][1])
+            if (oGet3A:BUFFER == aDados[7][1]) .AND. (oCombo5A:Nat == 0 .OR. oCombo5A:Nat == Val(aDados[6][1])) .AND. (oGet9A:BUFFER == aDados[2][1]) .AND. (oGet10A:BUFFER == aDados[8][1]) .AND. (oGet11A:BUFFER == aDados[9][1]) .AND. (oGet12A:BUFFER == aDados[10][1]) .AND. (oGet13A:BUFFER == aDados[11][1])
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
             ELSEIF Empty(oGet3A:BUFFER) .OR. Empty(oGet9A:BUFFER) .OR. Empty(oGet10A:BUFFER) .OR. Empty(oGet11A:BUFFER) .OR. Empty(oGet12A:BUFFER) .OR. Empty(oGet13A:BUFFER)
                 Alert('HÁ CAMPOS SEM NADA ESCRITO!!')
@@ -3003,7 +3003,7 @@ static function altBtn()
             begin transaction 
             RecLock(cAlias, .F.)
                 ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
-                ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                ZCA->ZCA_DESC  := Alltrim(oGet9A:BUFFER)
                 ZCA->ZCA_TIPO  := Alltrim(oGet4A:BUFFER)
                 if oCombo5A:NAT == 1 .OR. oCombo5A:NAT == 0
                     ZCA->ZCA_ATIVO := oCombo5A:AITEMS[1]
@@ -3011,7 +3011,7 @@ static function altBtn()
                     ZCA->ZCA_ATIVO := oCombo5A:AITEMS[2]
                 ENDIF
                 ZCA->ZCA_DATA    := CTOD(oGet6A:BUFFER)
-                ZCA->ZCA_NOMERL  := Alltrim(oGet9A:BUFFER)
+                ZCA->ZCA_NOMERL  := Alltrim(oGet3A:BUFFER)
                 ZCA->ZCA_DIAMRL  := Alltrim(oGet10A:BUFFER)
                 ZCA->ZCA_COMPRL  := Alltrim(oGet11A:BUFFER)
                 ZCA->ZCA_MATRL   := Alltrim(oGet12A:BUFFER)
@@ -3397,7 +3397,7 @@ static function dialogEXC(aDadosExc)
     Private oGrp8E
 
     Private oSay9E
-    Private cSay9EE     := 'Nome Rolo'
+    Private cSay9EE     := 'Descrição'
     Private oGet9E
     Private xGet9EE     
 
@@ -3663,6 +3663,7 @@ static function dialogEXC(aDadosExc)
         oGet2E:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
+        cSay3EE     := 'Nome Rolo'
         nObjLinh := 80
         nObjColu := 100 
         nObjLarg := 30
@@ -3672,7 +3673,7 @@ static function dialogEXC(aDadosExc)
 
         
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet3EE := aDadosExc[2][1]
+        xGet3EE := aDadosExc[7][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -3751,10 +3752,10 @@ static function dialogEXC(aDadosExc)
         oSay9E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet9EE := aDadosExc[7][1]
+        xGet9EE := aDadosExc[2][1]
         nObjLinh := 125
         nObjColu := 25
-        nObjLarg := 100
+        nObjLarg := 165
         nObjAltu := 15
         oGet9E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9EE := u, xGet9EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
@@ -3762,7 +3763,7 @@ static function dialogEXC(aDadosExc)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 140 
+        nObjColu := 200 
         nObjLarg := 30
         nObjAltu := 20
         oSay10E  := TSay():New(nObjLinh, nObjColu, {|| cSay10EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -3771,7 +3772,7 @@ static function dialogEXC(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet10EE := aDadosExc[8][1]
         nObjLinh := 125
-        nObjColu := 140
+        nObjColu := 200
         nObjLarg := 30
         nObjAltu := 15
         oGet10E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10EE := u, xGet10EE)} , oDlgExc, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -3780,7 +3781,7 @@ static function dialogEXC(aDadosExc)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 190
+        nObjColu := 253
         nObjLarg := 50
         nObjAltu := 20
         oSay11E   := TSay():New(nObjLinh, nObjColu, {|| cSay11EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -3789,7 +3790,7 @@ static function dialogEXC(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet11EE := aDadosExc[9][1]
         nObjLinh := 125
-        nObjColu := 190
+        nObjColu := 253
         nObjLarg := 50
         nObjAltu := 15
         oGet11E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11EE := u, xGet11EE)} , oDlgExc, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -3798,7 +3799,7 @@ static function dialogEXC(aDadosExc)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 255
+        nObjColu := 310
         nObjLarg := 80
         nObjAltu := 20
         oSay12E   := TSay():New(nObjLinh, nObjColu, {|| cSay12EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -3807,7 +3808,7 @@ static function dialogEXC(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet12EE := aDadosExc[10][1]
         nObjLinh := 125
-        nObjColu := 255
+        nObjColu := 310
         nObjLarg := 80
         nObjAltu := 15
         oGet12E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12EE := u, xGet12EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -3816,7 +3817,7 @@ static function dialogEXC(aDadosExc)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 350
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 20
         oSay13E   := TSay():New(nObjLinh, nObjColu, {|| cSay13EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -3825,7 +3826,7 @@ static function dialogEXC(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet13EE := aDadosExc[11][1]
         nObjLinh := 125
-        nObjColu := 350
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
         oGet13E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13EE := u, xGet13EE)} , oDlgExc, nObjLarg, nObjAltu, '@!', /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
