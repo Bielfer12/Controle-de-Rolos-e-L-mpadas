@@ -9790,76 +9790,76 @@ Static function getParamR2()
 
     If SELECT('ZM1') > 0
 
-    fPopulaImp()
-
-    for nI := 1 to len(aColsAux)
-
-        AADD(aColsImp,aColsAux[nI][2])
-
-    next
-
-    aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
-
-    fPopulaEst()
-
-    for nI := 1 to len(aColsAux)
-
-        AADD(aColsEst,aColsAux[nI][2])
-
-    next
-    aAdd(aParamBox, {2, "Estação"   , 0 ,  aColsEst, 80, ".T.",.T.})
-
-    fPopulaRl()
-
-    for nI := 1 to len(aColsAux)
-
-        AADD(aColsRl,aColsAux[nI][2])
-
-    next
-    aAdd(aParamBox, {2, "Rolo"     , 0 ,  aColsRl , 80, ".T.",.T.})
-    aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-    aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-
-    lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
-
-    if (lRet)
-        //Lugar que ira citar uma variavel para receber o que foi escolhido no combobox a cima. Como faço isso ?
-        cImp   := aParams[1]
-        cEst   := aParams[2]
-        cRolo  := aParams[3]
-        cData1 := DTOC(aParams[4])
-        cData2 := DTOC(aParams[5])
-    else
-        Sleep(10)
-    endif
+        fPopulaImp()
     
-    ELSEIF SELECT('ZM2') > 0 
-
-    fPopulaImp()
-
-    for nI := 1 to len(aColsAux)
-
-        AADD(aColsImp,aColsAux[nI][2])
-
-    next
-
-    aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
-    aAdd(aParamBox, {2, "Troca lampada"   , 0 ,  aColsLP, 80, ".T.",.T.})
-    aAdd(aParamBox, {2, "Troca Refletor"     , 0 ,  aColsRef , 80, ".T.",.T.})
-    aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-    aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-
-    lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
-
-    if (lRet)
-        cImp   := aParams[1]
-        cRef   := aParams[2]
-        cLamp  := aParams[3]
-        cData1 := DTOC(aParams[4])
-        cData2 := DTOC(aParams[5])
-    else
-        Sleep(10)
-    endif
+        for nI := 1 to len(aColsAux)
+    
+            AADD(aColsImp,aColsAux[nI][2])
+    
+        next
+    
+        aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
+    
+        fPopulaEst()
+    
+        for nI := 1 to len(aColsAux)
+    
+            AADD(aColsEst,aColsAux[nI][2])
+    
+        next
+        aAdd(aParamBox, {2, "Estação"   , 0 ,  aColsEst, 80, ".T.",.T.})
+    
+        fPopulaRl()
+    
+        for nI := 1 to len(aColsAux)
+    
+            AADD(aColsRl,aColsAux[nI][2])
+    
+        next
+        aAdd(aParamBox, {2, "Rolo"     , 0 ,  aColsRl , 80, ".T.",.T.})
+        aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+        aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+    
+        lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
+    
+        if (lRet)
+            //Lugar que ira citar uma variavel para receber o que foi escolhido no combobox a cima. Como faço isso ?
+            cImp   := aParams[1]
+            cEst   := aParams[2]
+            cRolo  := aParams[3]
+            cData1 := DTOC(aParams[4])
+            cData2 := DTOC(aParams[5])
+        else
+            Sleep(10)
+        endif
+        
+        ELSEIF SELECT('ZM2') > 0 
+    
+        fPopulaImp()
+    
+        for nI := 1 to len(aColsAux)
+    
+            AADD(aColsImp,aColsAux[nI][2])
+    
+        next
+    
+        aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
+        aAdd(aParamBox, {2, "Troca lampada"   , 0 ,  aColsLP, 80, ".T.",.T.})
+        aAdd(aParamBox, {2, "Troca Refletor"     , 0 ,  aColsRef , 80, ".T.",.T.})
+        aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+        aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+    
+        lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
+    
+        if (lRet)
+            cImp   := aParams[1]
+            cRef   := aParams[2]
+            cLamp  := aParams[3]
+            cData1 := DTOC(aParams[4])
+            cData2 := DTOC(aParams[5])
+        else
+            Sleep(10)
+        endif
 
     ENDIF
 
@@ -9910,35 +9910,35 @@ Static Function proqR3()
 
     If SELECT('ZM1') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
+        cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
 
-    cAlias := 'QZC_ZM1'
+        cAlias := 'QZC_ZM1'
 
-    TCQUERY cQry NEW ALIAS (cAlias)
+        TCQUERY cQry NEW ALIAS (cAlias)
 
-    (cAlias)->(DbGoTop())
+        (cAlias)->(DbGoTop())
 
-    Do While !(cAlias)->(Eof())
-    
-    AaDd(aDados,{(cAlias)->ZM1_COD,;
-                 (cAlias)->ZM1_IMPRES,;
-                 (cAlias)->ZM1_EST,;
-                 (cAlias)->ZM1_USU,;
-                 (cAlias)->ZM1_ROLO,;
-                 (cAlias)->ZM1_FAB,;
-                 (cAlias)->ZM1_DATAIN,;
-                 (cAlias)->ZM1_OBS,;
-                 (cAlias)->ZM1_DATACA,;
-                 (cAlias)->ZM1_ATIVO,;
-                 (cAlias)->ZM1_METRA,;
-                 .F.})
+        Do While !(cAlias)->(Eof())
 
-    (cAlias)->(DbSkip())
-    enddo
+        AaDd(aDados,{(cAlias)->ZM1_COD,;
+                     (cAlias)->ZM1_IMPRES,;
+                     (cAlias)->ZM1_EST,;
+                     (cAlias)->ZM1_USU,;
+                     (cAlias)->ZM1_ROLO,;
+                     (cAlias)->ZM1_FAB,;
+                     (cAlias)->ZM1_DATAIN,;
+                     (cAlias)->ZM1_OBS,;
+                     (cAlias)->ZM1_DATACA,;
+                     (cAlias)->ZM1_ATIVO,;
+                     (cAlias)->ZM1_METRA,;
+                     .F.})
 
-    (cAlias)->(DbCloseArea())
+        (cAlias)->(DbSkip())
+        enddo
 
-    R2geraExcell(aDados)
+        (cAlias)->(DbCloseArea())
+
+        R2geraExcell(aDados)
     endif
 
     FwRestArea(aArea)
@@ -9958,28 +9958,28 @@ Static function getParamR3()
 
     If SELECT('ZM1') > 0
 
-    fPopulaImp()
+        fPopulaImp()
 
-    for nI := 1 to len(aColsAux)
+        for nI := 1 to len(aColsAux)
 
-        AADD(aColsImp,aColsAux[nI][2])
+            AADD(aColsImp,aColsAux[nI][2])
 
-    next
+        next
 
-    aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
+        aAdd(aParamBox, {2, "Impressora", 0 ,  aColsImp, 80, ".T.",.T.})
 
-    aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
-    aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+        aAdd(aParamBox, {1, "Data De"   , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
+        aAdd(aParamBox, {1, "Data Até"  , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
 
-    lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
+        lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
 
-    if (lRet)
-        cImp   := aParams[1]
-        cData1 := DTOC(aParams[2])
-        cData2 := DTOC(aParams[3])
-    else
-        Sleep(10)
-    endif
+        if (lRet)
+            cImp   := aParams[1]
+            cData1 := DTOC(aParams[2])
+            cData2 := DTOC(aParams[3])
+        else
+            Sleep(10)
+        endif
 
     endif
 
