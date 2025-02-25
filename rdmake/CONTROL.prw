@@ -515,7 +515,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -730,7 +730,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -987,8 +987,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
-
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -1335,7 +1334,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,,lDimPixels,oFontPadrao)
 
         // CRIA플O DO OBJETO 6
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -2374,7 +2373,7 @@ static Function dialogAlt(aDados)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         // CRIA플O DO OBJETO 6
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -2507,7 +2506,7 @@ static Function dialogAlt(aDados)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,lDimPixels, oFontPadrao,,,,,,,,,)
+        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,,lDimPixels, oFontPadrao,,,,,,,,,)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -2730,7 +2729,7 @@ static Function dialogAlt(aDados)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,,lDimPixels,oFontPadrao,,,,,,,,,)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -3496,7 +3495,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         oCombo5E:lActive := .F.
 
@@ -3633,7 +3632,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         oCombo5E:lActive := .F.
 
@@ -3867,7 +3866,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         oCombo5E:lActive := .F.
 
@@ -4506,7 +4505,7 @@ User function incMRl()
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,, aCombo11M, nObjLarg, nObjAltu,oDlgCadM,,{||},,,lDimPixels,oFontPadrao)
+        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,, aCombo11M, nObjLarg, nObjAltu,oDlgCadM,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -5058,7 +5057,7 @@ Local aArea := FWGetArea()
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgAltM,,{||cCombo11MM},,,lDimPixels,oFontPadrao)
+        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgAltM,,{||cCombo11MM},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -5093,7 +5092,7 @@ Static function btnAltM()
 
             DbSelectArea(cAlias)
 
-            if (oGet2M:BUFFER == aDadosAltM[1][1]) .AND. (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
+            if (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
                 ALERT('VOCE N홒 MUDOU NADA NOS CAMPOS!!','ATEN플O')
             ELSEIF Empty(oGet3M:BUFFER) .OR. Empty(oGet4M:BUFFER) .OR. Empty(oGet6M:BUFFER) .OR. Empty(oGet7M:BUFFER) .OR. Empty(oGet8M:BUFFER) .OR. Empty(oGet9M:BUFFER) .OR. Empty(oGet12M:BUFFER)
                 Alert('H� CAMPOS SEM NADA ESCRITO!!')
@@ -5525,7 +5524,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgExcM,,{||cCombo11MM},,,lDimPixels,oFontPadrao)
+        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgExcM,,{||cCombo11MM},,,,lDimPixels,oFontPadrao)
 
         oCombo11M:lActive := .F.
 
@@ -6174,7 +6173,7 @@ Local aArea := FWGetArea()
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 20
-        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,lDimPixels,oFontPadrao)
+        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 121
@@ -6189,7 +6188,7 @@ Local aArea := FWGetArea()
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 20
-        oCombo8L := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,lDimPixels,oFontPadrao)
+        oCombo8L := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
@@ -6414,7 +6413,7 @@ Local aArea := FWGetArea()
         nObjColu := 510
         nObjLarg := 50
         nObjAltu := 24
-        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,lDimPixels,oFontPadrao)
+        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
@@ -7006,7 +7005,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 15
-        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo7LL},,,lDimPixels,oFontPadrao)
+        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo7LL},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -7022,7 +7021,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 15
-        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo8LL},,,lDimPixels,oFontPadrao)
+        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo8LL},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -7262,7 +7261,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 510
         nObjLarg := 50
         nObjAltu := 15
-        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo23LL},,,lDimPixels,oFontPadrao)
+        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo23LL},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
@@ -7299,10 +7298,9 @@ Static function altbtnMLP()
 
             DbSelectArea(cAlias)
 
-            // REFAZER 
-            // if (oGet2M:BUFFER == aDadosAltM[1][1]) .AND. (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
-            //     ALERT('VOCE N홒 MUDOU NADA NOS CAMPOS!!','ATEN플O')
-            If Empty(oGet3L:BUFFER) .OR. Empty(oGet5L:BUFFER) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
+            if (oGet2M:BUFFER == aDadosAltM[1][1]) .AND. (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
+                ALERT('VOCE N홒 MUDOU NADA NOS CAMPOS!!','ATEN플O')
+            elseIf Empty(oGet3L:BUFFER) .OR. Empty(oGet5L:BUFFER) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
           .OR. Empty(oGet11L:BUFFER) .OR. Empty(oGet12L:BUFFER)  .OR. Empty(oGet13L:BUFFER) .OR. Empty(oGet14L:BUFFER) .OR. Empty(oGet15L:BUFFER) ;
           .OR. Empty(oGet16L:BUFFER) .OR. Empty(oGet17L:BUFFER) .OR. Empty(oGet18L:BUFFER) .OR. Empty(oGet19L:BUFFER) .OR. Empty(oGet20L:BUFFER) ;
           .OR. Empty(oGet21L:BUFFER) .OR. Empty(oGet22L:BUFFER)
@@ -7811,7 +7809,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 15
-        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo7LL},,,lDimPixels,oFontPadrao)
+        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo7LL},,,,lDimPixels,oFontPadrao)
 
         oCombo7L:lActive := .F.
 
@@ -7829,7 +7827,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 15
-        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo8LL},,,lDimPixels,oFontPadrao)
+        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo8LL},,,,lDimPixels,oFontPadrao)
 
         oCombo8L:lActive := .F.
 
@@ -8118,7 +8116,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 15
-        oGet24L   := TGet():New(nObjLinh, nObjColu,{||xGet24LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao,,, lDimPixels,,,,,,,,,,,,, .T.)
+        oGet24L   := TGet():New(nObjLinh, nObjColu,{||xGet24LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao,,,,lDimPixels,,,,,,,,,,,,, .T.)
 
         oGet24L:lActive := .F.
 
@@ -8348,6 +8346,7 @@ Static Function fConfImp()
 
     Local aArea := FwGetArea()
 
+    if !Empty(aColsAux)    
         if nEscBD == 1
             if nEsc == 3
                 oGet15T:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2])
@@ -8369,8 +8368,10 @@ Static Function fConfImp()
                 oGet3L:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2])
             endif 
         endif
-    oDlgCE:End()
-
+        oDlgCE:End()
+    ELSE
+        MsgAlert("VALOR VAZIO SEM OP플O DE INSER플O","ATEN플O")
+    ENDIF
     FwRestArea(aArea)
 
 return 
@@ -8559,6 +8560,7 @@ Static Function fConfEst()
 
     Local aArea := FwGetArea()
 
+        if !Empty(aColsAux) 
             if nEscM == 5
                 oGet4M:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             elseif nEscM == 6
@@ -8567,7 +8569,11 @@ Static Function fConfEst()
                 cEst := Alltrim(aColsAux[oMsNew:Nat][2]) 
             endif
 
-    oDlgCE:End()
+            oDlgCE:End()
+
+        else 
+            MsgAlert("VALOR VAZIO SEM OP플O DE INSER플O","ATEN플O")
+        ENDIF
 
     FwRestArea(aArea)
 
@@ -8757,6 +8763,7 @@ Static Function fConfRl()
 
     Local aArea := FwGetArea()
 
+        if !Empty(aColsAux) 
             if nEscM == 5
                 oGet6M:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             elseif nEscM == 6
@@ -8765,7 +8772,10 @@ Static Function fConfRl()
                 nRolo := Alltrim(aColsAux[oMsNew:Nat][2]) 
             endif
 
-    oDlgCE:End()
+            oDlgCE:End()
+        ELSE 
+             MsgAlert("VALOR VAZIO SEM OP플O DE INSER플O","ATEN플O")
+        ENDIF
 
     FwRestArea(aArea)
 
@@ -8955,13 +8965,17 @@ Static Function fConfLp()
 
     Local aArea := FwGetArea()
 
+        if !Empty(aColsAux)
             if nEscL == 7
                 oGet6L:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             elseif nEscL == 8
                 oGet6L:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             endif
 
-    oDlgCE:End()
+            oDlgCE:End()
+        ELSE
+            MsgAlert("VALOR VAZIO SEM OP플O DE INSER플O","ATEN플O")
+        ENDIF
 
     FwRestArea(aArea)
 
