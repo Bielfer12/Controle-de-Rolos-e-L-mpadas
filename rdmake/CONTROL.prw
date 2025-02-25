@@ -4486,13 +4486,13 @@ User function incMRl()
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
         nObjColu := 237
-        nObjLarg := 80
+        nObjLarg := 130
         nObjAltu := 15
         oGet9M  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9MM := u, xGet9MM)} , oDlgCadM, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 333
+        nObjColu := 500
         nObjLarg := 50
         nObjAltu := 20
         oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -4500,7 +4500,7 @@ User function incMRl()
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 333
+        nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
         oGet10M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10MM := u, xGet10MM)} , oDlgCadM, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -4524,7 +4524,7 @@ User function incMRl()
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 500
+        nObjColu := 380
         nObjLarg := 50
         nObjAltu := 20
         oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -4532,7 +4532,7 @@ User function incMRl()
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 500
+        nObjColu := 380
         nObjLarg := 30
         nObjAltu := 15
         oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgCadM, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -5020,13 +5020,13 @@ Local aArea := FWGetArea()
         xGet9MM := aDadosAltM[8][1]
         nObjLinh := 125
         nObjColu := 237
-        nObjLarg := 80
+        nObjLarg := 130
         nObjAltu := 15
         oGet9M  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9MM := u, xGet9MM)} , oDlgAltM, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 333
+        nObjColu := 500
         nObjLarg := 50
         nObjAltu := 20
         oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -5035,7 +5035,7 @@ Local aArea := FWGetArea()
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet10MM := aDadosAltM[9][1]
         nObjLinh := 125
-        nObjColu := 333
+        nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
         oGet10M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10MM := u, xGet10MM)} , oDlgAltM, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -5060,7 +5060,7 @@ Local aArea := FWGetArea()
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 500
+        nObjColu := 380
         nObjLarg := 50
         nObjAltu := 20
         oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -5069,7 +5069,7 @@ Local aArea := FWGetArea()
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet12MM := aDadosAltM[12][1]
         nObjLinh := 125
-        nObjColu := 500
+        nObjColu := 380
         nObjLarg := 30
         nObjAltu := 15
         oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,/*nClrBack*/, oFontPadrao,,, lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -5487,7 +5487,7 @@ Static Function dialogExcM(aDadosExcM)
         xGet9MM := aDadosExcM[8][1]
         nObjLinh := 125
         nObjColu := 237
-        nObjLarg := 80
+        nObjLarg := 130
         nObjAltu := 15
         oGet9M  := TGet():New(nObjLinh, nObjColu,{|| xGet9MM} , oDlgExcM, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
@@ -5495,7 +5495,7 @@ Static Function dialogExcM(aDadosExcM)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 333
+        nObjColu := 500
         nObjLarg := 50
         nObjAltu := 20
         oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -5504,7 +5504,7 @@ Static Function dialogExcM(aDadosExcM)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet10MM := aDadosExcM[9][1]
         nObjLinh := 125
-        nObjColu := 333
+        nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
         oGet10M   := TGet():New(nObjLinh, nObjColu,{|| xGet10MM} , oDlgExcM, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
@@ -5531,7 +5531,7 @@ Static Function dialogExcM(aDadosExcM)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 500
+        nObjColu := 380
         nObjLarg := 50
         nObjAltu := 20
         oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -5540,7 +5540,7 @@ Static Function dialogExcM(aDadosExcM)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet12MM := aDadosExcM[12][1]
         nObjLinh := 125
-        nObjColu := 500
+        nObjColu := 380
         nObjLarg := 30
         nObjAltu := 15
         oGet12M   := TGet():New(nObjLinh, nObjColu,{||xGet12MM} , oDlgExcM, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
