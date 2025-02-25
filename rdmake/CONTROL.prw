@@ -3197,18 +3197,18 @@ User Function RLLP23EXC()
     
         oTableTempExc  := FWTemporaryTable():New(cAliasTempExc)
 
-        AADD(aFields,{'COD_ALL'    , "C", 6, 0})
-        AADD(aFields,{'COD_EXC'    , "C", 6, 0})
+        AADD(aFields,{'COD_ALL'    , "C", 6 , 0})
+        AADD(aFields,{'COD_EXC'    , "C", 6 , 0})
         AADD(aFields,{'DESC_EXC'   , "C", 50, 0})
-        AADD(aFields,{'ATIVO_EXC'  , "C", 1, 0})
-        AADD(aFields,{'TIPO_EXC'   , "C", 1, 0})
-        AADD(aFields,{'DATA_EXC'   , "D", 8, 0})
-        AADD(aFields,{'ATIVO_NAT'  , "C", 1, 0})
-        AADD(aFields,{'NOMERL_EXC', "C", 50, 0})
-        AADD(aFields,{'DIAMRL_EXC', "C", 8 , 0})
-        AADD(aFields,{'COMPRL_EXC', "C", 4 , 0})
-        AADD(aFields,{'MATRL_EXC' , "C", 50, 0})
-        AADD(aFields,{'DURERL_EXC', "C", 50, 0})
+        AADD(aFields,{'ATIVO_EXC'  , "C", 1 , 0})
+        AADD(aFields,{'TIPO_EXC'   , "C", 1 , 0})
+        AADD(aFields,{'DATA_EXC'   , "D", 8 , 0})
+        AADD(aFields,{'ATIVO_NAT'  , "C", 1 , 0})
+        AADD(aFields,{'NOMERL_EXC' , "C", 50, 0})
+        AADD(aFields,{'DIAMRL_EXC' , "C", 8 , 0})
+        AADD(aFields,{'COMPRL_EXC' , "C", 4 , 0})
+        AADD(aFields,{'MATRL_EXC'  , "C", 50, 0})
+        AADD(aFields,{'DURERL_EXC' , "C", 50, 0})
 
         oTableTempExc:SetFields(aFields)
         oTableTempExc:AddIndex('1',{'COD_ALL','COD_EXC'})
@@ -3666,14 +3666,13 @@ static function dialogEXC(aDadosExc)
         cSay3EE     := 'Nome Rolo'
         nObjLinh := 80
         nObjColu := 100 
-        nObjLarg := 30
+        nObjLarg := 80
         nObjAltu := 20
         oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3E:SetCss(" TSay {Font: Semi-Bold}")
-
         
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet3EE := aDadosExc[7][1]
+        xGet3EE := aDadosExc[2][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -3752,7 +3751,7 @@ static function dialogEXC(aDadosExc)
         oSay9E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet9EE := aDadosExc[2][1]
+        xGet9EE := aDadosExc[7][1]
         nObjLinh := 125
         nObjColu := 25
         nObjLarg := 165
@@ -3906,7 +3905,7 @@ static function dialogEXC(aDadosExc)
 
         
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet3EE := aDadosExc[2][1]
+        xGet3EE := aDadosExc[7][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -3986,7 +3985,7 @@ static function dialogEXC(aDadosExc)
         oSay14E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet14EE  := aDadosExc[7][1]
+        xGet14EE  := aDadosExc[2][1]
         nObjLinh := 125
         nObjColu := 25
         nObjLarg := 100
@@ -6726,19 +6725,19 @@ User Function altMLP()
                 endif
                 (cAliasTempAltL) -> (MATER_ALTL)     := ZM2 -> (ZM2_MATER)
                 (cAliasTempAltL) -> (TEMPM_ALTL)     := ZM2 -> (ZM2_TEMPM)
-                (cAliasTempAltL) -> (UMIDA_ALTL)    := ZM2 -> (ZM2_UMIDAD)
+                (cAliasTempAltL) -> (UMIDA_ALTL)     := ZM2 -> (ZM2_UMIDAD)
                 (cAliasTempAltL) -> (TEMPA_ALTL)     := ZM2 -> (ZM2_TEMPA)
                 (cAliasTempAltL) -> (TEMPD_ALTL)     := ZM2 -> (ZM2_TEMPD)
                 (cAliasTempAltL) -> (TEMPR_ALTL)     := ZM2 -> (ZM2_TEMPR)
                 (cAliasTempAltL) -> (TENS_ALTL)      := ZM2 -> (ZM2_TENS)
-                (cAliasTempAltL) -> (HORIM_ALTL)    := ZM2 -> (ZM2_HORIME)
+                (cAliasTempAltL) -> (HORIM_ALTL)     := ZM2 -> (ZM2_HORIME)
                 (cAliasTempAltL) -> (START_ALTL)     := ZM2 -> (ZM2_START)
                 (cAliasTempAltL) -> (CORR_ALTL)      := ZM2 -> (ZM2_CORR)
                 (cAliasTempAltL) -> (TEMPT_ALTL)     := ZM2 -> (ZM2_TEMPT)
                 (cAliasTempAltL) -> (SETP_ALTL)      := ZM2 -> (ZM2_SETP)
                 (cAliasTempAltL) -> (POT_ALTL)       := ZM2 -> (ZM2_POT)
                 (cAliasTempAltL) -> (OBS_ALTL)       := ZM2 -> (ZM2_OBS)
-                (cAliasTempAltL) -> (ATIVO_ALTL)    := ZM2 -> (ZM2_ATIVO)
+                (cAliasTempAltL) -> (ATIVO_ALTL)     := ZM2 -> (ZM2_ATIVO)
                 if (cAliasTempAltL) -> (ATIVO_ALTL) == 'S'
                     (cAliasTempAltL) -> (ATIVO_NAT):= "1"
                     aCombo24L := {'S=SIM','N=NAO'}
