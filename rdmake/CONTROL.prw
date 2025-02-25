@@ -547,8 +547,8 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oMsGetZCA := MsNewGetDados():New(    130,;                
                                              005,;                
-                                             443,;                
-                                             950,;                
+                                             (nJanAltu/2)-6,;                
+                                             (nJanLarg/2)-3,;                
                                              ,;                    
                                              "AllwaysTrue()",;    
                                              ,;                   
@@ -762,8 +762,8 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oMsGetZCA := MsNewGetDados():New(    130,;                
                                              005,;                
-                                             443,;                
-                                             950,;                
+                                             (nJanAltu/2)-6,;                
+                                             (nJanLarg/2)-3,;                
                                              ,;                
                                              "AllwaysTrue()",;    
                                              ,;                   
@@ -1095,8 +1095,8 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oMsGetZCA := MsNewGetDados():New(    155,;                
                                              005,;                
-                                             443,;                
-                                             950,;                
+                                             (nJanAltu/2)-6,;                
+                                             (nJanLarg/2)-3,;                
                                              ,;                 
                                              "AllwaysTrue()",;    
                                              ,;                   
@@ -1461,8 +1461,8 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         oMsGetZCA := MsNewGetDados():New(    155,;                
                                              005,;                
-                                             443,;                
-                                             950,;                
+                                             (nJanAltu/2)-6,;                
+                                             (nJanLarg/2)-3,;                
                                              ,;                   
                                              "AllwaysTrue()",;    
                                              ,;                   
@@ -4537,7 +4537,23 @@ User function incMRl()
         nObjAltu := 15
         oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgCadM, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
         
-        oMsGetZCA := MsNewGetDados():New(155,005,443,950,,,,,,,999,,,,oDlgCadM,aHeaderM,aColsM) 
+        oMsGetZCA := MsNewGetDados():New(155,;
+                                         005,;
+                                         (nJanAltu/2)-6,;
+                                         (nJanLarg/2)-3,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         999,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         oDlgCadM,;
+                                         aHeaderM,;
+                                         aColsM) 
 
             oMsGetZCA:lActive := .F. 
 
@@ -6162,7 +6178,7 @@ Local aArea := FWGetArea()
         oGet6L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 121
         nObjColu := 25 
         nObjLarg := 50
         nObjAltu := 20
@@ -6170,29 +6186,29 @@ Local aArea := FWGetArea()
         oSay7L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 131
         nObjColu := 25
         nObjLarg := 100
-        nObjAltu := 15
+        nObjAltu := 20
         oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 121
         nObjColu := 140 
         nObjLarg := 50
-        nObjAltu:= 20
+        nObjAltu := 20
         oSay8L   := TSay():New(nObjLinh, nObjColu, {|| cSay8LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay8L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 131
         nObjColu := 140
         nObjLarg := 80
-        nObjAltu := 15
-        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        nObjAltu := 20
+        oCombo8L := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 120
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 20
@@ -6200,29 +6216,29 @@ Local aArea := FWGetArea()
         oSay9L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 130
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 15
-        oGet9L  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9LL := u, xGet9LL)} , oDlgCadL, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9LL := u, xGet9LL)} , oDlgCadL, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 120
         nObjColu := 333
         nObjLarg := 80
         nObjAltu := 20
-        oSay10L   := TSay():New(nObjLinh, nObjColu, {|| cSay10LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay10L  := TSay():New(nObjLinh, nObjColu, {|| cSay10LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay10L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 130
         nObjColu := 333
         nObjLarg := 80
         nObjAltu := 15
-        oGet10L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10LL := u, xGet10LL)} , oDlgCadL, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10L  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10LL := u, xGet10LL)} , oDlgCadL, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 120
         nObjColu := 435
         nObjLarg := 80
         nObjAltu := 20
@@ -6230,14 +6246,14 @@ Local aArea := FWGetArea()
         oSay11L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 130
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 15
         oGet11L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11LL := u, xGet11LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 120
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 20
@@ -6245,14 +6261,14 @@ Local aArea := FWGetArea()
         oSay12L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 130
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
         oGet12L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12LL := u, xGet12LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 120
         nObjColu := 595
         nObjLarg := 80
         nObjAltu := 20
@@ -6260,14 +6276,14 @@ Local aArea := FWGetArea()
         oSay13L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 130
         nObjColu := 595
         nObjLarg := 80
         nObjAltu := 15
         oGet13L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13LL := u, xGet13LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
+        nObjLinh := 120
         nObjColu := 685
         nObjLarg := 80
         nObjAltu := 20
@@ -6275,14 +6291,14 @@ Local aArea := FWGetArea()
         oSay14L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
+        nObjLinh := 130
         nObjColu := 685
         nObjLarg := 50
         nObjAltu := 15
         oGet14L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet14LL := u, xGet14LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 25
         nObjLarg := 80
         nObjAltu := 20
@@ -6290,14 +6306,14 @@ Local aArea := FWGetArea()
         oSay15L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 25
         nObjLarg := 50
         nObjAltu := 15
         oGet15L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet15LL := u, xGet15LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 90
         nObjLarg := 80
         nObjAltu := 20
@@ -6305,14 +6321,14 @@ Local aArea := FWGetArea()
         oSay16L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 90
         nObjLarg := 50
         nObjAltu := 15
         oGet16L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16LL := u, xGet16LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 150
         nObjLarg := 80
         nObjAltu := 20
@@ -6320,14 +6336,14 @@ Local aArea := FWGetArea()
         oSay17L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 150
         nObjLarg := 50
         nObjAltu := 15
         oGet17L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17LL := u, xGet17LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 210
         nObjLarg := 80
         nObjAltu := 20
@@ -6335,14 +6351,14 @@ Local aArea := FWGetArea()
         oSay18L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 210
         nObjLarg := 50
         nObjAltu := 15
         oGet18L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18LL := u, xGet18LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 270
         nObjLarg := 80
         nObjAltu := 20
@@ -6350,14 +6366,14 @@ Local aArea := FWGetArea()
         oSay19L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 270
         nObjLarg := 50
         nObjAltu := 15
         oGet19L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19LL := u, xGet19LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 330
         nObjLarg := 80
         nObjAltu := 20
@@ -6365,14 +6381,14 @@ Local aArea := FWGetArea()
         oSay20L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 15
         oGet20L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20LL := u, xGet20LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 390
         nObjLarg := 80
         nObjAltu := 20
@@ -6380,14 +6396,14 @@ Local aArea := FWGetArea()
         oSay21L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 390
         nObjLarg := 50
         nObjAltu := 15
         oGet21L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet21LL := u, xGet21LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 450
         nObjLarg := 80
         nObjAltu := 20
@@ -6395,14 +6411,14 @@ Local aArea := FWGetArea()
         oSay22L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 450
         nObjLarg := 50
         nObjAltu := 15
         oGet22L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet22LL := u, xGet22LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 510
         nObjLarg := 80
         nObjAltu := 20
@@ -6410,14 +6426,14 @@ Local aArea := FWGetArea()
         oSay23L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 510
         nObjLarg := 50
-        nObjAltu := 15
+        nObjAltu := 24
         oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 160
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 20
@@ -6425,7 +6441,7 @@ Local aArea := FWGetArea()
         oSay24L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 155
+        nObjLinh := 170
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 15
@@ -6433,7 +6449,23 @@ Local aArea := FWGetArea()
 
         oGet24L:lActive := .F.
 
-        oMsGetZCA := MsNewGetDados():New(180,005,443,950,,,,,,,999,,,,oDlgCadL,aHeaderL,aColsL)
+        oMsGetZCA := MsNewGetDados():New(200,;
+                                         005,;
+                                         (nJanAltu/2)-6,;
+                                         (nJanLarg/2)-3,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         999,;
+                                         ,;
+                                         ,;
+                                         ,;
+                                         oDlgCadL,;
+                                         aHeaderL,;
+                                         aColsL)
 
         oDlgCadL:Activate()
 
@@ -9455,7 +9487,7 @@ Static Function R2geraExcell(aDados)
             oExcel:AddColumn(cAba,cTabela,"Estação"        ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Usuario"        ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Rolo"           ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Fabricação"      ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Fabricação"     ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Data Instalação",1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Observação"     ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Data Cadastro"  ,1,1,.F.)
