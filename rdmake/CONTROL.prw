@@ -456,7 +456,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2T:SetCss(" TSay {Font: Semi-Bold}")
 
         geraCod()
@@ -466,7 +466,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu, , , , , oFontPadrao, , , lDimPixels, , , , ,  ,  ,  , /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu, , , , , oFontPadrao, , , lDimPixels, , , , ,  ,  ,  ,,,,,,, .T.)
 
         oGet2T:lActive := .F.
 
@@ -475,7 +475,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3T   := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3T   := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -483,14 +483,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4T   := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4T   := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -498,7 +498,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4T   := TGet():New(nObjLinh, nObjColu,{|| 'I = IMPRESSORA'} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4T   := TGet():New(nObjLinh, nObjColu,{|| 'I = IMPRESSORA'} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4T:lActive := .F.
 
@@ -507,7 +507,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5T := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5T := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -515,14 +515,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6T := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6T := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -530,7 +530,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
         
         oGet6T:lActive := .F.
 
@@ -623,7 +623,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         Processa({|| fCarAcols()}, "Processando")
 
         cJanTitulo := 'Cadastro de Estação'
-        oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -639,7 +639,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -667,7 +667,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2T := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2T := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2T:SetCss(" TSay {Font: Semi-Bold}")
 
         geraCod()
@@ -677,7 +677,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2T := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2T := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2T:lActive := .F.
 
@@ -687,7 +687,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100 
         nObjLarg := 80
         nObjAltu := 20
-        oSay3T := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3T := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3T:SetCss(" TSay {Font: Semi-Bold}")
 
         
@@ -697,7 +697,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3T := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3T := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         // CRIAÇÃO DO OBJETO 4
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -705,7 +705,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4T := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4T := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -713,7 +713,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4T := TGet():New(nObjLinh, nObjColu,{|| 'E = ESTACAO'} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4T := TGet():New(nObjLinh, nObjColu,{|| 'E = ESTACAO'} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4T:lActive := .F.
 
@@ -722,7 +722,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5T := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5T := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -730,14 +730,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6T := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6T := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -745,7 +745,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
         
         oGet6t:lActive := .F.
 
@@ -886,7 +886,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         Processa({|| fCarAcols()}, "Processando") 
 
         cJanTitulo := 'Cadastro de Rolos'
-        oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -902,7 +902,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -927,7 +927,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2T:SetCss(" TSay {Font: Semi-Bold}")
 
         geraCod()
@@ -937,7 +937,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2T:lActive := .F.
 
@@ -947,7 +947,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100 
         nObjLarg := 70
         nObjAltu := 20
-        oSay3T   := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3T   := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -955,14 +955,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4T   := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4T   := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -970,7 +970,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4T   := TGet():New(nObjLinh, nObjColu,{|| 'R = ROLO'} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4T   := TGet():New(nObjLinh, nObjColu,{|| 'R = ROLO'} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4T:lActive := .F.
 
@@ -979,7 +979,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5T   := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5T   := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -987,7 +987,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
 
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -995,7 +995,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6T   := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6T   := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1003,7 +1003,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet6t:lActive := .F.
 
@@ -1020,7 +1020,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25
         nObjLarg := 165
         nObjAltu := 15
-        oGet9T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9TT := u, xGet9TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9TT := u, xGet9TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -1035,14 +1035,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 200
         nObjLarg := 30
         nObjAltu := 15
-        oGet10T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10TT := u, xGet10TT)} , oDlgCad, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10TT := u, xGet10TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 253
         nObjLarg := 50
         nObjAltu := 20
-        oSay11T   := TSay():New(nObjLinh, nObjColu, {|| cSay11TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11T   := TSay():New(nObjLinh, nObjColu, {|| cSay11TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1050,14 +1050,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 253
         nObjLarg := 50
         nObjAltu := 15
-        oGet11T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11TT := u, xGet11TT)} , oDlgCad, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet11T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11TT := u, xGet11TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 310
         nObjLarg := 80
         nObjAltu := 20
-        oSay12T   := TSay():New(nObjLinh, nObjColu, {|| cSay12TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12T   := TSay():New(nObjLinh, nObjColu, {|| cSay12TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1065,14 +1065,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 310
         nObjLarg := 80
         nObjAltu := 15
-        oGet12T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12TT := u, xGet12TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12TT := u, xGet12TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 400
         nObjLarg := 80
         nObjAltu := 20
-        oSay13T   := TSay():New(nObjLinh, nObjColu, {|| cSay13TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay13T   := TSay():New(nObjLinh, nObjColu, {|| cSay13TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay13T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1080,7 +1080,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
-        oGet13T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13TT := u, xGet13TT)} , oDlgCad, nObjLarg, nObjAltu, "@!", /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet13T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13TT := u, xGet13TT)} , oDlgCad, nObjLarg, nObjAltu, "@!",,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oMsGetZCA := MsNewGetDados():New(    155,;                
                                              005,;                
@@ -1229,7 +1229,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
 
         Processa({|| fCarAcols()}, "Processando") 
         cJanTitulo := 'Cadastro de Rolos'
-        oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -1245,7 +1245,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -1271,7 +1271,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2T:SetCss(" TSay {Font: Semi-Bold}")
 
         geraCod()
@@ -1281,7 +1281,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet2T   := TGet():New(nObjLinh, nObjColu, {||cGet2TT}, oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet2T:lActive := .F.
 
@@ -1292,7 +1292,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3T   := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3T   := TSay():New(nObjLinh, nObjColu, {|| cSay3TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1301,7 +1301,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet3T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3TT := u, xGet3TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         // CRIAÇÃO DO OBJETO 4
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -1309,7 +1309,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4T   := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4T   := TSay():New(nObjLinh, nObjColu, {|| cSay4TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1317,7 +1317,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4T   := TGet():New(nObjLinh, nObjColu,{|| 'L = LAMPADA'} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet4T   := TGet():New(nObjLinh, nObjColu,{|| 'L = LAMPADA'} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
     
         oGet4T:lActive := .F.
 
@@ -1327,7 +1327,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5T   := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5T   := TSay():New(nObjLinh, nObjColu, {|| cSay5TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1335,7 +1335,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo5t := TComboBox():New(nObjLinh, nObjColu,, aCombo5TT, nObjLarg, nObjAltu,oDlgCad,,{||},,,lDimPixels,oFontPadrao)
 
         // CRIAÇÃO DO OBJETO 6
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -1343,7 +1343,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6T   := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6T   := TSay():New(nObjLinh, nObjColu, {|| cSay6TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1351,7 +1351,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,.T.)
+        oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
 
         oGet6t:lActive := .F.
 
@@ -1369,7 +1369,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjLarg := 110
         nObjAltu := 15
         lHasButton := .T. 
-        oGet15T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15TT := u, cGet15TT)} , oDlgCad, nObjLarg, nObjAltu,,, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet15T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15TT := u, cGet15TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet15T:cF3 := 'U_zConsImp()' 
         oGet15T:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -1378,7 +1378,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 20
-        oSay16T   := TSay():New(nObjLinh, nObjColu, {|| cSay16TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay16T   := TSay():New(nObjLinh, nObjColu, {|| cSay16TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay16T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1386,14 +1386,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 140
         nObjLarg := 90
         nObjAltu := 15
-        oGet16T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16TT := u, xGet16TT)} , oDlgCad, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet16T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16TT := u, xGet16TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 237
         nObjLarg := 50
         nObjAltu := 20
-        oSay17T   := TSay():New(nObjLinh, nObjColu, {|| cSay17TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay17T   := TSay():New(nObjLinh, nObjColu, {|| cSay17TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay17T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1401,14 +1401,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 237
         nObjLarg := 30
         nObjAltu := 15
-        oGet17T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17TT := u, xGet17TT)} , oDlgCad, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet17T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17TT := u, xGet17TT)} , oDlgCad, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 280
         nObjLarg := 50
         nObjAltu := 20
-        oSay18T   := TSay():New(nObjLinh, nObjColu, {|| cSay18TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay18T   := TSay():New(nObjLinh, nObjColu, {|| cSay18TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay18T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1416,14 +1416,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 280
         nObjLarg := 30
         nObjAltu := 15
-        oGet18T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18TT := u, xGet18TT)} , oDlgCad, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet18T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18TT := u, xGet18TT)} , oDlgCad, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 20
-        oSay19T   := TSay():New(nObjLinh, nObjColu, {|| cSay19TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay19T   := TSay():New(nObjLinh, nObjColu, {|| cSay19TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1431,14 +1431,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 330
         nObjLarg := 30
         nObjAltu := 15
-        oGet19T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19TT := u, xGet19TT)} , oDlgCad, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet19T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19TT := u, xGet19TT)} , oDlgCad, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 370
         nObjLarg := 50
         nObjAltu := 20
-        oSay20T   := TSay():New(nObjLinh, nObjColu, {|| cSay20TT}, oDlgCad,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay20T   := TSay():New(nObjLinh, nObjColu, {|| cSay20TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay20T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -1446,7 +1446,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjColu := 370
         nObjLarg := 80
         nObjAltu := 15
-        oGet20T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20TT := u, xGet20TT)} , oDlgCad, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet20T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20TT := u, xGet20TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oMsGetZCA := MsNewGetDados():New(    155,;                
                                              005,;                
@@ -2265,7 +2265,7 @@ static Function dialogAlt(aDados)
     nEsc := 4
 
         cJanTitulo := 'Alteração de Impressora'
-        oDlgAlt := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgAlt := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
@@ -2283,7 +2283,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1A   := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1A   := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -2302,7 +2302,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2A   := TSay():New(nObjLinh, nObjColu, {|| cSay2AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2A   := TSay():New(nObjLinh, nObjColu, {|| cSay2AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2311,7 +2311,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2A   := TGet():New(nObjLinh, nObjColu, {|| xGet2AA}, oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2A   := TGet():New(nObjLinh, nObjColu, {|| xGet2AA}, oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2A:lActive := .F.
 
@@ -2320,7 +2320,7 @@ static Function dialogAlt(aDados)
         nObjColu := 100 
         nObjLarg := 80
         nObjAltu := 20
-        oSay3A   := TSay():New(nObjLinh, nObjColu, {|| cSay3AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3A   := TSay():New(nObjLinh, nObjColu, {|| cSay3AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3A:SetCss(" TSay {Font: Semi-Bold}")
 
         
@@ -2335,14 +2335,14 @@ static Function dialogAlt(aDados)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3AA := u, xGet3AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3AA := u, xGet3AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4A   := TSay():New(nObjLinh, nObjColu, {|| cSay4AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4A   := TSay():New(nObjLinh, nObjColu, {|| cSay4AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2356,7 +2356,7 @@ static Function dialogAlt(aDados)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4A:lActive := .F.
 
@@ -2365,7 +2365,7 @@ static Function dialogAlt(aDados)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5A := TSay():New(nObjLinh, nObjColu, {|| cSay5AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5A := TSay():New(nObjLinh, nObjColu, {|| cSay5AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2374,7 +2374,7 @@ static Function dialogAlt(aDados)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         // CRIAÇÃO DO OBJETO 6
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -2382,7 +2382,7 @@ static Function dialogAlt(aDados)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6A := TSay():New(nObjLinh, nObjColu, {|| cSay6AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6A := TSay():New(nObjLinh, nObjColu, {|| cSay6AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2391,7 +2391,7 @@ static Function dialogAlt(aDados)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6A := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6AA := u, xGet6AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6A := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6AA := u, xGet6AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet6A:lActive := .F.
 
@@ -2414,21 +2414,19 @@ static Function dialogAlt(aDados)
 
     nEsc := 4
 
-    oDlgAlt := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+    oDlgAlt := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
-        //Criação do Objetos 07
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
         nObjAltu := (nJanAltu / 2) - 002 - 386 
         oGrp7A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgAlt, , , lDimPixels)
 
-        //Criação do Objetos 07
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1A   := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1A   := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -2447,7 +2445,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2A   := TSay():New(nObjLinh, nObjColu, {|| cSay2AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2A   := TSay():New(nObjLinh, nObjColu, {|| cSay2AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2456,7 +2454,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2A   := TGet():New(nObjLinh, nObjColu, {|| xGet2AA}, oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2A   := TGet():New(nObjLinh, nObjColu, {|| xGet2AA}, oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2A:lActive := .F.
 
@@ -2466,7 +2464,7 @@ static Function dialogAlt(aDados)
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3A   := TSay():New(nObjLinh, nObjColu, {|| cSay3AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3A   := TSay():New(nObjLinh, nObjColu, {|| cSay3AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2475,14 +2473,14 @@ static Function dialogAlt(aDados)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3AA := u, xGet3AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3AA := u, xGet3AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4A   := TSay():New(nObjLinh, nObjColu, {|| cSay4AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4A   := TSay():New(nObjLinh, nObjColu, {|| cSay4AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2491,7 +2489,7 @@ static Function dialogAlt(aDados)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'R = ROLO'} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'R = ROLO'} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4A:lActive := .F.
 
@@ -2500,7 +2498,7 @@ static Function dialogAlt(aDados)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5A := TSay():New(nObjLinh, nObjColu, {|| cSay5AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5A := TSay():New(nObjLinh, nObjColu, {|| cSay5AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2509,14 +2507,14 @@ static Function dialogAlt(aDados)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels, oFontPadrao,,,,,,,,,)
+        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,lDimPixels, oFontPadrao,,,,,,,,,)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6A := TSay():New(nObjLinh, nObjColu, {|| cSay6AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6A := TSay():New(nObjLinh, nObjColu, {|| cSay6AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2525,7 +2523,7 @@ static Function dialogAlt(aDados)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6A := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6AA := u, xGet6AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6A := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6AA := u, xGet6AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet6A:lActive := .F.
 
@@ -2543,7 +2541,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25
         nObjLarg := 165
         nObjAltu := 15
-        oGet9A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9AA := u, xGet9AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9AA := u, xGet9AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -2559,14 +2557,14 @@ static Function dialogAlt(aDados)
         nObjColu := 200
         nObjLarg := 30
         nObjAltu := 15
-        oGet10A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10AA := u, xGet10AA)} , oDlgAlt, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10AA := u, xGet10AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 253
         nObjLarg := 50
         nObjAltu := 20
-        oSay11A   := TSay():New(nObjLinh, nObjColu, {|| cSay11AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11A   := TSay():New(nObjLinh, nObjColu, {|| cSay11AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2575,14 +2573,14 @@ static Function dialogAlt(aDados)
         nObjColu := 253
         nObjLarg := 50
         nObjAltu := 15
-        oGet11A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11AA := u, xGet11AA)} , oDlgAlt, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet11A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11AA := u, xGet11AA)} , oDlgAlt, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 310
         nObjLarg := 80
         nObjAltu := 20
-        oSay12A   := TSay():New(nObjLinh, nObjColu, {|| cSay12AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12A   := TSay():New(nObjLinh, nObjColu, {|| cSay12AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2591,14 +2589,14 @@ static Function dialogAlt(aDados)
         nObjColu := 310
         nObjLarg := 80
         nObjAltu := 15
-        oGet12A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12AA := u, xGet12AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12AA := u, xGet12AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 400
         nObjLarg := 80
         nObjAltu := 20
-        oSay13A   := TSay():New(nObjLinh, nObjColu, {|| cSay13AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay13A   := TSay():New(nObjLinh, nObjColu, {|| cSay13AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay13A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2607,7 +2605,7 @@ static Function dialogAlt(aDados)
         nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
-        oGet13A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13AA := u, xGet13AA)} , oDlgAlt, nObjLarg, nObjAltu, '@!', /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet13A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13AA := u, xGet13AA)} , oDlgAlt, nObjLarg, nObjAltu, '@!',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         nObjLinh := 065
         nObjColu := 002 
@@ -2628,7 +2626,7 @@ static Function dialogAlt(aDados)
         nEsc := 4
 
         cJanTitulo := 'Cadastro de Lampadas'
-        oDlgAlt := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgAlt := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -2644,7 +2642,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1A := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1A := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -2669,7 +2667,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2T   := TSay():New(nObjLinh, nObjColu, {|| cSay2AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2678,7 +2676,7 @@ static Function dialogAlt(aDados)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2A   := TGet():New(nObjLinh, nObjColu, {|| xGet2AA}, oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2A   := TGet():New(nObjLinh, nObjColu, {|| xGet2AA}, oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2A:lActive := .F.
 
@@ -2688,7 +2686,7 @@ static Function dialogAlt(aDados)
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3A   := TSay():New(nObjLinh, nObjColu, {|| cSay3AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3A   := TSay():New(nObjLinh, nObjColu, {|| cSay3AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3A:SetCss(" TSay {Font: Semi-Bold}")
 
         
@@ -2698,14 +2696,14 @@ static Function dialogAlt(aDados)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3AA := u, xGet3AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet3A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3AA := u, xGet3AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4A   := TSay():New(nObjLinh, nObjColu, {|| cSay4AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4A   := TSay():New(nObjLinh, nObjColu, {|| cSay4AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2714,7 +2712,7 @@ static Function dialogAlt(aDados)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'L = LAMPADA'} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'L = LAMPADA'} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
     
         oGet4A:lActive := .F.
 
@@ -2723,7 +2721,7 @@ static Function dialogAlt(aDados)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5A := TSay():New(nObjLinh, nObjColu, {|| cSay5AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5A := TSay():New(nObjLinh, nObjColu, {|| cSay5AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2732,14 +2730,14 @@ static Function dialogAlt(aDados)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5A := TComboBox():New(nObjLinh, nObjColu,, aCombo5AA, nObjLarg, nObjAltu,oDlgAlt,,{||cCombo5AAA},,,lDimPixels,oFontPadrao,,,,,,,,,)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6A := TSay():New(nObjLinh, nObjColu, {|| cSay6AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6A := TSay():New(nObjLinh, nObjColu, {|| cSay6AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2748,7 +2746,7 @@ static Function dialogAlt(aDados)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6A := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6AA := u, xGet6AA)} , oDlgAlt, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6A := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6AA := u, xGet6AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet6A:lActive := .F.
 
@@ -2768,7 +2766,7 @@ static Function dialogAlt(aDados)
         nObjAltu := 15
         lHasButton := .T.
         lHasButton := .T. 
-        oGet15A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15AA := u, cGet15AA)} , oDlgAlt, nObjLarg, nObjAltu,,, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet15A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15AA := u, cGet15AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet15A:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet15A:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
         
@@ -2777,7 +2775,7 @@ static Function dialogAlt(aDados)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 20
-        oSay16A   := TSay():New(nObjLinh, nObjColu, {|| cSay16AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay16A   := TSay():New(nObjLinh, nObjColu, {|| cSay16AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay16A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2786,14 +2784,14 @@ static Function dialogAlt(aDados)
         nObjColu := 140
         nObjLarg := 90
         nObjAltu := 15
-        oGet16A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16AA := u, xGet16AA)} , oDlgAlt, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet16A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16AA := u, xGet16AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 237
         nObjLarg := 50
         nObjAltu := 20
-        oSay17A   := TSay():New(nObjLinh, nObjColu, {|| cSay17AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay17A   := TSay():New(nObjLinh, nObjColu, {|| cSay17AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay17A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2802,14 +2800,14 @@ static Function dialogAlt(aDados)
         nObjColu := 237
         nObjLarg := 30
         nObjAltu := 15
-        oGet17A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17AA := u, xGet17AA)} , oDlgAlt, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet17A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17AA := u, xGet17AA)} , oDlgAlt, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 280
         nObjLarg := 50
         nObjAltu := 20
-        oSay18A   := TSay():New(nObjLinh, nObjColu, {|| cSay18AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay18A   := TSay():New(nObjLinh, nObjColu, {|| cSay18AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay18A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2818,14 +2816,14 @@ static Function dialogAlt(aDados)
         nObjColu := 280
         nObjLarg := 30
         nObjAltu := 15
-        oGet18A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18AA := u, xGet18AA)} , oDlgAlt, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet18A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18AA := u, xGet18AA)} , oDlgAlt, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 20
-        oSay19A   := TSay():New(nObjLinh, nObjColu, {|| cSay19AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay19A   := TSay():New(nObjLinh, nObjColu, {|| cSay19AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2834,14 +2832,14 @@ static Function dialogAlt(aDados)
         nObjColu := 330
         nObjLarg := 30
         nObjAltu := 15
-        oGet19A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19AA := u, xGet19AA)} , oDlgAlt, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet19A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19AA := u, xGet19AA)} , oDlgAlt, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 370
         nObjLarg := 50
         nObjAltu := 20
-        oSay20A   := TSay():New(nObjLinh, nObjColu, {|| cSay20AA}, oDlgAlt,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay20A   := TSay():New(nObjLinh, nObjColu, {|| cSay20AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay20A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -2850,7 +2848,7 @@ static Function dialogAlt(aDados)
         nObjColu := 370
         nObjLarg := 80
         nObjAltu := 15
-        oGet20A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20AA := u, xGet20AA)} , oDlgAlt, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet20A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20AA := u, xGet20AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oDlgAlt:Activate()
         
@@ -3387,7 +3385,7 @@ static function dialogEXC(aDadosExc)
     IF ZCA->(ZCA_TIPO) == 'I' .OR. ZCA->(ZCA_TIPO) == 'E'
 
     cJanTitulo := 'EXCLUSÃO DE IMPRESSORA'
-        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
@@ -3405,7 +3403,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -3424,7 +3422,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3433,7 +3431,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2E:lActive := .F.
 
@@ -3442,7 +3440,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 100 
         nObjLarg := 80
         nObjAltu := 20
-        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3E:SetCss(" TSay {Font: Semi-Bold}")
 
         
@@ -3457,7 +3455,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet3E:lActive := .F.
 
@@ -3466,7 +3464,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3480,7 +3478,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4E:lActive := .F.
 
@@ -3489,7 +3487,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3498,7 +3496,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         oCombo5E:lActive := .F.
 
@@ -3507,7 +3505,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3516,7 +3514,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet6E:lActive := .F.
 
@@ -3537,7 +3535,7 @@ static function dialogEXC(aDadosExc)
     elseif ZCA->(ZCA_TIPO) == 'R'
 
    cJanTitulo := 'EXCLUSÃO DE ROLOS'
-        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
@@ -3551,7 +3549,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -3570,7 +3568,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3579,7 +3577,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2E:lActive := .F.
 
@@ -3589,7 +3587,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 100 
         nObjLarg := 80
         nObjAltu := 20
-        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3E:SetCss(" TSay {Font: Semi-Bold}")
         
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3598,7 +3596,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet3E:lActive := .F.
 
@@ -3607,7 +3605,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3617,7 +3615,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4E:lActive := .F.
 
@@ -3626,7 +3624,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3635,7 +3633,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         oCombo5E:lActive := .F.
 
@@ -3644,7 +3642,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3653,7 +3651,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet6E:lActive := .F.
 
@@ -3677,7 +3675,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25
         nObjLarg := 165
         nObjAltu := 15
-        oGet9E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9EE := u, xGet9EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9EE := u, xGet9EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet9E:lActive := .F.
 
@@ -3695,7 +3693,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 200
         nObjLarg := 30
         nObjAltu := 15
-        oGet10E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10EE := u, xGet10EE)} , oDlgExc, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10EE := u, xGet10EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet10E:lActive := .F.
 
@@ -3704,7 +3702,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 253
         nObjLarg := 50
         nObjAltu := 20
-        oSay11E   := TSay():New(nObjLinh, nObjColu, {|| cSay11EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11E   := TSay():New(nObjLinh, nObjColu, {|| cSay11EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3713,7 +3711,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 253
         nObjLarg := 50
         nObjAltu := 15
-        oGet11E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11EE := u, xGet11EE)} , oDlgExc, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet11E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11EE := u, xGet11EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet11E:lActive := .F.
 
@@ -3722,7 +3720,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 310
         nObjLarg := 80
         nObjAltu := 20
-        oSay12E   := TSay():New(nObjLinh, nObjColu, {|| cSay12EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12E   := TSay():New(nObjLinh, nObjColu, {|| cSay12EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3731,7 +3729,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 310
         nObjLarg := 80
         nObjAltu := 15
-        oGet12E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12EE := u, xGet12EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12EE := u, xGet12EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet12E:lActive := .F.
 
@@ -3740,7 +3738,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 400
         nObjLarg := 80
         nObjAltu := 20
-        oSay13E   := TSay():New(nObjLinh, nObjColu, {|| cSay13EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay13E   := TSay():New(nObjLinh, nObjColu, {|| cSay13EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay13E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3749,7 +3747,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
-        oGet13E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13EE := u, xGet13EE)} , oDlgExc, nObjLarg, nObjAltu, '@!', /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet13E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13EE := u, xGet13EE)} , oDlgExc, nObjLarg, nObjAltu, '@!',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet13E:lActive := .F.
 
@@ -3769,7 +3767,7 @@ static function dialogEXC(aDadosExc)
     Elseif ZCA->(ZCA_TIPO) ==  'L'
 
     cJanTitulo := 'EXCLUSÃO DE LAMPADAS'
-        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -3784,7 +3782,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -3803,7 +3801,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3813,7 +3811,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet2E:lActive := .F.
 
@@ -3823,7 +3821,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3832,7 +3830,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet3E:lActive := .F.
 
@@ -3841,7 +3839,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3851,7 +3849,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
     
         oGet4E:lActive := .F.
 
@@ -3860,7 +3858,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3869,7 +3867,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 24
-        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao,,,,,,,,,)
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,lDimPixels,oFontPadrao,,,,,,,,,)
         
         oCombo5E:lActive := .F.
 
@@ -3879,7 +3877,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3888,7 +3886,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet6E:lActive := .F.
 
@@ -3912,7 +3910,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 25
         nObjLarg := 110
         nObjAltu := 15
-        oGet15E   := TGet():New(nObjLinh, nObjColu,{||xGet15EE} , oDlgExc, nObjLarg, nObjAltu,,, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet15E   := TGet():New(nObjLinh, nObjColu,{||xGet15EE} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet15E:lActive := .F.
 
@@ -3921,7 +3919,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 20
-        oSay16E   := TSay():New(nObjLinh, nObjColu, {|| cSay16EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay16E   := TSay():New(nObjLinh, nObjColu, {|| cSay16EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay16E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3930,7 +3928,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 140
         nObjLarg := 90
         nObjAltu := 15
-        oGet16E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16EE := u, xGet16EE)} , oDlgExc, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet16E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16EE := u, xGet16EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet16E:lActive := .F.
 
@@ -3939,7 +3937,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 237
         nObjLarg := 50
         nObjAltu := 20
-        oSay17E   := TSay():New(nObjLinh, nObjColu, {|| cSay17EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay17E   := TSay():New(nObjLinh, nObjColu, {|| cSay17EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay17E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3948,7 +3946,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 237
         nObjLarg := 30
         nObjAltu := 15
-        oGet17E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17EE := u, xGet17EE)} , oDlgExc, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet17E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17EE := u, xGet17EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet17E:lActive := .F.
 
@@ -3957,7 +3955,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 280
         nObjLarg := 50
         nObjAltu := 20
-        oSay18E   := TSay():New(nObjLinh, nObjColu, {|| cSay18EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay18E   := TSay():New(nObjLinh, nObjColu, {|| cSay18EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay18E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3966,7 +3964,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 280
         nObjLarg := 30
         nObjAltu := 15
-        oGet18E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18EE := u, xGet18EE)} , oDlgExc, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet18E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18EE := u, xGet18EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet18E:lActive := .F.
 
@@ -3975,7 +3973,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 20
-        oSay19E   := TSay():New(nObjLinh, nObjColu, {|| cSay19EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay19E   := TSay():New(nObjLinh, nObjColu, {|| cSay19EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -3984,7 +3982,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 330
         nObjLarg := 30
         nObjAltu := 15
-        oGet19E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19EE := u, xGet19EE)} , oDlgExc, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet19E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19EE := u, xGet19EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet19E:lActive := .F.
 
@@ -3993,7 +3991,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 370
         nObjLarg := 50
         nObjAltu := 20
-        oSay20E   := TSay():New(nObjLinh, nObjColu, {|| cSay20EE}, oDlgExc,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay20E   := TSay():New(nObjLinh, nObjColu, {|| cSay20EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay20E:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4002,7 +4000,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := 370
         nObjLarg := 80
         nObjAltu := 15
-        oGet20E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20EE := u, xGet20EE)} , oDlgExc, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet20E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20EE := u, xGet20EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet20E:lActive := .F.
 
@@ -4295,7 +4293,7 @@ User function incMRl()
         nEscM := 5
 
         cJanTitulo := 'MANUTENÇÃO DE ROLOS - CADASTRO'
-        oDlgCadM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgCadM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -4311,7 +4309,7 @@ User function incMRl()
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -4339,7 +4337,7 @@ User function incMRl()
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2M:SetCss(" TSay {Font: Semi-Bold}")
 
         DbSelectArea('ZM1')
@@ -4351,7 +4349,7 @@ User function incMRl()
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2M   := TGet():New(nObjLinh, nObjColu, {||cGet2MM}, oDlgCadM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet2M   := TGet():New(nObjLinh, nObjColu, {||cGet2MM}, oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         ZM1->(DbCloseArea())
 
@@ -4362,7 +4360,7 @@ User function incMRl()
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4371,7 +4369,7 @@ User function incMRl()
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgCadM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3M:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet3M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -4381,7 +4379,7 @@ User function incMRl()
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4M   := TSay():New(nObjLinh, nObjColu, {|| cSay4MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4M   := TSay():New(nObjLinh, nObjColu, {|| cSay4MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4390,7 +4388,7 @@ User function incMRl()
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgCadM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet4M:cF3 := 'U_zConsEst()' //puxar função que ira fazer a consulta especifica
         oGet4M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -4399,7 +4397,7 @@ User function incMRl()
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5M   := TSay():New(nObjLinh, nObjColu, {|| cSay5MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5M   := TSay():New(nObjLinh, nObjColu, {|| cSay5MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4409,7 +4407,7 @@ User function incMRl()
         nObjAltu := 15
         cNome := Alltrim(UsrRetName(cCod))
         xGet5MM := Alltrim(cNome)
-        oGet5M := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5MM := u, xGet5MM)} , oDlgCadM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,.T.)
+        oGet5M := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5MM := u, xGet5MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
 
         oGet5M:lActive := .F.
 
@@ -4418,7 +4416,7 @@ User function incMRl()
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6M   := TSay():New(nObjLinh, nObjColu, {|| cSay6MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6M   := TSay():New(nObjLinh, nObjColu, {|| cSay6MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4427,7 +4425,7 @@ User function incMRl()
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgCadM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet6M:cF3 := 'U_zConsRl()' //puxar função que ira fazer a consulta especifica
         oGet6M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -4444,7 +4442,7 @@ User function incMRl()
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 15
-        oGet7M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet7MM := u, xGet7MM)} , oDlgCadM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet7M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet7MM := u, xGet7MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -4460,7 +4458,7 @@ User function incMRl()
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet8M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet8MM := u, xGet8MM)} , oDlgCadM, nObjLarg, nObjAltu,'@R 99/99/99', /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet8M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet8MM := u, xGet8MM)} , oDlgCadM, nObjLarg, nObjAltu,'@R 99/99/99',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet8M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -4468,7 +4466,7 @@ User function incMRl()
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 20
-        oSay9M   := TSay():New(nObjLinh, nObjColu, {|| cSay9MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay9M   := TSay():New(nObjLinh, nObjColu, {|| cSay9MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay9M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4476,14 +4474,14 @@ User function incMRl()
         nObjColu := 237
         nObjLarg := 130
         nObjAltu := 15
-        oGet9M  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9MM := u, xGet9MM)} , oDlgCadM, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9M  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9MM := u, xGet9MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 500
         nObjLarg := 50
         nObjAltu := 20
-        oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay10M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4491,7 +4489,7 @@ User function incMRl()
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
-        oGet10M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10MM := u, xGet10MM)} , oDlgCadM, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10MM := u, xGet10MM)} , oDlgCadM, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet10M:lActive := .F.
 
@@ -4500,7 +4498,7 @@ User function incMRl()
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oSay11M   := TSay():New(nObjLinh, nObjColu, {|| cSay11MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11M   := TSay():New(nObjLinh, nObjColu, {|| cSay11MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4508,14 +4506,14 @@ User function incMRl()
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,, aCombo11M, nObjLarg, nObjAltu,oDlgCadM,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,, aCombo11M, nObjLarg, nObjAltu,oDlgCadM,,{||},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 380
         nObjLarg := 50
         nObjAltu := 20
-        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgCadM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4523,7 +4521,7 @@ User function incMRl()
         nObjColu := 380
         nObjLarg := 30
         nObjAltu := 15
-        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgCadM, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgCadM, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
         
         oMsGetZCA := MsNewGetDados():New(155,;
                                          005,;
@@ -4846,7 +4844,7 @@ Local aArea := FWGetArea()
         nEscBD := 2
 
         cJanTitulo := 'MANUTENÇÃO DE ROLOS - ALTERAÇÃO'
-        oDlgAltM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgAltM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -4861,7 +4859,7 @@ Local aArea := FWGetArea()
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -4888,7 +4886,7 @@ Local aArea := FWGetArea()
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4897,7 +4895,7 @@ Local aArea := FWGetArea()
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2M   := TGet():New(nObjLinh, nObjColu, {||xGet2MM}, oDlgAltM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet2M   := TGet():New(nObjLinh, nObjColu, {||xGet2MM}, oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet2M:lActive := .F.
 
@@ -4906,7 +4904,7 @@ Local aArea := FWGetArea()
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4916,8 +4914,8 @@ Local aArea := FWGetArea()
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgAltM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
-        oGet3M:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
+        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet3M:cF3 := 'U_zConsImp()' 
         oGet3M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -4925,7 +4923,7 @@ Local aArea := FWGetArea()
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4M   := TSay():New(nObjLinh, nObjColu, {|| cSay4MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4M   := TSay():New(nObjLinh, nObjColu, {|| cSay4MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4935,8 +4933,8 @@ Local aArea := FWGetArea()
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgAltM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
-        oGet4M:cF3 := 'U_zConsEst()' //puxar função que ira fazer a consulta especifica
+        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet4M:cF3 := 'U_zConsEst()' 
         oGet4M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -4944,7 +4942,7 @@ Local aArea := FWGetArea()
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5M   := TSay():New(nObjLinh, nObjColu, {|| cSay5MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5M   := TSay():New(nObjLinh, nObjColu, {|| cSay5MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4955,7 +4953,7 @@ Local aArea := FWGetArea()
         nObjAltu := 15
         cNome := Alltrim(UsrRetName(cCod))
         xGet5MM := Alltrim(cNome)
-        oGet5M := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5MM := u, xGet5MM)} , oDlgAltM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,.T.)
+        oGet5M := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5MM := u, xGet5MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
 
         oGet5M:lActive := .F.
 
@@ -4964,7 +4962,7 @@ Local aArea := FWGetArea()
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6M   := TSay():New(nObjLinh, nObjColu, {|| cSay6MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6M   := TSay():New(nObjLinh, nObjColu, {|| cSay6MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -4974,8 +4972,8 @@ Local aArea := FWGetArea()
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgAltM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
-        oGet6M:cF3 := 'U_zConsRl()' //puxar função que ira fazer a consulta especifica
+        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet6M:cF3 := 'U_zConsRl()'
         oGet6M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -4992,7 +4990,7 @@ Local aArea := FWGetArea()
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 15
-        oGet7M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet7MM := u, xGet7MM)} , oDlgAltM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet7M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet7MM := u, xGet7MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -5009,7 +5007,7 @@ Local aArea := FWGetArea()
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet8M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet8MM := u, xGet8MM)} , oDlgAltM, nObjLarg, nObjAltu,'@R 99/99/99', /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet8M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet8MM := u, xGet8MM)} , oDlgAltM, nObjLarg, nObjAltu,'@R 99/99/99',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet8M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -5017,7 +5015,7 @@ Local aArea := FWGetArea()
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 20
-        oSay9M   := TSay():New(nObjLinh, nObjColu, {|| cSay9MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay9M   := TSay():New(nObjLinh, nObjColu, {|| cSay9MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay9M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5026,14 +5024,14 @@ Local aArea := FWGetArea()
         nObjColu := 237
         nObjLarg := 130
         nObjAltu := 15
-        oGet9M  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9MM := u, xGet9MM)} , oDlgAltM, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9M  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9MM := u, xGet9MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 500
         nObjLarg := 50
         nObjAltu := 20
-        oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay10M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5042,7 +5040,7 @@ Local aArea := FWGetArea()
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
-        oGet10M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10MM := u, xGet10MM)} , oDlgAltM, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10MM := u, xGet10MM)} , oDlgAltM, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet10M:lActive := .F.
 
@@ -5051,7 +5049,7 @@ Local aArea := FWGetArea()
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oSay11M   := TSay():New(nObjLinh, nObjColu, {|| cSay11MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11M   := TSay():New(nObjLinh, nObjColu, {|| cSay11MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5060,14 +5058,14 @@ Local aArea := FWGetArea()
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgAltM,,{||cCombo11MM},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgAltM,,{||cCombo11MM},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 380
         nObjLarg := 50
         nObjAltu := 20
-        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgAltM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5076,7 +5074,7 @@ Local aArea := FWGetArea()
         nObjColu := 380
         nObjLarg := 30
         nObjAltu := 15
-        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,/*nClrBack*/, oFontPadrao,,, lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
         oDlgAltM:Activate()
 
@@ -5312,7 +5310,7 @@ Static Function dialogExcM(aDadosExcM)
     Private oDlgExcM
 
         cJanTitulo := 'MANUTENÇÃO DE ROLOS - EXCLUSÃO'
-        oDlgExcM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgExcM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
@@ -5328,7 +5326,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -5341,9 +5339,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjLarg := 65
         nObjAltu := 20
         oBtn2M   := TButton():New(nObjLinh, nObjColu, cBtn2MM, oDlgExcM,{|| excBtnM()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
-        // oBtn2T:SetCss("TButton {background-color: blue;  font:semi-bold; font-color:white;}")
-        
-        //Criação do Objetos 08
+
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
@@ -5356,7 +5352,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5365,7 +5361,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2M   := TGet():New(nObjLinh, nObjColu, {||xGet2MM}, oDlgExcM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet2M   := TGet():New(nObjLinh, nObjColu, {||xGet2MM}, oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet2M:lActive := .F.
 
@@ -5374,7 +5370,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 100 
         nObjLarg := 30
         nObjAltu := 20
-        oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5383,7 +5379,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3M   := TGet():New(nObjLinh, nObjColu,{||xGet3MM} , oDlgExcM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet3M   := TGet():New(nObjLinh, nObjColu,{||xGet3MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet3M:lActive := .F.
 
@@ -5392,7 +5388,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4M   := TSay():New(nObjLinh, nObjColu, {|| cSay4MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4M   := TSay():New(nObjLinh, nObjColu, {|| cSay4MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5401,7 +5397,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4M   := TGet():New(nObjLinh, nObjColu,{||xGet4MM} , oDlgExcM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet4M   := TGet():New(nObjLinh, nObjColu,{||xGet4MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet4M:lActive := .F.
 
@@ -5410,7 +5406,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5M   := TSay():New(nObjLinh, nObjColu, {|| cSay5MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5M   := TSay():New(nObjLinh, nObjColu, {|| cSay5MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5421,7 +5417,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjAltu := 15
         cNome := Alltrim(UsrRetName(cCod))
         xGet5MM := Alltrim(cNome)
-        oGet5M := TGet():New(nObjLinh, nObjColu,{||xGet5MM} , oDlgExcM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,.T.)
+        oGet5M := TGet():New(nObjLinh, nObjColu,{||xGet5MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
 
         oGet5M:lActive := .F.
 
@@ -5430,7 +5426,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6M   := TSay():New(nObjLinh, nObjColu, {|| cSay6MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6M   := TSay():New(nObjLinh, nObjColu, {|| cSay6MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5439,7 +5435,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6M   := TGet():New(nObjLinh, nObjColu,{|| xGet6MM} , oDlgExcM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,.T.)
+        oGet6M   := TGet():New(nObjLinh, nObjColu,{|| xGet6MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
 
         oGet6M:lActive := .F.
 
@@ -5457,7 +5453,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 15
-        oGet7M   := TGet():New(nObjLinh, nObjColu,{||xGet7MM} , oDlgExcM, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet7M   := TGet():New(nObjLinh, nObjColu,{||xGet7MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet7M:lActive := .F.
 
@@ -5475,7 +5471,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 15
-        oGet8M   := TGet():New(nObjLinh, nObjColu,{|| xGet8MM} , oDlgExcM, nObjLarg, nObjAltu,'@R 99/99/99', /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,.T.)
+        oGet8M   := TGet():New(nObjLinh, nObjColu,{|| xGet8MM} , oDlgExcM, nObjLarg, nObjAltu,'@R 99/99/99',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
     
         oGet8M:lActive := .F.
 
@@ -5484,7 +5480,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 20
-        oSay9M   := TSay():New(nObjLinh, nObjColu, {|| cSay9MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay9M   := TSay():New(nObjLinh, nObjColu, {|| cSay9MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay9M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5493,7 +5489,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 237
         nObjLarg := 130
         nObjAltu := 15
-        oGet9M  := TGet():New(nObjLinh, nObjColu,{|| xGet9MM} , oDlgExcM, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9M  := TGet():New(nObjLinh, nObjColu,{|| xGet9MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet9M:lActive := .F.
 
@@ -5502,7 +5498,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 500
         nObjLarg := 50
         nObjAltu := 20
-        oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay10M   := TSay():New(nObjLinh, nObjColu, {|| cSay10MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay10M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5511,7 +5507,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
-        oGet10M   := TGet():New(nObjLinh, nObjColu,{|| xGet10MM} , oDlgExcM, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10M   := TGet():New(nObjLinh, nObjColu,{|| xGet10MM} , oDlgExcM, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet10M:lActive := .F.
 
@@ -5520,7 +5516,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oSay11M   := TSay():New(nObjLinh, nObjColu, {|| cSay11MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11M   := TSay():New(nObjLinh, nObjColu, {|| cSay11MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5529,7 +5525,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 20
-        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgExcM,,{||cCombo11MM},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgExcM,,{||cCombo11MM},,,lDimPixels,oFontPadrao)
 
         oCombo11M:lActive := .F.
 
@@ -5538,7 +5534,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 380
         nObjLarg := 50
         nObjAltu := 20
-        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgExcM,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12M:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -5547,7 +5543,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 380
         nObjLarg := 30
         nObjAltu := 15
-        oGet12M   := TGet():New(nObjLinh, nObjColu,{||xGet12MM} , oDlgExcM, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12M   := TGet():New(nObjLinh, nObjColu,{||xGet12MM} , oDlgExcM, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet12M:lActive := .F.
 
@@ -6037,7 +6033,7 @@ Local aArea := FWGetArea()
         Processa({|| MLPfCarAcols()}, "Processando")
 
         cJanTitulo := 'MANUTENÇÃO DE LAMPADAS - CADASTRAMENTO'
-        oDlgCadL := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgCadL := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
@@ -6051,7 +6047,7 @@ Local aArea := FWGetArea()
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -6087,7 +6083,7 @@ Local aArea := FWGetArea()
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         ZM2->(DbCloseArea())
 
@@ -6098,7 +6094,7 @@ Local aArea := FWGetArea()
         nObjColu := 100 
         nObjLarg := 80
         nObjAltu := 20
-        oSay3L   := TSay():New(nObjLinh, nObjColu, {|| cSay3LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3L   := TSay():New(nObjLinh, nObjColu, {|| cSay3LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6107,7 +6103,7 @@ Local aArea := FWGetArea()
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3L:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet3L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6116,7 +6112,7 @@ Local aArea := FWGetArea()
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4L   := TSay():New(nObjLinh, nObjColu, {|| cSay4LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4L   := TSay():New(nObjLinh, nObjColu, {|| cSay4LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6126,7 +6122,7 @@ Local aArea := FWGetArea()
         nObjAltu := 15
         cNome := Alltrim(UsrRetName(cCod))
         xGet4LL := Alltrim(cNome)
-        oGet4L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet4LL := u, xGet4LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet4L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet4LL := u, xGet4LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet4L:lActive := .F.
 
@@ -6135,7 +6131,7 @@ Local aArea := FWGetArea()
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5L   := TSay():New(nObjLinh, nObjColu, {|| cSay5LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5L   := TSay():New(nObjLinh, nObjColu, {|| cSay5LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6144,7 +6140,7 @@ Local aArea := FWGetArea()
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet5L := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5LL := u, xGet5LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet5L := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5LL := u, xGet5LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet5L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -6152,7 +6148,7 @@ Local aArea := FWGetArea()
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6L   := TSay():New(nObjLinh, nObjColu, {|| cSay6LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6L   := TSay():New(nObjLinh, nObjColu, {|| cSay6LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6161,7 +6157,7 @@ Local aArea := FWGetArea()
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet6L:cF3 := 'U_zConsLp()' //puxar função que ira fazer a consulta especifica
         oGet6L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6178,7 +6174,7 @@ Local aArea := FWGetArea()
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 20
-        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 121
@@ -6193,14 +6189,14 @@ Local aArea := FWGetArea()
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 20
-        oCombo8L := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo8L := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 20
-        oSay9L   := TSay():New(nObjLinh, nObjColu, {|| cSay9LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay9L   := TSay():New(nObjLinh, nObjColu, {|| cSay9LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay9L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6208,14 +6204,14 @@ Local aArea := FWGetArea()
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 15
-        oGet9L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9LL := u, xGet9LL)} , oDlgCadL, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9LL := u, xGet9LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
         nObjColu := 333
         nObjLarg := 80
         nObjAltu := 20
-        oSay10L  := TSay():New(nObjLinh, nObjColu, {|| cSay10LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay10L  := TSay():New(nObjLinh, nObjColu, {|| cSay10LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay10L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6223,14 +6219,14 @@ Local aArea := FWGetArea()
         nObjColu := 333
         nObjLarg := 80
         nObjAltu := 15
-        oGet10L  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10LL := u, xGet10LL)} , oDlgCadL, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10L  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10LL := u, xGet10LL)} , oDlgCadL, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
         nObjColu := 435
         nObjLarg := 80
         nObjAltu := 20
-        oSay11L   := TSay():New(nObjLinh, nObjColu, {|| cSay11LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11L   := TSay():New(nObjLinh, nObjColu, {|| cSay11LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6238,14 +6234,14 @@ Local aArea := FWGetArea()
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 15
-        oGet11L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11LL := u, xGet11LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet11L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11LL := u, xGet11LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 20
-        oSay12L  := TSay():New(nObjLinh, nObjColu, {|| cSay12LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12L  := TSay():New(nObjLinh, nObjColu, {|| cSay12LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6253,14 +6249,14 @@ Local aArea := FWGetArea()
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
-        oGet12L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12LL := u, xGet12LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12LL := u, xGet12LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
         nObjColu := 595
         nObjLarg := 80
         nObjAltu := 20
-        oSay13L  := TSay():New(nObjLinh, nObjColu, {|| cSay13LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay13L  := TSay():New(nObjLinh, nObjColu, {|| cSay13LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay13L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6268,14 +6264,14 @@ Local aArea := FWGetArea()
         nObjColu := 595
         nObjLarg := 80
         nObjAltu := 15
-        oGet13L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13LL := u, xGet13LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet13L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13LL := u, xGet13LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
         nObjColu := 685
         nObjLarg := 80
         nObjAltu := 20
-        oSay14L  := TSay():New(nObjLinh, nObjColu, {|| cSay14LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay14L  := TSay():New(nObjLinh, nObjColu, {|| cSay14LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay14L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6283,14 +6279,14 @@ Local aArea := FWGetArea()
         nObjColu := 685
         nObjLarg := 50
         nObjAltu := 15
-        oGet14L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet14LL := u, xGet14LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet14L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet14LL := u, xGet14LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 25
         nObjLarg := 80
         nObjAltu := 20
-        oSay15L  := TSay():New(nObjLinh, nObjColu, {|| cSay15LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay15L  := TSay():New(nObjLinh, nObjColu, {|| cSay15LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay15L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6298,14 +6294,14 @@ Local aArea := FWGetArea()
         nObjColu := 25
         nObjLarg := 50
         nObjAltu := 15
-        oGet15L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet15LL := u, xGet15LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet15L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet15LL := u, xGet15LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 90
         nObjLarg := 80
         nObjAltu := 20
-        oSay16L  := TSay():New(nObjLinh, nObjColu, {|| cSay16LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay16L  := TSay():New(nObjLinh, nObjColu, {|| cSay16LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay16L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6313,14 +6309,14 @@ Local aArea := FWGetArea()
         nObjColu := 90
         nObjLarg := 50
         nObjAltu := 15
-        oGet16L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16LL := u, xGet16LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet16L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16LL := u, xGet16LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 150
         nObjLarg := 80
         nObjAltu := 20
-        oSay17L  := TSay():New(nObjLinh, nObjColu, {|| cSay17LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay17L  := TSay():New(nObjLinh, nObjColu, {|| cSay17LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay17L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6328,14 +6324,14 @@ Local aArea := FWGetArea()
         nObjColu := 150
         nObjLarg := 50
         nObjAltu := 15
-        oGet17L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17LL := u, xGet17LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet17L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17LL := u, xGet17LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 210
         nObjLarg := 80
         nObjAltu := 20
-        oSay18L  := TSay():New(nObjLinh, nObjColu, {|| cSay18LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay18L  := TSay():New(nObjLinh, nObjColu, {|| cSay18LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay18L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6343,14 +6339,14 @@ Local aArea := FWGetArea()
         nObjColu := 210
         nObjLarg := 50
         nObjAltu := 15
-        oGet18L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18LL := u, xGet18LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet18L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18LL := u, xGet18LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 270
         nObjLarg := 80
         nObjAltu := 20
-        oSay19L  := TSay():New(nObjLinh, nObjColu, {|| cSay19LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay19L  := TSay():New(nObjLinh, nObjColu, {|| cSay19LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6358,14 +6354,14 @@ Local aArea := FWGetArea()
         nObjColu := 270
         nObjLarg := 50
         nObjAltu := 15
-        oGet19L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19LL := u, xGet19LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet19L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19LL := u, xGet19LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 330
         nObjLarg := 80
         nObjAltu := 20
-        oSay20L  := TSay():New(nObjLinh, nObjColu, {|| cSay20LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay20L  := TSay():New(nObjLinh, nObjColu, {|| cSay20LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay20L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6373,14 +6369,14 @@ Local aArea := FWGetArea()
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 15
-        oGet20L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20LL := u, xGet20LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet20L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20LL := u, xGet20LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 390
         nObjLarg := 80
         nObjAltu := 20
-        oSay21L  := TSay():New(nObjLinh, nObjColu, {|| cSay21LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay21L  := TSay():New(nObjLinh, nObjColu, {|| cSay21LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay21L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6388,14 +6384,14 @@ Local aArea := FWGetArea()
         nObjColu := 390
         nObjLarg := 50
         nObjAltu := 15
-        oGet21L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet21LL := u, xGet21LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet21L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet21LL := u, xGet21LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 450
         nObjLarg := 80
         nObjAltu := 20
-        oSay22L  := TSay():New(nObjLinh, nObjColu, {|| cSay22LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay22L  := TSay():New(nObjLinh, nObjColu, {|| cSay22LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay22L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6403,14 +6399,14 @@ Local aArea := FWGetArea()
         nObjColu := 450
         nObjLarg := 50
         nObjAltu := 15
-        oGet22L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet22LL := u, xGet22LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet22L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet22LL := u, xGet22LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 510
         nObjLarg := 80
         nObjAltu := 20
-        oSay23L  := TSay():New(nObjLinh, nObjColu, {|| cSay23LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay23L  := TSay():New(nObjLinh, nObjColu, {|| cSay23LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay23L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6418,14 +6414,14 @@ Local aArea := FWGetArea()
         nObjColu := 510
         nObjLarg := 50
         nObjAltu := 24
-        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 160
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 20
-        oSay24L  := TSay():New(nObjLinh, nObjColu, {|| cSay24LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay24L  := TSay():New(nObjLinh, nObjColu, {|| cSay24LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay24L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6433,7 +6429,7 @@ Local aArea := FWGetArea()
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 15
-        oGet24L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet24LL := u, xGet24LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet24L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet24LL := u, xGet24LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet24L:lActive := .F.
 
@@ -6863,7 +6859,7 @@ Static function dialogAltL(aDadosAltL)
     nEscBD := 3
 
         cJanTitulo := 'MANUTENÇÃO DE LAMPADAS - ALTERAÇÃO'
-        oDlgCadL := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,/*nCor*/,,lDimpixels)
+        oDlgCadL := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
@@ -6877,7 +6873,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -6902,7 +6898,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 25 
         nObjLarg := 25
         nObjAltu := 10
-        oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2L:SetCss(" TSay {Font: Semi-Bold}")
 
         DbSelectArea('ZM2')
@@ -6914,7 +6910,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         ZM2->(DbCloseArea())
 
@@ -6925,7 +6921,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 100 
         nObjLarg := 80
         nObjAltu := 20
-        oSay3L   := TSay():New(nObjLinh, nObjColu, {|| cSay3LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3L   := TSay():New(nObjLinh, nObjColu, {|| cSay3LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6935,7 +6931,7 @@ Static function dialogAltL(aDadosAltL)
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3L:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet3L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6944,7 +6940,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 285 
         nObjLarg := 60
         nObjAltu := 20
-        oSay4L   := TSay():New(nObjLinh, nObjColu, {|| cSay4LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4L   := TSay():New(nObjLinh, nObjColu, {|| cSay4LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay4L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6955,7 +6951,7 @@ Static function dialogAltL(aDadosAltL)
         nObjAltu := 15
         cNome := Alltrim(UsrRetName(cCod))
         xGet4LL := Alltrim(cNome)
-        oGet4L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet4LL := u, xGet4LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet4L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet4LL := u, xGet4LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet4L:lActive := .F.
 
@@ -6964,7 +6960,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 375 
         nObjLarg := 30
         nObjAltu := 20
-        oSay5L   := TSay():New(nObjLinh, nObjColu, {|| cSay5LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5L   := TSay():New(nObjLinh, nObjColu, {|| cSay5LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay5L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6974,7 +6970,7 @@ Static function dialogAltL(aDadosAltL)
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet5L := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5LL := u, xGet5LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet5L := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5LL := u, xGet5LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet5L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -6982,7 +6978,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 465 
         nObjLarg := 30
         nObjAltu := 20
-        oSay6L   := TSay():New(nObjLinh, nObjColu, {|| cSay6LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6L   := TSay():New(nObjLinh, nObjColu, {|| cSay6LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay6L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -6992,8 +6988,8 @@ Static function dialogAltL(aDadosAltL)
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
-        oGet6L:cF3 := 'U_zConsLp()' //puxar função que ira fazer a consulta especifica
+        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet6L:cF3 := 'U_zConsLp()'
         oGet6L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -7010,7 +7006,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 15
-        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo7LL},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo7LL},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -7026,14 +7022,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 15
-        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo8LL},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo8LL},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 20
-        oSay9L   := TSay():New(nObjLinh, nObjColu, {|| cSay9LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay9L   := TSay():New(nObjLinh, nObjColu, {|| cSay9LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay9L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7042,14 +7038,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 15
-        oGet9L  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9LL := u, xGet9LL)} , oDlgCadL, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9L  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9LL := u, xGet9LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 333
         nObjLarg := 80
         nObjAltu := 20
-        oSay10L   := TSay():New(nObjLinh, nObjColu, {|| cSay10LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay10L   := TSay():New(nObjLinh, nObjColu, {|| cSay10LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay10L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7058,14 +7054,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 333
         nObjLarg := 80
         nObjAltu := 15
-        oGet10L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10LL := u, xGet10LL)} , oDlgCadL, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10LL := u, xGet10LL)} , oDlgCadL, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 435
         nObjLarg := 80
         nObjAltu := 20
-        oSay11L   := TSay():New(nObjLinh, nObjColu, {|| cSay11LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11L   := TSay():New(nObjLinh, nObjColu, {|| cSay11LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay11L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7074,14 +7070,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 15
-        oGet11L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11LL := u, xGet11LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet11L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11LL := u, xGet11LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 20
-        oSay12L  := TSay():New(nObjLinh, nObjColu, {|| cSay12LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12L  := TSay():New(nObjLinh, nObjColu, {|| cSay12LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay12L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7090,14 +7086,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
-        oGet12L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12LL := u, xGet12LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12LL := u, xGet12LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 595
         nObjLarg := 80
         nObjAltu := 20
-        oSay13L  := TSay():New(nObjLinh, nObjColu, {|| cSay13LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay13L  := TSay():New(nObjLinh, nObjColu, {|| cSay13LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay13L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7106,14 +7102,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 595
         nObjLarg := 80
         nObjAltu := 15
-        oGet13L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13LL := u, xGet13LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet13L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13LL := u, xGet13LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 685
         nObjLarg := 80
         nObjAltu := 20
-        oSay14L  := TSay():New(nObjLinh, nObjColu, {|| cSay14LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay14L  := TSay():New(nObjLinh, nObjColu, {|| cSay14LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay14L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7122,14 +7118,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 685
         nObjLarg := 50
         nObjAltu := 15
-        oGet14L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet14LL := u, xGet14LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet14L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet14LL := u, xGet14LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 25
         nObjLarg := 80
         nObjAltu := 20
-        oSay15L  := TSay():New(nObjLinh, nObjColu, {|| cSay15LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay15L  := TSay():New(nObjLinh, nObjColu, {|| cSay15LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay15L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7138,14 +7134,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 25
         nObjLarg := 50
         nObjAltu := 15
-        oGet15L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet15LL := u, xGet15LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet15L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet15LL := u, xGet15LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 90
         nObjLarg := 80
         nObjAltu := 20
-        oSay16L  := TSay():New(nObjLinh, nObjColu, {|| cSay16LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay16L  := TSay():New(nObjLinh, nObjColu, {|| cSay16LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay16L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7154,14 +7150,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 90
         nObjLarg := 50
         nObjAltu := 15
-        oGet16L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16LL := u, xGet16LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet16L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16LL := u, xGet16LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 150
         nObjLarg := 80
         nObjAltu := 20
-        oSay17L  := TSay():New(nObjLinh, nObjColu, {|| cSay17LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay17L  := TSay():New(nObjLinh, nObjColu, {|| cSay17LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay17L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7170,14 +7166,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 150
         nObjLarg := 50
         nObjAltu := 15
-        oGet17L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17LL := u, xGet17LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet17L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17LL := u, xGet17LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 210
         nObjLarg := 80
         nObjAltu := 20
-        oSay18L  := TSay():New(nObjLinh, nObjColu, {|| cSay18LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay18L  := TSay():New(nObjLinh, nObjColu, {|| cSay18LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay18L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7186,14 +7182,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 210
         nObjLarg := 50
         nObjAltu := 15
-        oGet18L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18LL := u, xGet18LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet18L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18LL := u, xGet18LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 270
         nObjLarg := 80
         nObjAltu := 20
-        oSay19L  := TSay():New(nObjLinh, nObjColu, {|| cSay19LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay19L  := TSay():New(nObjLinh, nObjColu, {|| cSay19LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7202,14 +7198,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 270
         nObjLarg := 50
         nObjAltu := 15
-        oGet19L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19LL := u, xGet19LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet19L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19LL := u, xGet19LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 330
         nObjLarg := 80
         nObjAltu := 20
-        oSay20L  := TSay():New(nObjLinh, nObjColu, {|| cSay20LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay20L  := TSay():New(nObjLinh, nObjColu, {|| cSay20LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay20L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7218,14 +7214,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 15
-        oGet20L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20LL := u, xGet20LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet20L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20LL := u, xGet20LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 390
         nObjLarg := 80
         nObjAltu := 20
-        oSay21L  := TSay():New(nObjLinh, nObjColu, {|| cSay21LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay21L  := TSay():New(nObjLinh, nObjColu, {|| cSay21LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay21L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7234,14 +7230,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 390
         nObjLarg := 50
         nObjAltu := 15
-        oGet21L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet21LL := u, xGet21LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet21L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet21LL := u, xGet21LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 450
         nObjLarg := 80
         nObjAltu := 20
-        oSay22L  := TSay():New(nObjLinh, nObjColu, {|| cSay22LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay22L  := TSay():New(nObjLinh, nObjColu, {|| cSay22LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay22L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7250,14 +7246,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 450
         nObjLarg := 50
         nObjAltu := 15
-        oGet22L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet22LL := u, xGet22LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet22L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet22LL := u, xGet22LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 510
         nObjLarg := 80
         nObjAltu := 20
-        oSay23L  := TSay():New(nObjLinh, nObjColu, {|| cSay23LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay23L  := TSay():New(nObjLinh, nObjColu, {|| cSay23LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay23L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7266,14 +7262,14 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 510
         nObjLarg := 50
         nObjAltu := 15
-        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo23LL},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||cCombo23LL},,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 20
-        oSay24L  := TSay():New(nObjLinh, nObjColu, {|| cSay24LL}, oDlgCadL,/*Picture*/,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay24L  := TSay():New(nObjLinh, nObjColu, {|| cSay24LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay24L:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -7282,7 +7278,7 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 15
-        oGet24L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet24LL := u, xGet24LL)} , oDlgCadL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet24L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet24LL := u, xGet24LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet24L:lActive := .F.
 
@@ -7721,7 +7717,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 25
         nObjLarg := 60
         nObjAltu := 15
-        oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgExcL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet2L:lActive := .F.
 
@@ -7739,7 +7735,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 100
         nObjLarg := 170
         nObjAltu := 15
-        oGet3L   := TGet():New(nObjLinh, nObjColu,{||XGet3LL} , oDlgExcL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet3L   := TGet():New(nObjLinh, nObjColu,{||XGet3LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet3L:lActive := .F.
 
@@ -7759,7 +7755,7 @@ Static function dialogExcL(aDadosExcL)
         nObjAltu := 15
         cNome := UsrRetName(cCod)
         xGet4LL := Alltrim(cNome)
-        oGet4L   := TGet():New(nObjLinh, nObjColu,{|| Alltrim(xGet4LL)} , oDlgExcL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/)
+        oGet4L   := TGet():New(nObjLinh, nObjColu,{|| Alltrim(xGet4LL)} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet4L:lActive := .F.
 
@@ -7778,7 +7774,7 @@ Static function dialogExcL(aDadosExcL)
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet5L := TGet():New(nObjLinh, nObjColu,{||xGet5LL} , oDlgExcL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,lHasButton)
+        oGet5L := TGet():New(nObjLinh, nObjColu,{||xGet5LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet5L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oGet5L:lActive := .F.
@@ -7797,7 +7793,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 465
         nObjLarg := 100
         nObjAltu := 15
-        oGet6L   := TGet():New(nObjLinh, nObjColu,{||xGet6LL} , oDlgExcL, nObjLarg, nObjAltu, /*cPict*/, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/,.T.)
+        oGet6L   := TGet():New(nObjLinh, nObjColu,{||xGet6LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
         
         oGet6L:lActive := .F.
 
@@ -7815,7 +7811,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 25
         nObjLarg := 100
         nObjAltu := 15
-        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo7LL},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo7LL},,,lDimPixels,oFontPadrao)
 
         oCombo7L:lActive := .F.
 
@@ -7833,7 +7829,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 140
         nObjLarg := 80
         nObjAltu := 15
-        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo8LL},/*bValid*/, /*nClrText*/, /*nClrBack*/,lDimPixels,oFontPadrao)
+        oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo8LL},,,lDimPixels,oFontPadrao)
 
         oCombo8L:lActive := .F.
 
@@ -7851,7 +7847,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 237
         nObjLarg := 80
         nObjAltu := 15
-        oGet9L  := TGet():New(nObjLinh, nObjColu,{|| xGet9LL} , oDlgExcL, nObjLarg, nObjAltu,, /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet9L  := TGet():New(nObjLinh, nObjColu,{|| xGet9LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet9L:lActive := .F.
 
@@ -7869,7 +7865,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 333
         nObjLarg := 80
         nObjAltu := 15
-        oGet10L   := TGet():New(nObjLinh, nObjColu,{|| xGet10LL} , oDlgExcL, nObjLarg, nObjAltu, , /*bValid*/, /*nClrFore*/, /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet10L   := TGet():New(nObjLinh, nObjColu,{|| xGet10LL} , oDlgExcL, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet10L:lActive := .F.
 
@@ -7887,7 +7883,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 435
         nObjLarg := 50
         nObjAltu := 15
-        oGet11L   := TGet():New(nObjLinh, nObjColu,{|| xGet11LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet11L   := TGet():New(nObjLinh, nObjColu,{|| xGet11LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet11L:lActive := .F.
 
@@ -7905,7 +7901,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 500
         nObjLarg := 80
         nObjAltu := 15
-        oGet12L   := TGet():New(nObjLinh, nObjColu,{|| xGet12LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet12L   := TGet():New(nObjLinh, nObjColu,{|| xGet12LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet12L:lActive := .F.
 
@@ -7923,7 +7919,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 595
         nObjLarg := 80
         nObjAltu := 15
-        oGet13L   := TGet():New(nObjLinh, nObjColu,{||xGet13LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet13L   := TGet():New(nObjLinh, nObjColu,{||xGet13LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet13L:lActive := .F.
 
@@ -7941,7 +7937,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 685
         nObjLarg := 50
         nObjAltu := 15
-        oGet14L   := TGet():New(nObjLinh, nObjColu,{|| xGet14LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet14L   := TGet():New(nObjLinh, nObjColu,{|| xGet14LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet14L:lActive := .F.
 
@@ -7959,7 +7955,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 25
         nObjLarg := 50
         nObjAltu := 15
-        oGet15L   := TGet():New(nObjLinh, nObjColu,{||xGet15LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet15L   := TGet():New(nObjLinh, nObjColu,{||xGet15LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet15L:lActive := .F.
 
@@ -7977,7 +7973,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 90
         nObjLarg := 50
         nObjAltu := 15
-        oGet16L   := TGet():New(nObjLinh, nObjColu,{||xGet16LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet16L   := TGet():New(nObjLinh, nObjColu,{||xGet16LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet16L:lActive := .F.
 
@@ -7995,7 +7991,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 150
         nObjLarg := 50
         nObjAltu := 15
-        oGet17L   := TGet():New(nObjLinh, nObjColu,{||xGet17LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet17L   := TGet():New(nObjLinh, nObjColu,{||xGet17LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet17L:lActive := .F.
 
@@ -8013,7 +8009,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 210
         nObjLarg := 50
         nObjAltu := 15
-        oGet18L   := TGet():New(nObjLinh, nObjColu,{||xGet18LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet18L   := TGet():New(nObjLinh, nObjColu,{||xGet18LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet18L:lActive := .F.
 
@@ -8031,7 +8027,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 270
         nObjLarg := 50
         nObjAltu := 15
-        oGet19L   := TGet():New(nObjLinh, nObjColu,{||xGet19LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet19L   := TGet():New(nObjLinh, nObjColu,{||xGet19LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet19L:lActive := .F.
 
@@ -8049,7 +8045,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 15
-        oGet20L   := TGet():New(nObjLinh, nObjColu,{|| xGet20LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet20L   := TGet():New(nObjLinh, nObjColu,{|| xGet20LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet20L:lActive := .F.
 
@@ -8067,7 +8063,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 390
         nObjLarg := 50
         nObjAltu := 15
-        oGet21L   := TGet():New(nObjLinh, nObjColu,{|| xGet21LL} , oDlgExcL, nObjLarg, nObjAltu, , , , /*nClrBack*/, oFontPadrao, , , lDimPixels, /*uParam15*/, /*uParam16*/, /*bWhen*/, /*uParam18*/, /*uParam19*/, /*bChange*/, /*lReadOnly*/, /*lPassword*/, /*uParam23*/, /*cReadVar*/, /*uParam25*/, /*uParam26*/, /*uParam27*/, .T.)
+        oGet21L   := TGet():New(nObjLinh, nObjColu,{|| xGet21LL} , oDlgExcL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
         
         oGet21L:lActive := .F.
 
