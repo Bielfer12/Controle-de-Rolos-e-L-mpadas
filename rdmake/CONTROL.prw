@@ -8209,7 +8209,7 @@ User function zConsImp()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqImp()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqImp()}, 028, 019,,,,lDimPixels,,,,,,)  
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -8423,7 +8423,7 @@ User function zConsEst()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqEst()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqEst()}, 028, 019,,,,lDimPixels,,,,,,)  
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -8626,7 +8626,7 @@ User function zConsRl()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqRl()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqRl()}, 028, 019,,,,lDimPixels,,,,,,)  
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -8828,7 +8828,7 @@ User function zConsLp()
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
 
-    oPesq  := TButton():New(003, (nJanLarg/2)-((nTamBtn*1)+06),'BLA', oDlgCE,{||fPesqLp()}, 075, 040,,,,lDimPixels,,,,,,)  
+    oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqLp()}, 028, 019,,,,lDimPixels,,,,,,)   
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
