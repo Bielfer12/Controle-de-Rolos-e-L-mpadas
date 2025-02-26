@@ -422,11 +422,11 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgCad, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1TT  := "CADASTRO DE IMPRESSORA - INCLUSÃO"
+        cSay1TT  := "CADASTRO DE ITEM - IMPRESSORA"
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -625,16 +625,14 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         cJanTitulo := 'Cadastro de Estação'
         oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
-        //Criação do Objetos 07
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgCad, , , lDimPixels)
 
-        // Criação objetos 01
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1TT := 'Cadastro de Item - ESTAÇÃO'
+        cSay1TT := 'CADASTRO DE ITEM - ESTAÇÃO'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -892,12 +890,12 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgCad, , , lDimPixels)
 
         // Criação objetos 01
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1TT  := 'Cadastro de Item - ROLOS'
+        cSay1TT  := 'CADASTRO DE ITEM - ROLOS'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -1234,12 +1232,12 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgCad, , , lDimPixels)
 
         // Criação objetos 01
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1TT  := 'Cadastro de Item - LÂMPADA'
+        cSay1TT  := 'CADASTRO DE ITEM - LÂMPADA'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -2269,7 +2267,7 @@ static Function dialogAlt(aDados)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 270 
+        nObjAltu := 63
         oGrp7A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgAlt, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
@@ -2394,12 +2392,11 @@ static Function dialogAlt(aDados)
 
         oGet6A:lActive := .F.
 
-        //Criação do Objetos 08
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 325  
-        oGrp8A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,, oDlgAlt, , , lDimPixels)
+        nObjAltu := 130
+        oGrp8A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Alteração', oDlgAlt, , , lDimPixels)
 
         oDlgAlt:Activate()
 
@@ -2418,9 +2415,11 @@ static Function dialogAlt(aDados)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgAlt, , , lDimPixels)
 
+        oFontPadrao  := TFont():New(cFont, , -20)
+        cSay1AA  := "ALTERAÇÃO DE ITEM - ROLOS"
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -2609,8 +2608,8 @@ static Function dialogAlt(aDados)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 270  
-        oGrp8A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,, oDlgAlt, , , lDimPixels)
+        nObjAltu := 0165
+        oGrp8A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Alteração', oDlgAlt, , , lDimPixels)
 
         oDlgAlt:Activate()
 
@@ -2631,12 +2630,12 @@ static Function dialogAlt(aDados)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgAlt, , , lDimPixels)
 
         // Criação objetos 01
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1TT  := 'Cadastro de Item - LAMPADAS'
+        cSay1AA  := 'Cadastro de Item - LAMPADAS'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -2658,8 +2657,8 @@ static Function dialogAlt(aDados)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
-        oGrp8A    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgAlt, , , lDimPixels)
+        nObjAltu := 0165 
+        oGrp8A    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Alteração' , oDlgAlt, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -3389,7 +3388,7 @@ static function dialogEXC(aDadosExc)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 270 
+        nObjAltu := 063
         oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
@@ -3520,8 +3519,8 @@ static function dialogEXC(aDadosExc)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 325  
-        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,, oDlgExc, , , lDimPixels)
+        nObjAltu := 0130  
+        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão', oDlgExc, , , lDimPixels)
 
         oDlgExc:Activate()
 
@@ -3539,7 +3538,7 @@ static function dialogEXC(aDadosExc)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 270 
+        nObjAltu := 063
         oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
@@ -3657,8 +3656,8 @@ static function dialogEXC(aDadosExc)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 325  
-        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,, oDlgExc, , , lDimPixels)
+        nObjAltu := 0165 
+        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão', oDlgExc, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -3750,12 +3749,6 @@ static function dialogEXC(aDadosExc)
 
         oGet13E:lActive := .F.
 
-        nObjLinh := 065
-        nObjColu := 002 
-        nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 270  
-        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,, oDlgExc, , , lDimPixels)
-
         oDlgExc:Activate()
 
 // -------------------------------------------------------------------------------
@@ -3772,7 +3765,7 @@ static function dialogEXC(aDadosExc)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 270 
+        nObjAltu := 063 
         oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
@@ -3892,8 +3885,8 @@ static function dialogEXC(aDadosExc)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 325  
-        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,, oDlgExc, , , lDimPixels)
+        nObjAltu := 0165
+        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão', oDlgExc, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
@@ -4291,19 +4284,19 @@ User function incMRl()
 
         nEscM := 5
 
-        cJanTitulo := 'MANUTENÇÃO DE ROLOS - CADASTRO'
+        cJanTitulo := 'MANUTENÇÃO DE ROLOS - INCLUSÃO'
         oDlgCadM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         //Criação do Objetos 07
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgCadM, , , lDimPixels)
 
         // Criação objetos 01
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1TT  := 'MANUTENÇÃO DE ROLOS - CADASTRO'
+        cSay1MM  := 'MANUTENÇÃO DE ROLOS - INCLUSÃO'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -4321,16 +4314,13 @@ User function incMRl()
         nObjLarg := 65
         nObjAltu := 20
         oBtn2M   := TButton():New(nObjLinh, nObjColu, cBtn2MM, oDlgCadM,{|| CadBtnM()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
-        // oBtn2T:SetCss("TButton {background-color: blue;  font:semi-bold; font-color:white;}")
-        
-        //Criação do Objetos 08
+
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
         nObjAltu := (nJanAltu / 2) - 002  
         oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgCadM, , , lDimPixels)
         
-        //Criação objetos 02
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 25 
@@ -4357,7 +4347,7 @@ User function incMRl()
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 100 
-        nObjLarg := 30
+        nObjLarg := 50
         nObjAltu := 20
         oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3M:SetCss(" TSay {Font: Semi-Bold}")
@@ -4371,7 +4361,6 @@ User function incMRl()
         oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3M:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet3M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
-
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -4845,15 +4834,14 @@ Local aArea := FWGetArea()
         cJanTitulo := 'MANUTENÇÃO DE ROLOS - ALTERAÇÃO'
         oDlgAltM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
-        //Criação do Objetos 07
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063 
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgAltM, , , lDimPixels)
 
-        // Criação objetos 01
         oFontPadrao  := TFont():New(cFont, , -20)
+        cSay1MM  := 'MANUTENÇÃO DE ROLOS - ALTERAÇÃO'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
@@ -4876,8 +4864,8 @@ Local aArea := FWGetArea()
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
-        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgAltM, , , lDimPixels)
+        nObjAltu := 0165
+        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Alteração' , oDlgAltM, , , lDimPixels)
         
         //Criação objetos 02
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -4901,7 +4889,7 @@ Local aArea := FWGetArea()
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 100 
-        nObjLarg := 30
+        nObjLarg := 50
         nObjAltu := 20
         oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3M:SetCss(" TSay {Font: Semi-Bold}")
@@ -5315,7 +5303,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExcM, , , lDimPixels)
 
         // Criação objetos 01
@@ -5342,8 +5330,8 @@ Static Function dialogExcM(aDadosExcM)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
-        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgExcM, , , lDimPixels)
+        nObjAltu := 0165  
+        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão' , oDlgExcM, , , lDimPixels)
         
         //Criação objetos 02
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -5367,7 +5355,7 @@ Static Function dialogExcM(aDadosExcM)
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
         nObjColu := 100 
-        nObjLarg := 30
+        nObjLarg := 50
         nObjAltu := 20
         oSay3M   := TSay():New(nObjLinh, nObjColu, {|| cSay3MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3M:SetCss(" TSay {Font: Semi-Bold}")
@@ -6031,22 +6019,22 @@ Local aArea := FWGetArea()
 
         Processa({|| MLPfCarAcols()}, "Processando")
 
-        cJanTitulo := 'MANUTENÇÃO DE LAMPADAS - CADASTRAMENTO'
+        cJanTitulo := 'MANUTENÇÃO DE LAMPADAS - INCLUSÃO'
         oDlgCadL := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063 
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgCadL, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1MM  := 'MANUTENÇÃO DE ROLOS - EXCLUSÃO'
+        cSay1LL  := 'MANUTENÇÃO DE LÂMPADAS - INCLUSÃO'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1L := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -6857,22 +6845,22 @@ Static function dialogAltL(aDadosAltL)
 
     nEscBD := 3
 
-        cJanTitulo := 'MANUTENÇÃO DE LAMPADAS - ALTERAÇÃO'
+        cJanTitulo := 'MANUTENÇÃO DE LÂMPADAS - ALTERAÇÃO'
         oDlgCadL := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgCadL, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1MM  := 'MANUTENÇÃO DE LAMPADAS - ALTERÇÃO'
+        cSay1LL  := 'MANUTENÇÃO DE LÂMPADAS - ALTERAÇÃO'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1L := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -6889,8 +6877,8 @@ Static function dialogAltL(aDadosAltL)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
-        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgCadL, , , lDimPixels)
+        nObjAltu := 0200
+        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Alteração' , oDlgCadL, , , lDimPixels)
         
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -7666,22 +7654,22 @@ Static function dialogExcL(aDadosExcL)
 
     Private oDlgExcL
 
-        cJanTitulo := 'MANUTENÇÃO DE LAMPADAS - EXCLUSÃO'
+        cJanTitulo := 'MANUTENÇÃO DE LÂMPADAS - EXCLUSÃO'
         oDlgExcL := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002 - 386 
+        nObjAltu := 063
         oGrp7 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExcL, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
-        cSay1MM  := 'MANUTENÇÃO DE LAMPADAS - EXCLUSÃO'
+        cSay1LL  := 'MANUTENÇÃO DE LÂMPADAS - EXCLUSÃO'
         nObjLinh := 25
         nObjColu := 25 
         nObjLarg := 250
         nObjAltu := 20
-        oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgExcL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+        oSay1L := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgExcL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
         nObjLinh := 20
         nObjColu := 750
@@ -7698,8 +7686,8 @@ Static function dialogExcL(aDadosExcL)
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
-        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgExcL, , , lDimPixels)
+        nObjAltu := 0200
+        oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão' , oDlgExcL, , , lDimPixels)
         
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -8116,7 +8104,7 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 15
-        oGet24L   := TGet():New(nObjLinh, nObjColu,{||xGet24LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao,,,,lDimPixels,,,,,,,,,,,,, .T.)
+        oGet24L   := TGet():New(nObjLinh, nObjColu,{||xGet24LL} , oDlgExcL, nObjLarg, nObjAltu,,,,,oFontPadrao,,,lDimPixels,,,,,,,,,,,,,, .T.)
 
         oGet24L:lActive := .F.
 
