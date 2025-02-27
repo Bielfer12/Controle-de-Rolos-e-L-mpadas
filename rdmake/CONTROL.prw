@@ -4343,14 +4343,18 @@ User function incMRl()
         nObjAltu := 20
         oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1M   := TButton():New(nObjLinh, nObjColu, cBtn1MM, oDlgCadM,{|| oDlgCadM:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2M   := TButton():New(nObjLinh, nObjColu, cBtn2MM, oDlgCadM,{|| CadBtnM()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -4888,14 +4892,18 @@ Local aArea := FWGetArea()
         nObjAltu := 20
         oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1M   := TButton():New(nObjLinh, nObjColu, cBtn1MM,oDlgAltM ,{|| oDlgAltM:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2M   := TButton():New(nObjLinh, nObjColu, cBtn2MM, oDlgAltM,{|| btnAltM()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -5355,14 +5363,18 @@ Static Function dialogExcM(aDadosExcM)
         nObjAltu := 20
         oSay1M := TSay():New(nObjLinh, nObjColu, {|| cSay1MM}, oDlgExcM,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1M   := TButton():New(nObjLinh, nObjColu, cBtn1MM,oDlgExcM ,{|| oDlgExcM:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2M   := TButton():New(nObjLinh, nObjColu, cBtn2MM, oDlgExcM,{|| excBtnM()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -6076,14 +6088,18 @@ Local aArea := FWGetArea()
         nObjAltu := 20
         oSay1L := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1L   := TButton():New(nObjLinh, nObjColu, cBtn1LL,oDlgCadL ,{|| oDlgCadL:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2L   := TButton():New(nObjLinh, nObjColu, cBtn2LL, oDlgCadL,{|| incBtnMLP()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -6902,14 +6918,18 @@ Static function dialogAltL(aDadosAltL)
         nObjAltu := 20
         oSay1L := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1L   := TButton():New(nObjLinh, nObjColu, cBtn1LL,oDlgCadL ,{|| oDlgCadL:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2L   := TButton():New(nObjLinh, nObjColu, cBtn2LL, oDlgCadL,{|| altbtnMLP()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -7711,14 +7731,18 @@ Static function dialogExcL(aDadosExcL)
         nObjAltu := 20
         oSay1L := TSay():New(nObjLinh, nObjColu, {|| cSay1LL}, oDlgExcL,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1L   := TButton():New(nObjLinh, nObjColu, cBtn1LL,oDlgExcL ,{|| oDlgExcL:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
-
-        ObjLinh  := 20
-        nObjColu := 830
+                
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2L   := TButton():New(nObjLinh, nObjColu, cBtn2LL, oDlgExcL,{|| excBtnMLP()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
