@@ -5787,7 +5787,7 @@ Local aArea := FWGetArea()
     Private xGet15LL     := Space(TamSX3('ZM2_TENS')[1])
 
     Private oSay16L
-    Private cSay16LL    := 'Horimetro (Horas)'
+    Private cSay16LL    := 'Horimetro'
     Private oGet16L
     Private xGet16LL     := Space(TamSX3('ZM2_HORIME')[1])
 
@@ -5797,22 +5797,22 @@ Local aArea := FWGetArea()
     Private xGet17LL     := Space(TamSX3('ZM2_START')[1])
 
     Private oSay18L
-    Private cSay18LL    := 'Corrente (A)'
+    Private cSay18LL    := 'Corrente'
     Private oGet18L
     Private xGet18LL     := Space(TamSX3('ZM2_CORR')[1])
 
     Private oSay19L
-    Private cSay19LL    := 'Temp. Trabalho(°C)'
+    Private cSay19LL    := 'Temp. Trabalho'
     Private oGet19L
     Private xGet19LL     := Space(TamSX3('ZM2_TEMPT')[1])
 
     Private oSay20L
-    Private cSay20LL    := 'Set Point (%)'
+    Private cSay20LL    := 'Set Point'
     Private oGet20L
     Private xGet20LL     := Space(TamSX3('ZM2_SETP')[1])
 
     Private oSay21L
-    Private cSay21LL    := 'Potencia (mWcm2)'
+    Private cSay21LL    := 'Potencia'
     Private oGet21L
     Private xGet21LL     := Space(TamSX3('ZM2_POT')[1])
     
@@ -6266,7 +6266,7 @@ Local aArea := FWGetArea()
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 120
-        nObjColu := 435
+        nObjColu := 430
         nObjLarg := 80
         nObjAltu := 20
         oSay11L   := TSay():New(nObjLinh, nObjColu, {|| cSay11LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -6274,7 +6274,7 @@ Local aArea := FWGetArea()
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 130
-        nObjColu := 435
+        nObjColu := 430
         nObjLarg := 50
         nObjAltu := 15
         oGet11L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11LL := u, xGet11LL)} , oDlgCadL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
