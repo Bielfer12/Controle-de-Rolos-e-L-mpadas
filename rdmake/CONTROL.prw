@@ -5128,7 +5128,7 @@ Static function btnAltM()
 
             DbSelectArea(cAlias)
 
-            if (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
+        if (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
             ELSEIF Empty(oGet3M:BUFFER) .OR. Empty(oGet4M:BUFFER) .OR. Empty(oGet6M:BUFFER) .OR. Empty(oGet7M:BUFFER) .OR. Empty(oGet8M:BUFFER) .OR. Empty(oGet9M:BUFFER) .OR. Empty(oGet12M:BUFFER)
                 Alert('HÁ CAMPOS SEM NADA ESCRITO!!')
@@ -7346,7 +7346,13 @@ Static function altbtnMLP()
 
             DbSelectArea(cAlias)
 
-            if (oGet2M:BUFFER == aDadosAltM[1][1]) .AND. (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
+            if (oGet3L:BUFFER == aDadosAltL[2][1]) .AND. (oGet5L:BUFFER == aDadosAltL[4][1]) .AND. (oGet6L:BUFFER == aDadosAltL[5][1]) ;
+            .AND. (oCombo7L:Nat == 0 .OR. oCombo7L:Nat == Val(aDadosAltL[7][1])) .AND. (oCombo8L:Nat == 0 .OR. oCombo8L:Nat == Val(aDadosAltL[9][1]));
+            .AND. (oGet9L:BUFFER == aDadosAltL[10][1]).AND.(oGet10L:BUFFER == aDadosAltL[11][1]) .AND. (oGet11L:BUFFER == aDadosAltL[12][1]) .AND. (oGet12L:BUFFER == aDadosAltL[13][1]) ;
+            .AND. (oGet13L:BUFFER ==aDadosAltL[14][1]).AND. (oGet14L:BUFFER == aDadosAltL[15][1]) .AND.(oGet15L:BUFFER == aDadosAltL[16][1]) .AND. (oGet16L:BUFFER == aDadosAltL[17][1]) ;
+            .AND. (oGet17L:BUFFER ==aDadosAltL[18][1]).AND. (oGet18L:BUFFER == aDadosAltL[19][1]) .AND.(oGet19L:BUFFER == aDadosAltL[20][1])  .AND.(oGet20L:BUFFER == aDadosAltL[21][1]);
+            .AND. (oGet21L:BUFFER ==aDadosAltL[22][1]) .AND.(oGet22L:BUFFER == aDadosAltL[23][1]) .AND.(oCombo23L:Nat == 0 .OR. oCombo23L:Nat == Val(aDadosAltL[25][1]));
+               
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
             elseIf Empty(oGet3L:BUFFER) .OR. Empty(oGet5L:BUFFER) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
           .OR. Empty(oGet11L:BUFFER) .OR. Empty(oGet12L:BUFFER)  .OR. Empty(oGet13L:BUFFER) .OR. Empty(oGet14L:BUFFER) .OR. Empty(oGet15L:BUFFER) ;
