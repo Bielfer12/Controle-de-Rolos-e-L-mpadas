@@ -7352,7 +7352,6 @@ Static function altbtnMLP()
             .AND. (oGet13L:BUFFER ==aDadosAltL[14][1]).AND. (oGet14L:BUFFER == aDadosAltL[15][1]) .AND.(oGet15L:BUFFER == aDadosAltL[16][1]) .AND. (oGet16L:BUFFER == aDadosAltL[17][1]) ;
             .AND. (oGet17L:BUFFER ==aDadosAltL[18][1]).AND. (oGet18L:BUFFER == aDadosAltL[19][1]) .AND.(oGet19L:BUFFER == aDadosAltL[20][1])  .AND.(oGet20L:BUFFER == aDadosAltL[21][1]);
             .AND. (oGet21L:BUFFER ==aDadosAltL[22][1]) .AND.(oGet22L:BUFFER == aDadosAltL[23][1]) .AND.(oCombo23L:Nat == 0 .OR. oCombo23L:Nat == Val(aDadosAltL[25][1]));
-               
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
             elseIf Empty(oGet3L:BUFFER) .OR. Empty(oGet5L:BUFFER) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
           .OR. Empty(oGet11L:BUFFER) .OR. Empty(oGet12L:BUFFER)  .OR. Empty(oGet13L:BUFFER) .OR. Empty(oGet14L:BUFFER) .OR. Empty(oGet15L:BUFFER) ;
