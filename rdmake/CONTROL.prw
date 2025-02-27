@@ -432,15 +432,19 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjLarg := 250
         nObjAltu := 20
         oSay1T   := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
-
-        nObjLinh := 20
-        nObjColu := 750
+        
+        if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+            nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+            nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1T   := TButton():New(nObjLinh, nObjColu, cBtn1TT, oDlgCad,{|| oDlgCad:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2T := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -639,14 +643,18 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjAltu := 20
         oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1T := TButton():New(nObjLinh, nObjColu, cBtn1TT, oDlgCad,{|| oDlgCad:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2T := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -902,14 +910,18 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjAltu := 20
         oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1T   := TButton():New(nObjLinh, nObjColu, cBtn1TT, oDlgCad,{|| oDlgCad:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2T   := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -1244,14 +1256,18 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
         nObjAltu := 20
         oSay1T := TSay():New(nObjLinh, nObjColu, {|| cSay1TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1T   := TButton():New(nObjLinh, nObjColu, cBtn1TT, oDlgCad,{|| oDlgCad:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2T   := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -2282,14 +2298,18 @@ static Function dialogAlt(aDados)
         nObjAltu := 20
         oSay1A   := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+        if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1A   := TButton():New(nObjLinh, nObjColu, cBtn1AA, oDlgAlt,{|| oDlgAlt:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2A := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{|| altBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -2426,14 +2446,18 @@ static Function dialogAlt(aDados)
         nObjAltu := 20
         oSay1A   := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1A   := TButton():New(nObjLinh, nObjColu, cBtn1AA, oDlgAlt,{|| oDlgAlt:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2A := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{|| altBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -2642,14 +2666,18 @@ static Function dialogAlt(aDados)
         nObjAltu := 20
         oSay1A := TSay():New(nObjLinh, nObjColu, {|| cSay1AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1A   := TButton():New(nObjLinh, nObjColu, cBtn1AA, oDlgAlt,{|| oDlgAlt:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2A   := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{|| altBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -3403,14 +3431,18 @@ static function dialogEXC(aDadosExc)
         nObjAltu := 20
         oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1E   := TButton():New(nObjLinh, nObjColu, cBtn1EE, oDlgExc,{|| oDlgExc:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{|| excBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -3548,15 +3580,19 @@ static function dialogEXC(aDadosExc)
         nObjLarg := 250
         nObjAltu := 20
         oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
-
-        nObjLinh := 20
-        nObjColu := 750
+		
+        if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1E   := TButton():New(nObjLinh, nObjColu, cBtn1EE, oDlgExc,{|| oDlgExc:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{|| excBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -3776,14 +3812,18 @@ static function dialogEXC(aDadosExc)
         nObjAltu := 20
         oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
 
-        nObjLinh := 20
-        nObjColu := 750
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0200
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0200
+        endif
         nObjLarg := 65
         nObjAltu := 20
         oBtn1E   := TButton():New(nObjLinh, nObjColu, cBtn1EE, oDlgExc,{|| oDlgExc:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
-        ObjLinh  := 20
-        nObjColu := 830
+        nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
         oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{|| excBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
@@ -8703,7 +8743,7 @@ static function fPopulaRl()
 
     elseIF lTF == .T.
         
-        cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_DESC LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -8905,7 +8945,7 @@ static function fPopulaLp()
 
     elseIF lTF == .T.
         
-        cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_DESC LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
