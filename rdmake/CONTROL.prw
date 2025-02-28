@@ -100,7 +100,7 @@ Static Function MenuDef()
         AADD(aRotina,    {"Alterar"                 , "U_altMLP"        , 0, 4})
         AADD(aRotina,    {"Excluir"                 , "U_excMLP"        , 0, 5})
     else      
-        AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
+        AADD(aRotina,    {"Visualizar"              , "U_RLLPVISU23()"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_RLLP23INC"     , 0, 3})
         AADD(aRotina,    {"Alterar"                 , "U_RLLP23ALT"     , 0, 4})
         AADD(aRotina,    {"Excluir"                 , "U_RLLP23EXC"     , 0, 5})
@@ -121,6 +121,963 @@ Static Function MenuDef()
         AADD(aRotina,    {"Legenda"                , "U_Legend"         , 0, 3})
     endif
 Return aRotina
+
+User Function RLLPVISU23()
+    Local aArea         := FWGetArea()
+    Local aFields       := {}
+    Local oTableTempExc 
+    Local cAliasTempExc := GetNextAlias()
+    Local cNameTableExc    := ''
+    Private aDadosExc      := {}
+
+    Private aCombo5EE   := {'S=SIM','N=NAO'}
+
+// -------------------------------------------------------------------------------
+// 
+//              VISUALIZAÇÃO DE IMPRESSORAS/ESTAÇÃO - GABRIEL
+// 
+// -------------------------------------------------------------------------------
+
+    If ZCA -> (ZCA_TIPO) == 'I' .OR. ZCA -> (ZCA_TIPO) ==  'E'
+    
+        oTableTempExc   := FWTemporaryTable():New(cAliasTempExc)
+
+        AADD(aFields,{'COD_ALL'    , "C", 6, 0})
+        AADD(aFields,{'COD_EXC'    , "C", 6, 0})
+        AADD(aFields,{'DESC_EXC'   , "C", 50, 0})
+        AADD(aFields,{'ATIVO_EXC'  , "C", 1, 0})
+        AADD(aFields,{'TIPO_EXC'   , "C", 1, 0})
+        AADD(aFields,{'DATA_EXC'   , "D", 8, 0})
+        AADD(aFields,{'ATIVO_NAT'  , "C", 1, 0})
+
+        oTableTempExc:SetFields(aFields)
+        oTableTempExc:AddIndex('1',{'COD_ALL','COD_EXC'})
+
+        oTableTempExc:Create()
+
+        cNameTableExc := oTableTempExc:GetRealName()
+
+        DbSelectArea('ZCA')
+
+            RecLock(cAliasTempAlt, .T.)
+                (cAliasTempExc) -> (COD_EXC)   := ZCA -> (ZCA_COD)
+                (cAliasTempExc) -> (DESC_EXC)  := ZCA -> (ZCA_DESC)
+                (cAliasTempExc) -> (TIPO_EXC)  := ZCA -> (ZCA_TIPO)
+                (cAliasTempExc) -> (ATIVO_EXC) := ZCA -> (ZCA_ATIVO)
+                (cAliasTempExc) -> (DATA_EXC)  := ZCA -> (ZCA_DATA)
+
+                if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
+                    (cAliasTempExc) -> (ATIVO_NAT)  := "1"
+                    aCombo5EE := {'S=SIM','N=NAO'}
+                elseif (cAliasTempExc) -> (ATIVO_EXC) == 'N'
+                    (cAliasTempExc) -> (ATIVO_NAT)  := "1"
+                    aCombo5EE := {'N=NAO','S=SIM'}
+                endif
+
+            (cAliasTempAlt) -> (MSUNLOCK())
+
+        
+        AADD(aDadosExc,{(cAliasTempExc) -> (COD_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (DESC_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (TIPO_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (ATIVO_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (DTOC(DATA_EXC))})
+        AADD(aDadosExc,{(cAliasTempExc) -> (ATIVO_NAT)})
+
+        oTableTempExc:Delete()
+
+        dialogVisu(aDadosExc)
+
+// -------------------------------------------------------------------------------
+// 
+//              VISUALIZAÇÃO DE ROLO - GABRIEL
+// 
+// -------------------------------------------------------------------------------
+
+    elseIf ZCA -> (ZCA_TIPO) == 'R' 
+    
+        oTableTempExc  := FWTemporaryTable():New(cAliasTempExc)
+
+        AADD(aFields,{'COD_ALL'    , "C", 6 , 0})
+        AADD(aFields,{'COD_EXC'    , "C", 6 , 0})
+        AADD(aFields,{'DESC_EXC'   , "C", 50, 0})
+        AADD(aFields,{'ATIVO_EXC'  , "C", 1 , 0})
+        AADD(aFields,{'TIPO_EXC'   , "C", 1 , 0})
+        AADD(aFields,{'DATA_EXC'   , "D", 8 , 0})
+        AADD(aFields,{'ATIVO_NAT'  , "C", 1 , 0})
+        AADD(aFields,{'NOMERL_EXC' , "C", 50, 0})
+        AADD(aFields,{'DIAMRL_EXC' , "C", 8 , 0})
+        AADD(aFields,{'COMPRL_EXC' , "C", 4 , 0})
+        AADD(aFields,{'MATRL_EXC'  , "C", 50, 0})
+        AADD(aFields,{'DURERL_EXC' , "C", 50, 0})
+
+        oTableTempExc:SetFields(aFields)
+        oTableTempExc:AddIndex('1',{'COD_ALL','COD_EXC'})
+
+        oTableTempExc:Create()
+
+        cNameTableExc := oTableTempExc:GetRealName()
+
+        DbSelectArea('ZCA')
+
+            RecLock(cAliasTempAlt, .T.)
+                (cAliasTempExc) -> (COD_EXC)   := ZCA -> (ZCA_COD)
+                (cAliasTempExc) -> (DESC_EXC)  := ZCA -> (ZCA_DESC)
+                (cAliasTempExc) -> (TIPO_EXC)  := ZCA -> (ZCA_TIPO)
+                (cAliasTempExc) -> (ATIVO_EXC) := ZCA -> (ZCA_ATIVO)
+                (cAliasTempExc) -> (DATA_EXC)  := ZCA -> (ZCA_DATA)
+
+                if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
+                    (cAliasTempExc) -> (ATIVO_NAT)  := "1"
+                    aCombo5EE := {'S=SIM','N=NAO'}
+                elseif (cAliasTempExc) -> (ATIVO_EXC) == 'N'
+                    (cAliasTempExc) -> (ATIVO_NAT)  := "1"
+                    aCombo5EE := {'N=NAO','S=SIM'}
+                endif
+                (cAliasTempExc) -> (NOMERL_EXC)  := ZCA -> (ZCA_NOMERL)
+                (cAliasTempExc) -> (DIAMRL_EXC)  := ZCA -> (ZCA_DIAMRL)
+                (cAliasTempExc) -> (COMPRL_EXC)  := ZCA -> (ZCA_COMPRL)
+                (cAliasTempExc) -> (MATRL_EXC)  := ZCA -> (ZCA_MATRL)
+                (cAliasTempExc) -> (DURERL_EXC)  := ZCA -> (ZCA_DURERL)
+
+            (cAliasTempExc) -> (MSUNLOCK())
+
+        
+        AADD(aDadosExc,{(cAliasTempExc) -> (COD_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (DESC_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (TIPO_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (ATIVO_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (DTOC(DATA_EXC))})
+        AADD(aDadosExc,{(cAliasTempExc) -> (ATIVO_NAT)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (NOMERL_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (DIAMRL_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (COMPRL_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (MATRL_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (DURERL_EXC)})
+
+        oTableTempExc:Delete()
+
+        dialogVisu(aDadosExc)
+
+// -------------------------------------------------------------------------------
+// 
+//              Visualização DE LAMPADAS - GABRIEL
+// 
+// -------------------------------------------------------------------------------
+
+     elseIf ZCA -> (ZCA_TIPO) == 'L' 
+    
+        oTableTempExc  := FWTemporaryTable():New(cAliasTempExc)
+
+        AADD(aFields,{'COD_ALL'    , "C", 6, 0})
+        AADD(aFields,{'COD_EXC'    , "C", 6, 0})
+        AADD(aFields,{'NOMELP_EXC', "C", 50, 0})
+        AADD(aFields,{'ATIVO_EXC'  , "C", 1, 0})
+        AADD(aFields,{'TIPO_EXC'   , "C", 1, 0})
+        AADD(aFields,{'DATA_EXC'   , "D", 8, 0})
+        AADD(aFields,{'ATIVO_NAT'  , "C", 1, 0})
+        AADD(aFields,{'IMPRES_EXC', "C", 8 , 0})
+        AADD(aFields,{'MODLP_EXC' , "C", 50 , 0})
+        AADD(aFields,{'TENS_EXC'  , "C", 6 , 0})
+        AADD(aFields,{'CORR_EXC'  , "C", 7 , 0})
+        AADD(aFields,{'POT_EXC'   , "C", 4 , 0})
+        AADD(aFields,{'MODREF_EXC', "C", 50, 0})
+
+        oTableTempExc:SetFields(aFields)
+        oTableTempExc:AddIndex('1',{'COD_ALL','COD_EXC'})
+
+        oTableTempExc:Create()
+
+        cNameTableExc := oTableTempExc:GetRealName()
+
+        DbSelectArea('ZCA')
+
+            RecLock(cAliasTempExc, .T.)
+                (cAliasTempExc) -> (COD_EXC)   := ZCA -> (ZCA_COD)
+                (cAliasTempExc) -> (NOMELP_EXC)  := ZCA -> (ZCA_NOMELP)
+                (cAliasTempExc) -> (TIPO_EXC)  := ZCA -> (ZCA_TIPO)
+                (cAliasTempExc) -> (ATIVO_EXC) := ZCA -> (ZCA_ATIVO)
+                (cAliasTempExc) -> (DATA_EXC)  := ZCA -> (ZCA_DATA)
+                if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
+                    (cAliasTempExc) -> (ATIVO_NAT)  := "1"
+                    aCombo5EE := {'S=SIM','N=NAO'}
+                elseif (cAliasTempExc) -> (ATIVO_EXC) == 'N'
+                    (cAliasTempExc) -> (ATIVO_NAT)  := "1"
+                    aCombo5EE := {'N=NAO','S=SIM'}
+                endif
+                (cAliasTempExc) -> (IMPRES_EXC)  := ZCA -> (ZCA_IMPLP)
+                (cAliasTempExc) -> (MODLP_EXC)   := ZCA -> (ZCA_MODLP)
+                (cAliasTempExc) -> (TENS_EXC)    := ZCA -> (ZCA_TENSLP)
+                (cAliasTempExc) -> (CORR_EXC)    := ZCA -> (ZCA_CORRLP)
+                (cAliasTempExc) -> (POT_EXC)     := ZCA -> (ZCA_POTLP)
+                (cAliasTempExc) -> (MODREF_EXC)  := ZCA -> (ZCA_MODREF)
+
+            (cAliasTempExc) -> (MSUNLOCK())
+
+        
+        AADD(aDadosExc,{(cAliasTempExc) -> (COD_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (NOMELP_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (TIPO_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (ATIVO_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (DTOC(DATA_EXC))})
+        AADD(aDadosExc,{(cAliasTempExc) -> (ATIVO_NAT)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (IMPRES_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (MODLP_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (TENS_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (CORR_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (POT_EXC)})
+        AADD(aDadosExc,{(cAliasTempExc) -> (MODREF_EXC)})
+
+        oTableTempExc:Delete()
+
+        dialogVisu(aDadosExc)
+
+    endif
+    FWRestArea(aArea)
+return
+
+static function dialogVisu(aDadosExc)
+
+Local aArea := FwGetArea()
+
+    Local aTamanho      := MsAdvSize()
+    Local nJanLarg      := aTamanho[5]
+    Local nJanAltu      := aTamanho[6] 
+    Local lDimPixels    := .T.
+    Local nPosTop       := 0
+    Local nPosLeft      := 0
+    Local cFont          := 'Tahoma'
+    Local oFontPadrao  
+    Local nObjLarg      := 0
+    Local nObjAltu      := 0
+    Local nObjColu      := 0
+    Local nObjLinh      := 0
+    Local cJanTitulo    := ''
+
+
+
+    Private oDlgExc
+
+    Private oSay1E
+    Private cSay1EE     := ""
+    Private oBtn1E
+    Private cBtn1EE     := 'FECHAR'
+
+    Private oSay2E
+    Private cSay2EE     := 'Código'
+    Private oGet2E
+    Private xGet2EE     
+
+    Private oSay3E
+    Private cSay3EE     := 'Descrição'
+    Private oGet3E
+    Private xGet3EE     
+
+    Private oSay4E
+    Private cSay4EE     := 'Tipo' 
+    Private cEscolha 
+    Private oGet4E
+    Private xGet4EE     
+
+    Private oSay5E
+    Private cSay5EE     := 'Ativo'
+    Private oCombo5E
+    Private cCombo5EEE 
+
+    Private oSay6E
+    Private cSay6EE     := 'Data'
+    Private oGet6E
+    Private xGet6EE     
+
+    Private oGrp7E
+    Private oGrp8E
+
+    Private oSay9E
+    Private cSay9EE     := 'Descrição'
+    Private oGet9E
+    Private xGet9EE     
+
+    Private oSay10E
+    Private cSay10EE    := 'Diametro Rolo'
+    Private oGet10E
+    Private xGet10EE   
+
+    Private oSay11E
+    Private cSay11EE    := 'Comp.Rolo'
+    Private oGet11E
+    Private xGet11EE   
+
+    Private oSay12E
+    Private cSay12EE    := 'Material Rolo'
+    Private oGet12E
+    Private xGet12EE   
+
+    Private oSay13E
+    Private cSay13EE    := 'Dureza Rolo'
+    Private oGet13E
+    Private xGet13EE  
+
+    Private oSay15E
+    Private cSay15EE    := 'Impressoras'
+    Private oGet15E
+    Private xGet15EE        
+
+    Private oSay16E
+    Private cSay16EE    := 'Modelo Lampada'
+    Private oGet16E
+    Private xGet16EE    
+
+    Private oSay17E
+    Private cSay17EE    := 'Tensão'
+    Private oGet17E
+    Private xGet17EE    
+
+    Private oSay18E
+    Private cSay18EE    := 'Corrente'
+    Private oGet18E
+    Private xGet18EE   
+
+    Private oSay19E
+    Private cSay19EE    := 'Potencia'
+    Private oGet19E
+    Private xGet19EE    
+
+    Private oSay20E
+    Private cSay20EE    := 'Modelo Refletor'
+    Private oGet20E
+    Private xGet20EE    
+
+
+// -------------------------------------------------------------------------------
+// 
+//              TELA DE EXCLUSÃO DE IMPRESSORAS/ESTAÇÃO - GABRIEL
+// 
+// -------------------------------------------------------------------------------
+
+    IF ZCA->(ZCA_TIPO) == 'I' .OR. ZCA->(ZCA_TIPO) == 'E'
+
+        If ZCA -> (ZCA_TIPO) == 'I'
+            cJanTitulo := "VISUALIZAÇÃO DE IMPRESSORA"
+        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+            cJanTitulo := "VISUALIZAÇÃO DE ESTAÇÃO"
+        ENDIF
+        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
+
+        nObjLinh := 002
+        nObjColu := 002 
+        nObjLarg := (nJanLarg / 2) 
+        nObjAltu := 063
+        oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
+
+        oFontPadrao  := TFont():New(cFont, , -20)
+        If ZCA -> (ZCA_TIPO) == 'I'
+            cSay1EE  := "VISUALIZAÇÃO DE IMPRESSORA"
+        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+            cSay1EE  := "VISUALIZAÇÃO DE ESTAÇÃO"
+        ENDIF
+        nObjLinh := 25
+        nObjColu := 25 
+        nObjLarg := 250
+        nObjAltu := 20
+        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0115
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0115
+        endif
+        nObjLarg := 65
+        nObjAltu := 20
+        oBtn1E   := TButton():New(nObjLinh, nObjColu, cBtn1EE, oDlgExc,{|| oDlgExc:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)         
+        
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 25 
+        nObjLarg := 25
+        nObjAltu := 10
+        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet2EE := aDadosExc[1][1]
+        nObjLinh := 90
+        nObjColu := 25
+        nObjLarg := 60
+        nObjAltu := 15
+        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet2E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 100 
+        nObjLarg := 80
+        nObjAltu := 20
+        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3E:SetCss(" TSay {Font: Semi-Bold}")
+
+        
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet3EE := aDadosExc[2][1]
+        If ZCA -> (ZCA_TIPO) == 'I'
+            cSay3EE  := "Descrição"
+        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+            cSay3EE  := "Nome Estação"
+        ENDIF
+        nObjLinh := 90
+        nObjColu := 100
+        nObjLarg := 170
+        nObjAltu := 15
+        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet3E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 285 
+        nObjLarg := 60
+        nObjAltu := 20
+        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet4EE := aDadosExc[3][1]
+        if ZCA->(ZCA_TIPO) == 'I'
+            cEscolha := 'I = IMPRESSORA'
+        elseif ZCA -> (ZCA_TIPO) == 'E'
+            cEscolha := 'E = ESTACAO'
+        endif
+        nObjLinh := 90
+        nObjColu := 285
+        nObjLarg := 80
+        nObjAltu := 15
+        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+    
+        oGet4E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 375 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        cCombo5EEE  := aDadosExc[4][1]
+        nObjLinh := 90
+        nObjColu := 375
+        nObjLarg := 80
+        nObjAltu := 24
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,,lDimPixels,oFontPadrao,,,,,,,,,)
+        
+        oCombo5E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 465 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet6EE  := aDadosExc[5][1]
+        nObjLinh := 90
+        nObjColu := 465
+        nObjLarg := 100
+        nObjAltu := 15
+        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet6E:lActive := .F.
+
+        nObjLinh := 065
+        nObjColu := 002 
+        nObjLarg := (nJanLarg / 2) 
+        nObjAltu := 0130  
+        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão', oDlgExc, , , lDimPixels)
+
+        oDlgExc:Activate()
+
+// -------------------------------------------------------------------------------
+// 
+//              TELA DE EXCLUSÃO DE ROLOS - GABRIEL
+// 
+// -------------------------------------------------------------------------------
+
+    elseif ZCA->(ZCA_TIPO) == 'R'
+
+   cJanTitulo := 'VISUALIZAÇÃO DE ROLOS'
+        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
+
+        nObjLinh := 002
+        nObjColu := 002 
+        nObjLarg := (nJanLarg / 2) 
+        nObjAltu := 063
+        oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
+
+        oFontPadrao  := TFont():New(cFont, , -20)
+            cSay1EE  := "VISUALIZAÇÃO DE ROLOS"
+        nObjLinh := 25
+        nObjColu := 25 
+        nObjLarg := 250
+        nObjAltu := 20
+        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+		
+        if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0115
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0115
+        endif
+        nObjLarg := 65
+        nObjAltu := 20
+        oBtn1E   := TButton():New(nObjLinh, nObjColu, cBtn1EE, oDlgExc,{|| oDlgExc:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)      
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 25 
+        nObjLarg := 25
+        nObjAltu := 10
+        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet2EE := aDadosExc[1][1]
+        nObjLinh := 90
+        nObjColu := 25
+        nObjLarg := 60
+        nObjAltu := 15
+        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet2E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        cSay3EE     := 'Nome Rolo'
+        nObjLinh := 80
+        nObjColu := 100 
+        nObjLarg := 80
+        nObjAltu := 20
+        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3E:SetCss(" TSay {Font: Semi-Bold}")
+        
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet3EE := aDadosExc[2][1]
+        nObjLinh := 90
+        nObjColu := 100
+        nObjLarg := 170
+        nObjAltu := 15
+        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet3E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 285 
+        nObjLarg := 60
+        nObjAltu := 20
+        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet4EE := aDadosExc[3][1]
+            cEscolha := 'R = ROLO'
+        nObjLinh := 90
+        nObjColu := 285
+        nObjLarg := 80
+        nObjAltu := 15
+        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+    
+        oGet4E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 375 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        cCombo5EEE  := aDadosExc[4][1]
+        nObjLinh := 90
+        nObjColu := 375
+        nObjLarg := 80
+        nObjAltu := 24
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,,lDimPixels,oFontPadrao,,,,,,,,,)
+        
+        oCombo5E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 465 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet6EE  := aDadosExc[5][1]
+        nObjLinh := 90
+        nObjColu := 465
+        nObjLarg := 100
+        nObjAltu := 15
+        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet6E:lActive := .F.
+
+        nObjLinh := 065
+        nObjColu := 002 
+        nObjLarg := (nJanLarg / 2) 
+        nObjAltu := 0165 
+        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão', oDlgExc, , , lDimPixels)
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 25 
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay9E   := TSay():New(nObjLinh, nObjColu, {|| cSay9EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay9E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet9EE := aDadosExc[7][1]
+        nObjLinh := 125
+        nObjColu := 25
+        nObjLarg := 165
+        nObjAltu := 15
+        oGet9E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9EE := u, xGet9EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet9E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 200 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay10E  := TSay():New(nObjLinh, nObjColu, {|| cSay10EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay10E:SetCss(" TSay {Font: Semi-Bold}")
+    
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet10EE := aDadosExc[8][1]
+        nObjLinh := 125
+        nObjColu := 200
+        nObjLarg := 30
+        nObjAltu := 15
+        oGet10E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet10EE := u, xGet10EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet10E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 253
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay11E   := TSay():New(nObjLinh, nObjColu, {|| cSay11EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay11E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet11EE := aDadosExc[9][1]
+        nObjLinh := 125
+        nObjColu := 253
+        nObjLarg := 50
+        nObjAltu := 15
+        oGet11E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet11EE := u, xGet11EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet11E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 310
+        nObjLarg := 80
+        nObjAltu := 20
+        oSay12E   := TSay():New(nObjLinh, nObjColu, {|| cSay12EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet12EE := aDadosExc[10][1]
+        nObjLinh := 125
+        nObjColu := 310
+        nObjLarg := 80
+        nObjAltu := 15
+        oGet12E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12EE := u, xGet12EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet12E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 400
+        nObjLarg := 80
+        nObjAltu := 20
+        oSay13E   := TSay():New(nObjLinh, nObjColu, {|| cSay13EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay13E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet13EE := aDadosExc[11][1]
+        nObjLinh := 125
+        nObjColu := 400
+        nObjLarg := 80
+        nObjAltu := 15
+        oGet13E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13EE := u, xGet13EE)} , oDlgExc, nObjLarg, nObjAltu, '@!',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet13E:lActive := .F.
+
+        oDlgExc:Activate()
+
+// -------------------------------------------------------------------------------
+// 
+//              TELA DE EXCLUSÃO DE LAMPADAS - GABRIEL
+// 
+// -------------------------------------------------------------------------------
+    Elseif ZCA->(ZCA_TIPO) ==  'L'
+
+    cJanTitulo := 'VISUALIZAÇÃO DE LÂMPADAS'
+        oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
+
+        //Criação do Objetos 07
+        nObjLinh := 002
+        nObjColu := 002 
+        nObjLarg := (nJanLarg / 2) 
+        nObjAltu := 063 
+        oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
+
+        oFontPadrao  := TFont():New(cFont, , -20)
+        cSay1EE  := "VISUALIZAÇÃO DE LÂMPADAS"
+        nObjLinh := 25
+        nObjColu := 25 
+        nObjLarg := 250
+        nObjAltu := 20
+        oSay1E   := TSay():New(nObjLinh, nObjColu, {|| cSay1EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLUE,,nObjLarg,nObjAltu) 
+
+		if aTamanho[6] > 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.476) 
+        nObjColu := (nJanLarg/2) - 0115
+        elseif aTamanho[6] < 600
+        nObjLinh := (nJanAltu / 2) - (nJanAltu * 0.465) 
+        nObjColu := (nJanLarg/2) - 0115
+        endif
+        nObjLarg := 65
+        nObjAltu := 20
+        oBtn1E   := TButton():New(nObjLinh, nObjColu, cBtn1EE, oDlgExc,{|| oDlgExc:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)      
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 25 
+        nObjLarg := 25
+        nObjAltu := 10
+        oSay2E   := TSay():New(nObjLinh, nObjColu, {|| cSay2EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay2E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet2EE := aDadosExc[1][1]
+
+        nObjLinh := 90
+        nObjColu := 25
+        nObjLarg := 60
+        nObjAltu := 15
+        oGet2E   := TGet():New(nObjLinh, nObjColu, {|| xGet2EE}, oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet2E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        cSay3EE  := 'Nome Lâmpada'
+        nObjLinh := 80
+        nObjColu := 100 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay3E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet3EE := aDadosExc[2][1]
+        nObjLinh := 90
+        nObjColu := 100
+        nObjLarg := 170
+        nObjAltu := 15
+        oGet3E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet3EE := u, xGet3EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet3E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 285 
+        nObjLarg := 60
+        nObjAltu := 20
+        oSay4E   := TSay():New(nObjLinh, nObjColu, {|| cSay4EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay4E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet4EE := aDadosExc[3][1]
+            cEscolha := 'R = ROLO'
+        nObjLinh := 90
+        nObjColu := 285
+        nObjLarg := 80
+        nObjAltu := 15
+        oGet4E   := TGet():New(nObjLinh, nObjColu,{|| cEscolha} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+    
+        oGet4E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 375 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay5E := TSay():New(nObjLinh, nObjColu, {|| cSay5EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay5E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        cCombo5AAA  := aDadosExc[4][1]
+        nObjLinh := 90
+        nObjColu := 375
+        nObjLarg := 80
+        nObjAltu := 24
+        oCombo5E := TComboBox():New(nObjLinh, nObjColu,, aCombo5EE, nObjLarg, nObjAltu,oDlgExc,,{||cCombo5EEE},,,,lDimPixels,oFontPadrao,,,,,,,,,)
+        
+        oCombo5E:lActive := .F.
+
+        // CRIAÇÃO DO OBJETO 6
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 80
+        nObjColu := 465 
+        nObjLarg := 30
+        nObjAltu := 20
+        oSay6E := TSay():New(nObjLinh, nObjColu, {|| cSay6EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay6E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet6EE  := aDadosExc[5][1]
+        nObjLinh := 90
+        nObjColu := 465
+        nObjLarg := 100
+        nObjAltu := 15
+        oGet6E := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6EE := u, xGet6EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet6E:lActive := .F.
+
+        nObjLinh := 065
+        nObjColu := 002 
+        nObjLarg := (nJanLarg / 2) 
+        nObjAltu := 0165
+        oGrp8E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Campos Exclusão', oDlgExc, , , lDimPixels)
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 25 
+        nObjLarg := 50
+        nObjAltu:= 20
+        oSay15E   := TSay():New(nObjLinh, nObjColu, {|| cSay15EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay15E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet15EE  := aDadosExc[7][1]
+        nObjLinh := 125
+        nObjColu := 25
+        nObjLarg := 110
+        nObjAltu := 15
+        oGet15E   := TGet():New(nObjLinh, nObjColu,{||xGet15EE} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
+
+        oGet15E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 140
+        nObjLarg := 80
+        nObjAltu := 20
+        oSay16E   := TSay():New(nObjLinh, nObjColu, {|| cSay16EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay16E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet16EE  := aDadosExc[8][1]
+        nObjLinh := 125
+        nObjColu := 140
+        nObjLarg := 90
+        nObjAltu := 15
+        oGet16E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16EE := u, xGet16EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet16E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 237
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay17E   := TSay():New(nObjLinh, nObjColu, {|| cSay17EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay17E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet17EE  := aDadosExc[9][1]
+        nObjLinh := 125
+        nObjColu := 237
+        nObjLarg := 30
+        nObjAltu := 15
+        oGet17E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17EE := u, xGet17EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet17E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 280
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay18E   := TSay():New(nObjLinh, nObjColu, {|| cSay18EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay18E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet18EE  := aDadosExc[10][1]
+        nObjLinh := 125
+        nObjColu := 280
+        nObjLarg := 30
+        nObjAltu := 15
+        oGet18E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18EE := u, xGet18EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet18E:lActive := .F.
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 330
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay19E   := TSay():New(nObjLinh, nObjColu, {|| cSay19EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay19E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet19EE  := aDadosExc[11][1]
+        nObjLinh := 125
+        nObjColu := 330
+        nObjLarg := 30
+        nObjAltu := 15
+        oGet19E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19EE := u, xGet19EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet19E:lActive := .F.
+
+         oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 370
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay20E   := TSay():New(nObjLinh, nObjColu, {|| cSay20EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay20E:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet20EE  := aDadosExc[12][1]
+        nObjLinh := 125
+        nObjColu := 370
+        nObjLarg := 80
+        nObjAltu := 15
+        oGet20E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20EE := u, xGet20EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
+        oGet20E:lActive := .F.
+
+        oDlgExc:Activate()
+        
+    ENDIF
+    FWRestArea(aArea)
+return 
+
+
 
 User Function RLLP23INC()
     Local aArea          := FWGetArea()
@@ -876,7 +1833,7 @@ User Function CadBtnTipo(cAlias,nReg,nOpc)
                        0,;
                       "AlwaysTrue()",;
                       "",;
-                      "N",;
+                      "C",;
                       ""})
 
         AADD(aHeader,{"Dureza Rolo",;
@@ -2883,6 +3840,7 @@ static Function dialogAlt(aDados)
    FWRestArea(aArea)
 Return
 
+
 static function altBtn()
 
     Local aArea := FWGetArea()
@@ -3409,8 +4367,13 @@ static function dialogEXC(aDadosExc)
 // -------------------------------------------------------------------------------
 
     IF ZCA->(ZCA_TIPO) == 'I' .OR. ZCA->(ZCA_TIPO) == 'E'
+    
 
-    cJanTitulo := 'EXCLUSÃO DE IMPRESSORA'
+        If ZCA -> (ZCA_TIPO) == 'I'
+            cJanTitulo := 'EXCLUSÃO DE IMPRESSORA'
+        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+            cJanTitulo := 'EXCLUSÃO DE ESTAÇÃO'
+        ENDIF
         oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
         nObjLinh := 002
@@ -4055,14 +5018,15 @@ static function excBtn()
         lEsc := MsgYesNo('Deseja remover mesmo?')
         if lEsc == .F.
             DisarmTransaction()
+            MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
         else
             MsgInfo('REGISTRO REMOVIDO!!')
+            oDlgExc:End()
         endif
         end Transaction
 
-        oDlgExc:End()
-
     FWRestArea(aArea)
+    
 return
 
 // ============================================================
@@ -4271,7 +5235,7 @@ User function incMRl()
                       ""})
         
         AADD(aHeaderM,{"Data Inscrição",;
-                      "ZCA_DATAIN",;
+                      "ZM1_DATAIN",;
                       "@!",;
                        8,;
                        0,;
@@ -4592,11 +5556,11 @@ static function cadBtnM()
 // 
 // -------------------------------------------------------------------------------
 
-        lEscolha := MsgYesNo('DESEJA CONFIRMAR O CADASTRO?','ATENÇÃO')
+        lEscolha := MsgYesNo('DESEJA CONFIRMAR O CADASTRO?','ATENÇÃO') 
     
         if lEscolha = .T.
 
-            if Empty(oGet2M:BUFFER) .OR. Empty(oGet3M:BUFFER) .OR. Empty(oGet4M:BUFFER) .OR. Empty(oGet6M:BUFFER) .OR. Empty(oGet7M:BUFFER)  .OR. Empty(oGet8M:BUFFER) .OR. Empty(oGet9M:BUFFER)  .OR. Empty(oGet12M:BUFFER) 
+            if Empty(oGet2M:BUFFER) .OR. Empty(oGet3M:BUFFER) .OR. Empty(oGet4M:BUFFER) .OR. Empty(oGet6M:BUFFER) .OR. Empty(oGet7M:BUFFER)  .OR. (Empty(oGet8M:BUFFER) .OR. (oGet8M:BUFFER == "  /  /    ")) .OR. Empty(oGet9M:BUFFER)  .OR. Empty(oGet12M:BUFFER) 
                 MSGALERT('HÁ ALGUM CAMPO SEM DIGITAÇÃO','ATENÇÃO')
             ELSEIF  IsAlpha(oGet12M:BUFFER)
                 MsgAlert('HÁ LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS','ATENÇÃO')
@@ -4635,11 +5599,9 @@ static function cadBtnM()
                 oGet2M:BUFFER := Space(TamSX3('ZM1_COD')[1])
                 oGet3M:BUFFER := Space(TamSX3('ZM1_IMPRES')[1])
                 oGet4M:BUFFER := Space(TamSX3('ZM1_EST')[1])
-                oGet5M:BUFFER := Space(TamSX3('ZM1_USU')[1]) 
                 oGet6M:BUFFER := Space(TamSX3('ZM1_ROLO')[1])
                 oGet7M:BUFFER := Space(TamSX3('ZM1_FAB')[1])
                 oGet9M:BUFFER := Space(TamSX3('ZM1_OBS')[1])
-                oGet10M:BUFFER:= Space(TamSX3('ZM1_DATACA')[1])
                 oCombo11M:Nat := 0
                 oGet12M:BUFFER := Space(TamSX3('ZM1_METRA')[1])
             ENDIF
@@ -5130,7 +6092,7 @@ Static function btnAltM()
 
         if (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
-            ELSEIF Empty(oGet3M:BUFFER) .OR. Empty(oGet4M:BUFFER) .OR. Empty(oGet6M:BUFFER) .OR. Empty(oGet7M:BUFFER) .OR. Empty(oGet8M:BUFFER) .OR. Empty(oGet9M:BUFFER) .OR. Empty(oGet12M:BUFFER)
+            ELSEIF Empty(oGet3M:BUFFER) .OR. Empty(oGet4M:BUFFER) .OR. Empty(oGet6M:BUFFER) .OR. Empty(oGet7M:BUFFER) .OR. (Empty(oGet8M:BUFFER) .OR. (oGet8M:BUFFER == "  /  /    "))  .OR. Empty(oGet9M:BUFFER) .OR. Empty(oGet12M:BUFFER)
                 Alert('HÁ CAMPOS SEM NADA ESCRITO!!')
             ELSEIF IsAlpha(oGet12M:BUFFER) 
                 Alert('HÁ LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS!!')
@@ -5605,12 +6567,12 @@ Static function excBtnM()
         lEsc := MsgYesNo('Deseja remover mesmo?')
         if lEsc == .F.
             DisarmTransaction()
+            MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
         else
             MsgInfo('REGISTRO REMOVIDO!!')
+            oDlgExcM:End()
         endif
         end Transaction
-
-        oDlgExcM:End()
 
     ZM1->(DbCloseArea())
 
@@ -6060,13 +7022,13 @@ Local aArea := FWGetArea()
                       "S=SIM;N=NÃO"})
 
         AADD(aHeaderL,{"Data Cad.",;
-                      "ZM2-DATAC",;
+                      "ZM2_DATAC",;
                       "",;
                        8,;
                        0,;
                       "AlwaysTrue()",;
                       "",;
-                      "C",;
+                      "D",;
                       ""})
 
         Processa({|| MLPfCarAcols()}, "Processando")
@@ -6516,7 +7478,7 @@ Static function incBtnMLP()
     
         if lEscolha = .T.
 
-            if Empty(oGet3L:BUFFER) .OR. Empty(oGet5L:BUFFER) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
+            if Empty(oGet3L:BUFFER) .OR. (Empty(oGet5L:BUFFER) .OR. (oGet5L:BUFFER == "  /  /    ")) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
           .OR. Empty(oGet11L:BUFFER) .OR. Empty(oGet12L:BUFFER)  .OR. Empty(oGet13L:BUFFER) .OR. Empty(oGet14L:BUFFER) .OR. Empty(oGet15L:BUFFER) ;
           .OR. Empty(oGet16L:BUFFER) .OR. Empty(oGet17L:BUFFER) .OR. Empty(oGet18L:BUFFER) .OR. Empty(oGet19L:BUFFER) .OR. Empty(oGet20L:BUFFER) ;
           .OR. Empty(oGet21L:BUFFER) .OR. Empty(oGet22L:BUFFER)
@@ -7353,7 +8315,7 @@ Static function altbtnMLP()
             .AND. (oGet17L:BUFFER ==aDadosAltL[18][1]).AND. (oGet18L:BUFFER == aDadosAltL[19][1]) .AND.(oGet19L:BUFFER == aDadosAltL[20][1])  .AND.(oGet20L:BUFFER == aDadosAltL[21][1]);
             .AND. (oGet21L:BUFFER ==aDadosAltL[22][1]) .AND.(oGet22L:BUFFER == aDadosAltL[23][1]) .AND.(oCombo23L:Nat == 0 .OR. oCombo23L:Nat == Val(aDadosAltL[25][1]))
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
-            elseIf Empty(oGet3L:BUFFER) .OR. Empty(oGet5L:BUFFER) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
+            elseIf Empty(oGet3L:BUFFER) .OR. (Empty(oGet5L:BUFFER) .OR. (oGet5L:BUFFER == "  /  /    ")) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
           .OR. Empty(oGet11L:BUFFER) .OR. Empty(oGet12L:BUFFER)  .OR. Empty(oGet13L:BUFFER) .OR. Empty(oGet14L:BUFFER) .OR. Empty(oGet15L:BUFFER) ;
           .OR. Empty(oGet16L:BUFFER) .OR. Empty(oGet17L:BUFFER) .OR. Empty(oGet18L:BUFFER) .OR. Empty(oGet19L:BUFFER) .OR. Empty(oGet20L:BUFFER) ;
           .OR. Empty(oGet21L:BUFFER) .OR. Empty(oGet22L:BUFFER)
@@ -8196,13 +9158,13 @@ Static function excBtnMLP()
             lEsc := MsgYesNo('Deseja remover mesmo?')
         if lEsc == .F.
             DisarmTransaction()
+            MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
         else
             MsgInfo('REGISTRO REMOVIDO!!')
+            oDlgExcL:End()
         ENDIF
         ZM2 -> (MsUnlock())  
         end Transaction
-
-        oDlgExcL:End()
 
     ZM2->(DbCloseArea())
 
@@ -8270,13 +9232,13 @@ User function zConsImp()
                   "C",;
                   ""})
 
-    //Cria os objetos
     nJanTitulo := 'CONSULTA DE ITENS '
     oDlgCE := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
     oGrp1  := TGroup():New(003, 003, 025, (nJanLarg/2)-30,'PESQUISAR', oDlgCE,,, lDimPixels)
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
+    oGetP:cPlaceHold := 'Insira o Nome de descrição da Impressora..'
 
     oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqImp()}, 028, 019,,,,lDimPixels,,,,,,)  
 
@@ -8491,6 +9453,7 @@ User function zConsEst()
     oGrp1  := TGroup():New(003, 003, 025, (nJanLarg/2)-30,'PESQUISAR', oDlgCE,,, lDimPixels)
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
+    oGetP:cPlaceHold := 'Insira o Nome da Estação...'
 
     oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqEst()}, 028, 019,,,,lDimPixels,,,,,,)  
 
@@ -8694,6 +9657,7 @@ User function zConsRl()
     oGrp1  := TGroup():New(003, 003, 025, (nJanLarg/2)-30,'PESQUISAR', oDlgCE,,, lDimPixels)
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
+    oGetP:cPlaceHold := 'Insira o Nome do Rolo...'
 
     oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqRl()}, 028, 019,,,,lDimPixels,,,,,,)  
 
@@ -8865,6 +9829,7 @@ User function zConsLp()
     Private oClr
     Private oCanc
 
+
     Private oDlgCE
 
     Private lTF := .F.
@@ -8896,8 +9861,9 @@ User function zConsLp()
     oGrp1  := TGroup():New(003, 003, 025, (nJanLarg/2)-30,'PESQUISAR', oDlgCE,,, lDimPixels)
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
+    oGetP:cPlaceHold := 'Insira o Nome da Lãmpada...'
 
-    oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqLp()}, 028, 019,,,,lDimPixels,,,,,,)   
+    oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqLp()}, 028, 019,,,,lDimPixels,,,,,,) 
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
@@ -9195,8 +10161,10 @@ Static Function geraExcell(aDados)
         IF SELECT('ZM1') > 0
 
             cAba   := "Manuteçaõd e Rolos"
-            cTabela    := "Manutenção de Rolos"
-            cArquivo   := "Manutenção-Rolos_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"  
+            cTabela    := "Manutenção de Rolos Periodo"
+
+            ctime := Time()
+            cArquivo   := "Manutenção-Rolos_Periodo" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + 'AS' +StrTran(cTime,':','-') +".xls"  
 
             if !ApOleClient("MSExcel") 
                 MsAlert("Microsoft excel não esta instalado")
@@ -9204,7 +10172,6 @@ Static Function geraExcell(aDados)
             endif   
             oExcel:AddWorkSheet(cAba)
             oExcel:AddTable(cAba,cTabela)   
-            //Adicionando as colunas
             oExcel:AddColumn(cAba,cTabela,"Codigo"         ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Impressora"     ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Estação"        ,1,1,.F.)
@@ -9244,9 +10211,10 @@ Static Function geraExcell(aDados)
 
         ELSEIF SELECT('ZM2') > 0 
 
-            cAba   := "Manuteçaõ de Lampadas"
-            cTabela    := "Manutenção de Lampadas"
-            cArquivo   := "Manutenção-Lampadas_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"
+            cAba   := "Manuteçaõ de Lampadas Periodo"
+            cTabela    := "Manutenção de Lampadas Periodo"
+            ctime := Time()
+            cArquivo   := "Manutenção-Lampadas_Periodo" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + 'AS' +StrTran(cTime,':','-') +".xls"
 
             if !ApOleClient("MSExcel") 
                 MsAlert("Microsoft excel não esta instalado")
@@ -9501,9 +10469,10 @@ Static Function R2geraExcell(aDados)
 
         IF SELECT('ZM1') > 0
 
-            cAba   := "Manuteção e Rolos"
-            cTabela    := "Manutenção de Rolos"
-            cArquivo   := "Manutenção-Rolos_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"  
+            cAba   := "Manuteção e Rolos Imp-Est-Rl"
+            cTabela    := "Manutenção de Rolos Imp-Est-Rl"
+            cTime := Time()
+            cArquivo   := "Manutenção-Rolos_Imp-Est-Rl" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + 'AS' +StrTran(cTime,':','-') +".xls"  
 
             if !ApOleClient("MSExcel")
                 MsAlert("Microsoft excel não esta instalado")
@@ -9551,9 +10520,10 @@ Static Function R2geraExcell(aDados)
 
         ELSEIF SELECT('ZM2') > 0 
 
-            cAba   := "Manuteção de Lampadas"
-            cTabela    := "Manutenção de Lampadas"
-            cArquivo   := "Manutenção-Lampadas_" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + ".xls"
+            cAba   := "Manuteção de Lampadas Imp-Lp"
+            cTabela    := "Manutenção de Lampadas Imp-Lp"
+            cTime := Time()
+            cArquivo   := "Manutenção-Lampadas_Imp-Lp" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + 'AS' +StrTran(cTime,':','-') + ".xls"
 
             if !ApOleClient("MSExcel") 
                 MsAlert("Microsoft excel não esta instalado")
@@ -9792,7 +10762,7 @@ Static Function proqR3()
 
     (cAlias)->(DbCloseArea())
 
-    R2geraExcell(aDados)
+    R3geraExcell(aDados)
     endif
 
     FwRestArea(aArea)
@@ -9835,3 +10805,71 @@ Static function getParamR3()
         
     endif
 return
+
+Static Function R3geraExcell(aDados)
+
+    Local aArea        := FwGetArea()
+    Local oExcel     := FWMSExcel():New()
+    Local oExcelApp  := Nil
+    Local cAba       := ""
+    Local cTabela    := ""
+    Local cArquivo   := ""
+    Local cPath      := "C:\Windows\Temp\"
+    Local cDefPath   := GetSrvProfString("StartPath","\system\")
+    Local i
+
+    If len(aDados) > 0 
+
+            cAba   := "Manuteção e Rolos Resumo(Imp)"
+            cTabela    := "Manutenção de Rolos Resumo(Imp)"
+            cTime := Time()
+            cArquivo   := "Manutenção-Rolos_Resumo(Imp)" + StrTran(cData1,'/','-') + "_A_" + StrTran(cData2,'/','-') + 'AS' +StrTran(cTime,':','-') +".xls"  
+
+            if !ApOleClient("MSExcel")
+                MsAlert("Microsoft excel não esta instalado")
+                return
+            endif   
+            oExcel:AddWorkSheet(cAba)
+            oExcel:AddTable(cAba,cTabela)   
+            //Adicionando as colunas
+            oExcel:AddColumn(cAba,cTabela,"Codigo"         ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Impressora"     ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Estação"        ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Usuario"        ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Rolo"           ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Fabricação"     ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Data Instalação",1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Observação"     ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Data Cadastro"  ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Ativo"          ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Metragem"       ,1,1,.F.)    
+            for i := 1 to len(aDados)   
+                oExcel:AddRow(cAba,;
+                              cTabela,;
+                                 {aDados[i][1],;
+                                  aDados[i][2],;
+                                  aDados[i][3],;
+                                  aDados[i][4],;
+                                  aDados[i][5],;
+                                  aDados[i][6],;
+                                  aDados[i][7],;
+                                  aDados[i][8],;
+                                  aDados[i][9],;
+                                  aDados[i][10],;
+                                  aDados[i][11]})   
+            next i      
+            if !Empty(oExcel:aWorkSheet)    
+                oExcel:Activate()
+                oExcel:GetXMLFile(cArquivo) 
+                cRecive := cPyS2T(cDefPath+cArquivo,cPath)  
+                oExcelApp := MsExcel():New()
+                oExcelApp:WorkBooks:Open(cPath+cArquivo)
+                oExcelApp:SetVisible(.T.)
+                oExcelApp:Destroy()
+                MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
+            endif
+   else
+        Msgalert("Não há nenhum cadastro para puxar no relatorio","ATENÇÃO")
+    endif
+    RestArea(aArea)
+return 
