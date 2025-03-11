@@ -56,7 +56,7 @@ User Function CLRLLP23()
     oGrp1:SetCSS("TGroup {Font: bold;}")
 
     nObjLinh := 012
-    nObjColu := 50
+    nObjColu := 045
     nObjLarg := 100
     nObjAltu := 10
     oSay2 := TSay():New(nObjLinh, nObjColu, {|| cSay2T}, oDlg,,oFontPadrao,,,,lDimpixels,,,nObjLarg,nObjAltu)    
@@ -155,7 +155,7 @@ Static Function MenuDef()
         AADD(aRotina,    {"Relatorios"              , aSubRela          , 0, 3})
         AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
 
-        AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"       , 0, 3})
+        AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
         AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
         AADD(aSubMenu,   {"Rolos"                   ,"U_ROLOS() "       , 0, 3})
         AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
@@ -173,7 +173,7 @@ Static Function MenuDef()
         AADD(aRotina,    {"Relatorios"              , aSubRela          , 0, 3})
         AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
 
-        AADD(aSubMenu,   {"Impressora"              ,"U_IMPRES()"       , 0, 3})
+        AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
         AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
         AADD(aSubMenu,   {"Rolos"                   ,"U_ROLOS() "       , 0, 3})
         AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
@@ -188,7 +188,7 @@ Static Function MenuDef()
 
 Return aRotina
 
-User Function RLLPVISU23()
+User Function RLLPVISU23() 
     Local aArea         := FWGetArea()
     Local aFields       := {}
     Local oTableTempExc 
@@ -205,7 +205,7 @@ User Function RLLPVISU23()
 // 
 // -------------------------------------------------------------------------------
 
-    If ZCA -> (ZCA_TIPO) == 'I' .OR. ZCA -> (ZCA_TIPO) ==  'E'
+    If cTipo == 'I' .OR. cTipo ==  'E'
     
         oTableTempExc   := FWTemporaryTable():New(cAliasTempExc)
 
@@ -229,11 +229,11 @@ User Function RLLPVISU23()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempExc) -> (COD_EXC)   := ZCA -> (ZCA_COD)
-                (cAliasTempExc) -> (DESC_EXC)  := ZCA -> (ZCA_DESC)
-                (cAliasTempExc) -> (TIPO_EXC)  := ZCA -> (ZCA_TIPO)
-                (cAliasTempExc) -> (ATIVO_EXC) := ZCA -> (ZCA_ATIVO)
-                (cAliasTempExc) -> (DATA_EXC)  := ZCA -> (ZCA_DATA)
+                (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCA:Nat][1]) 
+                (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCA:Nat][2]) 
+                (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCA:Nat][3]) 
+                (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCA:Nat][4]) 
+                (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -263,7 +263,7 @@ User Function RLLPVISU23()
 // 
 // -------------------------------------------------------------------------------
 
-    elseIf ZCA -> (ZCA_TIPO) == 'R' 
+    elseIf cTipo == 'R' 
     
         oTableTempExc  := FWTemporaryTable():New(cAliasTempExc)
 
@@ -292,11 +292,11 @@ User Function RLLPVISU23()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempExc) -> (COD_EXC)   := ZCA -> (ZCA_COD)
-                (cAliasTempExc) -> (DESC_EXC)  := ZCA -> (ZCA_DESC)
-                (cAliasTempExc) -> (TIPO_EXC)  := ZCA -> (ZCA_TIPO)
-                (cAliasTempExc) -> (ATIVO_EXC) := ZCA -> (ZCA_ATIVO)
-                (cAliasTempExc) -> (DATA_EXC)  := ZCA -> (ZCA_DATA)
+                (cAliasTempExc) -> (COD_EXC)     := (aColsAux[oMsGetZCA:Nat][1]) 
+                (cAliasTempExc) -> (DESC_EXC)    := (aColsAux[oMsGetZCA:Nat][2]) 
+                (cAliasTempExc) -> (TIPO_EXC)    := (aColsAux[oMsGetZCA:Nat][3]) 
+                (cAliasTempExc) -> (ATIVO_EXC)   := (aColsAux[oMsGetZCA:Nat][4]) 
+                (cAliasTempExc) -> (DATA_EXC)    := Stod(aColsAux[oMsGetZCA:Nat][5]) 
 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -305,11 +305,12 @@ User Function RLLPVISU23()
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                     aCombo5EE := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempExc) -> (NOMERL_EXC)  := ZCA -> (ZCA_NOMERL)
-                (cAliasTempExc) -> (DIAMRL_EXC)  := ZCA -> (ZCA_DIAMRL)
-                (cAliasTempExc) -> (COMPRL_EXC)  := ZCA -> (ZCA_COMPRL)
-                (cAliasTempExc) -> (MATRL_EXC)  := ZCA -> (ZCA_MATRL)
-                (cAliasTempExc) -> (DURERL_EXC)  := ZCA -> (ZCA_DURERL)
+
+                (cAliasTempExc) -> (NOMERL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][6]) 
+                (cAliasTempExc) -> (DIAMRL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][7]) 
+                (cAliasTempExc) -> (COMPRL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][8]) 
+                (cAliasTempExc) -> (MATRL_EXC)   :=  (aColsAux[oMsGetZCA:Nat][9]) 
+                (cAliasTempExc) -> (DURERL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][10]) 
 
             (cAliasTempExc) -> (MSUNLOCK())
 
@@ -336,7 +337,7 @@ User Function RLLPVISU23()
 // 
 // -------------------------------------------------------------------------------
 
-     elseIf ZCA -> (ZCA_TIPO) == 'L' 
+     elseIf cTipo == 'L' 
     
         oTableTempExc  := FWTemporaryTable():New(cAliasTempExc)
 
@@ -366,11 +367,11 @@ User Function RLLPVISU23()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempExc, .T.)
-                (cAliasTempExc) -> (COD_EXC)   := ZCA -> (ZCA_COD)
-                (cAliasTempExc) -> (NOMELP_EXC)  := ZCA -> (ZCA_NOMELP)
-                (cAliasTempExc) -> (TIPO_EXC)  := ZCA -> (ZCA_TIPO)
-                (cAliasTempExc) -> (ATIVO_EXC) := ZCA -> (ZCA_ATIVO)
-                (cAliasTempExc) -> (DATA_EXC)  := ZCA -> (ZCA_DATA)
+                (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCA:Nat][1]) 
+                (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZCA:Nat][2]) 
+                (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCA:Nat][3]) 
+                (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCA:Nat][4]) 
+                (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                     aCombo5EE := {'S=SIM','N=NAO'}
@@ -378,12 +379,12 @@ User Function RLLPVISU23()
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                     aCombo5EE := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempExc) -> (IMPRES_EXC)  := ZCA -> (ZCA_IMPLP)
-                (cAliasTempExc) -> (MODLP_EXC)   := ZCA -> (ZCA_MODLP)
-                (cAliasTempExc) -> (TENS_EXC)    := ZCA -> (ZCA_TENSLP)
-                (cAliasTempExc) -> (CORR_EXC)    := ZCA -> (ZCA_CORRLP)
-                (cAliasTempExc) -> (POT_EXC)     := ZCA -> (ZCA_POTLP)
-                (cAliasTempExc) -> (MODREF_EXC)  := ZCA -> (ZCA_MODREF)
+                (cAliasTempExc) -> (IMPRES_EXC)  := (aColsAux[oMsGetZCA:Nat][6]) 
+                (cAliasTempExc) -> (MODLP_EXC)   := (aColsAux[oMsGetZCA:Nat][7]) 
+                (cAliasTempExc) -> (TENS_EXC)    := (aColsAux[oMsGetZCA:Nat][8]) 
+                (cAliasTempExc) -> (CORR_EXC)    := (aColsAux[oMsGetZCA:Nat][9]) 
+                (cAliasTempExc) -> (POT_EXC)     := (aColsAux[oMsGetZCA:Nat][10]) 
+                (cAliasTempExc) -> (MODREF_EXC)  := (aColsAux[oMsGetZCA:Nat][11]) 
 
             (cAliasTempExc) -> (MSUNLOCK())
 
@@ -525,11 +526,11 @@ Local aArea := FwGetArea()
 // 
 // -------------------------------------------------------------------------------
 
-    IF ZCA->(ZCA_TIPO) == 'I' .OR. ZCA->(ZCA_TIPO) == 'E'
+    IF cTipo == 'I' .OR. cTipo == 'E'
 
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cJanTitulo := "VISUALIZAÇÃO DE IMPRESSORA"
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF  cTipo ==  'E'
             cJanTitulo := "VISUALIZAÇÃO DE ESTAÇÃO"
         ENDIF
         oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
@@ -541,9 +542,9 @@ Local aArea := FwGetArea()
         oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cSay1EE  := "VISUALIZAÇÃO DE IMPRESSORA"
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF  cTipo ==  'E'
             cSay1EE  := "VISUALIZAÇÃO DE ESTAÇÃO"
         ENDIF
         nObjLinh := 25
@@ -678,7 +679,7 @@ Local aArea := FwGetArea()
 // 
 // -------------------------------------------------------------------------------
 
-    elseif ZCA->(ZCA_TIPO) == 'R'
+    elseif cTipo == 'R'
 
    cJanTitulo := 'VISUALIZAÇÃO DE ROLOS'
         oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
@@ -755,7 +756,7 @@ Local aArea := FwGetArea()
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet4EE := aDadosExc[3][1]
-            cEscolha := 'R = ROLO'
+        cEscolha := 'R = ROLO'
         nObjLinh := 90
         nObjColu := 285
         nObjLarg := 80
@@ -903,7 +904,7 @@ Local aArea := FwGetArea()
 //              TELA DE EXCLUSÃO DE LAMPADAS - GABRIEL
 // 
 // -------------------------------------------------------------------------------
-    Elseif ZCA->(ZCA_TIPO) ==  'L'
+    Elseif cTipo ==  'L'
 
     cJanTitulo := 'VISUALIZAÇÃO DE LÂMPADAS'
         oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
@@ -3829,7 +3830,7 @@ User Function RLLP23ALT()
 
             RecLock(cAliasTempAlt, .T.)
                 (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCA:Nat][2]) 
+                (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCA:Nat][6]) 
                 (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCA:Nat][3]) 
                 (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCA:Nat][4]) 
                 (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
@@ -3840,7 +3841,7 @@ User Function RLLP23ALT()
                     (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                     aCombo5AA := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZCA:Nat][6]) 
+                (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZCA:Nat][2])
                 (cAliasTempAlt) -> (DIAMRL_ALT)  := (aColsAux[oMsGetZCA:Nat][7]) 
                 (cAliasTempAlt) -> (COMPRL_ALT)  := (aColsAux[oMsGetZCA:Nat][8]) 
                 (cAliasTempAlt) -> (MATRL_ALT)   := (aColsAux[oMsGetZCA:Nat][9]) 
@@ -3850,12 +3851,12 @@ User Function RLLP23ALT()
 
 
         AADD(aDados,{(cAliasTempAlt) -> (COD_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (DESC_ALT)})
+        AADD(aDados,{(cAliasTempAlt) -> (NOMERL_ALT)})
         AADD(aDados,{(cAliasTempAlt) -> (TIPO_ALT)})
         AADD(aDados,{(cAliasTempAlt) -> (ATIVO_ALT)})
         AADD(aDados,{(cAliasTempAlt) -> (DTOC(DATA_ALT))})
         AADD(aDados,{(cAliasTempAlt) -> (Alltrim(ATIVO_NAT))})
-        AADD(aDados,{(cAliasTempAlt) -> (NOMERL_ALT)})
+        AADD(aDados,{(cAliasTempAlt) -> (DESC_ALT)})
         AADD(aDados,{(cAliasTempAlt) -> (DIAMRL_ALT)})
         AADD(aDados,{(cAliasTempAlt) -> (COMPRL_ALT)})
         AADD(aDados,{(cAliasTempAlt) -> (MATRL_ALT)})
@@ -4282,7 +4283,7 @@ static Function dialogAlt(aDados)
         oSay3A:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet3AA := aDados[7][1]
+        xGet3AA := aDados[2][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -4350,7 +4351,7 @@ static Function dialogAlt(aDados)
         oSay9T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet9AA := aDados[2][1]
+        xGet9AA := aDados[7][1]
         nObjLinh := 125
         nObjColu := 25
         nObjLarg := 165
@@ -10239,6 +10240,8 @@ Static Function fConfImp()
         oDlgCE:End()
     ELSE
         MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
+        oDlgCE:end()
+        U_zConsEst()
     ENDIF
     FwRestArea(aArea)
 
@@ -10353,60 +10356,61 @@ static function fPopulaEst()
 
     if lTF == .F.
 
-    cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+            TCQUERY cQry New Alias "QRY_ZCA"
 
-        nTam := Len(aColsAux)
+            nTam := Len(aColsAux)
 
-        aSize(aColsAux, - nTam)
+            aSize(aColsAux, - nTam)
 
-        Count To nTotal
-        ProcRegua(nTotal)
+            Count To nTotal
+            ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+            QRY_ZCA -> (DbGoTop())
+            while ! QRY_ZCA->(Eof())
 
-            nAtual++
-            IncProc("Adicionando")
+                nAtual++
+                IncProc("Adicionando")
 
-            AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                           QRY_ZCA->ZCA_DESC,;
-                           .F.;
-                           })
+                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
+                               QRY_ZCA->ZCA_DESC,;
+                               .F.;
+                               })
 
-            QRY_ZCA ->(DbSkip())
-        enddo
-        QRY_ZCA->(DbCloseArea())
+                QRY_ZCA ->(DbSkip())
+            enddo
+            QRY_ZCA->(DbCloseArea())
 
     elseIF lTF == .T.
         
-        cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
-
-        TCQUERY cQry New Alias "QRY_ZCA"
-
-        Count To nTotal
-        ProcRegua(nTotal)
-
-        nTam := Len(aColsAux)
-
-        aSize(aColsAux, - nTam)
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
         
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+            TCQUERY cQry New Alias "QRY_ZCA"
 
-            nAtual++
-            IncProc("Adicionando")
+            Count To nTotal
+            ProcRegua(nTotal)
 
-            AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
-                           AllTrim(QRY_ZCA->ZCA_DESC),;
-                           .F.;
-                          })
+            nTam := Len(aColsAux)
 
-            QRY_ZCA ->(DbSkip())
-        enddo
-        QRY_ZCA->(DbCloseArea())
+            aSize(aColsAux, - nTam)
+
+            QRY_ZCA -> (DbGoTop())
+            while ! QRY_ZCA->(Eof())
+
+                nAtual++
+                IncProc("Adicionando")
+
+                AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
+                               AllTrim(QRY_ZCA->ZCA_DESC),;
+                               .F.;
+                              })
+
+                QRY_ZCA ->(DbSkip())
+            enddo
+            QRY_ZCA->(DbCloseArea())
         
+
     endif
 
     lTF := .F.
@@ -10442,6 +10446,8 @@ Static Function fConfEst()
 
         else 
             MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
+            oDlgCE:end()
+            U_zConsEst()
         ENDIF
 
     FwRestArea(aArea)
@@ -10644,7 +10650,9 @@ Static Function fConfRl()
 
             oDlgCE:End()
         ELSE 
-             MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
+            MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
+            oDlgCE:end()
+            U_zConsEst()
         ENDIF
 
     FwRestArea(aArea)
@@ -10847,6 +10855,8 @@ Static Function fConfLp()
             oDlgCE:End()
         ELSE
             MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
+            oDlgCE:end()
+            U_zConsEst()
         ENDIF
 
     FwRestArea(aArea)
