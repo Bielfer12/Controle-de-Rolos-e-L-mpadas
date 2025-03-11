@@ -10224,7 +10224,7 @@ Static Function fConfImp()
             endif
         elseif nEscBD == 2
             if nEscM == 5
-                oGet3M:BUFFER := Alltrim(aColsAux[oMsNew:Nat][1]) 
+                oGet3M:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             elseif nEscM == 6
                 oGet3M:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             elseif nEscM == 9
