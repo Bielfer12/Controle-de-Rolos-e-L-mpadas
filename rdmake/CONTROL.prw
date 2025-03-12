@@ -95,9 +95,10 @@ Static function ESCM()
 
     Local aArea       := FWGetArea()
     Local oBrowseM
+    Local aSeek       := {}
 
 	Private aRotina   := {}
-    Private cCadastro := "MANUTENÇÃO DE ROLOS"
+    Private cCadastro 
 
     if oCombo3:Nat == 2
 
@@ -105,8 +106,24 @@ Static function ESCM()
 
         aRotina := MenuDef()
 
+        cCadastro := "MANUTENÇÃO DE ROLOS"
+     
+        // Aadd(aSeek,{GetSX3Cache('ZM1_COD', "X3_TITULO")   , {{"","C",06,0, "ZM1_COD"      ,""  }}, 1, .T. } )
+        // Aadd(aSeek,{GetSX3Cache('ZM1_IMPRES', "X3_TITULO"), {{"","C",50,0, "ZM1_IMPRES"   ,"@!"}}, 2, .T. } )
+        // Aadd(aSeek,{GetSX3Cache('ZM1_ROLO', "X3_TITULO")  , {{"","C",50,0, "ZM1_ROLO"     ,"@!"}}, 3, .T. } )
+
+        cCampoAux := "ZM1_COD"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux, "X3_TIPO"), GetSX3Cache(cCampoAux, "X3_TAMANHO"), GetSX3Cache(cCampoAux, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux, "X3_PICTURE"))}} } )
+    
+
         oBrowseM := FWMBrowse():New()
         oBrowseM:SetAlias("ZM1")
+        oBrowseM:SetDBFFilter(.T.)
+        oBrowseM:SetUseFilter(.T.) 
+        oBrowseM:SetFixedBrowse(.T.)
+        oBrowseM:SetWalkThru(.T.) 
+        oBrowseM:SetAmbiente(.T.)
+        oBrowseM:SetSeek(.T., aSeek)
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
 
@@ -120,8 +137,11 @@ Static function ESCM()
 
         aRotina := MenuDef()
 
+        cCadastro := "MANUTENÇÃO DE LÂMPADAS"   
+
         oBrowseM := FWMBrowse():New()
         oBrowseM:SetAlias("ZM2")
+        oBrowseM:oBrowse:SetSeek(.T.,aHeaderl) 
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
 
