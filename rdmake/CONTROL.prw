@@ -10067,6 +10067,8 @@ User function zConsImp()
     Local lCentraliz := .T.
     Local nTamBtn := 050
 
+    Private oFont := TFont():New('Arial', , -14)
+
     Private oGrp2
     Private oMsNew
     Private aHeadAux := {}
@@ -10151,9 +10153,8 @@ User function zConsImp()
 
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfImp()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
-
-    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
-    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    
+    oFiltro := TSay():New((nJanAltu/2)-17, (nJanLarg/2)-((nTamBtn*3)-10), {|| cFil}, oDlgCE,,oFont,,,,lDimPixels,CLR_GREY,,20,20)
     oFiltro:bLClicked := {|| ESCF()}    
 
     oMsNew:oBrowse:SetFocus()
@@ -10177,13 +10178,13 @@ Static Function ESCF()
     Private cEscFil
 
     if cTipo == 'I'
-        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Descrição"},     090, ".T.", .F., ".T."})      
+        aAdd(aParamBox, { 3, "Tipo",nTipoRad, {"1=Código", "2=Descrição"},     090, ".T.", .F., ".T."})      
     elseif cTipo == 'E'
-        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Nome Estação"},  090, ".T.", .F., ".T."})     
+        aAdd(aParamBox, { 3, "Tipo",nTipoRad, {"1=Código", "2=Nome Estação"},  090, ".T.", .F., ".T."})     
     elseif cTipo == 'R'
-        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Nome Rolo"},     090, ".T.", .F., ".T."})     
+        aAdd(aParamBox, { 3, "Tipo",nTipoRad, {"1=Código", "2=Nome Rolo"},     090, ".T.", .F., ".T."})     
     elseif cTipo == 'L'
-        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Nome Lâmpada"},  090, ".T.", .F., ".T."})     
+        aAdd(aParamBox, { 3, "Tipo",nTipoRad, {"1=Código", "2=Nome Lâmpada"},  090, ".T.", .F., ".T."})     
     endif
 
     lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.F.,.F.)
@@ -10342,7 +10343,7 @@ Static Function fConfImp()
     ELSE
         MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
         oDlgCE:end()
-        U_zConsEst()
+        U_zConsImp()
     ENDIF
     FwRestArea(aArea)
 
@@ -10801,7 +10802,7 @@ Static Function fConfRl()
         ELSE 
             MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
             oDlgCE:end()
-            U_zConsEst()
+            U_zConsRl()
         ENDIF
 
     FwRestArea(aArea)
@@ -11033,10 +11034,11 @@ Static Function fConfLp()
             endif
 
             oDlgCE:End()
+
         ELSE
             MsgAlert("VALOR VAZIO SEM OPÇÃO DE INSERÇÃO","ATENÇÃO")
             oDlgCE:end()
-            U_zConsEst()
+            U_zConsLamp()
         ENDIF
 
     FwRestArea(aArea)
