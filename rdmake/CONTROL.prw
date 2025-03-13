@@ -141,7 +141,6 @@ Static function ESCM()
 
         oBrowseM := FWMBrowse():New()
         oBrowseM:SetAlias("ZM2")
-        oBrowseM:oBrowse:SetSeek(.T.,aHeaderl) 
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
 
@@ -1206,7 +1205,11 @@ User Function IMPRESS()
 
     Private cTipo       := 'I'
 
-    Private oMsGetZCA
+    Private oMsGetZCAI
+    Private oMsGetZCAE
+    Private oMsGetZCAR
+    Private oMsGetZCAL
+
     Private lRefresh := .T.
 
 // -------------------------------------------------------------------------------
@@ -1287,7 +1290,7 @@ User Function IMPRESS()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgI, , , lDimPixels)
 
-        oMsGetZCA := MsNewGetDados():New(    055,;                
+        oMsGetZCAI := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1305,11 +1308,11 @@ User Function IMPRESS()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCA:lActive := .F. 
+            oMsGetZCAI:lActive := .F. 
 
-           oMsGetZCA:oBrowse:Refresh()
+           oMsGetZCAI:oBrowse:Refresh()
         
-        oMsGetZCA:Nat := 0 
+        oMsGetZCAI:Nat := 0 
 
         oDlgI:Activate()
 
@@ -1434,7 +1437,7 @@ User Function EST()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgE, , , lDimPixels)
 
-        oMsGetZCA := MsNewGetDados():New(    055,;                
+        oMsGetZCAE := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1452,9 +1455,9 @@ User Function EST()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCA:lActive := .F. 
+            oMsGetZCAE:lActive := .F. 
 
-           oMsGetZCA:oBrowse:Refresh()
+           oMsGetZCAE:oBrowse:Refresh()
         
         oDlgE:Activate()
 
@@ -1629,7 +1632,7 @@ User Function ROLOS()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgR, , , lDimPixels)
 
-        oMsGetZCA := MsNewGetDados():New(    055,;                
+        oMsGetZCAR := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1647,9 +1650,9 @@ User Function ROLOS()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCA:lActive := .F. 
+            oMsGetZCAR:lActive := .F. 
 
-           oMsGetZCA:oBrowse:Refresh()
+           oMsGetZCAR:oBrowse:Refresh()
         
         oDlgR:Activate()
 
@@ -1834,7 +1837,7 @@ User Function LAMP()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgL, , , lDimPixels)
 
-        oMsGetZCA := MsNewGetDados():New(    055,;                
+        oMsGetZCAL := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1852,10 +1855,9 @@ User Function LAMP()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCA:lActive := .F. 
+            oMsGetZCAL:lActive := .F. 
 
-
-           oMsGetZCA:oBrowse:Refresh()
+           oMsGetZCAL:oBrowse:Refresh()
         
         oDlgL:Activate()
 
@@ -1991,7 +1993,6 @@ User Function CadBtnTipo()
 
     nEsc := 3
 
-    oDlg:End()
 // -------------------------------------------------------------------------------
 // 
 //              TELA CADASTRO DE IMPRESSORA - GABRIEL
@@ -2196,6 +2197,10 @@ User Function CadBtnTipo()
         
         oDlgCad:Activate()
 
+        fCarAcols()
+        oMsGetZCAI:ACOLS := aCols
+        oMsGetZCAI:oBrowse:Refresh()
+
 // -------------------------------------------------------------------------------
 // 
 //              TELA CADASTRO DE ESTAÇÃO - GABRIEL
@@ -2205,8 +2210,6 @@ User Function CadBtnTipo()
     elseif cTipo == 'E'
 
     nEsc := 3
-
-    oDlg:End()
 
      AADD(aHeader,{"Codigo",;       
                       "ZCA_COD",;   
@@ -2410,6 +2413,10 @@ User Function CadBtnTipo()
             oMsGetZCA:lActive := .F. 
 
         oDlgCad:Activate()
+       
+        fCarAcols()
+        oMsGetZCAE:ACOLS := aCols
+        oMsGetZCAE:oBrowse:Refresh()
 
 // -------------------------------------------------------------------------------
 // 
@@ -2419,9 +2426,7 @@ User Function CadBtnTipo()
 
   elseif cTipo == 'R'
 
-    nEsc := 3
-
-  oDlg:End()
+     nEsc := 3
 
      AADD(aHeader,{"Codigo",;          
                       "ZCA_COD",;      
@@ -2747,6 +2752,10 @@ User Function CadBtnTipo()
 
         oDlgCad:Activate()
 
+        fCarAcols()
+        oMsGetZCAR:ACOLS := aCols
+        oMsGetZCAR:oBrowse:Refresh()
+
 // -------------------------------------------------------------------------------
 // 
 //              TELA CADASTRO DE LAMPADAS - GABRIEL
@@ -2756,8 +2765,6 @@ User Function CadBtnTipo()
     elseif cTipo == 'L'
 
     nEsc := 3
-
-    oDlg:End()
 
     AADD(aHeader,{"Codigo",;       
                       "ZCA_COD",;      
@@ -3117,10 +3124,16 @@ User Function CadBtnTipo()
 
         oDlgCad:Activate()
 
+        fCarAcols()
+        oMsGetZCAL:ACOLS := aCols
+        oMsGetZCAL:oBrowse:Refresh()
+
     ENDIF
 
+    
+
     FWRestArea(aArea)
-return()
+return
 
 Static Function fCarAcols()
 
@@ -3315,7 +3328,7 @@ Static function CadBtnSalv()
                 begin transaction 
                 RecLock(cAlias, .T.)
                     ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
-                    ZCA->ZCA_DESC  := LTrim(oGet3T:BUFFER)
+                    ZCA->ZCA_DESC  := UPPER(LTrim(oGet3T:BUFFER))
                     ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
                         ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
@@ -3362,7 +3375,7 @@ Static function CadBtnSalv()
                 begin transaction 
                 RecLock(cAlias, .T.)
                     ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
-                    ZCA->ZCA_DESC  := Alltrim(oGet9T:BUFFER)
+                    ZCA->ZCA_DESC  := Upper(Alltrim(oGet9T:BUFFER))
                     ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
                         ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
@@ -3374,11 +3387,11 @@ Static function CadBtnSalv()
                         Return
                     ENDIF
                     ZCA->ZCA_DATA    := CTOD(oGet6T:BUFFER)
-                    ZCA->ZCA_NOMERL  := Alltrim(oGet3T:BUFFER)
+                    ZCA->ZCA_NOMERL  := Upper(Alltrim(oGet3T:BUFFER))
                     ZCA->ZCA_DIAMRL  := AllTrim(oGet10T:BUFFER)
                     ZCA->ZCA_COMPRL  := AllTrim(oGet11T:BUFFER)
-                    ZCA->ZCA_MATRL   := Alltrim(oGet12T:BUFFER)
-                    ZCA->ZCA_DURERL  := AllTrim(oGet13T:BUFFER)
+                    ZCA->ZCA_MATRL   := Upper(Alltrim(oGet12T:BUFFER))
+                    ZCA->ZCA_DURERL  := Upper(AllTrim(oGet13T:BUFFER))
                 ZCA -> (MSUNLOCK())
                 end transaction
                 MsgInfo('CADASTRO FEITO COM SUCESSO!!')
@@ -3419,7 +3432,7 @@ Static function CadBtnSalv()
                 begin transaction 
                 RecLock(cAlias, .T.)
                     ZCA->ZCA_COD     := Alltrim(oGet2T:BUFFER)
-                    ZCA->ZCA_NOMELP  := Alltrim(oGet3T:BUFFER)
+                    ZCA->ZCA_NOMELP  := Upper(Alltrim(oGet3T:BUFFER))
                     ZCA->ZCA_TIPO    := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
                         ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
@@ -3431,12 +3444,12 @@ Static function CadBtnSalv()
                         return
                     ENDIF
                     ZCA->ZCA_DATA    := CTOD(oGet6T:BUFFER)
-                    ZCA->ZCA_IMPLP   := Alltrim(oGet15T:BUFFER)
-                    ZCA->ZCA_MODLP   := Alltrim(oGet16T:BUFFER)
+                    ZCA->ZCA_IMPLP   := Upper(Alltrim(oGet15T:BUFFER))
+                    ZCA->ZCA_MODLP   := Upper(Alltrim(oGet16T:BUFFER))
                     ZCA->ZCA_TENSLP  := Alltrim(oGet17T:BUFFER)
                     ZCA->ZCA_CORRLP  := Alltrim(oGet18T:BUFFER)
                     ZCA->ZCA_POTLP   := Alltrim(oGet19T:BUFFER)
-                    ZCA->ZCA_MODREF  := Alltrim(oGet20T:BUFFER)
+                    ZCA->ZCA_MODREF  := Upper(Alltrim(oGet20T:BUFFER))
                 ZCA -> (MSUNLOCK())
                 end transaction
                 MsgInfo('CADASTRO FEITO COM SUCESSO!!')
@@ -3585,12 +3598,6 @@ Static function natEsc()
 // 
 // -------------------------------------------------------------------------------
 
-    if oMsGetZCA:Nat == 0
-
-        sleep(100)
-
-    else
-    
     If cTipo == 'I' .OR. cTipo ==  'E'
         
         If cTipo == 'I'
@@ -3730,7 +3737,6 @@ Static function natEsc()
         QRY_ZCA->(DbCloseArea())
 
         endif
-    Endif
 
     FwRestArea(aArea)
 
@@ -3755,12 +3761,6 @@ User Function RLLP23ALT()
 //              ALTERAÇÃO DE IMPRESSORAS/ESTAÇÃO - GABRIEL
 // 
 // -------------------------------------------------------------------------------
-
-    if oMsGetZCA:Nat == 0
-
-        sleep(100)
-
-    else
     
     If cTipo == 'I' .OR. cTipo ==  'E'
 
@@ -3786,12 +3786,19 @@ User Function RLLP23ALT()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCA:Nat][2]) 
-                (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCA:Nat][4]) 
-                (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
-
+                IF cTipo == 'I'
+                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAI:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAI:Nat][2]) 
+                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAI:Nat][3]) 
+                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAI:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
+                elseif cTipo == 'E'
+                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAE:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAE:Nat][2]) 
+                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAE:Nat][3]) 
+                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAE:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
+                endif
                 if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
                     (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                     aCombo5AA := {'S=SIM','N=NAO'}
@@ -3964,8 +3971,6 @@ User Function RLLP23ALT()
 
     FWRestArea(aArea)
 
-    endif
-
 return (aDados)
 
 static Function dialogAlt(aDados)
@@ -4100,9 +4105,9 @@ static Function dialogAlt(aDados)
         oGrp7A := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgAlt, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cSay1AA  := "ALTERAÇÃO DE ITEM - IMPRESSORAS"
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF  cTipo ==  'E'
             cSay1AA  := "ALTERAÇÃO DE ITEM - ESTAÇÃO"
         ENDIF
         nObjLinh := 25
@@ -4177,9 +4182,9 @@ static Function dialogAlt(aDados)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet4AA := aDados[3][1]
-        if ZCA->(ZCA_TIPO) == 'I'
+        if cTipo == 'I'
             cEscolha := 'I = IMPRESSORA'
-        elseif ZCA -> (ZCA_TIPO) == 'E'
+        elseif cTipo == 'E'
             cEscolha := 'E = ESTACAO'
         endif
         nObjLinh := 90
@@ -6440,13 +6445,13 @@ static function cadBtnM()
             begin transaction 
             RecLock(cAlias, .T.)
                 ZM1->ZM1_COD     := Alltrim(oGet2M:BUFFER)
-                ZM1->ZM1_IMPRES  := Alltrim(oGet3M:BUFFER)
-                ZM1->ZM1_EST     := Alltrim(oGet4M:BUFFER)
-                ZM1->ZM1_USU     := AllTrim(oGet5M:BUFFER)
-                ZM1->ZM1_ROLO    := Alltrim(oGet6M:BUFFER)
-                ZM1->ZM1_FAB     := Alltrim(oGet7M:BUFFER)
+                ZM1->ZM1_IMPRES  := Upper(Alltrim(oGet3M:BUFFER))
+                ZM1->ZM1_EST     := Upper(Alltrim(oGet4M:BUFFER))
+                ZM1->ZM1_USU     := Upper(AllTrim(oGet5M:BUFFER))
+                ZM1->ZM1_ROLO    := Upper(Alltrim(oGet6M:BUFFER))
+                ZM1->ZM1_FAB     := Upper(Alltrim(oGet7M:BUFFER))
                 ZM1->ZM1_DATAIN  :=    CTOD(oGet8M:BUFFER)
-                ZM1->ZM1_OBS     := Alltrim(oGet9M:BUFFER)
+                ZM1->ZM1_OBS     := Upper(Alltrim(oGet9M:BUFFER))
                 ZM1->ZM1_DATACA  :=    CTOD(oGet10M:BUFFER)
                 if oCombo11M:NAT == 2
                         ZM1->ZM1_ATIVO := oCombo11M:AITEMS[2]
@@ -8363,10 +8368,10 @@ Static function incBtnMLP()
             begin transaction 
             RecLock(cAlias, .T.)
                 ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
-                ZM2->ZM2_IMPRES    := Alltrim(oGet3L:BUFFER)
-                ZM2->ZM2_USU       := Alltrim(oGet4L:BUFFER)
+                ZM2->ZM2_IMPRES    := Upper(Alltrim(oGet3L:BUFFER))
+                ZM2->ZM2_USU       := Upper(Alltrim(oGet4L:BUFFER))
                 ZM2->ZM2_DATAM     :=    CTOD(oGet5L:BUFFER)
-                ZM2->ZM2_LAMP      := AllTrim(oGet6L:BUFFER)
+                ZM2->ZM2_LAMP      := Upper(AllTrim(oGet6L:BUFFER))
                 if oCombo7L:NAT == 2
                         ZM2->ZM2_TROCLP := oCombo7L:AITEMS[2]
                     elseif oCombo7L:NAT == 3
@@ -8385,7 +8390,7 @@ Static function incBtnMLP()
                         DisarmTransaction()
                         return
                 ENDIF
-                ZM2->ZM2_MATER     := Alltrim(oGet9L:BUFFER)
+                ZM2->ZM2_MATER     := Upper(Alltrim(oGet9L:BUFFER))
                 ZM2->ZM2_TEMPM     := Alltrim(oGet10L:BUFFER)
                 ZM2->ZM2_UMIDAD    := AllTrim(oGet11L:BUFFER)
                 ZM2->ZM2_TEMPA     := AllTrim(oGet12L:BUFFER)
@@ -8398,7 +8403,7 @@ Static function incBtnMLP()
                 ZM2->ZM2_TEMPT     := Alltrim(oGet19L:BUFFER)
                 ZM2->ZM2_SETP      := Alltrim(oGet20L:BUFFER)
                 ZM2->ZM2_POT       := Alltrim(oGet21L:BUFFER)
-                ZM2->ZM2_OBS       := Alltrim(oGet22L:BUFFER)
+                ZM2->ZM2_OBS       := Upper(Alltrim(oGet22L:BUFFER))
                 if oCombo23L:NAT == 2
                         ZM2->ZM2_ATIVO := oCombo23L:AITEMS[2]
                     elseif oCombo23L:NAT == 3
@@ -9993,7 +9998,6 @@ Static function dialogExcL(aDadosExcL)
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 145
         nObjColu := 570
-
         nObjLarg := 80
         nObjAltu := 20
         oSay24L  := TSay():New(nObjLinh, nObjColu, {|| cSay24LL}, oDlgExcL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -10075,10 +10079,16 @@ User function zConsImp()
 
     Private oGrp3
     Private oConf
+    Private oFiltro
+    Private cFil := 'Filtro'
+    Private nNum
     Private oClr
     Private oCanc
 
+    private cTipo := 'I'
+
     Private oDlgCE
+
 
     Private lTF := .F.
 
@@ -10108,7 +10118,7 @@ User function zConsImp()
     oGrp1  := TGroup():New(003, 003, 025, (nJanLarg/2)-30,'PESQUISAR', oDlgCE,,, lDimPixels)
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
-    oGetP:cPlaceHold := 'Insira o Nome de descrição da Impressora..'
+    oGetP:cPlaceHold := 'Insira a informação da Impressora..'
 
     oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqImp()}, 028, 019,,,,lDimPixels,,,,,,)  
 
@@ -10142,6 +10152,10 @@ User function zConsImp()
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfImp()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
 
+    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
+    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    oFiltro:bLClicked := {|| ESCF()}    
+
     oMsNew:oBrowse:SetFocus()
 
     oDlgCE:Activate(,,,lCentraliz,,,)
@@ -10150,6 +10164,59 @@ User function zConsImp()
 
 return 
 
+Static Function ESCF()
+
+    Local aArea := FwGetArea()
+
+    Local aParamBox := {}
+    Local cTitulo   := 'RELATORIO - PERÍODO'
+    Local nPosX     := 200
+    Local nTipoRad  := 3
+    Local nPosY     := 200
+    Local aParams   := {}
+    Private cEscFil
+
+    if cTipo == 'I'
+        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Descrição"},     090, ".T.", .F., ".T."})      
+    elseif cTipo == 'E'
+        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Nome Estação"},  090, ".T.", .F., ".T."})     
+    elseif cTipo == 'R'
+        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Nome Rolo"},     090, ".T.", .F., ".T."})     
+    elseif cTipo == 'L'
+        aAdd(aParamBox, { 3, "03 (Radio) - Tipo",nTipoRad, {"1=Código", "2=Nome Lâmpada"},  090, ".T.", .F., ".T."})     
+    endif
+
+    lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.F.,.F.)
+
+    if (lRet)
+        nNum := aParams[1]
+        if nNum == 1
+            if cTipo == 'I'
+                oGetP:cPlaceHold := 'Insira o Código da Impressora..'
+            elseif cTipo == 'E'
+                oGetP:cPlaceHold := 'Insira o Código da Estação..'
+            elseif cTipo == 'R'
+                oGetP:cPlaceHold := 'Insira o Código da Rolos..'
+            elseif cTipo == 'L'
+                oGetP:cPlaceHold := 'Insira o Código da Lâmpadas..'
+            endif
+        elseif nNum == 2
+            if cTipo == 'I'
+                oGetP:cPlaceHold := 'Insira o Nome de descrição da Impressora..'
+            elseif cTipo == 'E'
+                oGetP:cPlaceHold := 'Insira o Nome de descrição da Estação..'
+            elseif cTipo == 'R'
+                oGetP:cPlaceHold := 'Insira o Nome de descrição da Rolos..'
+            elseif cTipo == 'L'
+                oGetP:cPlaceHold := 'Insira o Nome de descrição da Lâmpadas..'
+            endif
+        endif
+    endif
+
+    FwRestArea(aArea)
+
+Return (nNum)
+
 static function fPopulaImp()
 
     Local aArea  := FWGetArea()
@@ -10157,61 +10224,75 @@ static function fPopulaImp()
     Local nTotal := 0
     Local nAtual := 0 
 
-    if lTF == .F. //
+    if lTF == .F. 
 
-    cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+            TCQUERY cQry New Alias "QRY_ZCA"
 
-        nTam := Len(aColsAux)
+            nTam := Len(aColsAux)
 
-        aSize(aColsAux, - nTam)
+            aSize(aColsAux, - nTam)
 
-        Count To nTotal
-        ProcRegua(nTotal)
+            Count To nTotal
+            ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+            QRY_ZCA -> (DbGoTop())
+            while ! QRY_ZCA->(Eof())
 
-            nAtual++
-            IncProc("Adicionando")
+                nAtual++
+                IncProc("Adicionando")
 
-            AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                           QRY_ZCA->ZCA_DESC,;
-                           .F.;
-                           })
+                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
+                               QRY_ZCA->ZCA_DESC,;
+                               .F.;
+                               })
 
-            QRY_ZCA ->(DbSkip())
-        enddo
-        QRY_ZCA->(DbCloseArea())
-
+                QRY_ZCA ->(DbSkip())
+            enddo
+            QRY_ZCA->(DbCloseArea())
+        
     elseIF lTF == .T. //ZM2
         
-        cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_DESC LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
+        cRec := StrTran(oGetP:BUFFER,"'", '')
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        if nNum == 2
 
-        Count To nTotal
-        ProcRegua(nTotal)
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
 
-        nTam := Len(aColsAux)
+        elseif nNum == 1
 
-        aSize(aColsAux, - nTam)
-        
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
 
-            nAtual++
-            IncProc("Adicionando")
+        else
 
-            AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
-                           AllTrim(QRY_ZCA->ZCA_DESC),;
-                           .F.;
-                          })
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND (ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
 
-            QRY_ZCA ->(DbSkip())
-        enddo
-        QRY_ZCA->(DbCloseArea())
+        endif
+
+            TCQUERY cQry New Alias "QRY_ZCA"
+
+            Count To nTotal
+            ProcRegua(nTotal)
+
+            nTam := Len(aColsAux)
+
+            aSize(aColsAux, - nTam)
+
+            QRY_ZCA -> (DbGoTop())
+            while ! QRY_ZCA->(Eof())
+
+                nAtual++
+                IncProc("Adicionando")
+
+                AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
+                               AllTrim(QRY_ZCA->ZCA_DESC),;
+                               .F.;
+                              })
+
+                QRY_ZCA ->(DbSkip())
+            enddo
+            QRY_ZCA->(DbCloseArea())
         
     endif
 
@@ -10279,6 +10360,8 @@ User function zConsEst()
     Local lCentraliz := .T.
     Local nTamBtn := 050
 
+    private cTipo := 'E'
+
     Private oGrp2
     Private oMsNew
     Private aHeadAux := {}
@@ -10293,6 +10376,10 @@ User function zConsEst()
     Private oConf
     Private oClr
     Private oCanc
+
+    Private oFiltro
+    Private cFil := 'Filtro'
+    Private nNum
 
     Private oDlgCE
 
@@ -10359,6 +10446,10 @@ User function zConsEst()
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfEst()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
 
+    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
+    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    oFiltro:bLClicked := {|| ESCF()}
+
     oMsNew:oBrowse:SetFocus()
 
     oDlgCE:Activate(,,,lCentraliz,,,)
@@ -10404,8 +10495,22 @@ static function fPopulaEst()
 
     elseIF lTF == .T.
         
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
+            cRec := StrTran(oGetP:BUFFER,"'", '')
+
+            if nNum == 2
+
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
         
+            elseif nNum == 1
+
+                cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+
+            else
+
+                 cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
+
+            endif
+
             TCQUERY cQry New Alias "QRY_ZCA"
 
             Count To nTotal
@@ -10501,6 +10606,12 @@ User function zConsRl()
     Private oClr
     Private oCanc
 
+    Private oFiltro
+    Private cFil := 'Filtro'
+    Private nNum
+
+    private cTipo := 'R'
+
     Private oDlgCE
 
     Private lTF := .F.
@@ -10565,6 +10676,10 @@ User function zConsRl()
 
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfRl()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
+    
+    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
+    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    oFiltro:bLClicked := {|| ESCF()}
 
     oMsNew:oBrowse:SetFocus()
 
@@ -10583,7 +10698,7 @@ static function fPopulaRl()
 
     if lTF == .F.
 
-    cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10610,8 +10725,22 @@ static function fPopulaRl()
         QRY_ZCA->(DbCloseArea())
 
     elseIF lTF == .T.
+
+        cRec := StrTran(oGetP:BUFFER,"'", '')
         
-        cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
+        IF nNum == 2
+
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+
+        elseif nNum == 1
+
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+
+        else
+
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
+
+        endif
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10706,6 +10835,11 @@ User function zConsLp()
     Private oClr
     Private oCanc
 
+    Private oFiltro
+    Private cFil := 'Filtro'
+    Private nNum
+
+    private cTipo := 'L'
 
     Private oDlgCE
 
@@ -10738,7 +10872,7 @@ User function zConsLp()
     oGrp1  := TGroup():New(003, 003, 025, (nJanLarg/2)-30,'PESQUISAR', oDlgCE,,, lDimPixels)
 
     oGetP  := TGet():New(010, 006,{|u| Iif(PCount() > 0 , xGetP := u, xGetP)} , oDlgCE, (nJanLarg/2)-39, 010,,,,,,,, lDimPixels,,,,,,,,,,,,,, .T.)
-    oGetP:cPlaceHold := 'Insira o Nome da Lãmpada...'
+    oGetP:cPlaceHold := 'Insira A informação da Lãmpada...'
 
     oPesq  := TButton():New(006, 0372,'Pesquisar', oDlgCE,{||fPesqLp()}, 028, 019,,,,lDimPixels,,,,,,) 
 
@@ -10772,6 +10906,10 @@ User function zConsLp()
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfLp()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
 
+    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
+    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    oFiltro:bLClicked := {|| ESCF()}
+
     oMsNew:oBrowse:SetFocus()
 
     oDlgCE:Activate(,,,lCentraliz,,,)
@@ -10789,7 +10927,15 @@ static function fPopulaLp()
 
     if lTF == .F.
 
-    cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+        if  nNum == 2
+
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+
+        elseif nNum == 1
+
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+
+        endif
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10817,7 +10963,21 @@ static function fPopulaLp()
 
     elseIF lTF == .T.
         
-        cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(oGetp:BUFFER) +"%' AND D_E_L_E_T_ = ''"
+        cRec := StrTran(oGetP:BUFFER,"'", '')
+
+        if nNum == 2
+
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+
+        elseif nNum == 1
+
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+
+        ELSE
+
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
+
+        endif
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
