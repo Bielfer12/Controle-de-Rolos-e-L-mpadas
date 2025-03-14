@@ -248,11 +248,19 @@ User Function RLLPVISU23()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCA:Nat][2]) 
-                (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCA:Nat][4]) 
-                (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
+                IF cTipo ==  'I'
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAI:Nat][1]) 
+                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCAI:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAI:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAI:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
+                ELSEIF cTipo ==  'E'
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAE:Nat][1]) 
+                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCAE:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAE:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAE:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
+                endif
 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -311,11 +319,11 @@ User Function RLLPVISU23()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempExc) -> (COD_EXC)     := (aColsAux[oMsGetZCA:Nat][1]) 
-                (cAliasTempExc) -> (DESC_EXC)    := (aColsAux[oMsGetZCA:Nat][2]) 
-                (cAliasTempExc) -> (TIPO_EXC)    := (aColsAux[oMsGetZCA:Nat][3]) 
-                (cAliasTempExc) -> (ATIVO_EXC)   := (aColsAux[oMsGetZCA:Nat][4]) 
-                (cAliasTempExc) -> (DATA_EXC)    := Stod(aColsAux[oMsGetZCA:Nat][5]) 
+                (cAliasTempExc) -> (COD_EXC)     := (aColsAux[oMsGetZCAR:Nat][1]) 
+                (cAliasTempExc) -> (DESC_EXC)    := (aColsAux[oMsGetZCAR:Nat][2]) 
+                (cAliasTempExc) -> (TIPO_EXC)    := (aColsAux[oMsGetZCAR:Nat][3]) 
+                (cAliasTempExc) -> (ATIVO_EXC)   := (aColsAux[oMsGetZCAR:Nat][4]) 
+                (cAliasTempExc) -> (DATA_EXC)    := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -325,11 +333,11 @@ User Function RLLPVISU23()
                     aCombo5EE := {'N=NAO','S=SIM'}
                 endif
 
-                (cAliasTempExc) -> (NOMERL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][6]) 
-                (cAliasTempExc) -> (DIAMRL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][7]) 
-                (cAliasTempExc) -> (COMPRL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][8]) 
-                (cAliasTempExc) -> (MATRL_EXC)   :=  (aColsAux[oMsGetZCA:Nat][9]) 
-                (cAliasTempExc) -> (DURERL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][10]) 
+                (cAliasTempExc) -> (NOMERL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][6]) 
+                (cAliasTempExc) -> (DIAMRL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][7]) 
+                (cAliasTempExc) -> (COMPRL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][8]) 
+                (cAliasTempExc) -> (MATRL_EXC)   :=  (aColsAux[oMsGetZCAR:Nat][9]) 
+                (cAliasTempExc) -> (DURERL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][10]) 
 
             (cAliasTempExc) -> (MSUNLOCK())
 
@@ -386,11 +394,11 @@ User Function RLLPVISU23()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempExc, .T.)
-                (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZCA:Nat][2]) 
-                (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCA:Nat][4]) 
-                (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
+                (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAL:Nat][1]) 
+                (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZCAL:Nat][2]) 
+                (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAL:Nat][3]) 
+                (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAL:Nat][4]) 
+                (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                     aCombo5EE := {'S=SIM','N=NAO'}
@@ -398,12 +406,12 @@ User Function RLLPVISU23()
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                     aCombo5EE := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempExc) -> (IMPRES_EXC)  := (aColsAux[oMsGetZCA:Nat][6]) 
-                (cAliasTempExc) -> (MODLP_EXC)   := (aColsAux[oMsGetZCA:Nat][7]) 
-                (cAliasTempExc) -> (TENS_EXC)    := (aColsAux[oMsGetZCA:Nat][8]) 
-                (cAliasTempExc) -> (CORR_EXC)    := (aColsAux[oMsGetZCA:Nat][9]) 
-                (cAliasTempExc) -> (POT_EXC)     := (aColsAux[oMsGetZCA:Nat][10]) 
-                (cAliasTempExc) -> (MODREF_EXC)  := (aColsAux[oMsGetZCA:Nat][11]) 
+                (cAliasTempExc) -> (IMPRES_EXC)  := (aColsAux[oMsGetZCAL:Nat][6]) 
+                (cAliasTempExc) -> (MODLP_EXC)   := (aColsAux[oMsGetZCAL:Nat][7]) 
+                (cAliasTempExc) -> (TENS_EXC)    := (aColsAux[oMsGetZCAL:Nat][8]) 
+                (cAliasTempExc) -> (CORR_EXC)    := (aColsAux[oMsGetZCAL:Nat][9]) 
+                (cAliasTempExc) -> (POT_EXC)     := (aColsAux[oMsGetZCAL:Nat][10]) 
+                (cAliasTempExc) -> (MODREF_EXC)  := (aColsAux[oMsGetZCAL:Nat][11]) 
 
             (cAliasTempExc) -> (MSUNLOCK())
 
@@ -612,9 +620,9 @@ Local aArea := FwGetArea()
         
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet3EE := aDadosExc[2][1]
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cSay3EE  := "Descrição"
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF  cTipo ==  'E'
             cSay3EE  := "Nome Estação"
         ENDIF
         nObjLinh := 90
@@ -635,9 +643,9 @@ Local aArea := FwGetArea()
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet4EE := aDadosExc[3][1]
-        if ZCA->(ZCA_TIPO) == 'I'
+        if cTipo == 'I'
             cEscolha := 'I = IMPRESSORA'
-        elseif ZCA -> (ZCA_TIPO) == 'E'
+        elseif cTipo == 'E'
             cEscolha := 'E = ESTACAO'
         endif
         nObjLinh := 90
@@ -1311,8 +1319,6 @@ User Function IMPRESS()
             oMsGetZCAI:lActive := .F. 
 
            oMsGetZCAI:oBrowse:Refresh()
-        
-        oMsGetZCAI:Nat := 0 
 
         oDlgI:Activate()
 
@@ -3856,11 +3862,11 @@ User Function RLLP23ALT()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCA:Nat][6]) 
-                (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCA:Nat][4]) 
-                (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
+                (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAR:Nat][1]) 
+                (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAR:Nat][6]) 
+                (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAR:Nat][3]) 
+                (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAR:Nat][4]) 
+                (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
                 if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
                     (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                     aCombo5AA := {'S=SIM','N=NAO'}
@@ -3868,11 +3874,11 @@ User Function RLLP23ALT()
                     (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                     aCombo5AA := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZCA:Nat][2])
-                (cAliasTempAlt) -> (DIAMRL_ALT)  := (aColsAux[oMsGetZCA:Nat][7]) 
-                (cAliasTempAlt) -> (COMPRL_ALT)  := (aColsAux[oMsGetZCA:Nat][8]) 
-                (cAliasTempAlt) -> (MATRL_ALT)   := (aColsAux[oMsGetZCA:Nat][9]) 
-                (cAliasTempAlt) -> (DURERL_ALT)  := cValToChar(aColsAux[oMsGetZCA:Nat][10]) 
+                (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZCAR:Nat][2])
+                (cAliasTempAlt) -> (DIAMRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][7]) 
+                (cAliasTempAlt) -> (COMPRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][8]) 
+                (cAliasTempAlt) -> (MATRL_ALT)   := (aColsAux[oMsGetZCAR:Nat][9]) 
+                (cAliasTempAlt) -> (DURERL_ALT)  := cValToChar(aColsAux[oMsGetZCAR:Nat][10]) 
                 
             (cAliasTempAlt) -> (MSUNLOCK())
 
@@ -3928,11 +3934,11 @@ User Function RLLP23ALT()
         DbSelectArea('ZCA')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                (cAliasTempAlt) -> (NOMELP_ALT) :=(aColsAux[oMsGetZCA:Nat][2]) 
-                (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCA:Nat][4]) 
-                (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
+                (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAL:Nat][1]) 
+                (cAliasTempAlt) -> (NOMELP_ALT) :=(aColsAux[oMsGetZCAL:Nat][2]) 
+                (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAL:Nat][3]) 
+                (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAL:Nat][4]) 
+                (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
                 if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
                     (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                     aCombo5AA := {'S=SIM','N=NAO'}
@@ -3940,12 +3946,12 @@ User Function RLLP23ALT()
                     (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                     aCombo5AA := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAlt) -> (IMPRES_ALT)  := (aColsAux[oMsGetZCA:Nat][6]) 
-                (cAliasTempAlt) -> (MODLP_ALT)   := (aColsAux[oMsGetZCA:Nat][7]) 
-                (cAliasTempAlt) -> (TENS_ALT)    := (aColsAux[oMsGetZCA:Nat][8]) 
-                (cAliasTempAlt) -> (CORR_ALT)    := (aColsAux[oMsGetZCA:Nat][9]) 
-                (cAliasTempAlt) -> (POT_ALT)     := (aColsAux[oMsGetZCA:Nat][10]) 
-                (cAliasTempAlt) -> (MODREF_ALT)  := (aColsAux[oMsGetZCA:Nat][11]) 
+                (cAliasTempAlt) -> (IMPRES_ALT)  := (aColsAux[oMsGetZCAL:Nat][6]) 
+                (cAliasTempAlt) -> (MODLP_ALT)   := (aColsAux[oMsGetZCAL:Nat][7]) 
+                (cAliasTempAlt) -> (TENS_ALT)    := (aColsAux[oMsGetZCAL:Nat][8]) 
+                (cAliasTempAlt) -> (CORR_ALT)    := (aColsAux[oMsGetZCAL:Nat][9]) 
+                (cAliasTempAlt) -> (POT_ALT)     := (aColsAux[oMsGetZCAL:Nat][10]) 
+                (cAliasTempAlt) -> (MODREF_ALT)  := (aColsAux[oMsGetZCAL:Nat][11]) 
                 
             (cAliasTempAlt) -> (MSUNLOCK())
 
@@ -4160,9 +4166,9 @@ static Function dialogAlt(aDados)
 
         
         oFontPadrao  := TFont():New(cFont, , -16)
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cSay3AA  := "Descrição"
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF  cTipo ==  'E'
             cSay3AA  := "Nome Estação"
         ENDIF
         xGet3AA := aDados[2][1]
@@ -4556,7 +4562,7 @@ static Function dialogAlt(aDados)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'L = LAMPADA'} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
+        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'L = LA   MPADA'} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
     
         oGet4A:lActive := .F.
 
@@ -4911,12 +4917,6 @@ User Function RLLP23EXC()
 // 
 // -------------------------------------------------------------------------------
 
-    if oMsGetZCA:Nat == 0
-
-        sleep(100)
-
-    else
-
         If cTipo == 'I' .OR. cTipo ==  'E'
 
             aColsAux := natEsc()
@@ -4926,8 +4926,8 @@ User Function RLLP23EXC()
             AADD(aFields,{'COD_ALL'    , "C", 6, 0})
             AADD(aFields,{'COD_EXC'    , "C", 6, 0})
             AADD(aFields,{'DESC_EXC'   , "C", 50, 0})
-            AADD(aFields,{'ATIVO_EXC'  , "C", 1, 0})
             AADD(aFields,{'TIPO_EXC'   , "C", 1, 0})
+            AADD(aFields,{'ATIVO_EXC'  , "C", 1, 0})
             AADD(aFields,{'DATA_EXC'   , "D", 8, 0})
             AADD(aFields,{'ATIVO_NAT'  , "C", 1, 0})
 
@@ -4941,12 +4941,19 @@ User Function RLLP23EXC()
             DbSelectArea('ZCA')
 
                 RecLock(cAliasTempAlt, .T.)
-                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCA:Nat][2]) 
-                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCA:Nat][4]) 
-                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
-
+                IF cTipo == 'I'
+                    (cAliasTempAlt) -> (COD_EXC)   := (aColsAux[oMsGetZCAI:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_EXC)  := (aColsAux[oMsGetZCAI:Nat][2]) 
+                    (cAliasTempAlt) -> (TIPO_EXC)  := ('I = Impressora') 
+                    (cAliasTempAlt) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAI:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
+                elseif cTipo == 'E'
+                    (cAliasTempAlt) -> (COD_EXC)   := (aColsAux[oMsGetZCAE:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_EXC)  := (aColsAux[oMsGetZCAE:Nat][2]) 
+                    (cAliasTempAlt) -> (TIPO_EXC)  := ('E = Estação') 
+                    (cAliasTempAlt) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAE:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
+                endif
                     if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                         aCombo5EE := {'S=SIM','N=NAO'}
@@ -5004,11 +5011,11 @@ User Function RLLP23EXC()
             DbSelectArea('ZCA')
 
                 RecLock(cAliasTempAlt, .T.)
-                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCA:Nat][2]) 
-                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCA:Nat][4]) 
-                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAR:Nat][1]) 
+                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCAR:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAR:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAR:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
 
                     if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -5017,11 +5024,11 @@ User Function RLLP23EXC()
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                         aCombo5EE := {'N=NAO','S=SIM'}
                     endif
-                    (cAliasTempExc) -> (NOMERL_EXC)  := (aColsAux[oMsGetZCA:Nat][6])
-                    (cAliasTempExc) -> (DIAMRL_EXC)  := (aColsAux[oMsGetZCA:Nat][7])
-                    (cAliasTempExc) -> (COMPRL_EXC)  := (aColsAux[oMsGetZCA:Nat][8])
-                    (cAliasTempExc) -> (MATRL_EXC)  :=  (aColsAux[oMsGetZCA:Nat][9])
-                    (cAliasTempExc) -> (DURERL_EXC)  := (aColsAux[oMsGetZCA:Nat][10])
+                    (cAliasTempExc) -> (NOMERL_EXC)  := (aColsAux[oMsGetZCAR:Nat][6])
+                    (cAliasTempExc) -> (DIAMRL_EXC)  := (aColsAux[oMsGetZCAR:Nat][7])
+                    (cAliasTempExc) -> (COMPRL_EXC)  := (aColsAux[oMsGetZCAR:Nat][8])
+                    (cAliasTempExc) -> (MATRL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][9])
+                    (cAliasTempExc) -> (DURERL_EXC)  := (aColsAux[oMsGetZCAR:Nat][10])
 
                 (cAliasTempExc) -> (MSUNLOCK())
 
@@ -5078,11 +5085,11 @@ User Function RLLP23EXC()
             DbSelectArea('ZCA')
 
                 RecLock(cAliasTempExc, .T.)
-                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCA:Nat][1]) 
-                    (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZCA:Nat][2]) 
-                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCA:Nat][3]) 
-                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCA:Nat][4]) 
-                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCA:Nat][5]) 
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAL:Nat][1]) 
+                    (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZCAL:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAL:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAL:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
                     if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                         aCombo5EE := {'S=SIM','N=NAO'}
@@ -5090,12 +5097,12 @@ User Function RLLP23EXC()
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                         aCombo5EE := {'N=NAO','S=SIM'}
                     endif
-                    (cAliasTempExc) -> (IMPRES_EXC)  := ZCA -> (aColsAux[oMsGetZCA:Nat][6]) 
-                    (cAliasTempExc) -> (MODLP_EXC)   := ZCA -> (aColsAux[oMsGetZCA:Nat][7]) 
-                    (cAliasTempExc) -> (TENS_EXC)    := ZCA -> (aColsAux[oMsGetZCA:Nat][8]) 
-                    (cAliasTempExc) -> (CORR_EXC)    := ZCA -> (aColsAux[oMsGetZCA:Nat][9]) 
-                    (cAliasTempExc) -> (POT_EXC)     := ZCA -> (aColsAux[oMsGetZCA:Nat][10]) 
-                    (cAliasTempExc) -> (MODREF_EXC)  := ZCA -> (aColsAux[oMsGetZCA:Nat][11]) 
+                    (cAliasTempExc) -> (IMPRES_EXC)  := ZCA -> (aColsAux[oMsGetZCAL:Nat][6]) 
+                    (cAliasTempExc) -> (MODLP_EXC)   := ZCA -> (aColsAux[oMsGetZCAL:Nat][7]) 
+                    (cAliasTempExc) -> (TENS_EXC)    := ZCA -> (aColsAux[oMsGetZCAL:Nat][8]) 
+                    (cAliasTempExc) -> (CORR_EXC)    := ZCA -> (aColsAux[oMsGetZCAL:Nat][9]) 
+                    (cAliasTempExc) -> (POT_EXC)     := ZCA -> (aColsAux[oMsGetZCAL:Nat][10]) 
+                    (cAliasTempExc) -> (MODREF_EXC)  := ZCA -> (aColsAux[oMsGetZCAL:Nat][11]) 
 
                 (cAliasTempExc) -> (MSUNLOCK())
 
@@ -5118,7 +5125,6 @@ User Function RLLP23EXC()
             dialogEXC(aDadosExc)
 
         endif
-    endif
     FWRestArea(aArea)
 return
 
@@ -5139,7 +5145,6 @@ static function dialogEXC(aDadosExc)
     Local nObjColu      := 0
     Local nObjLinh      := 0
     Local cJanTitulo    := ''
-
 
     Private oDlgExc
 
@@ -5244,9 +5249,9 @@ static function dialogEXC(aDadosExc)
     IF cTipo == 'I' .OR. cTipo == 'E'
     
 
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cJanTitulo := 'EXCLUSÃO DE IMPRESSORA'
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF  cTipo ==  'E'
             cJanTitulo := 'EXCLUSÃO DE ESTAÇÃO'
         ENDIF
         oDlgExc := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
@@ -5258,9 +5263,9 @@ static function dialogEXC(aDadosExc)
         oGrp7E := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg, , oDlgExc, , , lDimPixels)
 
         oFontPadrao  := TFont():New(cFont, , -20)
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cSay1EE  := "EXCLUSÃO DE ITEM - IMPRESSORAS"
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF cTipo ==  'E'
             cSay1EE  := "EXCLUSÃO DE ITEM - ESTAÇÃO"
         ENDIF
         nObjLinh := 25
@@ -5314,9 +5319,9 @@ static function dialogEXC(aDadosExc)
         
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet3EE := aDadosExc[2][1]
-        If ZCA -> (ZCA_TIPO) == 'I'
+        If cTipo == 'I'
             cSay3EE  := "Descrição"
-        ELSEIF  ZCA -> (ZCA_TIPO) ==  'E'
+        ELSEIF  cTIpo ==  'E'
             cSay3EE  := "Nome Estação"
         ENDIF
         nObjLinh := 90
@@ -5337,9 +5342,9 @@ static function dialogEXC(aDadosExc)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet4EE := aDadosExc[3][1]
-        if ZCA->(ZCA_TIPO) == 'I'
+        if cTipo == 'I'
             cEscolha := 'I = IMPRESSORA'
-        elseif ZCA -> (ZCA_TIPO) == 'E'
+        elseif cTipo == 'E'
             cEscolha := 'E = ESTACAO'
         endif
         nObjLinh := 90
@@ -5714,7 +5719,7 @@ static function dialogEXC(aDadosExc)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet4EE := aDadosExc[3][1]
-            cEscolha := 'R = ROLO'
+        cEscolha := 'L = LAMPADA'
         nObjLinh := 90
         nObjColu := 285
         nObjLarg := 80
@@ -5883,22 +5888,95 @@ return
 static function excBtn()
 
     Local aArea := FWGetArea()
+    Local aDadosL      := {}
+    Local aDadosMRL    := {}
+    // Local aDadosMLP    := {}
+    Local cCod        := oGet2E:BUFFER
+    Local cTipoItem   := oGet4E:BUFFER
+    lOCAL cQryIL
+    lOCAL cQryIMRL
+    // lOCAL cQryIMLP
+    // lOCAL cQryEMRL
+    // lOCAL cQryRMRL
+    // lOCAL cQryLmlp
 
-    DbSelectArea('ZCA')
+        if cTipo == 'I'
 
-        Begin Transaction
-        RecLock('ZCA', .F.)
-            ZCA -> (DbDelete())
-        ZCA -> (MsUnlock())  
-        lEsc := MsgYesNo('Deseja remover mesmo?')
-        if lEsc == .F.
-            DisarmTransaction()
-            MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
-        else
-            MsgInfo('REGISTRO REMOVIDO!!')
-            oDlgExc:End()
+            cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+
+            TCQUERY cQryIL New Alias "QRY_IL"
+
+            QRY_IL -> (DbGoTop())
+            while ! QRY_IL->(Eof())
+                AAdd(aDadosL,{QRY_IL->ZCA_COD,;
+                             QRY_IL->ZCA_IMPLP,;
+                            })
+                QRY_IL ->(DbSkip())
+            enddo
+
+            QRY_IL -> (DbCloseArea())
+
+            cQryIMRL  := "SELECT ZM1_COD FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+
+            TCQUERY cQryIMRL New Alias "QRY_IMRL"
+
+            QRY_IMRL -> (DbGoTop())
+            while ! QRY_IMRL->(Eof())
+                AAdd(aDadosMRL,{QRY_IMRL->ZM1_COD,;
+                            })
+                QRY_IMRL ->(DbSkip())
+            enddo
+
+            QRY_IMRL -> (DbCloseArea())
+
         endif
-        end Transaction
+
+        if  Empty(aDadosL) .AND. Empty(aDadosMRL)
+            Begin Transaction
+            if cTipoItem == 'I = IMPRESSORA'
+                cTipoItem := 'I'
+            elseif cTipoItem == 'E = ESTAÇÃO'
+                cTipoItem := 'E'
+            elseif cTipoItem == 'E = ROLO'
+                cTipoItem := 'R'
+            elseif cTipoItem == 'E = LAMPADA'
+                cTipoItem := 'L'
+            endif
+                IF ZCA->(DbSeek(FwxFilial('ZCA') + cCod + cTipoItem))
+                RecLock('ZCA', .F.)
+                ZCA -> (DbDelete())
+                ZCA -> (MsUnlock())  
+                lEsc := MsgYesNo('Deseja remover mesmo?')
+                if lEsc == .F.
+                    DisarmTransaction()
+                    MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
+                else
+                    MsgInfo('REGISTRO REMOVIDO!!')
+                    oDlgExc:End()
+                endif
+            endif
+            end Transaction
+        else 
+            Alert('NÃO PODE APAGAR REGISTRO JA USADOS')
+        endif
+
+    if cTipo == 'I'
+        fCarAcols()
+        oMsGetZCAI:ACOLS := aCols
+        oMsGetZCAI:oBrowse:Refresh()
+    elseif cTipo == 'E'
+        fCarAcols()
+        oMsGetZCAE:ACOLS := aCols
+        oMsGetZCAE:oBrowse:Refresh()
+    elseif cTipo == 'R'
+        fCarAcols()
+        oMsGetZCAR:ACOLS := aCols
+        oMsGetZCAR:oBrowse:Refresh()
+    elseif cTipo == 'L'
+        fCarAcols()
+        oMsGetZCAL:ACOLS := aCols
+        oMsGetZCAL:oBrowse:Refresh()
+    endif
 
     FWRestArea(aArea)
     
@@ -10067,7 +10145,7 @@ User function zConsImp()
     Local lCentraliz := .T.
     Local nTamBtn := 050
 
-    Private oFont := TFont():New('Arial', , -14)
+    Private oFont := TFont():New('Arial', , -14,,.F.,,,,,.T.)
 
     Private oGrp2
     Private oMsNew
@@ -10153,8 +10231,9 @@ User function zConsImp()
 
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfImp()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
-    
-    oFiltro := TSay():New((nJanAltu/2)-17, (nJanLarg/2)-((nTamBtn*3)-10), {|| cFil}, oDlgCE,,oFont,,,,lDimPixels,CLR_GREY,,20,20)
+
+    oFiltro := TSay():New((nJanAltu/2)-17, (nJanLarg/2)-((nTamBtn*3)-10), {|| cFil}, oDlgCE,,oFont,,,,lDimPixels,CLR_GRAY,,20,20)
+
     oFiltro:bLClicked := {|| ESCF()}    
 
     oMsNew:oBrowse:SetFocus()
@@ -10373,6 +10452,8 @@ User function zConsEst()
     Private xGetP := SPACE(100)
     Private oPesq
 
+    Private oFont := TFont():New('Arial', , -14,,.F.,,,,,.T.)
+
     Private oGrp3
     Private oConf
     Private oClr
@@ -10447,8 +10528,7 @@ User function zConsEst()
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfEst()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
 
-    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
-    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    oFiltro := TSay():New((nJanAltu/2)-17, (nJanLarg/2)-((nTamBtn*3)-10), {|| cFil}, oDlgCE,,oFont,,,,lDimPixels,CLR_GRAY,,20,20)
     oFiltro:bLClicked := {|| ESCF()}
 
     oMsNew:oBrowse:SetFocus()
@@ -10602,6 +10682,8 @@ User function zConsRl()
     Private xGetP := SPACE(100)
     Private oPesq
 
+    Private oFont := TFont():New('Arial', , -14,,.F.,,,,,.T.)
+
     Private oGrp3
     Private oConf
     Private oClr
@@ -10678,8 +10760,7 @@ User function zConsRl()
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfRl()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
     
-    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
-    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    oFiltro := TSay():New((nJanAltu/2)-17, (nJanLarg/2)-((nTamBtn*3)-10), {|| cFil}, oDlgCE,,oFont,,,,lDimPixels,CLR_GRAY,,20,20)
     oFiltro:bLClicked := {|| ESCF()}
 
     oMsNew:oBrowse:SetFocus()
@@ -10840,6 +10921,8 @@ User function zConsLp()
     Private cFil := 'Filtro'
     Private nNum
 
+    Private oFont := TFont():New('Arial', , -14,,.F.,,,,,.T.)
+
     private cTipo := 'L'
 
     Private oDlgCE
@@ -10907,8 +10990,7 @@ User function zConsLp()
     oConf   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*1)+06), 'Confirmar', oDlgCE,{|| fConfLp()}, nTamBtn, 013,,,,lDimPixels)       
     oCanc   := TButton():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*2)+09), 'Cancelar', oDlgCE,{|| oDlgCE:End()}, nTamBtn, 013,,,,lDimPixels)  
 
-    oFiltro := TSay():New((nJanAltu/2)-19, (nJanLarg/2)-((nTamBtn*3)+12), {|| cFil}, oDlgCE,,,,,,lDimPixels,,,50,20)
-    oFiltro:SetCss(" TSay {Font:Bold, Color:rgb(0, 255, 255)}, text-decoration: underline")
+    oFiltro := TSay():New((nJanAltu/2)-17, (nJanLarg/2)-((nTamBtn*3)-10), {|| cFil}, oDlgCE,,oFont,,,,lDimPixels,CLR_GRAY,,20,20)
     oFiltro:bLClicked := {|| ESCF()}
 
     oMsNew:oBrowse:SetFocus()
@@ -10928,15 +11010,7 @@ static function fPopulaLp()
 
     if lTF == .F.
 
-        if  nNum == 2
-
             cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
-
-        elseif nNum == 1
-
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
-
-        endif
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
