@@ -1464,7 +1464,7 @@ User Function EST()
             oMsGetZCAE:lActive := .F. 
 
            oMsGetZCAE:oBrowse:Refresh()
-        
+
         oDlgE:Activate()
 
     FwRestArea(aArea)
@@ -1992,6 +1992,10 @@ User Function CadBtnTipo()
 
     Private nEsc
     Private nEscBD
+
+    Private cFunc 
+
+    cFunc = 'T'
 
     nEscBD := 1
 
@@ -3029,7 +3033,7 @@ User Function CadBtnTipo()
         nObjLarg := 110
         nObjAltu := 15
         lHasButton := .T. 
-        oGet15T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15TT := u, cGet15TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet15T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15TT := u, cGet15TT)} , oDlgCad, nObjLarg, nObjAltu,,{||ValidaCmpI()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet15T:cF3 := 'U_zConsImp()' 
         oGet15T:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -3136,11 +3140,160 @@ User Function CadBtnTipo()
 
     ENDIF
 
-    
-
     FWRestArea(aArea)
+
 return
 
+Static Function ValidaCmpI()
+
+    Local aArea := FWGetArea()
+    Local cQryVI
+    Local lFN
+    Local cImp 
+    Local cRec
+    Local cTir
+
+    if nEscBD == 1
+
+        if cFunc == 'T'
+            cTir := StrTran(oGet15T:BUFFER,"'", '')
+            cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cRec := oGet15T:BUFFER 
+        elseif cFunc == 'A'
+            cTir := StrTran(oGet15A:BUFFER,"'", '')
+            cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cRec := oGet15A:BUFFER 
+        endif
+
+    elseif nEscBD == 2
+
+        cTir := StrTran(oGet3M:BUFFER,"'", '')
+        cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cRec := oGet3M:BUFFER
+
+    elseif nEscBD == 3
+
+        cTir := StrTran(oGet3L:BUFFER,"'", '')
+        cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cRec := oGet3L:BUFFER
+         
+    endif
+
+        TCQUERY cQryVI New Alias "QRY_VCPI"
+        cImp := QRY_VCPI->ZCA_COD
+        if Empty(cRec)
+            lFN := .T. 
+        elseif Empty(cImp)
+            lFN := .F.
+            MsgAlert('REGISTRO DIGITADO INCORRETAMENTE OU NÃO EXISTE NO BANCO DE DADOS!')
+        else
+            lFN := .T.
+        endif
+
+    QRY_VCPI->(DbCloseArea())
+
+    FwRestArea(aArea)
+
+return (lFN)
+
+Static Function ValidaCmpE()
+
+    Local aArea := FWGetArea()
+    Local cQryVE
+    Local lFN
+    Local cImp 
+    Local cRec
+
+    if nEscBD == 2
+
+        cTir := StrTran(oGet4M:BUFFER,"'", '')
+        cQryVE := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
+        cRec := oGet4M:BUFFER
+
+    endif
+
+        TCQUERY cQryVE New Alias "QRY_VCPE"
+        cImp := QRY_VCPE->ZCA_COD
+        if Empty(cRec)
+            lFN := .T. 
+        elseif Empty(cImp)
+            lFN := .F.
+            MsgAlert('REGISTRO DIGITADO INCORRETAMENTE OU NÃO EXISTE NO BANCO DE DADOS!')
+        else
+            lFN := .T.
+        endif
+
+    QRY_VCPE->(DbCloseArea())
+
+    FwRestArea(aArea)
+
+return (lFN)
+
+Static Function ValidaCmpR()
+
+    Local aArea := FWGetArea()
+    Local cQryVR
+    Local lFN
+    Local cImp 
+    Local cRec
+
+    if nEscBD == 2
+        
+        cTir := StrTran(oGet6M:BUFFER,"'", '')
+        cQryVR := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_NOMERL = '" + cTir + "' AND  ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
+        cRec := oGet6M:BUFFER
+
+    endif
+
+        TCQUERY cQryVR New Alias "QRY_VCPR"
+        cImp := QRY_VCPR->ZCA_COD
+        if Empty(cRec)
+            lFN := .T. 
+        elseif Empty(cImp)
+            lFN := .F.
+            MsgAlert('REGISTRO DIGITADO INCORRETAMENTE OU NÃO EXISTE NO BANCO DE DADOS!')
+        else
+            lFN := .T.
+        endif
+
+    QRY_VCPR->(DbCloseArea())
+
+    FwRestArea(aArea)
+
+return (lFN)
+
+Static Function ValidaCmpL()
+
+    Local aArea := FWGetArea()
+    Local cQryVL
+    Local lFN
+    Local cImp 
+    Local cRec
+
+    if nEscBD == 3
+
+        cTir := StrTran(oGet6L:BUFFER,"'", '')
+        cQryVL := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_NOMELP = '" + cTir + "' AND  ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+        cRec := oGet6L:BUFFER
+
+    endif
+
+        TCQUERY cQryVL New Alias "QRY_VCPL"
+        cImp := QRY_VCPL->ZCA_COD
+        if Empty(cRec)
+            lFN := .T. 
+        elseif Empty(cImp)
+            lFN := .F.
+            MsgAlert('REGISTRO DIGITADO INCORRETAMENTE OU NÃO EXISTE NO BANCO DE DADOS!')
+        else
+            lFN := .T.
+        endif
+
+    QRY_VCPL->(DbCloseArea())
+
+    FwRestArea(aArea)
+
+return (lFN)
 Static Function fCarAcols()
 
     Local aArea := FWGetArea()
@@ -4091,6 +4244,8 @@ static Function dialogAlt(aDados)
 
     nEscBD := 1
 
+    cFunc := 'A'
+
 // -------------------------------------------------------------------------------
 // 
 //           TELA ATERAÇÃO IMPRESSORA/ESTAÇÃO - GABRIEL
@@ -4616,7 +4771,7 @@ static Function dialogAlt(aDados)
         nObjAltu := 15
         lHasButton := .T.
         lHasButton := .T. 
-        oGet15A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15AA := u, cGet15AA)} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet15A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet15AA := u, cGet15AA)} , oDlgAlt, nObjLarg, nObjAltu,,{||ValidaCmpI()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet15A:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet15A:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
         
@@ -5890,15 +6045,17 @@ static function excBtn()
     Local aArea := FWGetArea()
     Local aDadosL      := {}
     Local aDadosMRL    := {}
-    // Local aDadosMLP    := {}
+    Local aDadosMLP    := {}
+    Local i := 0
     Local cCod        := oGet2E:BUFFER
     Local cTipoItem   := oGet4E:BUFFER
     lOCAL cQryIL
+    Local lDsc
     lOCAL cQryIMRL
-    // lOCAL cQryIMLP
-    // lOCAL cQryEMRL
-    // lOCAL cQryRMRL
-    // lOCAL cQryLmlp
+    lOCAL cQryIMLP
+    lOCAL cQryEMRL
+    lOCAL cQryRMRL
+    lOCAL cQryLMLP
 
         if cTipo == 'I'
 
@@ -5916,22 +6073,111 @@ static function excBtn()
 
             QRY_IL -> (DbCloseArea())
 
-            cQryIMRL  := "SELECT ZM1_COD FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
             QRY_IMRL -> (DbGoTop())
             while ! QRY_IMRL->(Eof())
                 AAdd(aDadosMRL,{QRY_IMRL->ZM1_COD,;
+                                QRY_IMRL->ZM1_IMPRES,;    
                             })
                 QRY_IMRL ->(DbSkip())
             enddo
 
             QRY_IMRL -> (DbCloseArea())
 
+            cQryIMLP  := "SELECT ZM2_COD,ZM2_IMPRES FROM " + RetSQLName('ZM2') + " WHERE D_E_L_E_T_ = ''"
+
+            TCQUERY cQryIMLP New Alias "QRY_IMLP"
+
+            QRY_IMLP -> (DbGoTop())
+            while ! QRY_IMLP->(Eof())
+                AAdd(aDadosMLP,{QRY_IMLP->ZM2_COD,;
+                                QRY_IMLP->ZM2_IMPRES,;    
+                            })
+                QRY_IMLP ->(DbSkip())
+            enddo
+
+            QRY_IMLP -> (DbCloseArea())
+
+        elseif cTipo == 'E'
+
+            cQryEMRL  := "SELECT ZM1_COD,ZM1_EST FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+
+            TCQUERY cQryEMRL New Alias "QRY_EMRL"
+
+            QRY_EMRL -> (DbGoTop())
+            while ! QRY_EMRL->(Eof())
+                AAdd(aDadosMRL,{QRY_EMRL->ZM1_COD,;
+                                QRY_EMRL->ZM1_EST,;    
+                            })
+                QRY_EMRL ->(DbSkip())
+            enddo
+
+            QRY_EMRL -> (DbCloseArea())
+
+        elseif cTipo == 'R'
+
+            cQryRMRL  := "SELECT ZM1_COD,ZM1_ROLO FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+
+            TCQUERY cQryRMRL New Alias "QRY_RMRL"
+
+            QRY_RMRL -> (DbGoTop())
+            while ! QRY_RMRL->(Eof())
+                AAdd(aDadosMRL,{QRY_RMRL->ZM1_COD,;
+                                QRY_RMRL->ZM1_ROLO,;    
+                            })
+                QRY_RMRL ->(DbSkip())
+            enddo
+
+            QRY_RMRL -> (DbCloseArea())
+
+        elseif cTipo == 'L'
+
+                cQryLMLP  := "SELECT ZM2_COD,ZM2_LAMP FROM " + RetSQLName('ZM2') + " WHERE D_E_L_E_T_ = ''"
+
+            TCQUERY cQryLMLP New Alias "QRY_LMLP"
+
+            QRY_LMLP -> (DbGoTop())
+            while ! QRY_LMLP->(Eof())
+                AAdd(aDadosMLP,{QRY_LMLP->ZM2_COD,;
+                                QRY_LMLP->ZM2_LAMP,;    
+                            })
+                QRY_LMLP ->(DbSkip())
+            enddo
+
+            QRY_LMLP -> (DbCloseArea())
+
         endif
 
-        if  Empty(aDadosL) .AND. Empty(aDadosMRL)
+        For i:=1 to Len(aDadosL)
+            if  oGet3E:BUFFER == (aDadosL[i][2])
+                lDsc := .T.
+            else
+                sleep(1)
+            endif
+        Next
+
+        For i:=1 to Len(aDadosMRL)
+            if  oGet3E:BUFFER == (aDadosMRL[I][2])
+                lDsc := .T.
+            else
+                sleep(1)
+            endif
+        next
+
+        For i:=1 to Len(aDadosMLP)
+            if  oGet3E:BUFFER == (aDadosMLP[I][2])
+                lDsc := .T.
+            else
+                sleep(1)
+            endif
+        next
+
+        if  lDsc == .T.
+            MsgAlert('NÃO PODE APAGAR REGISTRO!! ESTÁ EM USO','ATENÇÃO')
+        else 
             Begin Transaction
             if cTipoItem == 'I = IMPRESSORA'
                 cTipoItem := 'I'
@@ -5956,8 +6202,6 @@ static function excBtn()
                 endif
             endif
             end Transaction
-        else 
-            Alert('NÃO PODE APAGAR REGISTRO JA USADOS')
         endif
 
     if cTipo == 'I'
@@ -6319,7 +6563,7 @@ User function incMRl()
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgCadM, nObjLarg, nObjAltu,,{||ValidaCmpI()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3M:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet3M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6337,7 +6581,7 @@ User function incMRl()
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgCadM, nObjLarg, nObjAltu,,{||ValidaCmpe()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet4M:cF3 := 'U_zConsEst()' //puxar função que ira fazer a consulta especifica
         oGet4M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6374,7 +6618,7 @@ User function incMRl()
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgCadM, nObjLarg, nObjAltu,,{||ValidaCmpR()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet6M:cF3 := 'U_zConsRl()' //puxar função que ira fazer a consulta especifica
         oGet6M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6864,7 +7108,7 @@ Local aArea := FWGetArea()
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgAltM, nObjLarg, nObjAltu,,{|| ValidaCmpI()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3M:cF3 := 'U_zConsImp()' 
         oGet3M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6883,7 +7127,7 @@ Local aArea := FWGetArea()
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgAltM, nObjLarg, nObjAltu,,{||ValidaCmpE},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet4M:cF3 := 'U_zConsEst()' 
         oGet4M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6922,7 +7166,7 @@ Local aArea := FWGetArea()
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet6M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6MM := u, cGet6MM)} , oDlgAltM, nObjLarg, nObjAltu,,{||ValidaCmpR()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet6M:cF3 := 'U_zConsRl()'
         oGet6M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -8061,7 +8305,7 @@ Local aArea := FWGetArea()
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu,,{|| ValidaCmpI()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3L:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet3L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -8115,7 +8359,7 @@ Local aArea := FWGetArea()
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu,,{||ValidaCmpL()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet6L:cF3 := 'U_zConsLp()' //puxar função que ira fazer a consulta especifica
         oGet6L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -8893,7 +9137,7 @@ Static function dialogAltL(aDadosAltL)
         nObjLarg := 170
         nObjAltu := 15
         lHasButton := .T.
-        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet3L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3LL := u, cGet3LL)} , oDlgCadL, nObjLarg, nObjAltu,,{||ValidaCmpI()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet3L:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
         oGet3L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -8950,7 +9194,7 @@ Static function dialogAltL(aDadosAltL)
         nObjLarg := 100
         nObjAltu := 15
         lHasButton := .T.
-        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet6L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet6LL := u, cGet6LL)} , oDlgCadL, nObjLarg, nObjAltu,,{||ValidaCmpL()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet6L:cF3 := 'U_zConsLp()'
         oGet6L:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
