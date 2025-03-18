@@ -1482,9 +1482,6 @@ User Function EST()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCAI:oBrowse:lUseDefaultColors := .F.
-            oMsGetZCAI:oBrowse:SetBlkBackColor({|| GETDCLR(oMsGetZCAI:aCols,oMsGetZCAI:nAt,aHeader)})
-
             oMsGetZCAE:lActive := .F. 
 
            oMsGetZCAE:oBrowse:Refresh()
@@ -12178,3 +12175,4 @@ Static Function R3geraExcell(aDados)
     endif
     RestArea(aArea)
 return 
+
