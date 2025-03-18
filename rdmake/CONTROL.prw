@@ -194,7 +194,6 @@ Static Function MenuDef()
         AADD(aRotina,    {"Excluir"                 , "U_excMRL"        , 0, 5})
         AADD(aRotina,    {"Relatorios"              , aSubRela          , 0, 3})
         AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
-        AADD(aRotina,    {"Importar dados"          , 'U_ImportD()'          , 0, 3})
 
         AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
         AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
@@ -3550,7 +3549,7 @@ Static function CadBtnSalv()
                     if oCombo5T:NAT == 2
                         ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
                     elseif oCombo5T:NAT == 3
-                        ZCA->ZCA_ATIVO := oCombo5T:AITEMS[3]
+                        ZCA->ZCA_ATIVO := oCombo5T:AITEMS[3][]
                     elseif oCombo5T:nat == 1 .OR. oCombo5T:nat == 0
                         MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)', 'ATENÇÃO')
                         DisarmTransaction()
@@ -12178,14 +12177,4 @@ Static Function R3geraExcell(aDados)
         Msgalert("Não há nenhum cadastro para puxar no relatorio","ATENÇÃO")
     endif
     RestArea(aArea)
-return 
-
-User function ImportD()
-
-    Local aArea := FwGetArea()
-
-    
-
-    FwRestArea(aArea)
-
 return 
