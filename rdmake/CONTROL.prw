@@ -96,9 +96,12 @@ Static function ESCM()
     Local aArea       := FWGetArea()
     Local oBrowseM
     Local aSeek       := {}
+    lOCAL cCampoAux1
+    Local cCampoAux2
 
 	Private aRotina   := {}
     Private cCadastro 
+
 
     if oCombo3:Nat == 2
 
@@ -107,14 +110,17 @@ Static function ESCM()
         aRotina := MenuDef()
 
         cCadastro := "MANUTENÇÃO DE ROLOS"
-     
-        // Aadd(aSeek,{GetSX3Cache('ZM1_COD', "X3_TITULO")   , {{"","C",06,0, "ZM1_COD"      ,""  }}, 1, .T. } )
-        // Aadd(aSeek,{GetSX3Cache('ZM1_IMPRES', "X3_TITULO"), {{"","C",50,0, "ZM1_IMPRES"   ,"@!"}}, 2, .T. } )
-        // Aadd(aSeek,{GetSX3Cache('ZM1_ROLO', "X3_TITULO")  , {{"","C",50,0, "ZM1_ROLO"     ,"@!"}}, 3, .T. } )
-
-        cCampoAux := "ZM1_COD"
-        aAdd(aSeek,{GetSX3Cache(cCampoAux, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux, "X3_TIPO"), GetSX3Cache(cCampoAux, "X3_TAMANHO"), GetSX3Cache(cCampoAux, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux, "X3_PICTURE"))}} } )
     
+        cCampoAux1 := "ZM1_COD"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},1 } )
+        cCAMPOAUX1 := "ZM1_IMPRES"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},2 } )
+        cCampoAux1 := "ZM1_ROLO"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},3 } )
+        cCampoAux1 := "ZM1_EST"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},4 } )
+        cCampoAux1 := "ZM1_USU"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},5 } )
 
         oBrowseM := FWMBrowse():New()
         oBrowseM:SetAlias("ZM1")
@@ -139,8 +145,23 @@ Static function ESCM()
 
         cCadastro := "MANUTENÇÃO DE LÂMPADAS"   
 
+        cCampoAux2 := "ZM2_COD"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},1 } )
+        cCampoAux2 := "ZM2_IMPRES"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},2 } )
+        cCampoAux2 := "ZM2_LAMP"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},3 } )
+        cCampoAux2 := "ZM2_USU"
+        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},4 } )
+
         oBrowseM := FWMBrowse():New()
         oBrowseM:SetAlias("ZM2")
+        oBrowseM:SetDBFFilter(.T.)
+        oBrowseM:SetUseFilter(.T.) 
+        oBrowseM:SetFixedBrowse(.T.)
+        oBrowseM:SetWalkThru(.T.) 
+        oBrowseM:SetAmbiente(.T.)
+        oBrowseM:SetSeek(.T., aSeek)
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
 
@@ -173,6 +194,7 @@ Static Function MenuDef()
         AADD(aRotina,    {"Excluir"                 , "U_excMRL"        , 0, 5})
         AADD(aRotina,    {"Relatorios"              , aSubRela          , 0, 3})
         AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
+        AADD(aRotina,    {"Importar dados"          , 'U_ImportD()'          , 0, 3})
 
         AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
         AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
@@ -1461,6 +1483,9 @@ User Function EST()
                                              aHeader,;            
                                              aCols) 
 
+            oMsGetZCAI:oBrowse:lUseDefaultColors := .F.
+            oMsGetZCAI:oBrowse:SetBlkBackColor({|| GETDCLR(oMsGetZCAI:aCols,oMsGetZCAI:nAt,aHeader)})
+
             oMsGetZCAE:lActive := .F. 
 
            oMsGetZCAE:oBrowse:Refresh()
@@ -2097,7 +2122,7 @@ User Function CadBtnTipo()
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
+        nObjAltu := 0130  
         oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgCad, , , lDimPixels)
         
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -2182,28 +2207,6 @@ User Function CadBtnTipo()
         oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
         
         oGet6T:lActive := .F.
-
-        oMsGetZCA := MsNewGetDados():New(    130,;                
-                                             005,;                
-                                             (nJanAltu/2)-6,;                
-                                             (nJanLarg/2)-3,;                
-                                             ,;                    
-                                             "AllwaysTrue()",;    
-                                             ,;                   
-                                             "",;                 
-                                             {},;                 
-                                             ,;                   
-                                             999,;                
-                                             ,;                   
-                                             ,;                   
-                                             ,;                   
-                                             oDlgCad,;            
-                                             aHeader,;            
-                                             aCols) 
-
-            oMsGetZCA:lActive := .F. 
-
-           oMsGetZCA:oBrowse:Refresh()
         
         oDlgCad:Activate()
 
@@ -2311,7 +2314,7 @@ User Function CadBtnTipo()
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
+        nObjAltu := 0130 
         oGrp8 := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgCad, , , lDimPixels)
         
         //Criação objetos 02
@@ -2401,26 +2404,6 @@ User Function CadBtnTipo()
         oGet6T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet6TT := u, xGet6TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
         
         oGet6t:lActive := .F.
-
-        oMsGetZCA := MsNewGetDados():New(    130,;                
-                                             005,;                
-                                             (nJanAltu/2)-6,;                
-                                             (nJanLarg/2)-3,;                
-                                             ,;                
-                                             "AllwaysTrue()",;    
-                                             ,;                   
-                                             "",;                 
-                                             {},;                 
-                                             ,;                   
-                                             999,;                
-                                             ,;                   
-                                             ,;                   
-                                             ,;                   
-                                             oDlgCad,;            
-                                             aHeader,;            
-                                             aCols) 
-            
-            oMsGetZCA:lActive := .F. 
 
         oDlgCad:Activate()
        
@@ -2578,7 +2561,7 @@ User Function CadBtnTipo()
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
+        nObjAltu := 0160 
         oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgCad, , , lDimPixels)
         
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -2739,26 +2722,6 @@ User Function CadBtnTipo()
         nObjLarg := 80
         nObjAltu := 15
         oGet13T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet13TT := u, xGet13TT)} , oDlgCad, nObjLarg, nObjAltu, "@!",,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
-
-        oMsGetZCA := MsNewGetDados():New(    155,;                
-                                             005,;                
-                                             (nJanAltu/2)-6,;                
-                                             (nJanLarg/2)-3,;                
-                                             ,;                 
-                                             "AllwaysTrue()",;    
-                                             ,;                   
-                                             "",;                 
-                                             {},;                 
-                                             ,;                   
-                                             999,;                
-                                             ,;                   
-                                             ,;                   
-                                             ,;                   
-                                             oDlgCad,;            
-                                             aHeader,;            
-                                             aCols) 
-            
-            oMsGetZCA:lActive := .F. 
 
         oDlgCad:Activate()
 
@@ -2926,7 +2889,7 @@ User Function CadBtnTipo()
         nObjLinh := 065
         nObjColu := 002 
         nObjLarg := (nJanLarg / 2) 
-        nObjAltu := (nJanAltu / 2) - 002  
+        nObjAltu := 0160
         oGrp8    := TGroup():New(nObjLinh, nObjColu, nObjAltu, nObjLarg,'Cadastros e Grid' , oDlgCad, , , lDimPixels)
         
         //Criação objetos 02
@@ -3111,26 +3074,6 @@ User Function CadBtnTipo()
         nObjLarg := 80
         nObjAltu := 15
         oGet20T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20TT := u, xGet20TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
-
-        oMsGetZCA := MsNewGetDados():New(    155,;                
-                                             005,;                
-                                             (nJanAltu/2)-6,;                
-                                             (nJanLarg/2)-3,;                
-                                             ,;                   
-                                             "AllwaysTrue()",;    
-                                             ,;                   
-                                             "",;                 
-                                             {},;                 
-                                             ,;                   
-                                             999,;                
-                                             ,;                   
-                                             ,;                   
-                                             ,;                   
-                                             oDlgCad,;            
-                                             aHeader,;           
-                                             aCols) 
-            
-            oMsGetZCA:lActive := .F. 
 
         oDlgCad:Activate()
 
@@ -3467,6 +3410,9 @@ Static function CadBtnSalv()
     Local aArea := FWGetArea()
     Local cAlias := 'ZCA'
     Local lEscolha := .F.
+    Local cPushFil 
+
+    cPushFil := FWcodFil()
 
 // -------------------------------------------------------------------------------
 // 
@@ -3477,15 +3423,23 @@ Static function CadBtnSalv()
     if cTipo == 'I' .OR. cTipo == 'E'
     lEscolha := MsgYesNo('DESEJA CONFIRMAR O CADASTRO?','ATENÇÃO')
     
-        if lEscolha = .T.
+        cQry := "SELECT ZCA_DESC FROM ZCA990 WHERE ZCA_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = ''"
 
-            if Empty(oGet2T:BUFFER) .OR. Empty(oGet3T:BUFFER)  
+        TCQUERY cQry New Alias "QRY_CHK"
+
+        cRec := QRY_CHK->ZCA_DESC
+
+        if lEscolha = .T.
+            if  AllTrim(cRec) == AllTrim(oGet3T:BUFFER)  
+                MSGALERT('IMPRESSORA JÁ CADASTRADA NO SISTEMA','ATENÇÃO')
+            elseif Empty(oGet3T:BUFFER) .OR. AllTrim(oGet3T:BUFFER) == "'" 
                 MSGALERT('HÁ ALGUM CAMPO SEM DIGITAÇÃO','ATENÇÃO')
             elseif  oCombo5T:Nat == 0
                 MsgAlert('CAMPO ATIVO SEM ESCOLHA','ATENÇÃO')    
                 else
                 begin transaction 
                 RecLock(cAlias, .T.)
+                    ZCA->ZCA_FILIAL := cPushFil
                     ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
                     ZCA->ZCA_DESC  := UPPER(LTrim(oGet3T:BUFFER))
                     ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
@@ -3502,13 +3456,7 @@ Static function CadBtnSalv()
                 ZCA -> (MSUNLOCK())
                 end transaction
                 MsgInfo('CADASTRO FEITO COM SUCESSO!!')
-
-                lEsc := MsgYesNo('CONTINUAR COM AS MESMAS INFORMAÇÕES?','ATENÇÃO')
-                
-                if lEsc == .F.
-                    oGet3T:BUFFER   := SPACE(100)
-                    oCombo5T:Nat    := 3
-                endif
+                oDlgCad:End()
             
             endif
         else
@@ -3522,9 +3470,16 @@ Static function CadBtnSalv()
     elseif cTipo == 'R'
     lEscolha := MsgYesNo('DESEJA CONFIRMAR O CADASTRO?','ATENÇÃO')
     
-    if lEscolha = .T.
+    cQry := "SELECT ZCA_NOMERL FROM ZCA990 WHERE ZCA_NOMERL = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "'AND ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
 
-            if Empty(oGet2T:BUFFER) .OR. Empty(oGet3T:BUFFER) .OR. Empty(oGet9T:BUFFER)  .OR. Empty(oGet10T:BUFFER) .OR. Empty(oGet11T:BUFFER) .OR. Empty(oGet12T:BUFFER) .OR. Empty(oGet13T:BUFFER) 
+        TCQUERY cQry New Alias "QRY_CHK"
+
+        cRec := QRY_CHK->ZCA_NOMERL
+
+        if lEscolha = .T.
+            if  AllTrim(cRec) == AllTrim(oGet3T:BUFFER)  
+                MSGALERT('IMPRESSORA JÁ CADASTRADA NO SISTEMA','ATENÇÃO')
+            ELSEif Empty(oGet2T:BUFFER) .OR. Empty(oGet3T:BUFFER) .OR. Empty(oGet9T:BUFFER)  .OR. Empty(oGet10T:BUFFER) .OR. Empty(oGet11T:BUFFER) .OR. Empty(oGet12T:BUFFER) .OR. Empty(oGet13T:BUFFER) .OR. AllTrim(oGet3T:BUFFER) == "'"
                 MSGALERT('HÁ ALGUM CAMPO SEM DIGITAÇÃO','ATENÇÃO')
             ELSEIF IsAlpha(oGet10T:BUFFER) .OR. IsAlpha(oGet11T:BUFFER)
                 MsgAlert('HÁ LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS','ATENÇÃO')
@@ -3533,6 +3488,7 @@ Static function CadBtnSalv()
             else
                 begin transaction 
                 RecLock(cAlias, .T.)
+                    ZCA->ZCA_FILIAL := cPushFil
                     ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
                     ZCA->ZCA_DESC  := Upper(Alltrim(oGet9T:BUFFER))
                     ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
@@ -3554,17 +3510,8 @@ Static function CadBtnSalv()
                 ZCA -> (MSUNLOCK())
                 end transaction
                 MsgInfo('CADASTRO FEITO COM SUCESSO!!')
+                oDlgCad:End()
 
-                lEsc := MsgYesNo('CONTINUAR COM AS MESMAS INFORMAÇÕES?','ATENÇÃO')
-
-                if lEsc == .F.
-                    oGet3T:BUFFER    := SPACE(100)
-                    oGet9T:BUFFER    := SPACE(50)
-                    oGet10T:BUFFER   := SPACE(8)
-                    oGet11T:BUFFER   := SPACE(4)
-                    oGet12T:BUFFER   := SPACE(50)
-                    oGet13T:BUFFER   := SPACE(50)
-                endif
             endif
         else
             MsgInfo('NENHUM CADASTRO EFETUADO')
@@ -3578,10 +3525,16 @@ Static function CadBtnSalv()
     elseif cTipo == 'L'
 
     lEscolha := MsgYesNo('DESEJA CONFIRMAR O CADASTRO?','ATENÇÃO')
-    
-    if lEscolha = .T.
+    cQry := "SELECT ZCA_NOMELP FROM ZCA990 WHERE ZCA_NOMELP = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
 
-            if Empty(oGet2T:BUFFER) .OR. Empty(oGet3T:BUFFER) .OR. Empty(oGet15T:BUFFER) .OR. Empty(oGet16T:BUFFER)  .OR. Empty(oGet17T:BUFFER) .OR. Empty(oGet18T:BUFFER) .OR. Empty(oGet19T:BUFFER)  .OR. Empty(oGet20T:BUFFER) 
+        TCQUERY cQry New Alias "QRY_CHK"
+
+        cRec := QRY_CHK->ZCA_NOMELP
+
+        if lEscolha = .T.
+            if  AllTrim(cRec) == AllTrim(oGet3T:BUFFER)  
+                MSGALERT('IMPRESSORA JÁ CADASTRADA NO SISTEMA','ATENÇÃO')
+            elseif Empty(oGet2T:BUFFER) .OR. Empty(oGet3T:BUFFER) .OR. Empty(oGet15T:BUFFER) .OR. Empty(oGet16T:BUFFER)  .OR. Empty(oGet17T:BUFFER) .OR. Empty(oGet18T:BUFFER) .OR. Empty(oGet19T:BUFFER)  .OR. Empty(oGet20T:BUFFER) .OR. AllTrim(oGet3T:BUFFER) == "'"
                 MSGALERT('HÁ ALGUM CAMPO SEM DIGITAÇÃO','ATENÇÃO')
             ELSEIF IsAlpha(oGet17T:BUFFER) .OR. IsAlpha(oGet18T:BUFFER) .OR. IsAlpha(oGet19T:BUFFER)
                 MsgAlert('HÁ LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS','ATENÇÃO')
@@ -3590,6 +3543,7 @@ Static function CadBtnSalv()
             else
                 begin transaction 
                 RecLock(cAlias, .T.)
+                    ZCA->ZCA_FILIAL := cPushFil
                     ZCA->ZCA_COD     := Alltrim(oGet2T:BUFFER)
                     ZCA->ZCA_NOMELP  := Upper(Alltrim(oGet3T:BUFFER))
                     ZCA->ZCA_TIPO    := Alltrim(oGet4T:BUFFER)
@@ -3612,31 +3566,16 @@ Static function CadBtnSalv()
                 ZCA -> (MSUNLOCK())
                 end transaction
                 MsgInfo('CADASTRO FEITO COM SUCESSO!!')
-                
-                lEsc := MsgYesNo('CONTINUAR COM AS MESMAS INFORMAÇÕES?','ATENÇÃO')
-
-                if lEsc == .F.
-                    oGet3T:BUFFER    := SPACE(100)
-                    oGet15T:BUFFER   := SPACE(50)
-                    oGet16T:BUFFER   := SPACE(50)
-                    oGet17T:BUFFER   := SPACE(6)
-                    oGet18T:BUFFER   := SPACE(7)
-                    oGet19T:BUFFER   := SPACE(4)
-                    oGet20T:BUFFER   := SPACE(50)
-                ENDIF   
+                oDlgCad:End()
             endif
         else
             MsgInfo('NENHUM CADASTRO EFETUADO')
     ENDIF
     endif
 
-    geraCod()
+    QRY_CHK->(DbCloseArea())
 
-    fCarAcols()
-    oMsGetZCA:ACOLS := aCols
-    oMsGetZCA:oBrowse:Refresh()
-
-FWRestArea(aArea)
+    FWRestArea(aArea)
 return
 
 Static function geraCod()
@@ -6746,6 +6685,9 @@ static function cadBtnM()
     Local aArea := FWGetArea()
     Local cAlias := 'ZM1'
     Local lEscolha := .F.
+    Local cPushFil
+
+    cPushFil := FWcodFil()
 
 // -------------------------------------------------------------------------------
 // 
@@ -6766,6 +6708,7 @@ static function cadBtnM()
             else
             begin transaction 
             RecLock(cAlias, .T.)
+                ZM1->ZM1_FILIAL := cPushFil
                 ZM1->ZM1_COD     := Alltrim(oGet2M:BUFFER)
                 ZM1->ZM1_IMPRES  := Upper(Alltrim(oGet3M:BUFFER))
                 ZM1->ZM1_EST     := Upper(Alltrim(oGet4M:BUFFER))
@@ -8664,6 +8607,9 @@ Static function incBtnMLP()
  Local aArea := FWGetArea()
     Local cAlias := 'ZM2'
     Local lEscolha := .F.
+    Local cPushFil
+
+    cPushFil := FWCodFil()
 
 // -------------------------------------------------------------------------------
 // 
@@ -8689,6 +8635,7 @@ Static function incBtnMLP()
             else
             begin transaction 
             RecLock(cAlias, .T.)
+                ZM2->ZM2_FILIAL := cPushFil
                 ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
                 ZM2->ZM2_IMPRES    := Upper(Alltrim(oGet3L:BUFFER))
                 ZM2->ZM2_USU       := Upper(Alltrim(oGet4L:BUFFER))
@@ -12231,4 +12178,14 @@ Static Function R3geraExcell(aDados)
         Msgalert("Não há nenhum cadastro para puxar no relatorio","ATENÇÃO")
     endif
     RestArea(aArea)
+return 
+
+User function ImportD()
+
+    Local aArea := FwGetArea()
+
+    
+
+    FwRestArea(aArea)
+
 return 
