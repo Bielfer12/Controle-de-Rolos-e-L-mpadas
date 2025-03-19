@@ -1825,7 +1825,7 @@ User Function LAMP()
         AADD(aHeader,{"Potencia Lampada",;
                       "ZCA_POTLP",;
                       "",;
-                       4,;
+                       6,;
                        0,;
                       "AlwaysTrue()",;
                       "",;
@@ -2030,56 +2030,6 @@ User Function CadBtnTipo()
 // 
 // -------------------------------------------------------------------------------
 
-        AADD(aHeader,{"Codigo",;       
-                      "ZCA_COD",;     
-                      "",;             
-                       6,;             
-                       0,;             
-                      "AlwaysTrue()",; 
-                      "",;
-                      "C",;            
-                      ""})
-
-        AADD(aHeader,{"Descrição",;
-                      "ZCA_DESC",;
-                      "@!",;
-                       100,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
-
-        AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "S=SIM;N=NAO;"})
-
-        AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
-                      "",;
-                       8,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "D",;
-                      ""})
-
         Processa({|| fCarAcols()}, "Processando")
 
         cJanTitulo := 'Cadastro de Impressora'
@@ -2219,56 +2169,6 @@ User Function CadBtnTipo()
     elseif cTipo == 'E'
 
     nEsc := 3
-
-     AADD(aHeader,{"Codigo",;       
-                      "ZCA_COD",;   
-                      "",;          
-                       6,;          
-                       0,;          
-                      "AlwaysTrue()",; 
-                      "",;
-                      "C",;           
-                      ""})
-
-        AADD(aHeader,{"Nome Estação",;
-                      "ZCA_DESC",;
-                      "@!",;
-                       100,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
-
-        AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "S=SIM;N=NAO;"})
-
-        AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
-                      "",; 
-                       8,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "D",;
-                      ""})
 
         Processa({|| fCarAcols()}, "Processando")
 
@@ -2416,106 +2316,6 @@ User Function CadBtnTipo()
   elseif cTipo == 'R'
 
      nEsc := 3
-
-     AADD(aHeader,{"Codigo",;          
-                      "ZCA_COD",;      
-                      "",;             
-                       6,;             
-                       0,;             
-                      "AlwaysTrue()",; 
-                      "",;
-                      "C",;            
-                      ""})
-
-        AADD(aHeader,{"Nome Rolo",;
-                      "ZCA_NOMERL",;
-                      "@!",;
-                       50,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
-
-        AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "S=SIM;N=NAO;"})
-
-        AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
-                      "",;
-                       8,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "D",;
-                      ""})
-        
-        AADD(aHeader,{"Descrição",;
-                      "ZCA_DESC",;
-                      "@!",;
-                       100,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-        
-        AADD(aHeader,{"Diametro Rolo",;
-                      "ZCA_DIAMRL",;
-                      "",;
-                       8,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Comprimento Rolo",;
-                      "ZCA_COMPRL",;
-                      "",;
-                       4,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Material Rolo",;
-                      "ZCA_MATRL",;
-                      "@!",;
-                       50,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Dureza Rolo",;
-                      "ZCA_DURERL",;
-                      "@!",;
-                       50,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
 
         Processa({|| fCarAcols()}, "Processando") 
 
@@ -2735,117 +2535,6 @@ User Function CadBtnTipo()
 
     nEsc := 3
 
-    AADD(aHeader,{"Codigo",;       
-                      "ZCA_COD",;      
-                      "",;             
-                       6,;             
-                       0,;             
-                      "AlwaysTrue()",; 
-                      "",;
-                      "C",;            
-                      ""})
-
-        AADD(aHeader,{"Nome Lampada",;
-                      "ZCA_NOMELP",;
-                      "@!",;
-                       50,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
-
-        AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
-                      "@!",;
-                       1,;
-                       0,;
-                      "NAOVAZIO()",;
-                      "",;
-                      "C",;
-                      "S=SIM;N=NAO;"})
-
-        AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
-                      "",;
-                       8,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "D",;
-                      ""})
-
-        AADD(aHeader,{"Impressora",;
-                      "ZCA_IMPLP",;
-                      "@!",;
-                       50,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Modelo Lampada",;
-                      "ZCA_MODLP",;
-                      "@!",;
-                       50,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Tensão Lampada",;
-                      "ZCA_TENSLP",;
-                      "",;
-                       6,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-        AADD(aHeader,{"Corrente Lampada",;
-                      "ZCA_CORRLP",;
-                      "",;
-                       7,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-        
-        AADD(aHeader,{"Potencia Lampada",;
-                      "ZCA_POTLP",;
-                      "",;
-                       4,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-        
-        AADD(aHeader,{"Modelo Refletor",;
-                      "ZCA_MODREF",;
-                      "@!",;
-                       50,;
-                       0,;
-                      "AlwaysTrue()",;
-                      "",;
-                      "C",;
-                      ""})
-
-
         Processa({|| fCarAcols()}, "Processando") 
         cJanTitulo := 'Cadastro de Rolos'
         oDlgCad := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
@@ -3058,7 +2747,7 @@ User Function CadBtnTipo()
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 370
+        nObjColu := 385
         nObjLarg := 50
         nObjAltu := 20
         oSay20T   := TSay():New(nObjLinh, nObjColu, {|| cSay20TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -3066,7 +2755,7 @@ User Function CadBtnTipo()
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 370
+        nObjColu := 385
         nObjLarg := 80
         nObjAltu := 15
         oGet20T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20TT := u, xGet20TT)} , oDlgCad, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
@@ -6120,21 +5809,21 @@ static function excBtn()
                 cTipoItem := 'E'
             elseif cTipoItem == 'E = ROLO'
                 cTipoItem := 'R'
-            elseif cTipoItem == 'E = LAMPADA'
+            elseif cTipoItem == 'L = LAMPADA'
                 cTipoItem := 'L'
             endif
-                IF ZCA->(DbSeek(FwxFilial('ZCA') + cCod + cTipoItem))
-                RecLock('ZCA', .F.)
-                ZCA -> (DbDelete())
-                ZCA -> (MsUnlock())  
-                lEsc := MsgYesNo('Deseja remover mesmo?')
-                if lEsc == .F.
-                    DisarmTransaction()
-                    MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
-                else
-                    MsgInfo('REGISTRO REMOVIDO!!')
-                    oDlgExc:End()
-                endif
+                IF ZCA->(DbSeek(FwCodFil('ZCA') + cCod + cTipoItem))
+                    RecLock('ZCA', .F.)
+                    ZCA -> (DbDelete())
+                    ZCA -> (MsUnlock())  
+                    lEsc := MsgYesNo('Deseja remover mesmo?')
+                    if lEsc == .F.
+                        DisarmTransaction()
+                        MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
+                    else
+                        MsgInfo('REGISTRO REMOVIDO!!')
+                        oDlgExc:End()
+                    endif
             endif
             end Transaction
         endif
