@@ -169,7 +169,7 @@ Static function ESCM()
 
         ZM2->(DbCloseArea())
 
-    elseif oCombo3:Nat == 1
+    elseif oCombo3:Nat == 1 .OR. oCombo3:Nat == 0
         MsgAlert('ESCOLHA UMA OPÇÃO VALIDA','ATENÇÃO')
     endif
 
@@ -4499,16 +4499,26 @@ static function altBtn()
     Local aDadosL      := {}
     Local aDadosMRL    := {}
     Local aDadosMLP    := {}
-    Local cNomeBtn     := oGet3A:BUFFER  
+    Local cNomeBtn     := oGet3A:BUFFER
+    Local cData       := CTOD(oGet6A:BUFFER)  
+    Local aDataAlt
+    Local cDate        := DATE()
+    Local aDateAtu
     Local i := 0
     lOCAL cQryIL
     Local lDsc        := .F.
+    Local cSeq
     lOCAL cQryIMRL
     lOCAL cQryIMLP
     lOCAL cQryEMRL
     lOCAL cQryRMRL
     lOCAL cQryLMLP
+    Local cNUM := StrTran(geraCodM(),'0')
 
+    cSeq := Ceiling((Val(cNum)/1.23))
+    
+    aDataAlt := StrTokArr(DTOC(cData),'/')
+    aDateAtu    := StrTokArr(DTOC(cDate),'/')
 // -------------------------------------------------------------------------------
 // 
 //           BOTÃO DE ALTERAÇÃO IMPRESSORA/ESTAÇÃO - GABRIEL
@@ -4517,7 +4527,7 @@ static function altBtn()
     
     if cTipo == 'I'
 
-            cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+            cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP,ZCA_DATA FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIL New Alias "QRY_IL"
 
@@ -4533,14 +4543,15 @@ static function altBtn()
 
             QRY_IL -> (DbCloseArea())
 
-            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES,ZM1_DATACA FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
             QRY_IMRL -> (DbGoTop())
             while ! QRY_IMRL->(Eof())
                 AAdd(aDadosMRL,{QRY_IMRL->ZM1_COD,;
-                                QRY_IMRL->ZM1_IMPRES,;    
+                                QRY_IMRL->ZM1_IMPRES,;
+                                QRY_IMRL->ZM1_DATACA,;    
                             })
                 QRY_IMRL ->(DbSkip())
             enddo
@@ -4615,6 +4626,7 @@ static function altBtn()
 
                 For i:=1 to Len(aDadosL)
                     if  oGet3A:BUFFER == (aDadosL[i][2])
+                        cNomeBtn := aDadosL[i][1]
                         lDsc := .T.
                         Exit
                     else
@@ -4622,31 +4634,72 @@ static function altBtn()
                     endif
                 Next
 
-            ELSEIF cTipo == 'I' .OR. cTipo == 'E' .OR. cTipo == 'R'
-
                 if lDsc == .F.
-                    For i:=1 to Len(aDadosMRL)
-                        if  oGet3A:BUFFER == (aDadosMRL[I][2])
-                            lDsc := .T.
-                            exit
-                        else
-                            sleep(1)
-                        endif
-                    next
+                    if aDataAlt[3] >= aDateAtu[3]
+                        For i := cSeq to Len(aDadosMRL)
+                            if  oGet3A:BUFFER == (aDadosMRL[I][2])
+                                cNomeBtn := aDadosMRL[i][1]
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    else
+                        For i:=1 to Len(aDadosMRL)
+                            if  oGet3A:BUFFER == (aDadosMRL[I][2])
+                                cNomeBtn := aDadosMRL[i][1]
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    endif
                 endif
+
+            ELSEIF cTipo == 'E' .OR. cTipo == 'R'
+
+                    if aDataAlt[3] >= aDateAtu[3]
+                        For i := cSeq to Len(aDadosMRL)
+                            if  oGet3A:BUFFER == (aDadosMRL[I][2])
+                                cNomeBtn := aDadosMRL[i][1]
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    else
+                        For i:=1 to Len(aDadosMRL)
+                            if  oGet3A:BUFFER == (aDadosMRL[I][2])
+                                cNomeBtn := aDadosMRL[i][1]
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    endif
 
             elseif cTipo == 'L'
 
-                if lDsc == .F.
-                    For i:=1 to Len(aDadosMLP)
-                        if  oGet3A:BUFFER == (aDadosMLP[I][2])
-                            lDsc := .T.
-                            exit
-                        else
-                            sleep(1)
-                        endif
-                    next
-                endif
+                    if aDataAlt[3] >= aDateAtu[3]
+                        For i := cSeq to Len(aDadosMLP)
+                            if  oGet3A:BUFFER == (aDadosMLP[I][2])
+                                cNomeBtn := aDadosMLP[i][1]
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    else
+                        For i:=1 to Len(aDadosMLP)
+                            if  oGet3A:BUFFER == (aDadosMLP[I][2])
+                                cNomeBtn := aDadosMLP[i][1]
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    endif
+
             endif
         endif
 
@@ -4667,7 +4720,7 @@ static function altBtn()
                     ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
                     
                         if cNomeBtn != cNomeB
-                            MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
+                            MsgAlert('Registro ja usado assim idendificador(descrição) não pode ser alterado')
                             DisarmTransaction()
                             return
                         else
@@ -4683,7 +4736,7 @@ static function altBtn()
                     ZCA->ZCA_DATA  := CTOD(oGet6A:BUFFER)
                 ZCA -> (MSUNLOCK())
                 end transaction
-                MsgInfo('ALTERAÇÃO FEITA COM SUCESSO!!','ATENÇÃO')
+                FwAlertSuccess('ALTERAÇÃO FEITA COM SUCESSO!!','ATENÇÃO')
                 lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
                 if lEsc == .T.
                     oDlgAlt:End()
@@ -4730,10 +4783,11 @@ static function altBtn()
                     ZCA->ZCA_ATIVO := oCombo5A:AITEMS[2]
                 ENDIF
                 ZCA->ZCA_DATA    := CTOD(oGet6A:BUFFER)
-                if lDsc == .T.
+
+                if cNomeBtn != cNomeB
                     MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
                     DisarmTransaction()
-	                return
+                    return
                 else
                     ZCA->ZCA_NOMERL  := Alltrim(oGet3A:BUFFER)
                 endif
@@ -4744,7 +4798,7 @@ static function altBtn()
                 ZCA->ZCA_DURERL  := Alltrim(oGet13A:BUFFER)
             ZCA -> (MSUNLOCK())
             end transaction
-            MsgInfo('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
+            FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
             lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
                 if lEsc == .T.
                     oDlgAlt:End()
@@ -4790,10 +4844,10 @@ static function altBtn()
             RecLock(cAlias, .F.)
                 ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
 
-                if lDsc == .T.
+                if cNomeBtn != cNomeB
                     MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
                     DisarmTransaction()
-	                return
+                    return
                 else
                     ZCA->ZCA_NOMELP  := Alltrim(oGet3A:BUFFER)
                 endif
@@ -4813,7 +4867,7 @@ static function altBtn()
                 ZCA->ZCA_MODREF  := Alltrim(oGet20A:BUFFER)
             ZCA -> (MSUNLOCK())
             end transaction
-            MsgInfo('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
+            FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
             lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
                 if lEsc == .T.
                     oDlgAlt:End()
@@ -6029,7 +6083,7 @@ static function excBtn()
                         DisarmTransaction()
                         MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
                     else
-                        MsgInfo('REGISTRO REMOVIDO!!')
+                        FwAlertSuccess('REGISTRO REMOVIDO!!')
                         oDlgExc:End()
                     endif
             endif
@@ -6623,7 +6677,7 @@ static function cadBtnM()
                 ZM1->ZM1_METRA   := Alltrim(oGet12M:BUFFER)
             ZM1 -> (MSUNLOCK())
             end transaction
-                MsgInfo('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
+                FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
 
             lEsc := MsgYesNo('CONTINUAR COM AS MESMAS INFORMAÇÕES?','ATENÇÃO')
 
@@ -6701,7 +6755,7 @@ Static function geraCodM()
 
     FWRestArea(aArea)
 
-Return 
+Return (cTira)
 
 User function altMRL()
 
@@ -6981,8 +7035,6 @@ Local aArea := FWGetArea()
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 15
-        cNome := Alltrim(UsrRetName(cCod))
-        xGet5MM := Alltrim(cNome)
         oGet5M := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet5MM := u, xGet5MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
 
         oGet5M:lActive := .F.
@@ -7149,7 +7201,7 @@ Static function btnAltM()
                 ZM1->ZM1_METRA     := Alltrim(oGet12M:BUFFER)
             ZM1 -> (MSUNLOCK())
             end transaction
-            MsgInfo('ALTERAÇÃO FEITA COM SUCESSO!!','ATENÇÃO')
+            FwAlertSuccess('ALTERAÇÃO FEITA COM SUCESSO!!','ATENÇÃO')
             lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
                 if lEsc == .T.
                     oDlgAltM:End()
@@ -7430,7 +7482,7 @@ Static Function dialogExcM(aDadosExcM)
         nObjLinh := 90
         nObjColu := 285
         nObjLarg := 80
-        nObjAltu := 15
+        nObjAltu := 15  
         oGet4M   := TGet():New(nObjLinh, nObjColu,{||xGet4MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet4M:lActive := .F.
@@ -7449,8 +7501,6 @@ Static Function dialogExcM(aDadosExcM)
         nObjColu := 375
         nObjLarg := 80
         nObjAltu := 15
-        cNome := Alltrim(UsrRetName(cCod))
-        xGet5MM := Alltrim(cNome)
         oGet5M := TGet():New(nObjLinh, nObjColu,{||xGet5MM} , oDlgExcM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
 
         oGet5M:lActive := .F.
@@ -7602,7 +7652,7 @@ Static function excBtnM()
             DisarmTransaction()
             MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
         else
-            MsgInfo('REGISTRO REMOVIDO!!')
+            FwAlertSuccess('REGISTRO REMOVIDO!!')
             oDlgExcM:End()
         endif
         end Transaction
@@ -8578,7 +8628,7 @@ Static function incBtnMLP()
                 ZM2->ZM2_DATAC     := CTOD(oGet24L:BUFFER)
             ZM2 -> (MSUNLOCK())
             end transaction
-                MsgInfo('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
+                FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
 
             lEsc := MsgYesNo('CONTINUAR COM AS MESMAS INFORMAÇÕES?','ATENÇÃO')
 
@@ -8949,9 +8999,8 @@ Static function dialogAltL(aDadosAltL)
 
         DbSelectArea('ZM2')
 
-        geraCodM()
-
         oFontPadrao  := TFont():New(cFont, , -16)
+        xGet2LL := aDadosAltL[1][1]
         nObjLinh := 90
         nObjColu := 25
         nObjLarg := 60
@@ -8995,8 +9044,6 @@ Static function dialogAltL(aDadosAltL)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        cNome := Alltrim(UsrRetName(cCod))
-        xGet4LL := Alltrim(cNome)
         oGet4L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet4LL := u, xGet4LL)} , oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet4L:lActive := .F.
@@ -9401,7 +9448,7 @@ Static function altbtnMLP()
                 ZM2->ZM2_DATAC     := CTOD(oGet24L:BUFFER)
             ZM2 -> (MSUNLOCK())
             end transaction
-            MsgInfo('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
+            FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
 
             lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
                 if lEsc == .T.
@@ -9807,8 +9854,6 @@ Static function dialogExcL(aDadosExcL)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        cNome := UsrRetName(cCod)
-        xGet4LL := Alltrim(cNome)
         oGet4L   := TGet():New(nObjLinh, nObjColu,{|| Alltrim(xGet4LL)} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
         oGet4L:lActive := .F.
@@ -10196,7 +10241,7 @@ Static function excBtnMLP()
             DisarmTransaction()
             MsgInfo('NÃO FOI EXCLUIDO O REGISTRO','ATENÇÃO')
         else
-            MsgInfo('REGISTRO REMOVIDO!!')
+            FwAlertSuccess('REGISTRO REMOVIDO!!')
             oDlgExcL:End()
         ENDIF
         ZM2 -> (MsUnlock())  
@@ -11477,7 +11522,7 @@ Static Function geraExcell(aDados)
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
                 oExcelApp:Destroy()
-                MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
+                FwAlertSuccess('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
             endif
         endif
     else
@@ -11787,7 +11832,7 @@ Static Function R2geraExcell(aDados)
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
                 oExcelApp:Destroy()
-                MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
+                FwAlertSuccess('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
             endif
         endif
     else
@@ -12065,7 +12110,7 @@ Static Function R3geraExcell(aDados)
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
                 oExcelApp:Destroy()
-                MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
+                FwAlertSuccess('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
             endif
    else
         Msgalert("Não há nenhum cadastro para puxar no relatorio","ATENÇÃO")
