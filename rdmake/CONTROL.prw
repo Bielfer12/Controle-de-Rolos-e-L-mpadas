@@ -28,11 +28,11 @@ User Function CLRLLP23()
     Private aCombA3      := {'XX = Nenhum Item','MRL - Manutenção de Rolos','MLP - Manutenção de Lâmpadas'}
 
     Private oBtn4
-    Private cBtn4T       := 'Entrar'
+    Private cBtn4T       := 'Fechar'
     Private bBtn4B       := {|| ESCM()}
 
     Private oBtn5
-    Private cBtn5T       := 'Fechar'
+    Private cBtn5T       := 'Entrar'
 
     Private oGrp6
 
@@ -62,7 +62,7 @@ User Function CLRLLP23()
     oSay2 := TSay():New(nObjLinh, nObjColu, {|| cSay2T}, oDlg,,oFontPadrao,,,,lDimpixels,,,nObjLarg,nObjAltu)    
 
     nObjLinh := 25
-    nObjColu := 25
+    nObjColu := 26
     nObjLarg := 105
     nObjAltu := 23
     oCombo3 := TComboBox():New(nObjLinh, nObjColu,, aCombA3, nObjLarg, nObjAltu,oDlg,,{||},,,,lDimPixels,oFontPadrao)  
@@ -77,13 +77,13 @@ User Function CLRLLP23()
     nObjColu := 23
     nObjLarg := 50
     nObjAltu := 17
-    oBtn4 := TButton():New(nObjLinh, nObjColu, cBtn4T, oDlg, bBtn4B, nObjLarg, nObjAltu, , oFontPadrao,,lDimPixels)    
+    oBtn4 := TButton():New(nObjLinh, nObjColu, cBtn4T, oDlg, {|| oDlg:End()}, nObjLarg, nObjAltu, , oFontPadrao,,lDimPixels)    
 
     nObjLinh := 55
     nObjColu := 83
     nObjLarg := 50
     nObjAltu := 17
-    oBtn5 := TButton():New(nObjLinh, nObjColu, cBtn5T, oDlg,{|| oDlg:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels) 
+    oBtn5 := TButton():New(nObjLinh, nObjColu, cBtn5T, oDlg,bBtn4B, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels) 
 
     oDlg:Activate(,,,lCentraliz,,,)
      
@@ -1317,7 +1317,7 @@ User Function IMPRESS()
 
         oBtn5I   := TButton():New(025, 0310, cBtn5II, oDlgI,{|| oDlgI:End()}, 070, 020,,oFontPadrao,,lDimPixels)            
     
-        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgI, , , lDimPixels)
+        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),, oDlgI, , , lDimPixels)
 
         oMsGetZCAI := MsNewGetDados():New(    055,;                
                                              005,;                
@@ -1462,7 +1462,7 @@ User Function EST()
 
         oBtn5I   := TButton():New(025, 0310, cBtn5II, oDlgE,{|| oDlgE:End()}, 070, 020,,oFontPadrao,,lDimPixels)             
     
-        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgE, , , lDimPixels)
+        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),, oDlgE, , , lDimPixels)
 
         oMsGetZCAE := MsNewGetDados():New(    055,;                
                                              005,;                
@@ -1657,7 +1657,7 @@ User Function ROLOS()
 
         oBtn5I   := TButton():New(025, 0310, cBtn5II, oDlgR,{|| oDlgR:End()}, 070, 020,,oFontPadrao,,lDimPixels)         
     
-        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgR, , , lDimPixels)
+        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),, oDlgR, , , lDimPixels)
 
         oMsGetZCAR := MsNewGetDados():New(    055,;                
                                              005,;                
@@ -1862,7 +1862,7 @@ User Function LAMP()
 
         oBtn5I   := TButton():New(025, 0310, cBtn5II, oDlgL,{|| oDlgL:End()}, 070, 020,,oFontPadrao,,lDimPixels)          
     
-        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),'Cadastros e Grid' , oDlgL, , , lDimPixels)
+        oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2), , oDlgL, , , lDimPixels)
 
         oMsGetZCAL := MsNewGetDados():New(    055,;                
                                              005,;                
@@ -1923,7 +1923,7 @@ User Function CadBtnTipo()
     Private oBtn1T
     Private cBtn1TT     := 'Fechar'
     Private oBtn2T
-    Private cBtn2TT     := 'Salvar'
+    Private cBtn2TT     := 'Confirmar'
 
     Private oSay2T
     Private cSay2TT     := 'Código'
@@ -2063,7 +2063,7 @@ User Function CadBtnTipo()
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2T := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2T := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| zPCPP03()/*CadBtnSalv()*/}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
         
         nObjLinh := 065
         nObjColu := 002 
@@ -2203,7 +2203,7 @@ User Function CadBtnTipo()
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2T := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2T := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| zPCPP03()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
         // oBtn2T:SetCss("TButton {background-color: blue;  font:semi-bold; font-color:white;}")
         
         //Criação do Objetos 08
@@ -2352,7 +2352,7 @@ User Function CadBtnTipo()
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2T   := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2T   := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| zPCPP03()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
 
         nObjLinh := 065
         nObjColu := 002 
@@ -2569,7 +2569,7 @@ User Function CadBtnTipo()
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2T   := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| CadBtnSalv()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2T   := TButton():New(nObjLinh, nObjColu, cBtn2TT, oDlgCad,{|| zPCPP03()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
 
         nObjLinh := 065
         nObjColu := 002 
@@ -2769,6 +2769,61 @@ User Function CadBtnTipo()
     ENDIF
 
     FWRestArea(aArea)
+
+return
+
+static Function zPCPP03()
+    Local aArea     := GetArea()
+    Local cRotAux                             // Nome da Rotina
+    Local cUserAux  := UsrRetName()               // Nome do Usuário
+    Local cArqAux   := "\" + Alltrim(cRotAux) + ".txt"      // Arquivo que será responsável por armazenar o usuário que está com a rotina em USO
+    
+    IF nEscBD == 1
+        cRotAux   := "CadBtnSalv"     
+    ELSEIF nEscBD == 2
+        cRotAux   := "cadBtnM"  
+    ELSEIF nEscBD == 3
+        cRotAux   := "cadBtnL"  
+    ENDIF               
+
+    // Se não conseguir acessar a rotina (ela já estiver em uso)
+    If ! LockByName(cRotAux, .F., .F., .T.)
+ 
+        //Se o arquivo existir no servidor, busca o nome gravado no txt
+        If File(cArqAux)
+            cUserAux := Alltrim(MemoRead(cArqAux))
+        EndIf
+     
+        //Exibe mensagem que já está em uso
+        MsgAlert("Rotina Ordem de Produção em uso pelo usuário: " + cUserAux + " espere alguns segundos ", " Atenção")
+        
+        IF nEscBD == 1
+            oDlgCad:End()    
+        ELSEIF nEscBD == 2
+            oDlgCadM:End()  
+        ELSEIF nEscBD == 3
+            oDlgCadL:End()  
+    ENDIF          
+
+    Else
+        //Grava o nome do usuário no arquivo de log
+        MemoWrite(cArqAux, UsrRetName(RetCodUsr()))
+ 
+        //Agora seta o nome da função no menu, como a rotina e faz a chamada dela
+        SetFunName(cRotAux)
+        &(cRotAux + "()")  
+ 
+        //Após sair da função padrão, o arquivo com o nome do usuário será excluído
+        If File(cArqAux)
+            fErase(cArqAux)
+        EndIf
+         
+        //Libera o acesso para que a rotina seja aberta novamente
+        UnLockByName(cRotAux, .F., .F., .T.)
+
+    EndIf
+
+    RestArea(aArea)
 
 return
 
@@ -3784,7 +3839,7 @@ static Function dialogAlt(aDados)
     Private oBtn1A
     Private cBtn1AA     := 'Fechar'
     Private oBtn2A
-    Private cBtn2AA     := 'Alterar'
+    Private cBtn2AA     := 'Confirmar'
 
     Private oSay2A
     Private cSay2AA     := 'Código'
@@ -4099,6 +4154,7 @@ static Function dialogAlt(aDados)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet3AA := aDados[2][1]
+        cNomeB := aDados[2][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -4326,6 +4382,7 @@ static Function dialogAlt(aDados)
         
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet3AA := aDados[2][1]
+        cNomeB := aDados[2][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -4346,7 +4403,7 @@ static Function dialogAlt(aDados)
         nObjColu := 285
         nObjLarg := 80
         nObjAltu := 15
-        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'L = LA   MPADA'} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
+        oGet4A   := TGet():New(nObjLinh, nObjColu,{|| 'L = LAMPADA'} , oDlgAlt, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
     
         oGet4A:lActive := .F.
 
@@ -4491,7 +4548,6 @@ static Function dialogAlt(aDados)
    FWRestArea(aArea)
 Return
 
-
 static function altBtn()
 
     Local aArea := FWGetArea()
@@ -4507,18 +4563,21 @@ static function altBtn()
     Local i := 0
     lOCAL cQryIL
     Local lDsc        := .F.
-    Local cSeq
+    Local cSeq1
+    Local cSeq2
     lOCAL cQryIMRL
     lOCAL cQryIMLP
     lOCAL cQryEMRL
     lOCAL cQryRMRL
     lOCAL cQryLMLP
-    Local cNUM := StrTran(geraCodM(),'0')
+    Local nNum1 := trazcodZM1()
+    Local nNum2 := trazcodZM2()
 
-    cSeq := Ceiling((Val(cNum)/1.23))
+    cSeq1 := Ceiling((Val(nNum1)/1.23))
+    cSeq2 := Ceiling((Val(nNum2)/1.23))
     
     aDataAlt := StrTokArr(DTOC(cData),'/')
-    aDateAtu    := StrTokArr(DTOC(cDate),'/')
+    aDateAtu := StrTokArr(DTOC(cDate),'/')
 // -------------------------------------------------------------------------------
 // 
 //           BOTÃO DE ALTERAÇÃO IMPRESSORA/ESTAÇÃO - GABRIEL
@@ -4632,14 +4691,16 @@ static function altBtn()
                     else
                         sleep(1)
                     endif
-                Next
+                Next  
+            endif
 
-                if lDsc == .F.
+            IF (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'E' .OR. cTipo == 'R'
+
                     if aDataAlt[3] >= aDateAtu[3]
-                        For i := cSeq to Len(aDadosMRL)
-                            if  oGet3A:BUFFER == (aDadosMRL[I][2])
-                                cNomeBtn := aDadosMRL[i][1]
-                                exit
+                        For i := cSeq1 to Len(aDadosMRL)
+                                if  oGet3A:BUFFER == (aDadosMRL[I][2])
+                                    cNomeBtn := aDadosMRL[i][1]
+                                    exit
                             else
                                 sleep(1)
                             endif
@@ -4654,34 +4715,12 @@ static function altBtn()
                             endif
                         next
                     endif
-                endif
+            endif
 
-            ELSEIF cTipo == 'E' .OR. cTipo == 'R'
-
-                    if aDataAlt[3] >= aDateAtu[3]
-                        For i := cSeq to Len(aDadosMRL)
-                            if  oGet3A:BUFFER == (aDadosMRL[I][2])
-                                cNomeBtn := aDadosMRL[i][1]
-                                exit
-                            else
-                                sleep(1)
-                            endif
-                        next
-                    else
-                        For i:=1 to Len(aDadosMRL)
-                            if  oGet3A:BUFFER == (aDadosMRL[I][2])
-                                cNomeBtn := aDadosMRL[i][1]
-                                exit
-                            else
-                                sleep(1)
-                            endif
-                        next
-                    endif
-
-            elseif cTipo == 'L'
+            if (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'L'
 
                     if aDataAlt[3] >= aDateAtu[3]
-                        For i := cSeq to Len(aDadosMLP)
+                        For i := cSeq2 to Len(aDadosMLP)
                             if  oGet3A:BUFFER == (aDadosMLP[I][2])
                                 cNomeBtn := aDadosMLP[i][1]
                                 exit
@@ -4909,6 +4948,43 @@ static function altBtn()
 
 FWRestArea(aArea)
 return
+
+static function trazcodZM1()
+
+    Local aArea := FwGetArea()
+    Local cQry
+    Local cNum
+
+    cQry := "SELECT MAX(ZM1_COD) AS TRAZC FROM " + RetSqlName('ZM1')
+
+    TCQUERY cQry NEW ALIAS 'QRY_TRAS'
+
+    cNum := QRY_TRAS->(TRAZC)
+
+    QRY_TRAS->(DbCloseArea())
+
+    FwRestArea(aArea)
+
+return (cNum)
+
+static function trazcodZM2()
+
+    Local aArea := FwGetArea()
+    Local cQry
+    Local cNum
+
+    cQry := "SELECT MAX(ZM2_COD) AS TRAZC FROM " + RetSqlName('ZM2')
+
+    TCQUERY cQry NEW ALIAS 'QRY_TRAS'
+
+    cNum := QRY_TRAS->(TRAZC)
+
+    QRY_TRAS->(DbCloseArea())
+
+    FwRestArea(aArea)
+
+return (cNum)
+
 
 // -------------------------------------------------------------------------------
 // 
@@ -5178,7 +5254,7 @@ static function dialogEXC(aDadosExc)
     Private oBtn1E
     Private cBtn1EE     := 'FECHAR'
     Private oBtn2E
-    Private cBtn2EE     := 'EXCLUIR'
+    Private cBtn2EE     := 'CONFIRMAR'
 
     Private oSay2E
     Private cSay2EE     := 'Código'
@@ -5264,6 +5340,7 @@ static function dialogEXC(aDadosExc)
     Private oGet20E
     Private xGet20EE    
 
+    Private cNomeB
 
 // -------------------------------------------------------------------------------
 // 
@@ -5341,7 +5418,6 @@ static function dialogEXC(aDadosExc)
         oSay3E   := TSay():New(nObjLinh, nObjColu, {|| cSay3EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay3E:SetCss(" TSay {Font: Semi-Bold}")
 
-        
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet3EE := aDadosExc[2][1]
         If cTipo == 'I'
@@ -5349,6 +5425,7 @@ static function dialogEXC(aDadosExc)
         ELSEIF  cTIpo ==  'E'
             cSay3EE  := "Nome Estação"
         ENDIF
+        cNomeB := aDadosExc[2][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -5494,6 +5571,7 @@ static function dialogEXC(aDadosExc)
         
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet3EE := aDadosExc[2][1]
+        cNomeB := aDadosExc[2][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -5726,6 +5804,7 @@ static function dialogEXC(aDadosExc)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet3EE := aDadosExc[2][1]
+        cNomeB := aDadosExc[2][1]
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -5916,16 +5995,31 @@ static function excBtn()
     Local aDadosL      := {}
     Local aDadosMRL    := {}
     Local aDadosMLP    := {}
+    Local cNomeBtn     := oGet3E:BUFFER
+    Local cData       := CTOD(oGet6E:BUFFER)  
+    Local aDataAlt
+    Local cDate        := DATE()
+    Local aDateAtu
     Local i := 0
     Local cCod        := oGet2E:BUFFER
     Local cTipoItem   := oGet4E:BUFFER
     lOCAL cQryIL
     Local lDsc        := .F.
+    Local cSeq1
+    Local cSeq2
     lOCAL cQryIMRL
     lOCAL cQryIMLP
     lOCAL cQryEMRL
     lOCAL cQryRMRL
     lOCAL cQryLMLP
+    Local nNum1 := trazcodZM1()
+    Local nNum2 := trazcodZM2()
+
+    cSeq1 := Ceiling((Val(nNum1)/1.23))
+    cSeq2 := Ceiling((Val(nNum2)/1.23))
+    
+    aDataAlt := StrTokArr(DTOC(cData),'/')
+    aDateAtu := StrTokArr(DTOC(cDate),'/')
 
         if cTipo == 'I'
 
@@ -6022,42 +6116,69 @@ static function excBtn()
 
         endif
 
+         if cNomeBtn == cNomeB
+            if cTipo == 'I'
 
-        if cTipo == 'I'
-
-            For i:=1 to Len(aDadosL)
-                if  oGet3E:BUFFER == (aDadosL[i][2])
-                    lDsc := .T.
-                    Exit
-                else
-                    sleep(1)
-                endif
-            Next
-
-        ELSEIF cTipo == 'I' .OR. cTipo == 'E' .OR. cTipo == 'R'
-
-            if lDsc == .F.
-                For i:=1 to Len(aDadosMRL)
-                    if  oGet3E:BUFFER == (aDadosMRL[I][2])
+                For i:=1 to Len(aDadosL)
+                    if  oGet3E:BUFFER == (aDadosL[i][2])
+                        cNomeBtn := aDadosL[i][1]
                         lDsc := .T.
-                        exit
+                        Exit
                     else
                         sleep(1)
                     endif
-                next
+                Next  
             endif
 
-        elseif cTipo == 'L'
+            IF (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'E' .OR. cTipo == 'R'
 
-            if lDsc == .F.
-                For i:=1 to Len(aDadosMLP)
-                    if  oGet3E:BUFFER == (aDadosMLP[I][2])
-                        lDsc := .T.
-                        exit
+                    if aDataAlt[3] >= aDateAtu[3]
+                        For i := cSeq1 to Len(aDadosMRL)
+                                if  oGet3E:BUFFER == (aDadosMRL[I][2])
+                                    cNomeBtn := aDadosMRL[i][1]
+                                    lDsc := .T.
+                                    exit
+                            else
+                                sleep(1)
+                            endif
+                        next
                     else
-                        sleep(1)
+                        For i:=1 to Len(aDadosMRL)
+                            if  oGet3E:BUFFER == (aDadosMRL[I][2])
+                                cNomeBtn := aDadosMRL[i][1]
+                                lDsc := .T.
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
                     endif
-                next
+            endif
+
+            if (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'L'
+
+                    if aDataAlt[3] >= aDateAtu[3]
+                        For i := cSeq2 to Len(aDadosMLP)
+                            if  oGet3E:BUFFER == (aDadosMLP[I][2])
+                                cNomeBtn := aDadosMLP[i][1]
+                                lDsc := .T.
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    else
+                        For i:=1 to Len(aDadosMLP)
+                            if  oGet3E:BUFFER == (aDadosMLP[I][2])
+                                cNomeBtn := aDadosMLP[i][1]
+                                lDsc := .T.
+                                exit
+                            else
+                                sleep(1)
+                            endif
+                        next
+                    endif
+
             endif
         endif
 
@@ -6193,7 +6314,7 @@ User function incMRl()
     Private oBtn1M
     Private cBtn1MM     := 'Fechar'
     Private oBtn2M
-    Private cBtn2MM     := 'Salvar'
+    Private cBtn2MM     := 'Confirmar'
 
     Private oSay2M
     Private cSay2MM     := 'Código'
@@ -6859,7 +6980,7 @@ Local aArea := FWGetArea()
     Private oBtn1M
     Private cBtn1MM     := 'FECHAR'
     Private oBtn2M
-    Private cBtn2MM     := 'ALTERAR'
+    Private cBtn2MM     := 'Confirmar'
 
     Private oSay2M
     Private cSay2MM     := 'Código'
@@ -7330,7 +7451,7 @@ Static Function dialogExcM(aDadosExcM)
     Private oBtn1M
     Private cBtn1MM     := 'FECHAR'
     Private oBtn2M
-    Private cBtn2MM     := 'DELETAR'
+    Private cBtn2MM     := 'Confirmar'
 
     Private oSay2M
     Private cSay2MM     := 'Código'
@@ -7755,7 +7876,7 @@ Local aArea := FWGetArea()
     Private oBtn1L
     Private cBtn1LL     := 'FECHAR'
     Private oBtn2L
-    Private cBtn2LL     := 'CADASTRAR'
+    Private cBtn2LL     := 'Confirmar'
 
     Private oSay2L
     Private cSay2LL     := 'Código'
@@ -8826,7 +8947,7 @@ Static function dialogAltL(aDadosAltL)
     Private oBtn1L
     Private cBtn1LL     := 'FECHAR'
     Private oBtn2L
-    Private cBtn2LL     := 'ALTERAR'
+    Private cBtn2LL     := 'Confirmar'
 
     Private oSay2L
     Private cSay2LL     := 'Código'
@@ -9645,7 +9766,7 @@ Static function dialogExcL(aDadosExcL)
     Private oBtn1L
     Private cBtn1LL     := 'FECHAR'
     Private oBtn2L
-    Private cBtn2LL     := 'EXCLUIR'
+    Private cBtn2LL     := 'Confirmar'
 
     Private oSay2L
     Private cSay2LL     := 'Código'
@@ -11281,8 +11402,8 @@ Static function menuEscP()
 
     Local aArea := FwGetArea()
 
-    Private cData1 := CTOD('')
-    Private cData2 := CTOD('')
+    Private cData1 
+    Private cData2 
     Private lRet := .T.
 
     getParam()
@@ -11450,7 +11571,7 @@ Static Function geraExcell(aDados)
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
                 oExcelApp:Destroy()
-                MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
+                FwAlertSuccess('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
             endif
 
         ELSEIF SELECT('ZM2') > 0 
@@ -11545,8 +11666,8 @@ Static function getParam()
     lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
 
     if (lRet)
-        cData1 := DTOC(aParams[1])
-        cData2 := DTOC(aParams[2])
+        cData1 := DTOS(aParams[1])
+        cData2 := DTOS(aParams[2])
     else
         Sleep(10)
     endif
@@ -11586,8 +11707,8 @@ Static function menuEscR2()
 
     Local aArea := FwGetArea()
 
-    Private cData1 := CTOD('')
-    Private cData2 := CTOD('')
+    Private cData1 
+    Private cData2 
     Private cRef
     Private cLamp
     Private cImp   
@@ -11759,7 +11880,7 @@ Static Function R2geraExcell(aDados)
                 oExcelApp:WorkBooks:Open(cPath+cArquivo)
                 oExcelApp:SetVisible(.T.)
                 oExcelApp:Destroy()
-                MsgAlert('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
+                FwAlertSuccess('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
             endif
 
         ELSEIF SELECT('ZM2') > 0 
@@ -11895,8 +12016,8 @@ Static function getParamR2()
         cImp   := aParams[1]
         cEst   := aParams[2]
         cRolo  := aParams[3]
-        cData1 := DTOC(aParams[4])
-        cData2 := DTOC(aParams[5])
+        cData1 := DTOS(aParams[4])
+        cData2 := DTOS(aParams[5])
     else
         Sleep(10)
     endif
@@ -11923,8 +12044,8 @@ Static function getParamR2()
         cImp   := aParams[1]
         cRef   := aParams[2]
         cLamp  := aParams[3]
-        cData1 := DTOC(aParams[4])
-        cData2 := DTOC(aParams[5])
+        cData1 := DTOS(aParams[4])
+        cData2 := DTOS(aParams[5])
     else
         Sleep(10)
     endif
@@ -12041,8 +12162,8 @@ Static function getParamR3()
 
         if (lRet)
             cImp   := aParams[1]
-            cData1 := DTOC(aParams[2])
-            cData2 := DTOC(aParams[3])
+            cData1 := DTOS(aParams[2])
+            cData2 := DTOS(aParams[3])
         else
             Sleep(10)
         endif
