@@ -2991,7 +2991,7 @@ Static Function fCarAcols()
 // -------------------------------------------------------------------------------
 
     if cTipo == 'I'
-        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO LIKE '%I%' AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO LIKE '%I%' AND ZCA_FILIAL = '" + FWCodFil() + "'AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3027,7 +3027,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'E'
     
-        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO LIKE '%E%' AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO LIKE '%E%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3064,7 +3064,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'R'
 
-     cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3106,7 +3106,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'L'
 
-     cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM ZCA990 WHERE ZCA_TIPO LIKE '%L%' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM ZCA990 WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3346,7 +3346,7 @@ Static function geraCod()
 
             if cTipo == 'I'
 
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_FILIAL = '" + FWCodFil() + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
@@ -3365,7 +3365,7 @@ Static function geraCod()
 
             elseif cTipo == 'E'
 
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_FILIAL = '" + FWCodFil() + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
@@ -3383,7 +3383,7 @@ Static function geraCod()
 // -------------------------------------------------------------------------------
             elseif cTipo == 'R'
 
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND ZCA_FILIAL = '" + FWCodFil() + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
@@ -3400,7 +3400,7 @@ Static function geraCod()
 // 
 // -------------------------------------------------------------------------------
             elseif cTipo == 'L'
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L')"
+                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND ZCA_FILIAL = '" + FWCodFil() + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZCA'
 
@@ -3449,9 +3449,9 @@ Static function natEsc()
     If cTipo == 'I' .OR. cTipo ==  'E'
         
         If cTipo == 'I'
-            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         ELSEIF cTipo ==  'E'
-            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         endif
         
         TCQUERY cQry New Alias "QRY_ZCA"
@@ -3504,7 +3504,7 @@ Static function natEsc()
     
     ELSEIF cTipo == 'R'
         
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3548,7 +3548,7 @@ Static function natEsc()
 
     ELSEIF cTipo == 'L'
         
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM ZCA990 WHERE ZCA_TIPO LIKE '%L%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM ZCA990 WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3610,212 +3610,214 @@ User Function RLLP23ALT()
 // 
 // -------------------------------------------------------------------------------
     
-    If cTipo == 'I' .OR. cTipo ==  'E'
+    aColsAux := natEsc()
 
-        aColsAux := natEsc()
+    if !empty(aColsAux)
+
+        If cTipo == 'I' .OR. cTipo ==  'E'
+
+            oTableTempAlt  := FWTemporaryTable():New(cAliasTempAlt)
+
+            AADD(aFields,{'COD_ALL'    , "C", 6, 0})
+            AADD(aFields,{'COD_ALT'    , "C", 6, 0})
+            AADD(aFields,{'DESC_ALT'   , "C", 50, 0})
+            AADD(aFields,{'ATIVO_ALT'  , "C", 1, 0})
+            AADD(aFields,{'TIPO_ALT'   , "C", 1, 0})
+            AADD(aFields,{'DATA_ALT'   , "D", 8, 0})
+            AADD(aFields,{'ATIVO_NAT'  , "C", 1, 0})
+
+            oTableTempAlt:SetFields(aFields)
+            oTableTempAlt:AddIndex('1',{'COD_ALL','COD_ALT'})
+
+            oTableTempAlt:Create()
+
+            cNameTable := oTableTempAlt:GetRealName()
+
+            DbSelectArea('ZCA')
+
+                RecLock(cAliasTempAlt, .T.)
+                    IF cTipo == 'I'
+                        (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAI:Nat][1]) 
+                        (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAI:Nat][2]) 
+                        (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAI:Nat][3]) 
+                        (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAI:Nat][4]) 
+                        (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
+                    elseif cTipo == 'E'
+                        (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAE:Nat][1]) 
+                        (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAE:Nat][2]) 
+                        (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAE:Nat][3]) 
+                        (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAE:Nat][4]) 
+                        (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
+                    endif
+                    if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
+                        (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
+                        aCombo5AA := {'S=SIM','N=NAO'}
+                    elseif (cAliasTempAlt) -> (ATIVO_ALT) == 'N'
+                        (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
+                        aCombo5AA := {'N=NAO','S=SIM'}
+                    endif
+
+                (cAliasTempAlt) -> (MSUNLOCK())
+
+
+            AADD(aDados,{(cAliasTempAlt) -> (COD_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (DESC_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (TIPO_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (ATIVO_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (DATA_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (ATIVO_NAT)})
+
+            oTableTempAlt:Delete()
+
+            dialogAlt(aDados)
+
+// -    ------------------------------------------------------------------------------
+//  
+//                  ALTERA플O DE ROLOS - GABRIEL
+//  
+// -    ------------------------------------------------------------------------------
+
+        ELSEIF cTipo == 'R'
 
         oTableTempAlt  := FWTemporaryTable():New(cAliasTempAlt)
 
-        AADD(aFields,{'COD_ALL'    , "C", 6, 0})
-        AADD(aFields,{'COD_ALT'    , "C", 6, 0})
-        AADD(aFields,{'DESC_ALT'   , "C", 50, 0})
-        AADD(aFields,{'ATIVO_ALT'  , "C", 1, 0})
-        AADD(aFields,{'TIPO_ALT'   , "C", 1, 0})
-        AADD(aFields,{'DATA_ALT'   , "D", 8, 0})
-        AADD(aFields,{'ATIVO_NAT'  , "C", 1, 0})
+            AADD(aFields,{'COD_ALL'   , "C", 6 , 0})
+            AADD(aFields,{'COD_ALT'   , "C", 6 , 0})
+            AADD(aFields,{'DESC_ALT'  , "C", 50, 0})
+            AADD(aFields,{'ATIVO_alt' , "C", 1 , 0})
+            AADD(aFields,{'TIPO_ALT'  , "C", 1 , 0})
+            AADD(aFields,{'DATA_ALT'  , "D", 8 , 0})
+            AADD(aFields,{'ATIVO_NAT' , "C", 1 , 0})
+            AADD(aFields,{'NOMERL_ALT', "C", 50, 0})
+            AADD(aFields,{'DIAMRL_ALT', "C", 8 , 0})
+            AADD(aFields,{'COMPRL_ALT', "C", 4 , 0})
+            AADD(aFields,{'MATRL_ALT' , "C", 50, 0})
+            AADD(aFields,{'DURERL_ALT', "C", 50, 0})
 
-        oTableTempAlt:SetFields(aFields)
-        oTableTempAlt:AddIndex('1',{'COD_ALL','COD_ALT'})
+            oTableTempAlt:SetFields(aFields)
+            oTableTempAlt:AddIndex('1',{'COD_ALL','COD_ALT'})
 
-        oTableTempAlt:Create()
+            oTableTempAlt:Create()
 
-        cNameTable := oTableTempAlt:GetRealName()
+            cNameTable := oTableTempAlt:GetRealName()
 
-        DbSelectArea('ZCA')
+            DbSelectArea('ZCA')
 
-            RecLock(cAliasTempAlt, .T.)
-                IF cTipo == 'I'
-                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAI:Nat][1]) 
-                    (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAI:Nat][2]) 
-                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAI:Nat][3]) 
-                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAI:Nat][4]) 
-                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
-                elseif cTipo == 'E'
-                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAE:Nat][1]) 
-                    (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAE:Nat][2]) 
-                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAE:Nat][3]) 
-                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAE:Nat][4]) 
-                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
-                endif
-                if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
-                    (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
-                    aCombo5AA := {'S=SIM','N=NAO'}
-                elseif (cAliasTempAlt) -> (ATIVO_ALT) == 'N'
-                    (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
-                    aCombo5AA := {'N=NAO','S=SIM'}
-                endif
+                RecLock(cAliasTempAlt, .T.)
+                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAR:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAR:Nat][6]) 
+                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAR:Nat][3]) 
+                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAR:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
+                    if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
+                        (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
+                        aCombo5AA := {'S=SIM','N=NAO'}
+                    elseif (cAliasTempAlt) -> (ATIVO_ALT) == 'N'
+                        (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
+                        aCombo5AA := {'N=NAO','S=SIM'}
+                    endif
+                    (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZCAR:Nat][2])
+                    (cAliasTempAlt) -> (DIAMRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][7]) 
+                    (cAliasTempAlt) -> (COMPRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][8]) 
+                    (cAliasTempAlt) -> (MATRL_ALT)   := (aColsAux[oMsGetZCAR:Nat][9]) 
+                    (cAliasTempAlt) -> (DURERL_ALT)  := cValToChar(aColsAux[oMsGetZCAR:Nat][10]) 
 
-            (cAliasTempAlt) -> (MSUNLOCK())
-
-        
-        AADD(aDados,{(cAliasTempAlt) -> (COD_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (DESC_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (TIPO_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (ATIVO_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (DATA_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (ATIVO_NAT)})
-
-        oTableTempAlt:Delete()
-
-        dialogAlt(aDados)
-
-// -------------------------------------------------------------------------------
-// 
-//              ALTERA플O DE ROLOS - GABRIEL
-// 
-// -------------------------------------------------------------------------------
-    
-    ELSEIF cTipo == 'R'
-    
-    aColsAux := natEsc()
-
-    oTableTempAlt  := FWTemporaryTable():New(cAliasTempAlt)
-
-        AADD(aFields,{'COD_ALL'   , "C", 6 , 0})
-        AADD(aFields,{'COD_ALT'   , "C", 6 , 0})
-        AADD(aFields,{'DESC_ALT'  , "C", 50, 0})
-        AADD(aFields,{'ATIVO_alt' , "C", 1 , 0})
-        AADD(aFields,{'TIPO_ALT'  , "C", 1 , 0})
-        AADD(aFields,{'DATA_ALT'  , "D", 8 , 0})
-        AADD(aFields,{'ATIVO_NAT' , "C", 1 , 0})
-        AADD(aFields,{'NOMERL_ALT', "C", 50, 0})
-        AADD(aFields,{'DIAMRL_ALT', "C", 8 , 0})
-        AADD(aFields,{'COMPRL_ALT', "C", 4 , 0})
-        AADD(aFields,{'MATRL_ALT' , "C", 50, 0})
-        AADD(aFields,{'DURERL_ALT', "C", 50, 0})
-
-        oTableTempAlt:SetFields(aFields)
-        oTableTempAlt:AddIndex('1',{'COD_ALL','COD_ALT'})
-
-        oTableTempAlt:Create()
-
-        cNameTable := oTableTempAlt:GetRealName()
-
-        DbSelectArea('ZCA')
-
-            RecLock(cAliasTempAlt, .T.)
-                (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAR:Nat][1]) 
-                (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAR:Nat][6]) 
-                (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAR:Nat][3]) 
-                (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAR:Nat][4]) 
-                (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
-                if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
-                    (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
-                    aCombo5AA := {'S=SIM','N=NAO'}
-                elseif (cAliasTempAlt) -> (ATIVO_ALT) == 'N'
-                    (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
-                    aCombo5AA := {'N=NAO','S=SIM'}
-                endif
-                (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZCAR:Nat][2])
-                (cAliasTempAlt) -> (DIAMRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][7]) 
-                (cAliasTempAlt) -> (COMPRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][8]) 
-                (cAliasTempAlt) -> (MATRL_ALT)   := (aColsAux[oMsGetZCAR:Nat][9]) 
-                (cAliasTempAlt) -> (DURERL_ALT)  := cValToChar(aColsAux[oMsGetZCAR:Nat][10]) 
-                
-            (cAliasTempAlt) -> (MSUNLOCK())
+                (cAliasTempAlt) -> (MSUNLOCK())
 
 
-        AADD(aDados,{(cAliasTempAlt) -> (COD_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (NOMERL_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (TIPO_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (ATIVO_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (DTOC(DATA_ALT))})
-        AADD(aDados,{(cAliasTempAlt) -> (Alltrim(ATIVO_NAT))})
-        AADD(aDados,{(cAliasTempAlt) -> (DESC_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (DIAMRL_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (COMPRL_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (MATRL_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (DURERL_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (COD_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (NOMERL_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (TIPO_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (ATIVO_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (DTOC(DATA_ALT))})
+            AADD(aDados,{(cAliasTempAlt) -> (Alltrim(ATIVO_NAT))})
+            AADD(aDados,{(cAliasTempAlt) -> (DESC_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (DIAMRL_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (COMPRL_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (MATRL_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (DURERL_ALT)})
 
-        oTableTempAlt:Delete()
+            oTableTempAlt:Delete()
 
-        dialogAlt(aDados)
+            dialogAlt(aDados)
 
-// -------------------------------------------------------------------------------
-// 
-//              ALTERA플O DE LAMPADAS- GABRIEL
-// 
-// -------------------------------------------------------------------------------
+// -    ------------------------------------------------------------------------------
+//  
+//                  ALTERA플O DE LAMPADAS- GABRIEL
+//  
+// -    ------------------------------------------------------------------------------
 
-    ELSEIF cTipo == 'L'
+        ELSEIF cTipo == 'L'
 
-    aColsAux := natEsc()
+        oTableTempAlt  := FWTemporaryTable():New(cAliasTempAlt)
 
-    oTableTempAlt  := FWTemporaryTable():New(cAliasTempAlt)
+            AADD(aFields,{'COD_ALL'   , "C", 6 , 0})
+            AADD(aFields,{'COD_ALT'   , "C", 6 , 0})
+            AADD(aFields,{'NOMELP_ALT', "C", 50, 0})
+            AADD(aFields,{'TIPO_ALT'  , "C", 1 , 0})
+            AADD(aFields,{'ATIVO_ALT' , "C", 1 , 0})
+            AADD(aFields,{'DATA_ALT'  , "D", 8 , 0})
+            AADD(aFields,{'ATIVO_NAT' , "C", 1 , 0})
+            AADD(aFields,{'IMPRES_ALT', "C", 8 , 0})
+            AADD(aFields,{'MODLP_ALT' , "C", 50 , 0})
+            AADD(aFields,{'TENS_ALT'  , "C", 6 , 0})
+            AADD(aFields,{'CORR_ALT'  , "C", 7 , 0})
+            AADD(aFields,{'POT_ALT'   , "C", 4 , 0})
+            AADD(aFields,{'MODREF_ALT', "C", 50, 0})
+            oTableTempAlt:SetFields(aFields)
+            oTableTempAlt:AddIndex('1',{'COD_ALL','COD_ALT'})
 
-        AADD(aFields,{'COD_ALL'   , "C", 6 , 0})
-        AADD(aFields,{'COD_ALT'   , "C", 6 , 0})
-        AADD(aFields,{'NOMELP_ALT', "C", 50, 0})
-        AADD(aFields,{'TIPO_ALT'  , "C", 1 , 0})
-        AADD(aFields,{'ATIVO_ALT' , "C", 1 , 0})
-        AADD(aFields,{'DATA_ALT'  , "D", 8 , 0})
-        AADD(aFields,{'ATIVO_NAT' , "C", 1 , 0})
-        AADD(aFields,{'IMPRES_ALT', "C", 8 , 0})
-        AADD(aFields,{'MODLP_ALT' , "C", 50 , 0})
-        AADD(aFields,{'TENS_ALT'  , "C", 6 , 0})
-        AADD(aFields,{'CORR_ALT'  , "C", 7 , 0})
-        AADD(aFields,{'POT_ALT'   , "C", 4 , 0})
-        AADD(aFields,{'MODREF_ALT', "C", 50, 0})
-        oTableTempAlt:SetFields(aFields)
-        oTableTempAlt:AddIndex('1',{'COD_ALL','COD_ALT'})
+            oTableTempAlt:Create()
 
-        oTableTempAlt:Create()
+            cNameTable := oTableTempAlt:GetRealName()
 
-        cNameTable := oTableTempAlt:GetRealName()
+            DbSelectArea('ZCA')
 
-        DbSelectArea('ZCA')
+                RecLock(cAliasTempAlt, .T.)
+                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAL:Nat][1]) 
+                    (cAliasTempAlt) -> (NOMELP_ALT) :=(aColsAux[oMsGetZCAL:Nat][2]) 
+                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAL:Nat][3]) 
+                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAL:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
+                    if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
+                        (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
+                        aCombo5AA := {'S=SIM','N=NAO'}
+                    elseif (cAliasTempAlt) -> (ATIVO_ALT) == 'N'
+                        (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
+                        aCombo5AA := {'N=NAO','S=SIM'}
+                    endif
+                    (cAliasTempAlt) -> (IMPRES_ALT)  := (aColsAux[oMsGetZCAL:Nat][6]) 
+                    (cAliasTempAlt) -> (MODLP_ALT)   := (aColsAux[oMsGetZCAL:Nat][7]) 
+                    (cAliasTempAlt) -> (TENS_ALT)    := (aColsAux[oMsGetZCAL:Nat][8]) 
+                    (cAliasTempAlt) -> (CORR_ALT)    := (aColsAux[oMsGetZCAL:Nat][9]) 
+                    (cAliasTempAlt) -> (POT_ALT)     := (aColsAux[oMsGetZCAL:Nat][10]) 
+                    (cAliasTempAlt) -> (MODREF_ALT)  := (aColsAux[oMsGetZCAL:Nat][11]) 
 
-            RecLock(cAliasTempAlt, .T.)
-                (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAL:Nat][1]) 
-                (cAliasTempAlt) -> (NOMELP_ALT) :=(aColsAux[oMsGetZCAL:Nat][2]) 
-                (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAL:Nat][3]) 
-                (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAL:Nat][4]) 
-                (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
-                if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
-                    (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
-                    aCombo5AA := {'S=SIM','N=NAO'}
-                elseif (cAliasTempAlt) -> (ATIVO_ALT) == 'N'
-                    (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
-                    aCombo5AA := {'N=NAO','S=SIM'}
-                endif
-                (cAliasTempAlt) -> (IMPRES_ALT)  := (aColsAux[oMsGetZCAL:Nat][6]) 
-                (cAliasTempAlt) -> (MODLP_ALT)   := (aColsAux[oMsGetZCAL:Nat][7]) 
-                (cAliasTempAlt) -> (TENS_ALT)    := (aColsAux[oMsGetZCAL:Nat][8]) 
-                (cAliasTempAlt) -> (CORR_ALT)    := (aColsAux[oMsGetZCAL:Nat][9]) 
-                (cAliasTempAlt) -> (POT_ALT)     := (aColsAux[oMsGetZCAL:Nat][10]) 
-                (cAliasTempAlt) -> (MODREF_ALT)  := (aColsAux[oMsGetZCAL:Nat][11]) 
-                
-            (cAliasTempAlt) -> (MSUNLOCK())
+                (cAliasTempAlt) -> (MSUNLOCK())
 
 
-        AADD(aDados,{(cAliasTempAlt) -> (COD_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (NOMELP_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (TIPO_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (ATIVO_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (DTOC(DATA_ALT))})
-        AADD(aDados,{(cAliasTempAlt) -> (Alltrim(ATIVO_NAT))})
-        AADD(aDados,{(cAliasTempAlt) -> (IMPRES_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (MODLP_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (TENS_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (CORR_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (POT_ALT)})
-        AADD(aDados,{(cAliasTempAlt) -> (MODREF_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (COD_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (NOMELP_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (TIPO_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (ATIVO_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (DTOC(DATA_ALT))})
+            AADD(aDados,{(cAliasTempAlt) -> (Alltrim(ATIVO_NAT))})
+            AADD(aDados,{(cAliasTempAlt) -> (IMPRES_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (MODLP_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (TENS_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (CORR_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (POT_ALT)})
+            AADD(aDados,{(cAliasTempAlt) -> (MODREF_ALT)})
 
-        oTableTempAlt:Delete()
+            oTableTempAlt:Delete()
 
-        dialogAlt(aDados)
-    
-    ENDIF
+            dialogAlt(aDados)
+
+        ENDIF
+    else
+        MsgAlert('INCLUA ALGO PRIMEIRO PARA DEPOIS ALTERAR ALGUM REGISTRO CLICANDO NA GRID','ATEN플O')
+        RETURN
+    endif
 
     FWRestArea(aArea)
 
@@ -5038,9 +5040,11 @@ User Function RLLP23EXC()
 // 
 // -------------------------------------------------------------------------------
 
-        If cTipo == 'I' .OR. cTipo ==  'E'
+    aColsAux := natEsc()
 
-            aColsAux := natEsc()
+    IF !EMPTY(aColsAux)
+
+        If cTipo == 'I' .OR. cTipo ==  'E'
 
             oTableTempExc   := FWTemporaryTable():New(cAliasTempExc)
 
@@ -5106,8 +5110,6 @@ User Function RLLP23EXC()
         elseIf cTipo == 'R' 
 
             oTableTempExc  := FWTemporaryTable():New(cAliasTempExc)
-
-            aColsAux := natEsc()
 
             AADD(aFields,{'COD_ALL'    , "C", 6 , 0})
             AADD(aFields,{'COD_EXC'    , "C", 6 , 0})
@@ -5180,8 +5182,6 @@ User Function RLLP23EXC()
 
             oTableTempExc  := FWTemporaryTable():New(cAliasTempExc)
 
-            aColsAux := natEsc()
-
             AADD(aFields,{'COD_ALL'    , "C", 6, 0})
             AADD(aFields,{'COD_EXC'    , "C", 6, 0})
             AADD(aFields,{'NOMELP_EXC', "C", 50, 0})
@@ -5246,6 +5246,11 @@ User Function RLLP23EXC()
             dialogEXC(aDadosExc)
 
         endif
+    else
+        MsgAlert('N홒 PODE ALTERAR ANTES DE INCLUIR ALGO, DEPOIS DE INCLUIR CLIQUE NO REGISTRO QUE QUERES ALTERAR')
+        RETURN
+    endif
+
     FWRestArea(aArea)
 return
 
@@ -6273,7 +6278,7 @@ Static function fCarAcolsMRL()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM ZM1990 WHERE D_E_L_E_T_ = ''"
+    cQry := "SELECT * FROM ZM1990 WHERE D_E_L_E_T_ = '' AND ZM1_FILIAL = '" + FWCodFil() + "'"
 
         TCQUERY cQry New Alias "QRY_ZM1"
 
@@ -6863,7 +6868,7 @@ Static function geraCodM()
 
     DbSelectArea('ZM1')
         
-        cQry := "SELECT ZM1_COD AS REC1 FROM "+ RetSqlName('ZM1')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZM1')+")"
+        cQry := "SELECT ZM1_COD AS REC1 FROM "+ RetSqlName('ZM1')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZM1')+" WHERE ZM1_FILIAL = '" + FWCodFil() + "')"
 
         TCQUERY cQry NEW ALIAS 'REC_ZM1'
 
@@ -6881,7 +6886,7 @@ Static function geraCodM()
     ELSEIF SELECT('ZM2') > 0
 
     DbSelectArea('ZM2')
-     cQry := "SELECT ZM2_COD AS REC2 FROM "+ RetSqlName('ZM2')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZM2')+")"
+     cQry := "SELECT ZM2_COD AS REC2 FROM "+ RetSqlName('ZM2')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZM2')+" WHERE ZM2_FILIAL = '" + FWCodFil() + "')"
 
         TCQUERY cQry NEW ALIAS 'REC_ZM2'
 
@@ -7825,7 +7830,7 @@ Static function MLPfCarAcols()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM ZM2990 WHERE D_E_L_E_T_ = ''"
+    cQry := "SELECT * FROM ZM2990 WHERE D_E_L_E_T_ = '' AND ZM2_FILIAL = '" + FwcODfiL() + "'"
 
         TCQUERY cQry New Alias "QRY_ZM2"
 
@@ -10580,7 +10585,7 @@ static function fPopulaImp()
 
     if lTF == .F. 
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10612,15 +10617,15 @@ static function fPopulaImp()
 
         if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         else
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND (ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND (ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
@@ -10822,7 +10827,7 @@ static function fPopulaEst()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10854,15 +10859,15 @@ static function fPopulaEst()
 
             if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
         
             elseif nNum == 1
 
-                cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+                cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             else
 
-                 cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
+                 cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             endif
 
@@ -11054,7 +11059,7 @@ static function fPopulaRl()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -11086,15 +11091,15 @@ static function fPopulaRl()
         
         IF nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         else
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
@@ -11284,7 +11289,7 @@ static function fPopulaLp()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -11316,15 +11321,15 @@ static function fPopulaLp()
 
         if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZCA_FILIAL = '" + FwCodFil() + "' "
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "' "
 
         ELSE
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
@@ -11386,7 +11391,7 @@ Static Function fConfLp()
         ELSE
             MsgAlert("VALOR VAZIO SEM OP플O DE INSER플O","ATEN플O")
             oDlgCE:end()
-            U_zConsLamp()
+            U_zConsLp()
         ENDIF
 
     FwRestArea(aArea)
@@ -11452,7 +11457,7 @@ Static Function proq()
 
     If SELECT('ZM1') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
+    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM1_FILIAL = '" + FwCodFil() + "'"  
 
     cAlias := 'QZC_ZM1'
 
@@ -11486,7 +11491,7 @@ Static Function proq()
 
     ELSEIF SELECT('ZM2') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
+    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"'  AND ZM2_FILIAL = '" + FwCodFil() + "'"  
 
     cAlias := 'QZC_ZM2'
 
@@ -11763,7 +11768,7 @@ Static Function proqR2()
 
     If SELECT('ZM1') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_EST = '"+ cEst+"' AND ZM1_ROLO = '"+cRolo +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
+    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_EST = '"+ cEst+"' AND ZM1_ROLO = '"+cRolo +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM1_FILIAL = '" + FwCodFil() + "'"  
 
     cAlias := 'QZC_ZM1'
 
@@ -11795,7 +11800,7 @@ Static Function proqR2()
 
     ELSEIF SELECT('ZM2') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_IMPRES = '"+ cImp +"' AND ZM2_TROCLP = '"+ cLamp+"' AND ZM2_TROCRL = '"+cRef +"' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
+    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_IMPRES = '"+ cImp +"' AND ZM2_TROCLP = '"+ cLamp+"' AND ZM2_TROCRL = '"+cRef +"' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM2_FILIAL = '" + FwCodFil() + "'"  
 
     cAlias := 'QZC_ZM2'
 
@@ -12123,7 +12128,7 @@ Static Function proqR3()
 
     If SELECT('ZM1') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' "  
+    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM1_FILIAL = '" + FwCodFil() + "'"  
 
     cAlias := 'QZC_ZM1'
 
