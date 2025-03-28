@@ -3167,7 +3167,13 @@ Static function CadBtnSalv()
 
         if lEscolha = .T.
 
-            cQry := "SELECT ZCA_DESC FROM ZCA990 WHERE ZCA_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_DESC FROM ZCA990 WHERE ZCA_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = '' "
+
+            IF cTipo = 'I'
+                cQry += "AND ZCA_TIPO = 'I'"
+            ELSEIF cTipo = 'E'
+                cQry += "AND ZCA_TIPO = 'E'"
+            ENDIF
 
             TCQUERY cQry New Alias "QRY_CHK"
 
@@ -3323,6 +3329,24 @@ Static function CadBtnSalv()
             else
                 MsgInfo('NENHUM CADASTRO EFETUADO')
         ENDIF
+    endif
+    
+    if cTipo == 'I'
+        fCarAcols()
+        oMsGetZCAI:ACOLS := aCols
+        oMsGetZCAI:oBrowse:Refresh()
+    elseif cTipo == 'E'
+        fCarAcols()
+        oMsGetZCAE:ACOLS := aCols
+        oMsGetZCAE:oBrowse:Refresh()
+    elseif cTipo == 'R'
+        fCarAcols()
+        oMsGetZCAR:ACOLS := aCols
+        oMsGetZCAR:oBrowse:Refresh()
+    elseif cTipo == 'L'
+        fCarAcols()
+        oMsGetZCAL:ACOLS := aCols
+        oMsGetZCAL:oBrowse:Refresh()
     endif
 
     FWRestArea(aArea)
@@ -6965,18 +6989,18 @@ User function altMRL()
             (cAliasTempAltM) -> (MSUNLOCK())
 
 
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(COD_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(IMP_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(EST_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(USU_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(ROLO_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(FAB_EXCM))})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (COD_EXCM)})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (IMP_EXCM)})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (EST_EXCM)})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (USU_EXCM)})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (ROLO_EXCM)})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (FAB_EXCM)})
         AADD(aDadosAltM,{(cAliasTempAltM) -> (DTOC(DAIN_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(OBS_EXCM))})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (OBS_EXCM)})
         AADD(aDadosAltM,{(cAliasTempAltM) -> (DTOC(DACA_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(ATIVO_EXCM))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(ATIVO_NAT))})
-        AADD(aDadosAltM,{(cAliasTempAltM) -> (AllTrim(MET_EXCM))})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (ATIVO_EXCM)})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (ATIVO_NAT)})
+        AADD(aDadosAltM,{(cAliasTempAltM) -> (MET_EXCM)})
 
         oTableTempAlt:Delete()
 
@@ -8916,32 +8940,32 @@ User Function altMLP()
                 (cAliasTempAltL) -> (DATAC_ALTL)     := ZM2 -> (ZM2_DATAC)
             (cAliasTempAltL) -> (MSUNLOCK())
 
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(COD_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(IMP_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(USU_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) ->    (DTOC(DATAM_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(LAMP_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TROLP_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TROLP_NAT))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TRORL_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TRORL_NAT))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(MATER_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TEMPM_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(UMIDA_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TEMPA_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TEMPD_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TEMPR_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TENS_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(HORIM_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(START_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(CORR_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(TEMPT_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(SETP_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(POT_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(OBS_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(ATIVO_ALTL))})
-        AADD(aDadosAltL,{(cAliasTempAltL) -> (AllTrim(ATIVO_NAT))})
-        AADD(aDadosAltL,{(cAliasTempAltL) ->    (DTOC(DATAC_ALTL))})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (COD_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (IMP_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (USU_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (DTOC(DATAM_ALTL))})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (LAMP_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TROLP_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TROLP_NAT)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TRORL_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TRORL_NAT)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (MATER_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TEMPM_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (UMIDA_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TEMPA_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TEMPD_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TEMPR_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TENS_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (HORIM_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (START_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (CORR_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (TEMPT_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (SETP_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (POT_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (OBS_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (ATIVO_ALTL)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (ATIVO_NAT)})
+        AADD(aDadosAltL,{(cAliasTempAltL) -> (DTOC(DATAC_ALTL))})
 
         oTableTempAlt:Delete()
 
@@ -9126,7 +9150,7 @@ Static function dialogAltL(aDadosAltL)
         endif
         nObjLarg := 65
         nObjAltu := 20
-        oBtn1L   := TButton():New(nObjLinh, nObjColu, cBtn1LL,oDlgAltL ,{|| oDlgCadL:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
+        oBtn1L   := TButton():New(nObjLinh, nObjColu, cBtn1LL,oDlgAltL ,{|| oDlgAltL:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
                 
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
@@ -9535,6 +9559,9 @@ Static function altbtnMLP()
 
     Local aArea := FWGetArea()
     Local cAlias := 'ZM2'
+    Local cCod := oGet2L:BUFFER
+
+    ZM2->(DbSetOrder(1))
 
     lEscolha := MsgYesNo('DESEJA  ALTERAR O CADASTRO?','ATEN플O')
     
@@ -9550,84 +9577,87 @@ Static function altbtnMLP()
             .AND. (oGet21L:BUFFER ==aDadosAltL[22][1]) .AND.(oGet22L:BUFFER == aDadosAltL[23][1]) .AND.(oCombo23L:Nat == 0 .OR. oCombo23L:Nat == Val(aDadosAltL[25][1]))
                 ALERT('VOCE N홒 MUDOU NADA NOS CAMPOS!!','ATEN플O')
             elseIf Empty(oGet3L:BUFFER) .OR. (Empty(oGet5L:BUFFER) .OR. (oGet5L:BUFFER == "  /  /    ")) .OR. Empty(oGet6L:BUFFER) .OR. Empty(oGet9L:BUFFER) .OR. Empty(oGet10L:BUFFER) ;
-          .OR. Empty(oGet11L:BUFFER) .OR. Empty(oGet12L:BUFFER)  .OR. Empty(oGet13L:BUFFER) .OR. Empty(oGet14L:BUFFER) .OR. Empty(oGet15L:BUFFER) ;
-          .OR. Empty(oGet16L:BUFFER) .OR. Empty(oGet17L:BUFFER) .OR. Empty(oGet18L:BUFFER) .OR. Empty(oGet19L:BUFFER) .OR. Empty(oGet20L:BUFFER) ;
-          .OR. Empty(oGet21L:BUFFER) .OR. Empty(oGet22L:BUFFER)
+            .OR. Empty(oGet11L:BUFFER) .OR. Empty(oGet12L:BUFFER)  .OR. Empty(oGet13L:BUFFER) .OR. Empty(oGet14L:BUFFER) .OR. Empty(oGet15L:BUFFER) ;
+            .OR. Empty(oGet16L:BUFFER) .OR. Empty(oGet17L:BUFFER) .OR. Empty(oGet18L:BUFFER) .OR. Empty(oGet19L:BUFFER) .OR. Empty(oGet20L:BUFFER) ;
+            .OR. Empty(oGet21L:BUFFER) .OR. Empty(oGet22L:BUFFER)
                 MSGALERT('H� ALGUM CAMPO SEM DIGITA플O','ATEN플O')
             ELSEIF  IsAlpha(oGet10L:BUFFER) .OR. IsAlpha(oGet11L:BUFFER) .OR. IsAlpha(oGet12L:BUFFER) .OR. IsAlpha(oGet13L:BUFFER) .OR. IsAlpha(oGet14L:BUFFER);
                .OR. IsAlpha(oGet15L:BUFFER) .OR. IsAlpha(oGet16L:BUFFER) .OR. IsAlpha(oGet17L:BUFFER) .OR. IsAlpha(oGet18L:BUFFER) .OR. IsAlpha(oGet19L:BUFFER);
                .OR. IsAlpha(oGet20L:BUFFER) .OR. IsAlpha(oGet21L:BUFFER)
                 MsgAlert('H� LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS','ATEN플O')
             else
-            begin transaction 
-            RecLock(cAlias, .F.)
-                ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
-                ZM2->ZM2_IMPRES    := Alltrim(oGet3L:BUFFER)
-                ZM2->ZM2_USU       := Alltrim(oGet4L:BUFFER)
-                ZM2->ZM2_DATAM     :=    CTOD(oGet5L:BUFFER)
-                ZM2->ZM2_LAMP      := AllTrim(oGet6L:BUFFER)
-                if oCombo7L:NAT == 1 .OR. oCombo7L:NAT == 0
-                    ZM2->ZM2_TROCLP := oCombo7L:AITEMS[1]
-                elseif oCombo7L:NAT == 2
-                    ZM2->ZM2_TROCLP := oCombo7L:AITEMS[2]
-                ENDIF
-                if oCombo8L:NAT == 1 .OR. oCombo8L:NAT == 0
-                    ZM2->ZM2_TROCRL := oCombo8L:AITEMS[1]
-                elseif oCombo8L:NAT == 2
-                    ZM2->ZM2_TROCRL := oCombo8L:AITEMS[2]
-                ENDIF
-                ZM2->ZM2_MATER     := Alltrim(oGet9L:BUFFER)
-                ZM2->ZM2_TEMPM     := Alltrim(oGet10L:BUFFER)
-                ZM2->ZM2_UMIDAD    := AllTrim(oGet11L:BUFFER)
-                ZM2->ZM2_TEMPA     := AllTrim(oGet12L:BUFFER)
-                ZM2->ZM2_TEMPD     := AllTrim(oGet13L:BUFFER)
-                ZM2->ZM2_TEMPR     := Alltrim(oGet14L:BUFFER)
-                ZM2->ZM2_TENS      := Alltrim(oGet15L:BUFFER)
-                ZM2->ZM2_HORIME    := Alltrim(oGet16L:BUFFER)
-                ZM2->ZM2_START     := Alltrim(oGet17L:BUFFER)
-                ZM2->ZM2_CORR      := Alltrim(oGet18L:BUFFER)
-                ZM2->ZM2_TEMPT     := Alltrim(oGet19L:BUFFER)
-                ZM2->ZM2_SETP      := Alltrim(oGet20L:BUFFER)
-                ZM2->ZM2_POT       := Alltrim(oGet21L:BUFFER)
-                ZM2->ZM2_OBS       := Alltrim(oGet22L:BUFFER)
-                if oCombo23L:NAT == 1 .OR. oCombo23L:NAT == 0
-                    ZM2->ZM2_ATIVO := oCombo23L:AITEMS[1]
-                elseif oCombo23L:NAT == 2
-                    ZM2->ZM2_ATIVO := oCombo23L:AITEMS[2]
-                ENDIF
-                ZM2->ZM2_DATAC     := CTOD(oGet24L:BUFFER)
-            ZM2 -> (MSUNLOCK())
-            end transaction
-            FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATEN플O')
+            begin transaction
 
-            lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
-                if lEsc == .T.
-                    oDlgAltL:End()
-                else
-                    oGet3L:lActive    := .F.
-                    oGet4L:lActive    := .F.
-                    oGet5L:lActive    := .F.
-                    oGet6L:lActive    := .F.
-                    oCombo7L:lActive  := .F.
-                    oCombo8L:lActive  := .F.
-                    oGet9L:lActive    := .F.
-                    oGet10L:lActive   := .F.
-                    oGet11L:lActive   := .F.
-                    oGet12L:lActive   := .F.
-                    oGet13L:lActive   := .F.
-                    oGet14L:lActive   := .F.
-                    oGet15L:lActive   := .F.
-                    oGet16L:lActive   := .F.
-                    oGet17L:lActive   := .F.
-                    oGet18L:lActive   := .F.
-                    oGet19L:lActive   := .F.
-                    oGet20L:lActive   := .F.
-                    oGet21L:lActive   := .F.
-                    oGet22L:lActive   := .F.
-                    oCombo23L:lActive := .F.
-                    oGet24L:lActive   := .F.
-                    oBtn2L:lActive    := .F.
-            endif
+                ZM2->(DBSeek(cCod))
+                    RecLock(cAlias, .F.)
+                        ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
+                         ZM2->ZM2_IMPRES    := Alltrim(oGet3L:BUFFER)
+                        ZM2->ZM2_USU       := Alltrim(oGet4L:BUFFER)
+                        ZM2->ZM2_DATAM     :=    CTOD(oGet5L:BUFFER)
+                        ZM2->ZM2_LAMP      := AllTrim(oGet6L:BUFFER)
+                        if oCombo7L:NAT == 1 .OR. oCombo7L:NAT == 0
+                            ZM2->ZM2_TROCLP := oCombo7L:AITEMS[1]
+                        elseif oCombo7L:NAT == 2
+                            ZM2->ZM2_TROCLP := oCombo7L:AITEMS[2]
+                        ENDIF
+                        if oCombo8L:NAT == 1 .OR. oCombo8L:NAT == 0
+                            ZM2->ZM2_TROCRL := oCombo8L:AITEMS[1]
+                        elseif oCombo8L:NAT == 2
+                            ZM2->ZM2_TROCRL := oCombo8L:AITEMS[2]
+                        ENDIF
+                        ZM2->ZM2_MATER     := Alltrim(oGet9L:BUFFER)
+                        ZM2->ZM2_TEMPM     := Alltrim(oGet10L:BUFFER)
+                        ZM2->ZM2_UMIDAD    := AllTrim(oGet11L:BUFFER)
+                        ZM2->ZM2_TEMPA     := AllTrim(oGet12L:BUFFER)
+                        ZM2->ZM2_TEMPD     := AllTrim(oGet13L:BUFFER)
+                        ZM2->ZM2_TEMPR     := Alltrim(oGet14L:BUFFER)
+                        ZM2->ZM2_TENS      := Alltrim(oGet15L:BUFFER)
+                        ZM2->ZM2_HORIME    := Alltrim(oGet16L:BUFFER)
+                        ZM2->ZM2_START     := Alltrim(oGet17L:BUFFER)
+                        ZM2->ZM2_CORR      := Alltrim(oGet18L:BUFFER)
+                        ZM2->ZM2_TEMPT     := Alltrim(oGet19L:BUFFER)
+                        ZM2->ZM2_SETP      := Alltrim(oGet20L:BUFFER)
+                        ZM2->ZM2_POT       := Alltrim(oGet21L:BUFFER)
+                        ZM2->ZM2_OBS       := Alltrim(oGet22L:BUFFER)
+                        if oCombo23L:NAT == 1 .OR. oCombo23L:NAT == 0
+                            ZM2->ZM2_ATIVO := oCombo23L:AITEMS[1]
+                        elseif oCombo23L:NAT == 2
+                            ZM2->ZM2_ATIVO := oCombo23L:AITEMS[2]
+                        ENDIF
+                        ZM2->ZM2_DATAC     := CTOD(oGet24L:BUFFER)
+                    ZM2 -> (MSUNLOCK())
+                    end transaction
+                    FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATEN플O')
+
+                    lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
+                        if lEsc == .T.
+                            oDlgAltL:End()
+                        else
+                            oGet3L:lActive    := .F.
+                            oGet4L:lActive    := .F.
+                            oGet5L:lActive    := .F.
+                            oGet6L:lActive    := .F.
+                            oCombo7L:lActive  := .F.
+                            oCombo8L:lActive  := .F.
+                            oGet9L:lActive    := .F.
+                            oGet10L:lActive   := .F.
+                            oGet11L:lActive   := .F.
+                            oGet12L:lActive   := .F.
+                            oGet13L:lActive   := .F.
+                            oGet14L:lActive   := .F.
+                            oGet15L:lActive   := .F.
+                            oGet16L:lActive   := .F.
+                            oGet17L:lActive   := .F.
+                            oGet18L:lActive   := .F.
+                            oGet19L:lActive   := .F.
+                            oGet20L:lActive   := .F.
+                            oGet21L:lActive   := .F.
+                            oGet22L:lActive   := .F.
+                            oCombo23L:lActive := .F.
+                            oGet24L:lActive   := .F.
+                            oBtn2L:lActive    := .F.
+                        endif
+  
             endif
         else
             MsgInfo('NENHUMA ALTERA플O EFETUADA')
