@@ -4641,8 +4641,6 @@ static function altBtn()
 
             TCQUERY cQryLMLP New Alias "QRY_LMLP"
 
-            QRY_LMLP -> (DbCloseArea())
-
         endif    
 
     if cTipo == 'I' .OR. cTipo == 'E'
@@ -4829,9 +4827,13 @@ static function altBtn()
                     ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
 
                     if !empty(QRY_LMLP->(ZM2_LAMP)) 
-                        MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
-                        DisarmTransaction()
-                        return
+                        IF cNomeBtn != cNomeB
+                            MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
+                            DisarmTransaction()
+                            return
+                        else 
+                            ZCA->ZCA_NOMELP  := Alltrim(oGet3A:BUFFER)
+                        endif
                     else
                         ZCA->ZCA_NOMELP  := Alltrim(oGet3A:BUFFER)
                     endif
@@ -4859,7 +4861,7 @@ static function altBtn()
                 else
                     oGet3A:lActive    := .F.
                     oCombo5A:lActive  := .F.
-                    oBtn2A:lActive   := .F.
+                    oBtn2A:lActive    := .F.
                     oGet15A:lActive   := .F.
                     oGet16A:lActive   := .F.
                     oGet17A:lActive   := .F.
@@ -4933,7 +4935,6 @@ static function trazcodZM2()
 
 return (cNum)
 
-
 // -------------------------------------------------------------------------------
 // 
 //              PARTE DE EXCLUSÃO DE ITENS
@@ -4946,7 +4947,6 @@ return (cNum)
 // -------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------
 //------------------------------------------------------------------------------- 
-
 
 User Function RLLP23EXC()
     Local aArea         := FWGetArea()
