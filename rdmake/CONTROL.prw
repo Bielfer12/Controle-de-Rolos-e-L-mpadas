@@ -4011,7 +4011,7 @@ static Function dialogAlt(aDados)
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2A := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{|| FwMsgRun(, {|oSay|altBtn(oSay)},'Carregando confirmações/alterações', 'Aguarde')}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2A := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{||altBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -4162,7 +4162,7 @@ static Function dialogAlt(aDados)
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2A := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{|| FwMsgRun(, {|oSay|altBtn(oSay)},'Carregando confirmações/alterações', 'Aguarde')}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2A := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{||altBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
         
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -4385,7 +4385,7 @@ static Function dialogAlt(aDados)
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2A   := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{|| FwMsgRun(, {|oSay|altBtn(oSay)},'Carregando confirmações/alterações', 'Aguarde')}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2A   := TButton():New(nObjLinh, nObjColu, cBtn2AA, oDlgAlt,{||altBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
 
         nObjLinh := 065
         nObjColu := 002 
@@ -4591,36 +4591,18 @@ static Function dialogAlt(aDados)
    FWRestArea(aArea)
 Return
 
-static function altBtn(oSay)
+static function altBtn()
 
     Local aArea := FWGetArea()
     Local cAlias := 'ZCA'
-    Local aDadosL      := {}
-    Local aDadosMRL    := {}
-    Local aDadosMLP    := {}
-    Local cNomeBtn    
-    Local cData       := CTOD(oGet6A:BUFFER)  
-    Local aDataAlt
-    Local cDate        := DATE()
-    Local aDateAtu
-    Local i := 0
+    Local cNomeBtn := oGet3A:BUFFER
     lOCAL cQryIL
-    Local lDsc        := .F.
-    Local cSeq1
-    Local cSeq2
     lOCAL cQryIMRL
     lOCAL cQryIMLP
     lOCAL cQryEMRL
     lOCAL cQryRMRL
     lOCAL cQryLMLP
-    Local nNum1 := trazcodZM1()
-    Local nNum2 := trazcodZM2()
 
-    cSeq1 := Ceiling((Val(nNum1)/1.23))
-    cSeq2 := Ceiling((Val(nNum2)/1.23))
-    
-    aDataAlt := StrTokArr(DTOC(cData),'/')
-    aDateAtu := StrTokArr(DTOC(cDate),'/')
 // -------------------------------------------------------------------------------
 // 
 //           BOTÃO DE ALTERAÇÃO IMPRESSORA/ESTAÇÃO - GABRIEL
@@ -4629,155 +4611,39 @@ static function altBtn(oSay)
     
     if cTipo == 'I'
 
-            cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP,ZCA_DATA FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+            cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND ZCA_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIL New Alias "QRY_IL"
 
-            QRY_IL -> (DbGoTop())
-            while ! QRY_IL->(Eof())
-                AAdd(aDadosL,{QRY_IL->ZCA_COD,;
-                             QRY_IL->ZCA_IMPLP,;
-                            })
-                
-                QRY_IL ->(DbSkip())
-
-            enddo
-
-            QRY_IL -> (DbCloseArea())
-
-            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES,ZM1_DATACA FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES FROM " + RetSQLName('ZM1') + " WHERE ZM1_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
-            QRY_IMRL -> (DbGoTop())
-            while ! QRY_IMRL->(Eof())
-                AAdd(aDadosMRL,{QRY_IMRL->ZM1_COD,;
-                                QRY_IMRL->ZM1_IMPRES,;
-                                QRY_IMRL->ZM1_DATACA,;    
-                            })
-                QRY_IMRL ->(DbSkip())
-            enddo
-
-            QRY_IMRL -> (DbCloseArea())
-
-            cQryIMLP  := "SELECT ZM2_COD,ZM2_IMPRES FROM " + RetSQLName('ZM2') + " WHERE D_E_L_E_T_ = ''"
+            cQryIMLP  := "SELECT ZM2_COD,ZM2_IMPRES FROM " + RetSQLName('ZM2') + " WHERE ZM2_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMLP New Alias "QRY_IMLP"
 
-            QRY_IMLP -> (DbGoTop())
-            while ! QRY_IMLP->(Eof())
-                AAdd(aDadosMLP,{QRY_IMLP->ZM2_COD,;
-                                QRY_IMLP->ZM2_IMPRES,;    
-                            })
-                QRY_IMLP ->(DbSkip())
-            enddo
-
-            QRY_IMLP -> (DbCloseArea())
-
         elseif cTipo == 'E'
 
-            cQryEMRL  := "SELECT ZM1_COD,ZM1_EST FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryEMRL  := "SELECT ZM1_COD,ZM1_EST FROM " + RetSQLName('ZM1') + " WHERE ZM1_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryEMRL New Alias "QRY_EMRL"
 
-            QRY_EMRL -> (DbGoTop())
-            while ! QRY_EMRL->(Eof())
-                AAdd(aDadosMRL,{QRY_EMRL->ZM1_COD,;
-                                QRY_EMRL->ZM1_EST,;    
-                            })
-                QRY_EMRL ->(DbSkip())
-            enddo
-            QRY_EMRL -> (DbCloseArea())
-
         elseif cTipo == 'R'
 
-            cQryRMRL  := "SELECT ZM1_COD,ZM1_ROLO FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryRMRL  := "SELECT ZM1_COD,ZM1_ROLO FROM " + RetSQLName('ZM1') + " WHERE ZM1_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryRMRL New Alias "QRY_RMRL"
 
-            QRY_RMRL -> (DbGoTop())
-            while ! QRY_RMRL->(Eof())
-                AAdd(aDadosMRL,{QRY_RMRL->ZM1_COD,;
-                                QRY_RMRL->ZM1_ROLO,;    
-                            })
-                QRY_RMRL ->(DbSkip())
-            enddo
-
-            QRY_RMRL -> (DbCloseArea())
-
         elseif cTipo == 'L'
 
-            cQryLMLP  := "SELECT ZM2_COD,ZM2_LAMP FROM " + RetSQLName('ZM2') + " WHERE D_E_L_E_T_ = ''"
+            cQryLMLP  := "SELECT ZM2_COD,ZM2_LAMP FROM " + RetSQLName('ZM2') + " WHERE ZM2_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryLMLP New Alias "QRY_LMLP"
 
-            QRY_LMLP -> (DbGoTop())
-            while ! QRY_LMLP->(Eof())
-                AAdd(aDadosMLP,{QRY_LMLP->ZM2_COD,;
-                                QRY_LMLP->ZM2_LAMP,;    
-                            })
-                QRY_LMLP ->(DbSkip())
-            enddo
-
             QRY_LMLP -> (DbCloseArea())
 
-        endif
-        
-        
-        if cTipo == 'I'  
-            For i:=1 to Len(aDadosL)
-                if  cNomeB == (aDadosL[i][2])
-                    cNomeBtn := aDadosL[i][2]
-                    lDsc := .T.
-                    Exit
-                else
-                    sleep(1)
-                endif
-            Next  
-        endi    
-        IF (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'E' .OR. cTipo == 'R'
-                if aDataAlt[3] >= aDateAtu[3]
-                    For i := cSeq1 to Len(aDadosMRL)
-                            if  cNomeB == (aDadosMRL[I][2])
-                                cNomeBtn := aDadosMRL[i][2]
-                                exit
-                        else
-                            sleep(1)
-                        endif
-                    next
-                else
-                    For i:=1 to Len(aDadosMRL)
-                        if  cNomeB == (aDadosMRL[I][2])
-                            cNomeBtn := aDadosMRL[i][2]
-                            exit
-                        else
-                            sleep(1)
-                        endif
-                    next
-                endif
-        endi    
-        if (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'L'   
-                if aDataAlt[3] >= aDateAtu[3]
-                    For i := cSeq2 to Len(aDadosMLP)
-                        if  cNomeB == (aDadosMLP[I][2])
-                            cNomeBtn := aDadosMLP[i][2]
-                            exit
-                        else
-                            sleep(1)
-                        endif
-                    next
-                else
-                    For i:=1 to Len(aDadosMLP)
-                        if  cNomeB == (aDadosMLP[I][2])
-                            cNomeBtn := aDadosMLP[i][2]
-                            exit
-                        else
-                            sleep(1)
-                        endif
-                    next
-                endi    
-        endif
-       
+        endif    
 
     if cTipo == 'I' .OR. cTipo == 'E'
     lEscolha := MsgYesNo('DESEJA ALTERAR O CADASTRO?','ATENÇÃO')
@@ -4797,13 +4663,31 @@ static function altBtn(oSay)
                     RecLock(cAlias, .F.)
                         
                         ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)        
+                        if cTipo = 'I'
+                            if !empty(QRY_IL->(ZCA_IMPLP)) .OR. !empty(QRY_IMRL->(ZM1_IMPRES)) .OR. !empty(QRY_IMLP->(ZM2_IMPRES)) 
+                                IF cNomeBtn != cNomeB
+                                    MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
+                                    DisarmTransaction()
+                                    QRY_IL -> (DbCloseArea())
+                                    QRY_IMRL -> (DbCloseArea())
+                                    QRY_IMLP -> (DbCloseArea())
+                                    return
+                                else
+                                    ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                                endif
+                            else
+                                ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                            ENDIF
 
-                        if !empty(cNomeBtn) 
-                            MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
-                            DisarmTransaction()
-                            return
-                        else
-                            ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                        elseif cTipo = 'E'
+                            if !empty(QRY_EMRL->(ZM1_EST)) 
+                                MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
+                                DisarmTransaction()
+                                QRY_EMRL -> (DbCloseArea())
+                                return
+                            else
+                                ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                            ENDIF
                         endif
 
                         ZCA->ZCA_TIPO  := Alltrim(oGet4A:BUFFER)
@@ -4830,6 +4714,16 @@ static function altBtn(oSay)
         else
             MsgInfo('NENHUMA ALTERAÇÃO EFETUADA')
         ENDIF
+
+        if cTipo = 'I'
+            QRY_IL -> (DbCloseArea())
+
+            QRY_IMRL -> (DbCloseArea())
+
+            QRY_IMLP -> (DbCloseArea())
+        elseif cTipo = 'E'
+            QRY_EMRL -> (DbCloseArea())
+        endif
 
 // -------------------------------------------------------------------------------
 // 
@@ -4865,10 +4759,14 @@ static function altBtn(oSay)
                     ENDIF
                     ZCA->ZCA_DATA    := CTOD(oGet6A:BUFFER)
 
-                    if !empty(cNomeBtn) 
-                        MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
-                        DisarmTransaction()
-                        return
+                    if !empty(QRY_RMRL->(ZM1_ROLO)) 
+                        IF cNomeBtn != cNomeB
+                            MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
+                            DisarmTransaction()
+                            return
+                        else 
+                            ZCA->ZCA_NOMERL  := Alltrim(oGet3A:BUFFER)
+                        endif
                     else
                         ZCA->ZCA_NOMERL  := Alltrim(oGet3A:BUFFER)
                     endif
@@ -4899,6 +4797,8 @@ static function altBtn(oSay)
             MsgInfo('NENHUMA ALTERAÇÃO EFETUADA')
         ENDIF
 
+        QRY_RMRL -> (DbCloseArea())
+
 // -------------------------------------------------------------------------------
 // 
 //           BOTÃO DE ALTERAÇÃO LAMPADAS - GABRIEL
@@ -4928,7 +4828,7 @@ static function altBtn(oSay)
 
                     ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
 
-                    if !empty(cNomeBtn) 
+                    if !empty(QRY_LMLP->(ZM2_LAMP)) 
                         MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
                         DisarmTransaction()
                         return
@@ -4971,6 +4871,8 @@ static function altBtn(oSay)
         else
             MsgInfo('NENHUMA ALTERAÇÃO EFETUADA')
         ENDIF
+
+        QRY_LMLP -> (DbCloseArea())
         
     ENDIF
 
@@ -5439,7 +5341,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{|| FwMsgRun(, {|oSay|excBtn(oSay)},'Carregando confirmações/exclusão', 'Aguarde')}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{||excBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
         
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -5589,7 +5491,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{|| FwMsgRun(, {|oSay|excBtn(oSay)},'Carregando confirmações/exclusão', 'Aguarde')}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{||excBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -5821,7 +5723,7 @@ static function dialogEXC(aDadosExc)
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
-        oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{|| FwMsgRun(, {|oSay|excBtn(oSay)},'Carregando confirmações/exclusão', 'Aguarde')}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
+        oBtn2E := TButton():New(nObjLinh, nObjColu, cBtn2EE, oDlgExc,{||excBtn()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)       
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 80
@@ -6038,201 +5940,83 @@ static function dialogEXC(aDadosExc)
     FWRestArea(aArea)
 return 
 
-static function excBtn(oSay)
+static function excBtn()
 
     Local aArea := FWGetArea()
-    Local aDadosL      := {}
-    Local aDadosMRL    := {}
-    Local aDadosMLP    := {}
-    Local cNomeBtn     := oGet3E:BUFFER
-    Local cData       := CTOD(oGet6E:BUFFER)  
-    Local aDataAlt
-    Local cDate        := DATE()
-    Local aDateAtu
-    Local i := 0
     Local cCod        := oGet2E:BUFFER
     Local cTipoItem   := oGet4E:BUFFER
-    lOCAL cQryIL
     Local lDsc        := .F.
-    Local cSeq1
-    Local cSeq2
+    lOCAL cQryIL
     lOCAL cQryIMRL
     lOCAL cQryIMLP
     lOCAL cQryEMRL
     lOCAL cQryRMRL
     lOCAL cQryLMLP
-    Local nNum1 := trazcodZM1()
-    Local nNum2 := trazcodZM2()
-
-    cSeq1 := Ceiling((Val(nNum1)/1.23))
-    cSeq2 := Ceiling((Val(nNum2)/1.23))
-    
-    aDataAlt := StrTokArr(DTOC(cData),'/')
-    aDateAtu := StrTokArr(DTOC(cDate),'/')
 
         if cTipo == 'I'
 
-            cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+             cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND ZCA_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIL New Alias "QRY_IL"
 
-            QRY_IL -> (DbGoTop())
-            while ! QRY_IL->(Eof())
-                AAdd(aDadosL,{QRY_IL->ZCA_COD,;
-                             QRY_IL->ZCA_IMPLP,;
-                            })
-                
-                QRY_IL ->(DbSkip())
-
-            enddo
-
-            QRY_IL -> (DbCloseArea())
-
-            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES FROM " + RetSQLName('ZM1') + " WHERE ZM1_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
-            QRY_IMRL -> (DbGoTop())
-            while ! QRY_IMRL->(Eof())
-                AAdd(aDadosMRL,{QRY_IMRL->ZM1_COD,;
-                                QRY_IMRL->ZM1_IMPRES,;    
-                            })
-                QRY_IMRL ->(DbSkip())
-            enddo
-
-            QRY_IMRL -> (DbCloseArea())
-
-            cQryIMLP  := "SELECT ZM2_COD,ZM2_IMPRES FROM " + RetSQLName('ZM2') + " WHERE D_E_L_E_T_ = ''"
+            cQryIMLP  := "SELECT ZM2_COD,ZM2_IMPRES FROM " + RetSQLName('ZM2') + " WHERE ZM2_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMLP New Alias "QRY_IMLP"
 
-            QRY_IMLP -> (DbGoTop())
-            while ! QRY_IMLP->(Eof())
-                AAdd(aDadosMLP,{QRY_IMLP->ZM2_COD,;
-                                QRY_IMLP->ZM2_IMPRES,;    
-                            })
-                QRY_IMLP ->(DbSkip())
-            enddo
-
-            QRY_IMLP -> (DbCloseArea())
+            if !Empty(QRY_IL->(ZCA_IMPLP)) .OR. !Empty(QRY_IMRL->(ZM1_IMPRES)) .OR. !Empty(QRY_IMLP->(ZM2_IMPRES))
+                LDsc := .T.
+            ENDIF
 
         elseif cTipo == 'E'
 
-            cQryEMRL  := "SELECT ZM1_COD,ZM1_EST FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryEMRL  := "SELECT ZM1_COD,ZM1_EST FROM " + RetSQLName('ZM1') + " WHERE ZM1_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryEMRL New Alias "QRY_EMRL"
 
-            QRY_EMRL -> (DbGoTop())
-            while ! QRY_EMRL->(Eof())
-                AAdd(aDadosMRL,{QRY_EMRL->ZM1_COD,;
-                                QRY_EMRL->ZM1_EST,;    
-                            })
-                QRY_EMRL ->(DbSkip())
-            enddo
-            QRY_EMRL -> (DbCloseArea())
+            if !Empty(QRY_EMRL->(ZM1_EST))
+                LDsc := .T.
+            ENDIF
 
         elseif cTipo == 'R'
 
-            cQryRMRL  := "SELECT ZM1_COD,ZM1_ROLO FROM " + RetSQLName('ZM1') + " WHERE D_E_L_E_T_ = ''"
+            cQryRMRL  := "SELECT ZM1_COD,ZM1_ROLO FROM " + RetSQLName('ZM1') + " WHERE ZM1_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryRMRL New Alias "QRY_RMRL"
 
-            QRY_RMRL -> (DbGoTop())
-            while ! QRY_RMRL->(Eof())
-                AAdd(aDadosMRL,{QRY_RMRL->ZM1_COD,;
-                                QRY_RMRL->ZM1_ROLO,;    
-                            })
-                QRY_RMRL ->(DbSkip())
-            enddo
-
-            QRY_RMRL -> (DbCloseArea())
+            if !Empty(QRY_RMRL->(ZM1_ROLO))
+                LDsc := .T.
+            ENDIF
 
         elseif cTipo == 'L'
 
-            cQryLMLP  := "SELECT ZM2_COD,ZM2_LAMP FROM " + RetSQLName('ZM2') + " WHERE D_E_L_E_T_ = ''"
+            cQryLMLP  := "SELECT ZM2_COD,ZM2_LAMP FROM " + RetSQLName('ZM2') + " WHERE ZM2_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryLMLP New Alias "QRY_LMLP"
 
-            QRY_LMLP -> (DbGoTop())
-            while ! QRY_LMLP->(Eof())
-                AAdd(aDadosMLP,{QRY_LMLP->ZM2_COD,;
-                                QRY_LMLP->ZM2_LAMP,;    
-                            })
-                QRY_LMLP ->(DbSkip())
-            enddo
-
-            QRY_LMLP -> (DbCloseArea())
+            If !Empty(QRY_LMLP->(ZM2_LAMP))
+                LDsc := .T.
+            ENDIF
 
         endif
 
-         if cNomeBtn == cNomeB
-            if cTipo == 'I'
-
-                For i:=1 to Len(aDadosL)
-                    if  oGet3E:BUFFER == (aDadosL[i][2])
-                        cNomeBtn := aDadosL[i][2]
-                        lDsc := .T.
-                        Exit
-                    else
-                        sleep(1)
-                    endif
-                Next  
-            endif
-
-            IF (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'E' .OR. cTipo == 'R'
-
-                    if aDataAlt[3] >= aDateAtu[3]
-                        For i := cSeq1 to Len(aDadosMRL)
-                                if  cNomeB == (aDadosMRL[I][2])
-                                    cNomeBtn := aDadosMRL[i][2]
-                                    lDsc := .T.
-                                    exit
-                            else
-                                sleep(1)
-                            endif
-                        next
-                    else
-                        For i:=1 to Len(aDadosMRL)
-                            if  cNomeB == (aDadosMRL[I][2])
-                                cNomeBtn := aDadosMRL[i][2]
-                                lDsc := .T.
-                                exit
-                            else
-                                sleep(1)
-                            endif
-                        next
-                    endif
-            endif
-
-            if (cTipo == 'I' .AND. lDsc == .F. ) .OR. cTipo == 'L'
-
-                    if aDataAlt[3] >= aDateAtu[3]
-                        For i := cSeq2 to Len(aDadosMLP)
-                            if  cNomeB == (aDadosMLP[I][2])
-                                cNomeBtn := aDadosMLP[i][2]
-                                lDsc := .T.
-                                exit
-                            else
-                                sleep(1)
-                            endif
-                        next
-                    else
-                        For i:=1 to Len(aDadosMLP)
-                            if  cNomeB == (aDadosMLP[I][2])
-                                cNomeBtn := aDadosMLP[i][2]
-                                lDsc := .T.
-                                exit
-                            else
-                                sleep(1)
-                            endif
-                        next
-                    endif
-
-            endif
-        endif
 
         if  lDsc == .T.
             MsgAlert('NÃO PODE APAGAR REGISTRO!! ESTÁ EM USO','ATENÇÃO')
+            if cTipo == 'I'
+                QRY_IL -> (DbCloseArea())
+                QRY_IMRL -> (DbCloseArea())
+                QRY_IMLP -> (DbCloseArea())
+            elseif cTipo == 'E'
+                QRY_EMRL -> (DbCloseArea())
+            elseif cTipo == 'R'
+                QRY_RMRL -> (DbCloseArea())
+            elseif cTipo == 'L'
+                QRY_LMLP -> (DbCloseArea())
+            endif
         else 
             Begin Transaction
             if cTipoItem == 'I = IMPRESSORA'
@@ -6268,18 +6052,32 @@ static function excBtn(oSay)
         fCarAcols()
         oMsGetZCAI:ACOLS := aCols
         oMsGetZCAI:oBrowse:Refresh()
+        if lDsc == .F.
+            QRY_IL -> (DbCloseArea())
+            QRY_IMRL -> (DbCloseArea())
+            QRY_IMLP -> (DbCloseArea())
+        endif
     elseif cTipo == 'E'
         fCarAcols()
         oMsGetZCAE:ACOLS := aCols
         oMsGetZCAE:oBrowse:Refresh()
+        if lDsc == .F.
+            QRY_EMRL -> (DbCloseArea())
+        endif
     elseif cTipo == 'R'
         fCarAcols()
         oMsGetZCAR:ACOLS := aCols
         oMsGetZCAR:oBrowse:Refresh()
+        if lDsc == .F.
+            QRY_RMRL -> (DbCloseArea())
+        endif
     elseif cTipo == 'L'
         fCarAcols()
         oMsGetZCAL:ACOLS := aCols
         oMsGetZCAL:oBrowse:Refresh()
+        if lDsc == .F.
+            QRY_LMLP -> (DbCloseArea())
+        endif
     endif
 
     FWRestArea(aArea)
