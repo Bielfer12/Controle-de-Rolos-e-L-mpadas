@@ -5098,11 +5098,11 @@ User Function RLLP23EXC()
 
             dialogEXC(aDadosExc)
 
-// -    ------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 //  
 //                  EXCLUSÃO DE LAMPADAS - GABRIEL
 //  
-// -    ------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 
          elseIf cTipo == 'L' 
 
@@ -6422,7 +6422,7 @@ User function incMRl()
         nObjAltu := 15
         lHasButton := .T.
         oGet3M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet3MM := u, cGet3MM)} , oDlgCadM, nObjLarg, nObjAltu,,{||ValidaCmpI()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
-        oGet3M:cF3 := 'U_zConsImp()' //puxar função que ira fazer a consulta especifica
+        oGet3M:cF3 := 'U_zConsImp()' 
         oGet3M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
         oFontPadrao  := TFont():New(cFont, , -14)
