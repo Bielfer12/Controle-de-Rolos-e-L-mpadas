@@ -99,6 +99,10 @@ Static function ESCM()
     lOCAL cCampoAux1
     Local cCampoAux2
 
+    Local cCpofil :=  ""
+    Local cTopFun := ""
+    Local cBotFun 
+
 	Private aRotina   := {}
     Private cCadastro 
 
@@ -133,6 +137,12 @@ Static function ESCM()
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
 
+        cCpofil :=  "ZM1_FILIAL"
+        cTopFun := "xFilial('ZM1')"
+        cBotFun := cTopFun
+
+        oBrowseM:SetFilter(cCpoFil, &cTopFun, &cBotFun)
+
         oBrowseM:Activate()
 
         ZM1->(DbCloseArea())
@@ -164,6 +174,12 @@ Static function ESCM()
         oBrowseM:SetSeek(.T., aSeek)
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
+
+        cCpofil :=  "ZM2_FILIAL"
+        cTopFun := "xFilial('ZM2')"
+        cBotFun := cTopFun
+
+        oBrowseM:SetFilter(cCpoFil, &cTopFun, &cBotFun)
 
         oBrowseM:Activate()
 
@@ -2840,24 +2856,24 @@ Static Function ValidaCmpI()
 
         if cFunc == 'T'
             cTir := StrTran(oGet15T:BUFFER,"'", '')
-            cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15T:BUFFER 
         elseif cFunc == 'A'
             cTir := StrTran(oGet15A:BUFFER,"'", '')
-            cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15A:BUFFER 
         endif
 
     elseif nEscBD == 2
 
         cTir := StrTran(oGet3M:BUFFER,"'", '')
-        cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3M:BUFFER
 
     elseif nEscBD == 3
 
         cTir := StrTran(oGet3L:BUFFER,"'", '')
-        cQryVI := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3L:BUFFER
          
     endif
@@ -2890,7 +2906,7 @@ Static Function ValidaCmpE()
     if nEscBD == 2
 
         cTir := StrTran(oGet4M:BUFFER,"'", '')
-        cQryVE := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
+        cQryVE := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
         cRec := oGet4M:BUFFER
 
     endif
@@ -2923,7 +2939,7 @@ Static Function ValidaCmpR()
     if nEscBD == 2
         
         cTir := StrTran(oGet6M:BUFFER,"'", '')
-        cQryVR := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_NOMERL = '" + cTir + "' AND  ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
+        cQryVR := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMERL = '" + cTir + "' AND  ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
         cRec := oGet6M:BUFFER
 
     endif
@@ -2956,7 +2972,7 @@ Static Function ValidaCmpL()
     if nEscBD == 3
 
         cTir := StrTran(oGet6L:BUFFER,"'", '')
-        cQryVL := "SELECT ZCA_COD FROM ZCA990 WHERE ZCA_NOMELP = '" + cTir + "' AND  ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+        cQryVL := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMELP = '" + cTir + "' AND  ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
         cRec := oGet6L:BUFFER
 
     endif
@@ -2991,7 +3007,7 @@ Static Function fCarAcols()
 // -------------------------------------------------------------------------------
 
     if cTipo == 'I'
-        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO LIKE '%I%' AND ZCA_FILIAL = '" + FWCodFil() + "'AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%I%' AND ZCA_FILIAL = '" + FWCodFil() + "'AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3027,7 +3043,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'E'
     
-        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO LIKE '%E%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%E%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3064,7 +3080,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'R'
 
-     cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3106,7 +3122,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'L'
 
-     cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM ZCA990 WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3150,11 +3166,8 @@ Static function CadBtnSalv()
     Local aArea := FWGetArea()
     Local cAlias := 'ZCA'
     Local lEscolha := .F.
-    Local cPushFil 
     Local cQry
     Local cRec
-
-    cPushFil := FWcodFil()
 
 // -------------------------------------------------------------------------------
 // 
@@ -3167,7 +3180,7 @@ Static function CadBtnSalv()
 
         if lEscolha = .T.
 
-            cQry := "SELECT ZCA_DESC FROM ZCA990 WHERE ZCA_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = '' "
+            cQry := "SELECT ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = '' "
 
             IF cTipo = 'I'
                 cQry += "AND ZCA_TIPO = 'I'"
@@ -3190,7 +3203,7 @@ Static function CadBtnSalv()
                 else
                 begin transaction 
                 RecLock(cAlias, .T.)
-                    ZCA->ZCA_FILIAL := cPushFil
+                    ZCA->ZCA_FILIAL := xFilial('ZCA')
                     ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
                     ZCA->ZCA_DESC  := AllTrim(oGet3T:BUFFER)
                     ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
@@ -3223,7 +3236,7 @@ Static function CadBtnSalv()
     
 
         if lEscolha = .T.
-            cQry := "SELECT ZCA_NOMERL FROM ZCA990 WHERE ZCA_NOMERL = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "'AND ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMERL = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "'AND ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQry New Alias "QRY_CHK"
 
@@ -3242,7 +3255,7 @@ Static function CadBtnSalv()
             else
                 begin transaction 
                 RecLock(cAlias, .T.)
-                    ZCA->ZCA_FILIAL := cPushFil
+                    ZCA->ZCA_FILIAL := xFilial('ZCA')
                     ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
                     ZCA->ZCA_DESC  := Alltrim(oGet9T:BUFFER)
                     ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
@@ -3282,7 +3295,7 @@ Static function CadBtnSalv()
 
         if lEscolha = .T.
 
-            cQry := "SELECT ZCA_NOMELP FROM ZCA990 WHERE ZCA_NOMELP = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMELP = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQry New Alias "QRY_CHK"
 
@@ -3301,7 +3314,7 @@ Static function CadBtnSalv()
                 else
                     begin transaction 
                     RecLock(cAlias, .T.)
-                        ZCA->ZCA_FILIAL := cPushFil
+                        ZCA->ZCA_FILIAL := xFilial('ZCA')
                         ZCA->ZCA_COD     := Alltrim(oGet2T:BUFFER)
                         ZCA->ZCA_NOMELP  := Upper(Alltrim(oGet3T:BUFFER))
                         ZCA->ZCA_TIPO    := Alltrim(oGet4T:BUFFER)
@@ -3473,9 +3486,9 @@ Static function natEsc()
     If cTipo == 'I' .OR. cTipo ==  'E'
         
         If cTipo == 'I'
-            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         ELSEIF cTipo ==  'E'
-            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         endif
         
         TCQUERY cQry New Alias "QRY_ZCA"
@@ -3528,7 +3541,7 @@ Static function natEsc()
     
     ELSEIF cTipo == 'R'
         
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM ZCA990 WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -3572,7 +3585,7 @@ Static function natEsc()
 
     ELSEIF cTipo == 'L'
         
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM ZCA990 WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -4657,7 +4670,7 @@ static function altBtn()
                 ALERT('H� CAMPOS SEM NADA ESCRITO!!','ATEN플O')
             else
                 begin transaction 
-                IF ZCA->(DbSeek(cCod + cItemTipo))
+                IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cItemTipo))
                     RecLock(cAlias, .F.)
                         
                         ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)        
@@ -4745,7 +4758,7 @@ static function altBtn()
                 Alert('H� LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS!!')
             else
             begin transaction 
-            IF ZCA->(DbSeek(cCod + cItemTipo))
+            IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cItemTipo))
                 RecLock(cAlias, .F.)
                     ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
                     ZCA->ZCA_DESC  := Alltrim(oGet9A:BUFFER)
@@ -4821,7 +4834,7 @@ static function altBtn()
                 Alert('H� LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS!!')
             else
             begin transaction 
-            IF ZCA->(DbSeek(cCod + cItemTipo))
+            IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cItemTipo))
                 RecLock(cAlias, .F.)
 
                     ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
@@ -6031,7 +6044,7 @@ static function excBtn()
                 DbSelectArea('ZCA')
                 ZCA->(DbSetOrder(1))
 
-                IF ZCA->(DbSeek(cCod + cTipoItem))
+                IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cTipoItem))
                     RecLock('ZCA', .F.)
                     DbDelete()
                     ZCA -> (MsUnlock())  
@@ -6100,7 +6113,7 @@ Static function fCarAcolsMRL()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM ZM1990 WHERE D_E_L_E_T_ = '' AND ZM1_FILIAL = '" + FWCodFil() + "'"
+    cQry := "SELECT * FROM "+RetSqlName('ZM1')+" WHERE D_E_L_E_T_ = '' AND ZM1_FILIAL = '" + FWCodFil() + "'"
 
         TCQUERY cQry New Alias "QRY_ZM1"
 
@@ -6604,9 +6617,6 @@ static function cadBtnM()
     Local aArea := FWGetArea()
     Local cAlias := 'ZM1'
     Local lEscolha := .F.
-    Local cPushFil
-
-    cPushFil := FWcodFil()
 
 // -------------------------------------------------------------------------------
 // 
@@ -6627,7 +6637,7 @@ static function cadBtnM()
             else
             begin transaction 
             RecLock(cAlias, .T.)
-                ZM1->ZM1_FILIAL := cPushFil
+                ZM1->ZM1_FILIAL := xFilial('ZM1')
                 ZM1->ZM1_COD     := Alltrim(oGet2M:BUFFER)
                 ZM1->ZM1_IMPRES  := Upper(Alltrim(oGet3M:BUFFER))
                 ZM1->ZM1_EST     := Upper(Alltrim(oGet4M:BUFFER))
@@ -7652,7 +7662,7 @@ Static function MLPfCarAcols()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM ZM2990 WHERE D_E_L_E_T_ = '' AND ZM2_FILIAL = '" + FwcODfiL() + "'"
+    cQry := "SELECT * FROM "+RetSqlName('ZM2')+" WHERE D_E_L_E_T_ = '' AND ZM2_FILIAL = '" + FwcODfiL() + "'"
 
         TCQUERY cQry New Alias "QRY_ZM2"
 
@@ -8522,9 +8532,6 @@ Static function incBtnMLP()
  Local aArea := FWGetArea()
     Local cAlias := 'ZM2'
     Local lEscolha := .F.
-    Local cPushFil
-
-    cPushFil := FWCodFil()
 
 // -------------------------------------------------------------------------------
 // 
@@ -8550,7 +8557,7 @@ Static function incBtnMLP()
             else
             begin transaction 
             RecLock(cAlias, .T.)
-                ZM2->ZM2_FILIAL := cPushFil
+                ZM2->ZM2_FILIAL := xFilial('ZM1')
                 ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
                 ZM2->ZM2_IMPRES    := Upper(Alltrim(oGet3L:BUFFER))
                 ZM2->ZM2_USU       := Upper(Alltrim(oGet4L:BUFFER))
@@ -10413,7 +10420,7 @@ static function fPopulaImp()
 
     if lTF == .F. 
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10445,15 +10452,15 @@ static function fPopulaImp()
 
         if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         else
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'I' AND (ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND (ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
@@ -10655,7 +10662,7 @@ static function fPopulaEst()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10687,15 +10694,15 @@ static function fPopulaEst()
 
             if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
         
             elseif nNum == 1
 
-                cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+                cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             else
 
-                 cQry := "SELECT ZCA_COD,ZCA_DESC FROM ZCA990 WHERE ZCA_TIPO = 'E' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+                 cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
             endif
 
@@ -10887,7 +10894,7 @@ static function fPopulaRl()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -10919,15 +10926,15 @@ static function fPopulaRl()
         
         IF nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         else
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM ZCA990 WHERE ZCA_TIPO = 'R' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
@@ -11117,7 +11124,7 @@ static function fPopulaLp()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -11149,15 +11156,15 @@ static function fPopulaLp()
 
         if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZCA_FILIAL = '" + FwCodFil() + "' "
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZCA_FILIAL = '" + FwCodFil() + "' "
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "' "
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+"WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "' "
 
         ELSE
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM ZCA990 WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
