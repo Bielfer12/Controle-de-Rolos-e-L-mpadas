@@ -106,7 +106,6 @@ Static function ESCM()
 	Private aRotina   := {}
     Private cCadastro 
 
-
     if oCombo3:Nat == 2
 
         DbSelectArea('ZM1')
@@ -116,7 +115,7 @@ Static function ESCM()
         cCadastro := "MANUTENÇÃO DE ROLOS"
     
         cCampoAux1 := "ZM1_COD"
-        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},1 } )
+        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},6 } )
         cCAMPOAUX1 := "ZM1_IMPRES"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},2 } )
         cCampoAux1 := "ZM1_ROLO"
@@ -125,7 +124,7 @@ Static function ESCM()
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},4 } )
         cCampoAux1 := "ZM1_USU"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},5 } )
-
+        
         oBrowseM := FWMBrowse():New()
         oBrowseM:SetAlias("ZM1")
         oBrowseM:SetDBFFilter(.T.)
@@ -156,7 +155,7 @@ Static function ESCM()
         cCadastro := "MANUTENÇÃO DE LÂMPADAS"   
 
         cCampoAux2 := "ZM2_COD"
-        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},1 } )
+        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},5 } )
         cCampoAux2 := "ZM2_IMPRES"
         aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},2 } )
         cCampoAux2 := "ZM2_LAMP"
@@ -197,28 +196,33 @@ Static Function MenuDef()
 
     Local aArea := FwGetArea()
 
+    Local cCodUsr
+    Local cNomeUsr
     Private aRotina  := {}
     Private aSubMenu := {}
-    Private aSubRela := {}
     Private aSubRelaRl := {}
     Private aSubRelaLp := {}
- 
+    
+    cCodUsr := RetCodUsr()
+    cNomeUsr := UsrRetName(cCodUsr)
+
     if SELECT('ZM1') > 0 
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_incMRl"        , 0, 3})
         AADD(aRotina,    {"Alterar"                 , "U_altMRL"        , 0, 4})
         AADD(aRotina,    {"Excluir"                 , "U_excMRL"        , 0, 5})
-        AADD(aRotina,    {"Relatorios"              , aSubRela          , 0, 3})
-        AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
+        AADD(aRotina,    {"Relat. Manu. Rolos"      , aSubRelaRl          , 0, 3})
+        
+        if cNomeUsr == 'gffernandes' .OR. cNomeUsr == 'eborges' .OR. cNomeUsr == 'sgomes' .OR. cNomeUsr == 'lsouza'
+            AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})   
+            AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
+            AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
+            AADD(aSubMenu,   {"Rolos"                   ,"U_ROLOS() "       , 0, 3})
+            AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
+        endif
 
-        AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
-        AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
-        AADD(aSubMenu,   {"Rolos"                   ,"U_ROLOS() "       , 0, 3})
-        AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
-
-        AADD(aSubRela,   {"Relat. Manu. Rolos"     , aSubRelaRl         , 0, 3})
         AADD(aSubRelaRl, {"Período"                ,'U_SelecioZM1()'    , 0, 3})
-        AADD(aSubRelaRL, {"Impres/Est/Rolos"       ,'U_R2SelecioZM1()'  , 0, 3})
+        AADD(aSubRelaRl, {"Impres/Est/Rolos"       ,'U_R2SelecioZM1()'  , 0, 3})
         AADD(aSubRelaRl, {"Resumo(Status)"         ,'U_R3SelecioZM1()'  , 0, 3})
 
     elseif SELECT('ZM2') > 0     
@@ -226,15 +230,16 @@ Static Function MenuDef()
         AADD(aRotina,    {"Incluir"                 , "U_incMLP"        , 0, 3})
         AADD(aRotina,    {"Alterar"                 , "U_altMLP"        , 0, 4})
         AADD(aRotina,    {"Excluir"                 , "U_excMLP"        , 0, 5})
-        AADD(aRotina,    {"Relatorios"              , aSubRela          , 0, 3})
-        AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
+        AADD(aRotina,    {"Relat. Manu. Lamp."      , aSubRelaLp          , 0, 3})
 
-        AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
-        AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
-        AADD(aSubMenu,   {"Rolos"                   ,"U_ROLOS() "       , 0, 3})
-        AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
+        if cNomeUsr == 'gffernandes' .OR. cNomeUsr == 'eborges' .OR. cNomeUsr == 'sgomes' .OR. cNomeUsr == 'lsouza'
+            AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
+            AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
+            AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
+            AADD(aSubMenu,   {"Rolos"                   ,"U_ROLOS() "       , 0, 3})
+            AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
+        endif
 
-        AADD(aSubRela,   {"Relat. Manu. Lamp."     , aSubRelaLp         , 0, 3})
         AADD(aSubRelaLp, {"Período"                ,'U_ZM2Selecio()'    , 0, 3})
         AADD(aSubRelaLp, {"Impres/Lamp"            , 'U_R2ZM2Selecio()' , 0, 3})
 
@@ -9393,7 +9398,7 @@ Static function altbtnMLP()
             else
             begin transaction
 
-                ZM2->(DBSeek(cCod))
+                ZM2->(DBSeek(xFilial('ZM2') + cCod))
                     RecLock(cAlias, .F.)
                         ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
                          ZM2->ZM2_IMPRES    := Alltrim(oGet3L:BUFFER)
@@ -11406,7 +11411,7 @@ Static Function geraExcell(aDados)
             oExcel:AddColumn(cAba,cTabela,"Estação"        ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Usuario"        ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Rolo"           ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Fabricação"      ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Fabricação"     ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Data Instalação",1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Observação"     ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Data Cadastro"  ,1,1,.F.)
@@ -11761,28 +11766,28 @@ Static Function R2geraExcell(aDados)
             oExcel:AddWorkSheet(cAba)
             oExcel:AddTable(cAba,cTabela)
             //Adicionando as colunas
-            oExcel:AddColumn(cAba,cTabela,"Codigo"         ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Impressora"     ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Usuario"        ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Codigo"            ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Impressora"        ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Usuario"           ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Data Manu."        ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Troca Lamp."           ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Troca Refletor"      ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Lampada",1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Material"     ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Temp Manu. Lp."  ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Umidade"          ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Troca Lamp."       ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Troca Refletor"    ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Lampada"           ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Material"          ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Temp Manu. Lp."    ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Umidade"           ,1,1,.F.)
             oExcel:AddColumn(cAba,cTabela,"Temp. Antes"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Temp. Depois"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Temp. R."       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Tensão"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Horimetro"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"StartUp"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Corrente"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Temp. T."       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Set Point"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Potencia"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Observação"       ,1,1,.F.)
-            oExcel:AddColumn(cAba,cTabela,"Data Cadastro"       ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Temp. Depois"      ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Temp. R."          ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Tensão"            ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Horimetro"         ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"StartUp"           ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Corrente"          ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Temp. T."          ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Set Point"         ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Potencia"          ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Observação"        ,1,1,.F.)
+            oExcel:AddColumn(cAba,cTabela,"Data Cadastro"     ,1,1,.F.)
             for i := 1 to len(aDados)
                 oExcel:AddRow(cAba,;
                               cTabela,;
