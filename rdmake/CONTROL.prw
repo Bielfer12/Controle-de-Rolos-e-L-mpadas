@@ -196,15 +196,10 @@ Static Function MenuDef()
 
     Local aArea := FwGetArea()
 
-    Local cCodUsr
-    Local cNomeUsr
     Private aRotina  := {}
     Private aSubMenu := {}
     Private aSubRelaRl := {}
     Private aSubRelaLp := {}
-    
-    cCodUsr := RetCodUsr()
-    cNomeUsr := UsrRetName(cCodUsr)
 
     if SELECT('ZM1') > 0 
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
@@ -212,8 +207,8 @@ Static Function MenuDef()
         AADD(aRotina,    {"Alterar"                 , "U_altMRL"        , 0, 4})
         AADD(aRotina,    {"Excluir"                 , "U_excMRL"        , 0, 5})
         AADD(aRotina,    {"Relat. Manu. Rolos"      , aSubRelaRl          , 0, 3})
-        
-        if cNomeUsr == 'gffernandes' .OR. cNomeUsr == 'eborges' .OR. cNomeUsr == 'sgomes' .OR. cNomeUsr == 'lsouza'
+            
+        if AllTrim(cUsername) $ superGetMV("ZC_USRLMP", .F., "eborges_gffernandes_sgomes_lusouza")
             AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})   
             AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
             AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
@@ -232,7 +227,7 @@ Static Function MenuDef()
         AADD(aRotina,    {"Excluir"                 , "U_excMLP"        , 0, 5})
         AADD(aRotina,    {"Relat. Manu. Lamp."      , aSubRelaLp          , 0, 3})
 
-        if cNomeUsr == 'gffernandes' .OR. cNomeUsr == 'eborges' .OR. cNomeUsr == 'sgomes' .OR. cNomeUsr == 'lsouza'
+        if AllTrim(cUsername) $ superGetMV("ZC_USRLMP", .F., "eborges_gffernandes_sgomes_lusouza")
             AADD(aRotina,    {"Cadastro de Itens"       , aSubMenu          , 0, 3})
             AADD(aSubMenu,   {"Impressora"              ,"U_IMPRESS()"      , 0, 3})
             AADD(aSubMenu,   {"Estação"                 ,"U_EST()   "       , 0, 3})
