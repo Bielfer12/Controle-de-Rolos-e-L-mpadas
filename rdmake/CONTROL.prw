@@ -115,7 +115,7 @@ Static function ESCM()
         cCadastro := "MANUTENÇÃO DE ROLOS"
     
         cCampoAux1 := "ZM1_COD"
-        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},6 } )
+        aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},1 } )
         cCAMPOAUX1 := "ZM1_IMPRES"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},2 } )
         cCampoAux1 := "ZM1_ROLO"
@@ -155,7 +155,7 @@ Static function ESCM()
         cCadastro := "MANUTENÇÃO DE LÂMPADAS"   
 
         cCampoAux2 := "ZM2_COD"
-        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},5 } )
+        aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},1 } )
         cCampoAux2 := "ZM2_IMPRES"
         aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},2 } )
         cCampoAux2 := "ZM2_LAMP"
@@ -7623,7 +7623,7 @@ Static function excBtnM()
     Local aArea := FWGetArea()
 
     DbSelectArea('ZM1')
-    ZM1->(DbSetOrder(2))
+    ZM1->(DbSetOrder(6))
 
         Begin Transaction
         RecLock('ZM1', .F.)
@@ -9366,7 +9366,7 @@ Static function altbtnMLP()
     Local cAlias := 'ZM2'
     Local cCod := oGet2L:BUFFER
 
-    ZM2->(DbSetOrder(1))
+    ZM2->(DbSetOrder(5))
 
     lEscolha := MsgYesNo('DESEJA  ALTERAR O CADASTRO?','ATENÇÃO')
     
@@ -10216,7 +10216,7 @@ Static function excBtnMLP()
     Local aArea := FWGetArea()
 
     DbSelectArea('ZM2')
-    ZM2->(DbSetOrder(1))
+    ZM2->(DbSetOrder(5))
 
         Begin Transaction
         RecLock('ZM2', .F.)
