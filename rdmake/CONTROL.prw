@@ -4,6 +4,7 @@
 #INCLUDE "TopConn.ch"
 
 User Function CLRLLP23()
+
     Local aArea          := FWGetArea()
     
     Local nObjLarg       := 0
@@ -92,7 +93,7 @@ User Function CLRLLP23()
 Return
 
 Static function ESCM()
-
+    //escolha inicio
     Local aArea       := FWGetArea()
     Local oBrowseM
     Local aSeek       := {}
@@ -10282,7 +10283,6 @@ User function zConsImp()
     private cTipo := 'I'
 
     Private oDlgCE
-
 
     Private lTF := .F.
 
