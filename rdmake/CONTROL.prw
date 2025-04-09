@@ -109,25 +109,25 @@ Static function ESCM()
 
     if oCombo3:Nat == 2
 
-        DbSelectArea('ZM1')
+        DbSelectArea('ZT5')
 
         aRotina := MenuDef()
 
         cCadastro := "MANUTENÇÃO DE ROLOS"
     
-        cCampoAux1 := "ZM1_COD"
+        cCampoAux1 := "ZT5_COD"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},1 } )
-        cCAMPOAUX1 := "ZM1_IMPRES"
+        cCAMPOAUX1 := "ZT5_IMPRES"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},2 } )
-        cCampoAux1 := "ZM1_ROLO"
+        cCampoAux1 := "ZT5_ROLO"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},3 } )
-        cCampoAux1 := "ZM1_EST"
+        cCampoAux1 := "ZT5_EST"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},4 } )
-        cCampoAux1 := "ZM1_USU"
+        cCampoAux1 := "ZT5_USU"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},5 } )
         
         oBrowseM := FWMBrowse():New()
-        oBrowseM:SetAlias("ZM1")
+        oBrowseM:SetAlias("ZT5")
         oBrowseM:SetDBFFilter(.T.)
         oBrowseM:SetUseFilter(.T.) 
         oBrowseM:SetFixedBrowse(.T.)
@@ -137,35 +137,35 @@ Static function ESCM()
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
 
-        cCpofil :=  "ZM1_FILIAL"
-        cTopFun := "xFilial('ZM1')"
+        cCpofil :=  "ZT5_FILIAL"
+        cTopFun := "xFilial('ZT5')"
         cBotFun := cTopFun
 
         oBrowseM:SetFilter(cCpoFil, &cTopFun, &cBotFun)
 
         oBrowseM:Activate()
 
-        ZM1->(DbCloseArea())
+        ZT5->(DbCloseArea())
 
     ELSEif oCombo3:Nat == 3
 
-        DbSelectArea('ZM2')
+        DbSelectArea('ZT6')
 
         aRotina := MenuDef()
 
         cCadastro := "MANUTENÇÃO DE LÂMPADAS"   
 
-        cCampoAux2 := "ZM2_COD"
+        cCampoAux2 := "ZT6_COD"
         aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},1 } )
-        cCampoAux2 := "ZM2_IMPRES"
+        cCampoAux2 := "ZT6_IMPRES"
         aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},2 } )
-        cCampoAux2 := "ZM2_LAMP"
+        cCampoAux2 := "ZT6_LAMP"
         aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},3 } )
-        cCampoAux2 := "ZM2_USU"
+        cCampoAux2 := "ZT6_USU"
         aAdd(aSeek,{GetSX3Cache(cCampoAux2, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux2, "X3_TIPO"), GetSX3Cache(cCampoAux2, "X3_TAMANHO"), GetSX3Cache(cCampoAux2, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux2, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux2, "X3_PICTURE"))}},4 } )
 
         oBrowseM := FWMBrowse():New()
-        oBrowseM:SetAlias("ZM2")
+        oBrowseM:SetAlias("ZT6")
         oBrowseM:SetDBFFilter(.T.)
         oBrowseM:SetUseFilter(.T.) 
         oBrowseM:SetFixedBrowse(.T.)
@@ -175,15 +175,15 @@ Static function ESCM()
         oBrowseM:SetDescription(cCadastro)
         oBrowseM:DisableDetails()
 
-        cCpofil :=  "ZM2_FILIAL"
-        cTopFun := "xFilial('ZM2')"
+        cCpofil :=  "ZT6_FILIAL"
+        cTopFun := "xFilial('ZT6')"
         cBotFun := cTopFun
 
         oBrowseM:SetFilter(cCpoFil, &cTopFun, &cBotFun)
 
         oBrowseM:Activate()
 
-        ZM2->(DbCloseArea())
+        ZT6->(DbCloseArea())
 
     elseif oCombo3:Nat == 1 .OR. oCombo3:Nat == 0
         MsgAlert('ESCOLHA UMA OPÇÃO VALIDA','ATENÇÃO')
@@ -202,7 +202,7 @@ Static Function MenuDef()
     Private aSubRelaRl := {}
     Private aSubRelaLp := {}
 
-    if SELECT('ZM1') > 0 
+    if SELECT('ZT5') > 0 
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_incMRl"        , 0, 3})
         AADD(aRotina,    {"Alterar"                 , "U_altMRL"        , 0, 4})
@@ -217,11 +217,11 @@ Static Function MenuDef()
             AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
         endif
 
-        AADD(aSubRelaRl, {"Período"                ,'U_SelecioZM1()'    , 0, 3})
-        AADD(aSubRelaRl, {"Impres/Est/Rolos"       ,'U_R2SelecioZM1()'  , 0, 3})
-        AADD(aSubRelaRl, {"Resumo(Status)"         ,'U_R3SelecioZM1()'  , 0, 3})
+        AADD(aSubRelaRl, {"Período"                ,'U_SelecioZT5()'    , 0, 3})
+        AADD(aSubRelaRl, {"Impres/Est/Rolos"       ,'U_R2SelecioZT5()'  , 0, 3})
+        AADD(aSubRelaRl, {"Resumo(Status)"         ,'U_R3SelecioZT5()'  , 0, 3})
 
-    elseif SELECT('ZM2') > 0     
+    elseif SELECT('ZT6') > 0     
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_incMLP"        , 0, 3})
         AADD(aRotina,    {"Alterar"                 , "U_altMLP"        , 0, 4})
@@ -236,8 +236,8 @@ Static Function MenuDef()
             AADD(aSubMenu,   {"Lâmpadas"                ,"U_LAMP()  "       , 0, 3})
         endif
 
-        AADD(aSubRelaLp, {"Período"                ,'U_ZM2Selecio()'    , 0, 3})
-        AADD(aSubRelaLp, {"Impres/Lamp"            , 'U_R2ZM2Selecio()' , 0, 3})
+        AADD(aSubRelaLp, {"Período"                ,'U_ZT6Selecio()'    , 0, 3})
+        AADD(aSubRelaLp, {"Impres/Lamp"            , 'U_R2ZT6Selecio()' , 0, 3})
 
     endif
 
@@ -283,21 +283,21 @@ User Function RLLPVISU23()
 
         cNameTableExc := oTableTempExc:GetRealName()
 
-        DbSelectArea('ZCA')
+        DbSelectArea('ZT4')
 
             RecLock(cAliasTempAlt, .T.)
                 IF cTipo ==  'I'
-                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAI:Nat][1]) 
-                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCAI:Nat][2]) 
-                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAI:Nat][3]) 
-                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAI:Nat][4]) 
-                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZT4I:Nat][1]) 
+                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZT4I:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZT4I:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZT4I:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZT4I:Nat][5]) 
                 ELSEIF cTipo ==  'E'
-                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAE:Nat][1]) 
-                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCAE:Nat][2]) 
-                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAE:Nat][3]) 
-                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAE:Nat][4]) 
-                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZT4E:Nat][1]) 
+                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZT4E:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZT4E:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZT4E:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZT4E:Nat][5]) 
                 endif
 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
@@ -354,14 +354,14 @@ User Function RLLPVISU23()
 
         cNameTableExc := oTableTempExc:GetRealName()
 
-        DbSelectArea('ZCA')
+        DbSelectArea('ZT4')
 
             RecLock(cAliasTempAlt, .T.)
-                (cAliasTempExc) -> (COD_EXC)     := (aColsAux[oMsGetZCAR:Nat][1]) 
-                (cAliasTempExc) -> (DESC_EXC)    := (aColsAux[oMsGetZCAR:Nat][2]) 
-                (cAliasTempExc) -> (TIPO_EXC)    := (aColsAux[oMsGetZCAR:Nat][3]) 
-                (cAliasTempExc) -> (ATIVO_EXC)   := (aColsAux[oMsGetZCAR:Nat][4]) 
-                (cAliasTempExc) -> (DATA_EXC)    := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
+                (cAliasTempExc) -> (COD_EXC)     := (aColsAux[oMsGetZT4R:Nat][1]) 
+                (cAliasTempExc) -> (DESC_EXC)    := (aColsAux[oMsGetZT4R:Nat][2]) 
+                (cAliasTempExc) -> (TIPO_EXC)    := (aColsAux[oMsGetZT4R:Nat][3]) 
+                (cAliasTempExc) -> (ATIVO_EXC)   := (aColsAux[oMsGetZT4R:Nat][4]) 
+                (cAliasTempExc) -> (DATA_EXC)    := Stod(aColsAux[oMsGetZT4R:Nat][5]) 
 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -371,11 +371,11 @@ User Function RLLPVISU23()
                     aCombo5EE := {'N=NAO','S=SIM'}
                 endif
 
-                (cAliasTempExc) -> (NOMERL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][6]) 
-                (cAliasTempExc) -> (DIAMRL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][7]) 
-                (cAliasTempExc) -> (COMPRL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][8]) 
-                (cAliasTempExc) -> (MATRL_EXC)   :=  (aColsAux[oMsGetZCAR:Nat][9]) 
-                (cAliasTempExc) -> (DURERL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][10]) 
+                (cAliasTempExc) -> (NOMERL_EXC)  :=  (aColsAux[oMsGetZT4R:Nat][6]) 
+                (cAliasTempExc) -> (DIAMRL_EXC)  :=  (aColsAux[oMsGetZT4R:Nat][7]) 
+                (cAliasTempExc) -> (COMPRL_EXC)  :=  (aColsAux[oMsGetZT4R:Nat][8]) 
+                (cAliasTempExc) -> (MATRL_EXC)   :=  (aColsAux[oMsGetZT4R:Nat][9]) 
+                (cAliasTempExc) -> (DURERL_EXC)  :=  (aColsAux[oMsGetZT4R:Nat][10]) 
 
             (cAliasTempExc) -> (MSUNLOCK())
 
@@ -429,14 +429,14 @@ User Function RLLPVISU23()
 
         cNameTableExc := oTableTempExc:GetRealName()
 
-        DbSelectArea('ZCA')
+        DbSelectArea('ZT4')
 
             RecLock(cAliasTempExc, .T.)
-                (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAL:Nat][1]) 
-                (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZCAL:Nat][2]) 
-                (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAL:Nat][3]) 
-                (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAL:Nat][4]) 
-                (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
+                (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZT4L:Nat][1]) 
+                (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZT4L:Nat][2]) 
+                (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZT4L:Nat][3]) 
+                (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZT4L:Nat][4]) 
+                (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZT4L:Nat][5]) 
                 if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                     aCombo5EE := {'S=SIM','N=NAO'}
@@ -444,12 +444,12 @@ User Function RLLPVISU23()
                     (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                     aCombo5EE := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempExc) -> (IMPRES_EXC)  := (aColsAux[oMsGetZCAL:Nat][6]) 
-                (cAliasTempExc) -> (MODLP_EXC)   := (aColsAux[oMsGetZCAL:Nat][7]) 
-                (cAliasTempExc) -> (TENS_EXC)    := (aColsAux[oMsGetZCAL:Nat][8]) 
-                (cAliasTempExc) -> (CORR_EXC)    := (aColsAux[oMsGetZCAL:Nat][9]) 
-                (cAliasTempExc) -> (POT_EXC)     := (aColsAux[oMsGetZCAL:Nat][10]) 
-                (cAliasTempExc) -> (MODREF_EXC)  := (aColsAux[oMsGetZCAL:Nat][11]) 
+                (cAliasTempExc) -> (IMPRES_EXC)  := (aColsAux[oMsGetZT4L:Nat][6]) 
+                (cAliasTempExc) -> (MODLP_EXC)   := (aColsAux[oMsGetZT4L:Nat][7]) 
+                (cAliasTempExc) -> (TENS_EXC)    := (aColsAux[oMsGetZT4L:Nat][8]) 
+                (cAliasTempExc) -> (CORR_EXC)    := (aColsAux[oMsGetZT4L:Nat][9]) 
+                (cAliasTempExc) -> (POT_EXC)     := (aColsAux[oMsGetZT4L:Nat][10]) 
+                (cAliasTempExc) -> (MODREF_EXC)  := (aColsAux[oMsGetZT4L:Nat][11]) 
 
             (cAliasTempExc) -> (MSUNLOCK())
 
@@ -1251,10 +1251,10 @@ User Function IMPRESS()
 
     Private cTipo       := 'I'
 
-    Private oMsGetZCAI
-    Private oMsGetZCAE
-    Private oMsGetZCAR
-    Private oMsGetZCAL
+    Private oMsGetZT4I
+    Private oMsGetZT4E
+    Private oMsGetZT4R
+    Private oMsGetZT4L
 
     Private lRefresh := .T.
 
@@ -1266,7 +1266,7 @@ User Function IMPRESS()
 
 
         AADD(aHeader,{"Codigo",;       
-                      "ZCA_COD",;     
+                      "ZT4_COD",;     
                       "",;             
                        6,;             
                        0,;             
@@ -1276,7 +1276,7 @@ User Function IMPRESS()
                       ""})
 
         AADD(aHeader,{"Descrição",;
-                      "ZCA_DESC",;
+                      "ZT4_DESC",;
                       "@!",;
                        100,;
                        0,;
@@ -1286,7 +1286,7 @@ User Function IMPRESS()
                       ""})
 
         AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
+                      "ZT4_TIPO",;
                       "@!",;
                        1,;
                        0,;
@@ -1296,7 +1296,7 @@ User Function IMPRESS()
                       "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
 
         AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
+                      "ZT4_ATIVO",;
                       "@!",;
                        1,;
                        0,;
@@ -1306,7 +1306,7 @@ User Function IMPRESS()
                       "S=SIM;N=NAO;"})
 
         AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
+                      "ZT4_DATA",;
                       "",;
                        8,;
                        0,;
@@ -1336,7 +1336,7 @@ User Function IMPRESS()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),, oDlgI, , , lDimPixels)
 
-        oMsGetZCAI := MsNewGetDados():New(    055,;                
+        oMsGetZT4I := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1354,9 +1354,9 @@ User Function IMPRESS()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCAI:lActive := .F. 
+            oMsGetZT4I:lActive := .F. 
 
-           oMsGetZCAI:oBrowse:Refresh()
+           oMsGetZT4I:oBrowse:Refresh()
 
         oDlgI:Activate()
 
@@ -1400,7 +1400,7 @@ User Function EST()
 
     Private cTipo       := 'E'
 
-    Private oMsGetZCA
+    Private oMsGetZT4
     Private lRefresh := .T.
 
 // -------------------------------------------------------------------------------
@@ -1411,7 +1411,7 @@ User Function EST()
 
 
         AADD(aHeader,{"Codigo",;       
-                      "ZCA_COD",;     
+                      "ZT4_COD",;     
                       "",;             
                        6,;             
                        0,;             
@@ -1421,7 +1421,7 @@ User Function EST()
                       ""})
 
         AADD(aHeader,{"Descrição",;
-                      "ZCA_DESC",;
+                      "ZT4_DESC",;
                       "@!",;
                        100,;
                        0,;
@@ -1431,7 +1431,7 @@ User Function EST()
                       ""})
 
         AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
+                      "ZT4_TIPO",;
                       "@!",;
                        1,;
                        0,;
@@ -1441,7 +1441,7 @@ User Function EST()
                       "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
 
         AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
+                      "ZT4_ATIVO",;
                       "@!",;
                        1,;
                        0,;
@@ -1451,7 +1451,7 @@ User Function EST()
                       "S=SIM;N=NAO;"})
 
         AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
+                      "ZT4_DATA",;
                       "",;
                        8,;
                        0,;
@@ -1481,7 +1481,7 @@ User Function EST()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),, oDlgE, , , lDimPixels)
 
-        oMsGetZCAE := MsNewGetDados():New(    055,;                
+        oMsGetZT4E := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1499,9 +1499,9 @@ User Function EST()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCAE:lActive := .F. 
+            oMsGetZT4E:lActive := .F. 
 
-           oMsGetZCAE:oBrowse:Refresh()
+           oMsGetZT4E:oBrowse:Refresh()
 
         oDlgE:Activate()
 
@@ -1545,7 +1545,7 @@ User Function ROLOS()
 
     Private cTipo       := 'R'
 
-    Private oMsGetZCA
+    Private oMsGetZT4
     Private lRefresh := .T.
 
 // -------------------------------------------------------------------------------
@@ -1556,7 +1556,7 @@ User Function ROLOS()
 
 
         AADD(aHeader,{"Codigo",;          
-                      "ZCA_COD",;      
+                      "ZT4_COD",;      
                       "",;             
                        6,;             
                        0,;             
@@ -1566,7 +1566,7 @@ User Function ROLOS()
                       ""})
 
         AADD(aHeader,{"Nome Rolo",;
-                      "ZCA_NOMERL",;
+                      "ZT4_NOMERL",;
                       "@!",;
                        50,;
                        0,;
@@ -1576,7 +1576,7 @@ User Function ROLOS()
                       ""})
 
         AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
+                      "ZT4_TIPO",;
                       "@!",;
                        1,;
                        0,;
@@ -1586,7 +1586,7 @@ User Function ROLOS()
                       "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
 
         AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
+                      "ZT4_ATIVO",;
                       "@!",;
                        1,;
                        0,;
@@ -1596,7 +1596,7 @@ User Function ROLOS()
                       "S=SIM;N=NAO;"})
 
         AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
+                      "ZT4_DATA",;
                       "",;
                        8,;
                        0,;
@@ -1606,7 +1606,7 @@ User Function ROLOS()
                       ""})
         
         AADD(aHeader,{"Descrição",;
-                      "ZCA_DESC",;
+                      "ZT4_DESC",;
                       "@!",;
                        100,;
                        0,;
@@ -1616,7 +1616,7 @@ User Function ROLOS()
                       ""})
         
         AADD(aHeader,{"Diametro Rolo",;
-                      "ZCA_DIAMRL",;
+                      "ZT4_DIAMRL",;
                       "",;
                        8,;
                        0,;
@@ -1626,7 +1626,7 @@ User Function ROLOS()
                       ""})
 
         AADD(aHeader,{"Comprimento Rolo",;
-                      "ZCA_COMPRL",;
+                      "ZT4_COMPRL",;
                       "",;
                        4,;
                        0,;
@@ -1636,7 +1636,7 @@ User Function ROLOS()
                       ""})
 
         AADD(aHeader,{"Material Rolo",;
-                      "ZCA_MATRL",;
+                      "ZT4_MATRL",;
                       "@!",;
                        50,;
                        0,;
@@ -1646,7 +1646,7 @@ User Function ROLOS()
                       ""})
 
         AADD(aHeader,{"Dureza Rolo",;
-                      "ZCA_DURERL",;
+                      "ZT4_DURERL",;
                       "@!",;
                        50,;
                        0,;
@@ -1676,7 +1676,7 @@ User Function ROLOS()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2),, oDlgR, , , lDimPixels)
 
-        oMsGetZCAR := MsNewGetDados():New(    055,;                
+        oMsGetZT4R := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1694,9 +1694,9 @@ User Function ROLOS()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCAR:lActive := .F. 
+            oMsGetZT4R:lActive := .F. 
 
-           oMsGetZCAR:oBrowse:Refresh()
+           oMsGetZT4R:oBrowse:Refresh()
         
         oDlgR:Activate()
 
@@ -1740,7 +1740,7 @@ User Function LAMP()
 
     Private cTipo       := 'L'
 
-    Private oMsGetZCA
+    Private oMsGetZT4
     Private lRefresh := .T.
 
 // -------------------------------------------------------------------------------
@@ -1750,7 +1750,7 @@ User Function LAMP()
 // -------------------------------------------------------------------------------
 
         AADD(aHeader,{"Codigo",;       
-                      "ZCA_COD",;      
+                      "ZT4_COD",;      
                       "",;             
                        6,;             
                        0,;             
@@ -1760,7 +1760,7 @@ User Function LAMP()
                       ""})
 
         AADD(aHeader,{"Nome Lampada",;
-                      "ZCA_NOMELP",;
+                      "ZT4_NOMELP",;
                       "@!",;
                        50,;
                        0,;
@@ -1770,7 +1770,7 @@ User Function LAMP()
                       ""})
 
         AADD(aHeader,{"Tipo",;
-                      "ZCA_TIPO",;
+                      "ZT4_TIPO",;
                       "@!",;
                        1,;
                        0,;
@@ -1780,7 +1780,7 @@ User Function LAMP()
                       "I=Impressora;E=Estacao;R=Rolo;L=Lampada;"})
 
         AADD(aHeader,{"Ativo",;
-                      "ZCA_ATIVO",;
+                      "ZT4_ATIVO",;
                       "@!",;
                        1,;
                        0,;
@@ -1790,7 +1790,7 @@ User Function LAMP()
                       "S=SIM;N=NAO;"})
 
         AADD(aHeader,{"Data",;
-                      "ZCA_DATA",;
+                      "ZT4_DATA",;
                       "",;
                        8,;
                        0,;
@@ -1800,7 +1800,7 @@ User Function LAMP()
                       ""})
 
         AADD(aHeader,{"Impressora",;
-                      "ZCA_IMPLP",;
+                      "ZT4_IMPLP",;
                       "@!",;
                        50,;
                        0,;
@@ -1810,7 +1810,7 @@ User Function LAMP()
                       ""})
 
         AADD(aHeader,{"Modelo Lampada",;
-                      "ZCA_MODLP",;
+                      "ZT4_MODLP",;
                       "@!",;
                        50,;
                        0,;
@@ -1820,7 +1820,7 @@ User Function LAMP()
                       ""})
 
         AADD(aHeader,{"Tensão Lampada",;
-                      "ZCA_TENSLP",;
+                      "ZT4_TENSLP",;
                       "",;
                        6,;
                        0,;
@@ -1830,7 +1830,7 @@ User Function LAMP()
                       ""})
 
         AADD(aHeader,{"Corrente Lampada",;
-                      "ZCA_CORRLP",;
+                      "ZT4_CORRLP",;
                       "",;
                        7,;
                        0,;
@@ -1840,7 +1840,7 @@ User Function LAMP()
                       ""})
         
         AADD(aHeader,{"Potencia Lampada",;
-                      "ZCA_POTLP",;
+                      "ZT4_POTLP",;
                       "",;
                        6,;
                        0,;
@@ -1850,7 +1850,7 @@ User Function LAMP()
                       ""})
         
         AADD(aHeader,{"Modelo Refletor",;
-                      "ZCA_MODREF",;
+                      "ZT4_MODREF",;
                       "@!",;
                        50,;
                        0,;
@@ -1881,7 +1881,7 @@ User Function LAMP()
     
         oGrp8    := TGroup():New(049, 002, (nJanAltu / 2) - 002  ,(nJanLarg / 2), , oDlgL, , , lDimPixels)
 
-        oMsGetZCAL := MsNewGetDados():New(    055,;                
+        oMsGetZT4L := MsNewGetDados():New(    055,;                
                                              005,;                
                                              (nJanAltu/2)-6,;                
                                              (nJanLarg/2)-3,;                
@@ -1899,9 +1899,9 @@ User Function LAMP()
                                              aHeader,;            
                                              aCols) 
 
-            oMsGetZCAL:lActive := .F. 
+            oMsGetZT4L:lActive := .F. 
 
-           oMsGetZCAL:oBrowse:Refresh()
+           oMsGetZT4L:oBrowse:Refresh()
         
         oDlgL:Activate()
 
@@ -2003,29 +2003,29 @@ User Function CadBtnTipo()
     Private oSay16T
     Private cSay16TT    := 'Modelo Lampada'
     Private oGet16T
-    Private xGet16TT    := Space(TamSX3('ZCA_MODLP')[1])
+    Private xGet16TT    := Space(TamSX3('ZT4_MODLP')[1])
 
     Private oSay17T
     Private cSay17TT    := 'Tensão'
     Private oGet17T
-    Private xGet17TT    := Space(TamSX3('ZCA_TENSLP')[1])
+    Private xGet17TT    := Space(TamSX3('ZT4_TENSLP')[1])
 
     Private oSay18T
     Private cSay18TT    := 'Corrente'
     Private oGet18T
-    Private xGet18TT    := Space(TamSX3('ZCA_CORRLP')[1])
+    Private xGet18TT    := Space(TamSX3('ZT4_CORRLP')[1])
 
     Private oSay19T
     Private cSay19TT    := 'Potencia'
     Private oGet19T
-    Private xGet19TT    := Space(TamSX3('ZCA_POTLP')[1])
+    Private xGet19TT    := Space(TamSX3('ZT4_POTLP')[1])
 
     Private oSay20T
     Private cSay20TT    := 'Modelo Refletor'
     Private oGet20T
-    Private xGet20TT    := Space(TamSX3('ZCA_MODREF')[1])
+    Private xGet20TT    := Space(TamSX3('ZT4_MODREF')[1])
 
-    Private oMsGetZCA
+    Private oMsGetZT4
     Private lRefresh := .T.
 
     Private nEsc
@@ -2174,8 +2174,8 @@ User Function CadBtnTipo()
         oDlgCad:Activate()
 
         fCarAcols()
-        oMsGetZCAI:ACOLS := aCols
-        oMsGetZCAI:oBrowse:Refresh()
+        oMsGetZT4I:ACOLS := aCols
+        oMsGetZT4I:oBrowse:Refresh()
 
 // -------------------------------------------------------------------------------
 // 
@@ -2321,8 +2321,8 @@ User Function CadBtnTipo()
         oDlgCad:Activate()
        
         fCarAcols()
-        oMsGetZCAE:ACOLS := aCols
-        oMsGetZCAE:oBrowse:Refresh()
+        oMsGetZT4E:ACOLS := aCols
+        oMsGetZT4E:oBrowse:Refresh()
 
 // -------------------------------------------------------------------------------
 // 
@@ -2539,8 +2539,8 @@ User Function CadBtnTipo()
         oDlgCad:Activate()
 
         fCarAcols()
-        oMsGetZCAR:ACOLS := aCols
-        oMsGetZCAR:oBrowse:Refresh()
+        oMsGetZT4R:ACOLS := aCols
+        oMsGetZT4R:oBrowse:Refresh()
 
 // -------------------------------------------------------------------------------
 // 
@@ -2625,7 +2625,7 @@ User Function CadBtnTipo()
         oSay3T:SetCss(" TSay {Font: Semi-Bold}")
 
         oFontPadrao  := TFont():New(cFont, , -16)
-        xGet3TT    := Space(TamSX3('ZCA_NOMELP')[1])
+        xGet3TT    := Space(TamSX3('ZT4_NOMELP')[1])
         nObjLinh := 90
         nObjColu := 100
         nObjLarg := 170
@@ -2780,8 +2780,8 @@ User Function CadBtnTipo()
         oDlgCad:Activate()
 
         fCarAcols()
-        oMsGetZCAL:ACOLS := aCols
-        oMsGetZCAL:oBrowse:Refresh()
+        oMsGetZT4L:ACOLS := aCols
+        oMsGetZT4L:oBrowse:Refresh()
 
     ENDIF
 
@@ -2857,30 +2857,30 @@ Static Function ValidaCmpI()
 
         if cFunc == 'T'
             cTir := StrTran(oGet15T:BUFFER,"'", '')
-            cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15T:BUFFER 
         elseif cFunc == 'A'
             cTir := StrTran(oGet15A:BUFFER,"'", '')
-            cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15A:BUFFER 
         endif
 
     elseif nEscBD == 2
 
         cTir := StrTran(oGet3M:BUFFER,"'", '')
-        cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3M:BUFFER
 
     elseif nEscBD == 3
 
         cTir := StrTran(oGet3L:BUFFER,"'", '')
-        cQryVI := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3L:BUFFER
          
     endif
 
         TCQUERY cQryVI New Alias "QRY_VCPI"
-        cImp := QRY_VCPI->ZCA_COD
+        cImp := QRY_VCPI->ZT4_COD
         if Empty(cRec)
             lFN := .T. 
         elseif Empty(cImp)
@@ -2907,13 +2907,13 @@ Static Function ValidaCmpE()
     if nEscBD == 2
 
         cTir := StrTran(oGet4M:BUFFER,"'", '')
-        cQryVE := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + cTir + "' AND  ZCA_TIPO = 'E' AND D_E_L_E_T_ = ''"
+        cQryVE := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'E' AND D_E_L_E_T_ = ''"
         cRec := oGet4M:BUFFER
 
     endif
 
         TCQUERY cQryVE New Alias "QRY_VCPE"
-        cImp := QRY_VCPE->ZCA_COD
+        cImp := QRY_VCPE->ZT4_COD
         if Empty(cRec)
             lFN := .T. 
         elseif Empty(cImp)
@@ -2940,13 +2940,13 @@ Static Function ValidaCmpR()
     if nEscBD == 2
         
         cTir := StrTran(oGet6M:BUFFER,"'", '')
-        cQryVR := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMERL = '" + cTir + "' AND  ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
+        cQryVR := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMERL = '" + cTir + "' AND  ZT4_TIPO = 'R' AND D_E_L_E_T_ = ''"
         cRec := oGet6M:BUFFER
 
     endif
 
         TCQUERY cQryVR New Alias "QRY_VCPR"
-        cImp := QRY_VCPR->ZCA_COD
+        cImp := QRY_VCPR->ZT4_COD
         if Empty(cRec)
             lFN := .T. 
         elseif Empty(cImp)
@@ -2973,13 +2973,13 @@ Static Function ValidaCmpL()
     if nEscBD == 3
 
         cTir := StrTran(oGet6L:BUFFER,"'", '')
-        cQryVL := "SELECT ZCA_COD FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMELP = '" + cTir + "' AND  ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+        cQryVL := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMELP = '" + cTir + "' AND  ZT4_TIPO = 'L' AND D_E_L_E_T_ = ''"
         cRec := oGet6L:BUFFER
 
     endif
 
         TCQUERY cQryVL New Alias "QRY_VCPL"
-        cImp := QRY_VCPL->ZCA_COD
+        cImp := QRY_VCPL->ZT4_COD
         if Empty(cRec)
             lFN := .T. 
         elseif Empty(cImp)
@@ -3008,9 +3008,9 @@ Static Function fCarAcols()
 // -------------------------------------------------------------------------------
 
     if cTipo == 'I'
-        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%I%' AND ZCA_FILIAL = '" + FWCodFil() + "'AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%I%' AND ZT4_FILIAL = '" + FWCodFil() + "'AND D_E_L_E_T_ = ''"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aCols)
 
@@ -3019,22 +3019,22 @@ Static Function fCarAcols()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aCols,{QRY_ZCA->ZCA_COD,;
-                        QRY_ZCA->ZCA_DESC,;
-                        QRY_ZCA->ZCA_TIPO,;
-                        QRY_ZCA->ZCA_ATIVO,;
-                        QRY_ZCA->ZCA_DATA,;
+            AAdd(aCols,{QRY_ZT4->ZT4_COD,;
+                        QRY_ZT4->ZT4_DESC,;
+                        QRY_ZT4->ZT4_TIPO,;
+                        QRY_ZT4->ZT4_ATIVO,;
+                        QRY_ZT4->ZT4_DATA,;
                         })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -3044,9 +3044,9 @@ Static Function fCarAcols()
 
     elseif cTipo == 'E'
     
-        cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%E%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%E%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aCols)
 
@@ -3055,23 +3055,23 @@ Static Function fCarAcols()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aCols,{QRY_ZCA->ZCA_COD,;
-                        QRY_ZCA->ZCA_DESC,;
-                        QRY_ZCA->ZCA_TIPO,;
-                        QRY_ZCA->ZCA_ATIVO,;
-                        QRY_ZCA->ZCA_DATA,;
+            AAdd(aCols,{QRY_ZT4->ZT4_COD,;
+                        QRY_ZT4->ZT4_DESC,;
+                        QRY_ZT4->ZT4_TIPO,;
+                        QRY_ZT4->ZT4_ATIVO,;
+                        QRY_ZT4->ZT4_DATA,;
                         .F.;
                         })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -3081,9 +3081,9 @@ Static Function fCarAcols()
 
     elseif cTipo == 'R'
 
-     cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZT4_COD,ZT4_NOMERL,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_DESC,ZT4_DIAMRL,ZT4_COMPRL,ZT4_MATRL,ZT4_DURERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%R%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aCols)
 
@@ -3092,28 +3092,28 @@ Static Function fCarAcols()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aCols,{QRY_ZCA->ZCA_COD,;
-                        QRY_ZCA->ZCA_NOMERL,;
-                        QRY_ZCA->ZCA_TIPO,;
-                        QRY_ZCA->ZCA_ATIVO,;
-                        QRY_ZCA->ZCA_DATA,;
-                        QRY_ZCA->ZCA_DESC,;
-                        QRY_ZCA->ZCA_DIAMRL,;
-                        QRY_ZCA->ZCA_COMPRL,;
-                        QRY_ZCA->ZCA_MATRL,;
-                        QRY_ZCA->ZCA_DURERL,;
+            AAdd(aCols,{QRY_ZT4->ZT4_COD,;
+                        QRY_ZT4->ZT4_NOMERL,;
+                        QRY_ZT4->ZT4_TIPO,;
+                        QRY_ZT4->ZT4_ATIVO,;
+                        QRY_ZT4->ZT4_DATA,;
+                        QRY_ZT4->ZT4_DESC,;
+                        QRY_ZT4->ZT4_DIAMRL,;
+                        QRY_ZT4->ZT4_COMPRL,;
+                        QRY_ZT4->ZT4_MATRL,;
+                        QRY_ZT4->ZT4_DURERL,;
                         .F.;
                         })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -3123,9 +3123,9 @@ Static Function fCarAcols()
 
     elseif cTipo == 'L'
 
-     cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_IMPLP,ZT4_MODLP,ZT4_TENSLP,ZT4_CORRLP,ZT4_POTLP,ZT4_MODREF FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%L%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aCols)
 
@@ -3134,29 +3134,29 @@ Static Function fCarAcols()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aCols,{QRY_ZCA->ZCA_COD,;
-                        QRY_ZCA->ZCA_NOMELP,;
-                        QRY_ZCA->ZCA_TIPO,;
-                        QRY_ZCA->ZCA_ATIVO,;
-                        QRY_ZCA->ZCA_DATA,;
-                        QRY_ZCA->ZCA_IMPLP,;
-                        QRY_ZCA->ZCA_MODLP,;
-                        QRY_ZCA->ZCA_TENSLP,;
-                        QRY_ZCA->ZCA_CORRLP,;
-                        QRY_ZCA->ZCA_POTLP,;
-                        QRY_ZCA->ZCA_MODREF,;
+            AAdd(aCols,{QRY_ZT4->ZT4_COD,;
+                        QRY_ZT4->ZT4_NOMELP,;
+                        QRY_ZT4->ZT4_TIPO,;
+                        QRY_ZT4->ZT4_ATIVO,;
+                        QRY_ZT4->ZT4_DATA,;
+                        QRY_ZT4->ZT4_IMPLP,;
+                        QRY_ZT4->ZT4_MODLP,;
+                        QRY_ZT4->ZT4_TENSLP,;
+                        QRY_ZT4->ZT4_CORRLP,;
+                        QRY_ZT4->ZT4_POTLP,;
+                        QRY_ZT4->ZT4_MODREF,;
                         .F.;
                         })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
     endif
     FWRestArea(aArea)
@@ -3165,7 +3165,7 @@ return
 Static function CadBtnSalv()
 
     Local aArea := FWGetArea()
-    Local cAlias := 'ZCA'
+    Local cAlias := 'ZT4'
     Local lEscolha := .F.
     Local cQry
     Local cRec
@@ -3181,17 +3181,17 @@ Static function CadBtnSalv()
 
         if lEscolha = .T.
 
-            cQry := "SELECT ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = '' "
+            cQry := "SELECT ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = '' "
 
             IF cTipo = 'I'
-                cQry += "AND ZCA_TIPO = 'I'"
+                cQry += "AND ZT4_TIPO = 'I'"
             ELSEIF cTipo = 'E'
-                cQry += "AND ZCA_TIPO = 'E'"
+                cQry += "AND ZT4_TIPO = 'E'"
             ENDIF
 
             TCQUERY cQry New Alias "QRY_CHK"
 
-            cRec := QRY_CHK->ZCA_DESC
+            cRec := QRY_CHK->ZT4_DESC
 
             QRY_CHK->(DbCloseArea())
 
@@ -3204,21 +3204,21 @@ Static function CadBtnSalv()
                 else
                 begin transaction 
                 RecLock(cAlias, .T.)
-                    ZCA->ZCA_FILIAL := xFilial('ZCA')
-                    ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
-                    ZCA->ZCA_DESC  := AllTrim(oGet3T:BUFFER)
-                    ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
+                    ZT4->ZT4_FILIAL := xFilial('ZT4')
+                    ZT4->ZT4_COD   := Alltrim(oGet2T:BUFFER)
+                    ZT4->ZT4_DESC  := AllTrim(oGet3T:BUFFER)
+                    ZT4->ZT4_TIPO  := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
-                        ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
+                        ZT4->ZT4_ATIVO := oCombo5T:AITEMS[2]
                     elseif oCombo5T:NAT == 3
-                        ZCA->ZCA_ATIVO := oCombo5T:AITEMS[3]
+                        ZT4->ZT4_ATIVO := oCombo5T:AITEMS[3]
                     elseif oCombo5T:nat == 1 
                         MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)','ATENÇÃO')
                         DisarmTransaction()
                         return
                     ENDIF
-                    ZCA->ZCA_DATA  := CTOD(oGet6T:BUFFER)
-                ZCA -> (MSUNLOCK())
+                    ZT4->ZT4_DATA  := CTOD(oGet6T:BUFFER)
+                ZT4 -> (MSUNLOCK())
                 end transaction
                 FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!')
                 oDlgCad:End()
@@ -3237,11 +3237,11 @@ Static function CadBtnSalv()
     
 
         if lEscolha = .T.
-            cQry := "SELECT ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMERL = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "'AND ZCA_TIPO = 'R' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMERL = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "'AND ZT4_TIPO = 'R' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQry New Alias "QRY_CHK"
 
-            cRec := QRY_CHK->ZCA_NOMERL
+            cRec := QRY_CHK->ZT4_NOMERL
 
             QRY_CHK->(DbCloseArea())
 
@@ -3256,26 +3256,26 @@ Static function CadBtnSalv()
             else
                 begin transaction 
                 RecLock(cAlias, .T.)
-                    ZCA->ZCA_FILIAL := xFilial('ZCA')
-                    ZCA->ZCA_COD   := Alltrim(oGet2T:BUFFER)
-                    ZCA->ZCA_DESC  := Alltrim(oGet9T:BUFFER)
-                    ZCA->ZCA_TIPO  := Alltrim(oGet4T:BUFFER)
+                    ZT4->ZT4_FILIAL := xFilial('ZT4')
+                    ZT4->ZT4_COD   := Alltrim(oGet2T:BUFFER)
+                    ZT4->ZT4_DESC  := Alltrim(oGet9T:BUFFER)
+                    ZT4->ZT4_TIPO  := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
-                        ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
+                        ZT4->ZT4_ATIVO := oCombo5T:AITEMS[2]
                     elseif oCombo5T:NAT == 3
-                        ZCA->ZCA_ATIVO := oCombo5T:AITEMS[3]
+                        ZT4->ZT4_ATIVO := oCombo5T:AITEMS[3]
                     elseif oCombo5T:nat == 1 
                         MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)','ATENÇÃO')
                         DisarmTransaction()
                         Return
                     ENDIF
-                    ZCA->ZCA_DATA    := CTOD(oGet6T:BUFFER)
-                    ZCA->ZCA_NOMERL  := Alltrim(oGet3T:BUFFER)
-                    ZCA->ZCA_DIAMRL  := AllTrim(oGet10T:BUFFER)
-                    ZCA->ZCA_COMPRL  := AllTrim(oGet11T:BUFFER)
-                    ZCA->ZCA_MATRL   := Alltrim(oGet12T:BUFFER)
-                    ZCA->ZCA_DURERL  := AllTrim(oGet13T:BUFFER)
-                ZCA -> (MSUNLOCK())
+                    ZT4->ZT4_DATA    := CTOD(oGet6T:BUFFER)
+                    ZT4->ZT4_NOMERL  := Alltrim(oGet3T:BUFFER)
+                    ZT4->ZT4_DIAMRL  := AllTrim(oGet10T:BUFFER)
+                    ZT4->ZT4_COMPRL  := AllTrim(oGet11T:BUFFER)
+                    ZT4->ZT4_MATRL   := Alltrim(oGet12T:BUFFER)
+                    ZT4->ZT4_DURERL  := AllTrim(oGet13T:BUFFER)
+                ZT4 -> (MSUNLOCK())
                 end transaction
                 FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!')
                 oDlgCad:End()
@@ -3296,11 +3296,11 @@ Static function CadBtnSalv()
 
         if lEscolha = .T.
 
-            cQry := "SELECT ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_NOMELP = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZCA_TIPO = 'L' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_NOMELP FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMELP = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZT4_TIPO = 'L' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQry New Alias "QRY_CHK"
 
-            cRec := QRY_CHK->ZCA_NOMELP
+            cRec := QRY_CHK->ZT4_NOMELP
 
             QRY_CHK->(DbCloseArea())
 
@@ -3315,27 +3315,27 @@ Static function CadBtnSalv()
                 else
                     begin transaction 
                     RecLock(cAlias, .T.)
-                        ZCA->ZCA_FILIAL := xFilial('ZCA')
-                        ZCA->ZCA_COD     := Alltrim(oGet2T:BUFFER)
-                        ZCA->ZCA_NOMELP  := Upper(Alltrim(oGet3T:BUFFER))
-                        ZCA->ZCA_TIPO    := Alltrim(oGet4T:BUFFER)
+                        ZT4->ZT4_FILIAL := xFilial('ZT4')
+                        ZT4->ZT4_COD     := Alltrim(oGet2T:BUFFER)
+                        ZT4->ZT4_NOMELP  := Upper(Alltrim(oGet3T:BUFFER))
+                        ZT4->ZT4_TIPO    := Alltrim(oGet4T:BUFFER)
                         if oCombo5T:NAT == 2
-                            ZCA->ZCA_ATIVO := oCombo5T:AITEMS[2]
+                            ZT4->ZT4_ATIVO := oCombo5T:AITEMS[2]
                         elseif oCombo5T:NAT == 3
-                            ZCA->ZCA_ATIVO := oCombo5T:AITEMS[3][]
+                            ZT4->ZT4_ATIVO := oCombo5T:AITEMS[3][]
                         elseif oCombo5T:nat == 1 .OR. oCombo5T:nat == 0
                             MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)', 'ATENÇÃO')
                             DisarmTransaction()
                             return
                         ENDIF
-                        ZCA->ZCA_DATA    := CTOD(oGet6T:BUFFER)
-                        ZCA->ZCA_IMPLP   := Upper(Alltrim(oGet15T:BUFFER))
-                        ZCA->ZCA_MODLP   := Upper(Alltrim(oGet16T:BUFFER))
-                        ZCA->ZCA_TENSLP  := Alltrim(oGet17T:BUFFER)
-                        ZCA->ZCA_CORRLP  := Alltrim(oGet18T:BUFFER)
-                        ZCA->ZCA_POTLP   := Alltrim(oGet19T:BUFFER)
-                        ZCA->ZCA_MODREF  := Upper(Alltrim(oGet20T:BUFFER))
-                    ZCA -> (MSUNLOCK())
+                        ZT4->ZT4_DATA    := CTOD(oGet6T:BUFFER)
+                        ZT4->ZT4_IMPLP   := Upper(Alltrim(oGet15T:BUFFER))
+                        ZT4->ZT4_MODLP   := Upper(Alltrim(oGet16T:BUFFER))
+                        ZT4->ZT4_TENSLP  := Alltrim(oGet17T:BUFFER)
+                        ZT4->ZT4_CORRLP  := Alltrim(oGet18T:BUFFER)
+                        ZT4->ZT4_POTLP   := Alltrim(oGet19T:BUFFER)
+                        ZT4->ZT4_MODREF  := Upper(Alltrim(oGet20T:BUFFER))
+                    ZT4 -> (MSUNLOCK())
                     end transaction
                     FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!')
                     oDlgCad:End()
@@ -3347,20 +3347,20 @@ Static function CadBtnSalv()
     
     if cTipo == 'I'
         fCarAcols()
-        oMsGetZCAI:ACOLS := aCols
-        oMsGetZCAI:oBrowse:Refresh()
+        oMsGetZT4I:ACOLS := aCols
+        oMsGetZT4I:oBrowse:Refresh()
     elseif cTipo == 'E'
         fCarAcols()
-        oMsGetZCAE:ACOLS := aCols
-        oMsGetZCAE:oBrowse:Refresh()
+        oMsGetZT4E:ACOLS := aCols
+        oMsGetZT4E:oBrowse:Refresh()
     elseif cTipo == 'R'
         fCarAcols()
-        oMsGetZCAR:ACOLS := aCols
-        oMsGetZCAR:oBrowse:Refresh()
+        oMsGetZT4R:ACOLS := aCols
+        oMsGetZT4R:oBrowse:Refresh()
     elseif cTipo == 'L'
         fCarAcols()
-        oMsGetZCAL:ACOLS := aCols
-        oMsGetZCAL:oBrowse:Refresh()
+        oMsGetZT4L:ACOLS := aCols
+        oMsGetZT4L:oBrowse:Refresh()
     endif
 
     FWRestArea(aArea)
@@ -3374,7 +3374,7 @@ Static function geraCod()
     Local cTira := ''
     Local nRec
 
-    DbSelectArea('ZCA')
+    DbSelectArea('ZT4')
 
 // -------------------------------------------------------------------------------
 // 
@@ -3384,16 +3384,16 @@ Static function geraCod()
 
             if cTipo == 'I'
 
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_FILIAL = '" + FWCodFil() + "')"
 
-                TCQUERY cQry NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
-                nRec := (REC_ZCA -> REC)
+                nRec := (REC_ZT4 -> REC)
 
                     cNumG := SOMA1(nRec) 
                     cTira := cNumG
 
-                    REC_ZCA -> (DbCloseArea())
+                    REC_ZT4 -> (DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -3403,16 +3403,16 @@ Static function geraCod()
 
             elseif cTipo == 'E'
 
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_FILIAL = '" + FWCodFil() + "')"
 
-                TCQUERY cQry NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
-                nRec := (REC_ZCA -> REC)
+                nRec := (REC_ZT4 -> REC)
 
                     cNumG := SOMA1(nRec) 
                     cTira := cNumG
 
-                    REC_ZCA -> (DbCloseArea())
+                    REC_ZT4 -> (DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -3421,16 +3421,16 @@ Static function geraCod()
 // -------------------------------------------------------------------------------
             elseif cTipo == 'R'
 
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND ZCA_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_FILIAL = '" + FWCodFil() + "')"
 
-                TCQUERY cQry NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
-                nRec := (REC_ZCA -> REC)
+                nRec := (REC_ZT4 -> REC)
 
                     cNumG := SOMA1(nRec) 
                     cTira := cNumG
 
-                    REC_ZCA -> (DbCloseArea())
+                    REC_ZT4 -> (DbCloseArea())
 
 // -------------------------------------------------------------------------------
 // 
@@ -3438,20 +3438,20 @@ Static function geraCod()
 // 
 // -------------------------------------------------------------------------------
             elseif cTipo == 'L'
-                cQry := "SELECT ZCA_COD AS REC FROM "+ RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND ZCA_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_FILIAL = '" + FWCodFil() + "')"
 
-                TCQUERY cQry NEW ALIAS 'REC_ZCA'
+                TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
-                nRec := (REC_ZCA -> REC)
+                nRec := (REC_ZT4 -> REC)
 
                     cNumG := SOMA1(nRec) 
                     cTira := cNumG
 
-                    REC_ZCA -> (DbCloseArea())
+                    REC_ZT4 -> (DbCloseArea())
 
             endif 
 
-    ZCA->(DbCloseArea())
+    ZT4->(DbCloseArea())
 
     cGet2TT := cTira
 
@@ -3487,12 +3487,12 @@ Static function natEsc()
     If cTipo == 'I' .OR. cTipo ==  'E'
         
         If cTipo == 'I'
-            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         ELSEIF cTipo ==  'E'
-            cQry := "SELECT ZCA_COD,ZCA_DESC,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         endif
         
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aColsAux)
 
@@ -3501,37 +3501,37 @@ Static function natEsc()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
             if cTipo == 'I'
 
-                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                               QRY_ZCA->ZCA_DESC,;
-                               QRY_ZCA->('Impressora'),;
-                               QRY_ZCA->ZCA_ATIVO,;
-                               QRY_ZCA->ZCA_DATA,;
+                AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                               QRY_ZT4->ZT4_DESC,;
+                               QRY_ZT4->('Impressora'),;
+                               QRY_ZT4->ZT4_ATIVO,;
+                               QRY_ZT4->ZT4_DATA,;
                                .F.;
                                })
 
             elseif cTipo == 'E'
 
-                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                               QRY_ZCA->ZCA_DESC,;
-                               QRY_ZCA-> ('Estacao'),;
-                               QRY_ZCA->ZCA_ATIVO,;
-                               QRY_ZCA->ZCA_DATA,;
+                AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                               QRY_ZT4->ZT4_DESC,;
+                               QRY_ZT4-> ('Estacao'),;
+                               QRY_ZT4->ZT4_ATIVO,;
+                               QRY_ZT4->ZT4_DATA,;
                                .F.;
                                })
 
             endif
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
 
 // -------------------------------------------------------------------------------
@@ -3542,9 +3542,9 @@ Static function natEsc()
     
     ELSEIF cTipo == 'R'
         
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_DESC,ZCA_DIAMRL,ZCA_COMPRL,ZCA_MATRL,ZCA_DURERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%R%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_DESC,ZT4_DIAMRL,ZT4_COMPRL,ZT4_MATRL,ZT4_DURERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%R%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aColsAux)
 
@@ -3553,29 +3553,29 @@ Static function natEsc()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
 
-                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                               QRY_ZCA->ZCA_NOMERL,;
-                               QRY_ZCA->('Rolo'),;
-                               QRY_ZCA->ZCA_ATIVO,;
-                               QRY_ZCA->ZCA_DATA,;
-                               QRY_ZCA->ZCA_DESC,;
-                               QRY_ZCA->ZCA_DIAMRL,;
-                               QRY_ZCA->ZCA_COMPRL,;
-                               QRY_ZCA->ZCA_MATRL,;
-                               QRY_ZCA->ZCA_DURERL,;
+                AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                               QRY_ZT4->ZT4_NOMERL,;
+                               QRY_ZT4->('Rolo'),;
+                               QRY_ZT4->ZT4_ATIVO,;
+                               QRY_ZT4->ZT4_DATA,;
+                               QRY_ZT4->ZT4_DESC,;
+                               QRY_ZT4->ZT4_DIAMRL,;
+                               QRY_ZT4->ZT4_COMPRL,;
+                               QRY_ZT4->ZT4_MATRL,;
+                               QRY_ZT4->ZT4_DURERL,;
                                .F.;
                                })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
 
 // -------------------------------------------------------------------------------
@@ -3586,9 +3586,9 @@ Static function natEsc()
 
     ELSEIF cTipo == 'L'
         
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_TIPO,ZCA_ATIVO,ZCA_DATA,ZCA_IMPLP,ZCA_MODLP,ZCA_TENSLP,ZCA_CORRLP,ZCA_POTLP,ZCA_MODREF FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO LIKE '%L%' AND ZCA_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_IMPLP,ZT4_MODLP,ZT4_TENSLP,ZT4_CORRLP,ZT4_POTLP,ZT4_MODREF FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%L%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
         
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aColsAux)
 
@@ -3597,30 +3597,30 @@ Static function natEsc()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
 
-                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                               QRY_ZCA->ZCA_NOMELP,;
-                               QRY_ZCA->('Lampada'),;
-                               QRY_ZCA->ZCA_ATIVO,;
-                               QRY_ZCA->ZCA_DATA,;
-                               QRY_ZCA->ZCA_IMPLP,;
-                               QRY_ZCA->ZCA_MODLP,;
-                               QRY_ZCA->ZCA_TENSLP,;
-                               QRY_ZCA->ZCA_CORRLP,;
-                               QRY_ZCA->ZCA_POTLP,;
-                               QRY_ZCA->ZCA_MODREF,;
+                AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                               QRY_ZT4->ZT4_NOMELP,;
+                               QRY_ZT4->('Lampada'),;
+                               QRY_ZT4->ZT4_ATIVO,;
+                               QRY_ZT4->ZT4_DATA,;
+                               QRY_ZT4->ZT4_IMPLP,;
+                               QRY_ZT4->ZT4_MODLP,;
+                               QRY_ZT4->ZT4_TENSLP,;
+                               QRY_ZT4->ZT4_CORRLP,;
+                               QRY_ZT4->ZT4_POTLP,;
+                               QRY_ZT4->ZT4_MODREF,;
                                .F.;
                                })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
         endif
 
@@ -3671,21 +3671,21 @@ User Function RLLP23ALT()
 
             cNameTable := oTableTempAlt:GetRealName()
 
-            DbSelectArea('ZCA')
+            DbSelectArea('ZT4')
 
                 RecLock(cAliasTempAlt, .T.)
                     IF cTipo == 'I'
-                        (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAI:Nat][1]) 
-                        (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAI:Nat][2]) 
-                        (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAI:Nat][3]) 
-                        (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAI:Nat][4]) 
-                        (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
+                        (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZT4I:Nat][1]) 
+                        (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZT4I:Nat][2]) 
+                        (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZT4I:Nat][3]) 
+                        (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZT4I:Nat][4]) 
+                        (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZT4I:Nat][5]) 
                     elseif cTipo == 'E'
-                        (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAE:Nat][1]) 
-                        (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAE:Nat][2]) 
-                        (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAE:Nat][3]) 
-                        (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAE:Nat][4]) 
-                        (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
+                        (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZT4E:Nat][1]) 
+                        (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZT4E:Nat][2]) 
+                        (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZT4E:Nat][3]) 
+                        (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZT4E:Nat][4]) 
+                        (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZT4E:Nat][5]) 
                     endif
                     if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
                         (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
@@ -3739,14 +3739,14 @@ User Function RLLP23ALT()
 
             cNameTable := oTableTempAlt:GetRealName()
 
-            DbSelectArea('ZCA')
+            DbSelectArea('ZT4')
 
                 RecLock(cAliasTempAlt, .T.)
-                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAR:Nat][1]) 
-                    (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZCAR:Nat][6]) 
-                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAR:Nat][3]) 
-                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAR:Nat][4]) 
-                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
+                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZT4R:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_ALT)  := (aColsAux[oMsGetZT4R:Nat][6]) 
+                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZT4R:Nat][3]) 
+                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZT4R:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZT4R:Nat][5]) 
                     if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
                         (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                         aCombo5AA := {'S=SIM','N=NAO'}
@@ -3754,11 +3754,11 @@ User Function RLLP23ALT()
                         (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                         aCombo5AA := {'N=NAO','S=SIM'}
                     endif
-                    (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZCAR:Nat][2])
-                    (cAliasTempAlt) -> (DIAMRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][7]) 
-                    (cAliasTempAlt) -> (COMPRL_ALT)  := (aColsAux[oMsGetZCAR:Nat][8]) 
-                    (cAliasTempAlt) -> (MATRL_ALT)   := (aColsAux[oMsGetZCAR:Nat][9]) 
-                    (cAliasTempAlt) -> (DURERL_ALT)  := cValToChar(aColsAux[oMsGetZCAR:Nat][10]) 
+                    (cAliasTempAlt) -> (NOMERL_ALT)  := (aColsAux[oMsGetZT4R:Nat][2])
+                    (cAliasTempAlt) -> (DIAMRL_ALT)  := (aColsAux[oMsGetZT4R:Nat][7]) 
+                    (cAliasTempAlt) -> (COMPRL_ALT)  := (aColsAux[oMsGetZT4R:Nat][8]) 
+                    (cAliasTempAlt) -> (MATRL_ALT)   := (aColsAux[oMsGetZT4R:Nat][9]) 
+                    (cAliasTempAlt) -> (DURERL_ALT)  := cValToChar(aColsAux[oMsGetZT4R:Nat][10]) 
 
                 (cAliasTempAlt) -> (MSUNLOCK())
 
@@ -3809,14 +3809,14 @@ User Function RLLP23ALT()
 
             cNameTable := oTableTempAlt:GetRealName()
 
-            DbSelectArea('ZCA')
+            DbSelectArea('ZT4')
 
                 RecLock(cAliasTempAlt, .T.)
-                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZCAL:Nat][1]) 
-                    (cAliasTempAlt) -> (NOMELP_ALT) :=(aColsAux[oMsGetZCAL:Nat][2]) 
-                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZCAL:Nat][3]) 
-                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZCAL:Nat][4]) 
-                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
+                    (cAliasTempAlt) -> (COD_ALT)   := (aColsAux[oMsGetZT4L:Nat][1]) 
+                    (cAliasTempAlt) -> (NOMELP_ALT) :=(aColsAux[oMsGetZT4L:Nat][2]) 
+                    (cAliasTempAlt) -> (TIPO_ALT)  := (aColsAux[oMsGetZT4L:Nat][3]) 
+                    (cAliasTempAlt) -> (ATIVO_ALT) := (aColsAux[oMsGetZT4L:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_ALT)  := Stod(aColsAux[oMsGetZT4L:Nat][5]) 
                     if (cAliasTempAlt) -> (ATIVO_ALT) == 'S'
                         (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                         aCombo5AA := {'S=SIM','N=NAO'}
@@ -3824,12 +3824,12 @@ User Function RLLP23ALT()
                         (cAliasTempAlt) -> (ATIVO_NAT)  := "1"
                         aCombo5AA := {'N=NAO','S=SIM'}
                     endif
-                    (cAliasTempAlt) -> (IMPRES_ALT)  := (aColsAux[oMsGetZCAL:Nat][6]) 
-                    (cAliasTempAlt) -> (MODLP_ALT)   := (aColsAux[oMsGetZCAL:Nat][7]) 
-                    (cAliasTempAlt) -> (TENS_ALT)    := (aColsAux[oMsGetZCAL:Nat][8]) 
-                    (cAliasTempAlt) -> (CORR_ALT)    := (aColsAux[oMsGetZCAL:Nat][9]) 
-                    (cAliasTempAlt) -> (POT_ALT)     := (aColsAux[oMsGetZCAL:Nat][10]) 
-                    (cAliasTempAlt) -> (MODREF_ALT)  := (aColsAux[oMsGetZCAL:Nat][11]) 
+                    (cAliasTempAlt) -> (IMPRES_ALT)  := (aColsAux[oMsGetZT4L:Nat][6]) 
+                    (cAliasTempAlt) -> (MODLP_ALT)   := (aColsAux[oMsGetZT4L:Nat][7]) 
+                    (cAliasTempAlt) -> (TENS_ALT)    := (aColsAux[oMsGetZT4L:Nat][8]) 
+                    (cAliasTempAlt) -> (CORR_ALT)    := (aColsAux[oMsGetZT4L:Nat][9]) 
+                    (cAliasTempAlt) -> (POT_ALT)     := (aColsAux[oMsGetZT4L:Nat][10]) 
+                    (cAliasTempAlt) -> (MODREF_ALT)  := (aColsAux[oMsGetZT4L:Nat][11]) 
 
                 (cAliasTempAlt) -> (MSUNLOCK())
 
@@ -4608,7 +4608,7 @@ Return
 static function altBtn()
 
     Local aArea := FWGetArea()
-    Local cAlias := 'ZCA'
+    Local cAlias := 'ZT4'
     Local cNomeBtn := oGet3A:BUFFER
     lOCAL cQryIL
     lOCAL cQryIMRL
@@ -4625,33 +4625,33 @@ static function altBtn()
     
     if cTipo == 'I'
 
-            cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND ZCA_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIL  := "SELECT ZT4_COD, ZT4_IMPLP FROM " + RetSQLName('ZT4') + " WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIL New Alias "QRY_IL"
 
-            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES FROM " + RetSQLName('ZM1') + " WHERE ZM1_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZT5_COD,ZT5_IMPRES FROM " + RetSQLName('ZT5') + " WHERE ZT5_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
-            cQryIMLP  := "SELECT ZM2_COD,ZM2_IMPRES FROM " + RetSQLName('ZM2') + " WHERE ZM2_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMLP  := "SELECT ZT6_COD,ZT6_IMPRES FROM " + RetSQLName('ZT6') + " WHERE ZT6_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMLP New Alias "QRY_IMLP"
 
         elseif cTipo == 'E'
 
-            cQryEMRL  := "SELECT ZM1_COD,ZM1_EST FROM " + RetSQLName('ZM1') + " WHERE ZM1_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryEMRL  := "SELECT ZT5_COD,ZT5_EST FROM " + RetSQLName('ZT5') + " WHERE ZT5_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryEMRL New Alias "QRY_EMRL"
 
         elseif cTipo == 'R'
 
-            cQryRMRL  := "SELECT ZM1_COD,ZM1_ROLO FROM " + RetSQLName('ZM1') + " WHERE ZM1_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryRMRL  := "SELECT ZT5_COD,ZT5_ROLO FROM " + RetSQLName('ZT5') + " WHERE ZT5_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryRMRL New Alias "QRY_RMRL"
 
         elseif cTipo == 'L'
 
-            cQryLMLP  := "SELECT ZM2_COD,ZM2_LAMP FROM " + RetSQLName('ZM2') + " WHERE ZM2_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryLMLP  := "SELECT ZT6_COD,ZT6_LAMP FROM " + RetSQLName('ZT6') + " WHERE ZT6_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryLMLP New Alias "QRY_LMLP"
 
@@ -4663,7 +4663,7 @@ static function altBtn()
         if lEscolha = .T.
     
             DbSelectArea(cAlias)
-            ZCA->(DbSetOrder(1))
+            ZT4->(DbSetOrder(1))
 
             if (oGet3A:BUFFER == aDados[2][1]) .AND. (oCombo5A:Nat == 0 .OR. oCombo5A:Nat == Val(aDados[6][1])) 
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
@@ -4671,12 +4671,12 @@ static function altBtn()
                 ALERT('HÁ CAMPOS SEM NADA ESCRITO!!','ATENÇÃO')
             else
                 begin transaction 
-                IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cItemTipo))
+                IF ZT4->(DbSeek(xFilial('ZT4') + cCod + cItemTipo))
                     RecLock(cAlias, .F.)
                         
-                        ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)        
+                        ZT4->ZT4_COD   := Alltrim(oGet2A:BUFFER)        
                         if cTipo = 'I'
-                            if !empty(QRY_IL->(ZCA_IMPLP)) .OR. !empty(QRY_IMRL->(ZM1_IMPRES)) .OR. !empty(QRY_IMLP->(ZM2_IMPRES)) 
+                            if !empty(QRY_IL->(ZT4_IMPLP)) .OR. !empty(QRY_IMRL->(ZT5_IMPRES)) .OR. !empty(QRY_IMLP->(ZT6_IMPRES)) 
                                 IF cNomeBtn != cNomeB
                                     MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
                                     DisarmTransaction()
@@ -4685,31 +4685,31 @@ static function altBtn()
                                     QRY_IMLP -> (DbCloseArea())
                                     return
                                 else
-                                    ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                                    ZT4->ZT4_DESC  := Alltrim(oGet3A:BUFFER)
                                 endif
                             else
-                                ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                                ZT4->ZT4_DESC  := Alltrim(oGet3A:BUFFER)
                             ENDIF
 
                         elseif cTipo = 'E'
-                            if !empty(QRY_EMRL->(ZM1_EST)) 
+                            if !empty(QRY_EMRL->(ZT5_EST)) 
                                 MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
                                 DisarmTransaction()
                                 QRY_EMRL -> (DbCloseArea())
                                 return
                             else
-                                ZCA->ZCA_DESC  := Alltrim(oGet3A:BUFFER)
+                                ZT4->ZT4_DESC  := Alltrim(oGet3A:BUFFER)
                             ENDIF
                         endif
 
-                        ZCA->ZCA_TIPO  := Alltrim(oGet4A:BUFFER)
+                        ZT4->ZT4_TIPO  := Alltrim(oGet4A:BUFFER)
                         if oCombo5A:NAT == 1 .OR. oCombo5A:NAT == 0
-                            ZCA->ZCA_ATIVO := oCombo5A:AITEMS[1]
+                            ZT4->ZT4_ATIVO := oCombo5A:AITEMS[1]
                         elseif oCombo5A:NAT == 2
-                            ZCA->ZCA_ATIVO := oCombo5A:AITEMS[2]
+                            ZT4->ZT4_ATIVO := oCombo5A:AITEMS[2]
                         ENDIF
-                        ZCA->ZCA_DATA  := CTOD(oGet6A:BUFFER)       
-                    ZCA -> (MSUNLOCK())
+                        ZT4->ZT4_DATA  := CTOD(oGet6A:BUFFER)       
+                    ZT4 -> (MSUNLOCK())
                 endif
                 end transaction
                 FwAlertSuccess('ALTERAÇÃO FEITA COM SUCESSO!!','ATENÇÃO')
@@ -4759,35 +4759,35 @@ static function altBtn()
                 Alert('HÁ LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS!!')
             else
             begin transaction 
-            IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cItemTipo))
+            IF ZT4->(DbSeek(xFilial('ZT4') + cCod + cItemTipo))
                 RecLock(cAlias, .F.)
-                    ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
-                    ZCA->ZCA_DESC  := Alltrim(oGet9A:BUFFER)
-                    ZCA->ZCA_TIPO  := Alltrim(oGet4A:BUFFER)
+                    ZT4->ZT4_COD   := Alltrim(oGet2A:BUFFER)
+                    ZT4->ZT4_DESC  := Alltrim(oGet9A:BUFFER)
+                    ZT4->ZT4_TIPO  := Alltrim(oGet4A:BUFFER)
                     if oCombo5A:NAT == 1 .OR. oCombo5A:NAT == 0
-                        ZCA->ZCA_ATIVO := oCombo5A:AITEMS[1]
+                        ZT4->ZT4_ATIVO := oCombo5A:AITEMS[1]
                     elseif oCombo5A:NAT == 2
-                        ZCA->ZCA_ATIVO := oCombo5A:AITEMS[2]
+                        ZT4->ZT4_ATIVO := oCombo5A:AITEMS[2]
                     ENDIF
-                    ZCA->ZCA_DATA    := CTOD(oGet6A:BUFFER)
+                    ZT4->ZT4_DATA    := CTOD(oGet6A:BUFFER)
 
-                    if !empty(QRY_RMRL->(ZM1_ROLO)) 
+                    if !empty(QRY_RMRL->(ZT5_ROLO)) 
                         IF cNomeBtn != cNomeB
                             MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
                             DisarmTransaction()
                             return
                         else 
-                            ZCA->ZCA_NOMERL  := Alltrim(oGet3A:BUFFER)
+                            ZT4->ZT4_NOMERL  := Alltrim(oGet3A:BUFFER)
                         endif
                     else
-                        ZCA->ZCA_NOMERL  := Alltrim(oGet3A:BUFFER)
+                        ZT4->ZT4_NOMERL  := Alltrim(oGet3A:BUFFER)
                     endif
 
-                    ZCA->ZCA_DIAMRL  := Alltrim(oGet10A:BUFFER)
-                    ZCA->ZCA_COMPRL  := Alltrim(oGet11A:BUFFER)
-                    ZCA->ZCA_MATRL   := Alltrim(oGet12A:BUFFER)
-                    ZCA->ZCA_DURERL  := Alltrim(oGet13A:BUFFER)
-                ZCA -> (MSUNLOCK())
+                    ZT4->ZT4_DIAMRL  := Alltrim(oGet10A:BUFFER)
+                    ZT4->ZT4_COMPRL  := Alltrim(oGet11A:BUFFER)
+                    ZT4->ZT4_MATRL   := Alltrim(oGet12A:BUFFER)
+                    ZT4->ZT4_DURERL  := Alltrim(oGet13A:BUFFER)
+                ZT4 -> (MSUNLOCK())
             endif
             end transaction
             FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
@@ -4835,37 +4835,37 @@ static function altBtn()
                 Alert('HÁ LETRAS EM CAMPOS QUE PRECISAM SER PREENCHIDOS POR NUMEROS!!')
             else
             begin transaction 
-            IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cItemTipo))
+            IF ZT4->(DbSeek(xFilial('ZT4') + cCod + cItemTipo))
                 RecLock(cAlias, .F.)
 
-                    ZCA->ZCA_COD   := Alltrim(oGet2A:BUFFER)
+                    ZT4->ZT4_COD   := Alltrim(oGet2A:BUFFER)
 
-                    if !empty(QRY_LMLP->(ZM2_LAMP)) 
+                    if !empty(QRY_LMLP->(ZT6_LAMP)) 
                         IF cNomeBtn != cNomeB
                             MsgAlert('Registro ja usado, idendificador(descrição) não pode ser alterado')
                             DisarmTransaction()
                             return
                         else 
-                            ZCA->ZCA_NOMELP  := Alltrim(oGet3A:BUFFER)
+                            ZT4->ZT4_NOMELP  := Alltrim(oGet3A:BUFFER)
                         endif
                     else
-                        ZCA->ZCA_NOMELP  := Alltrim(oGet3A:BUFFER)
+                        ZT4->ZT4_NOMELP  := Alltrim(oGet3A:BUFFER)
                     endif
 
-                    ZCA->ZCA_TIPO  := Alltrim(oGet4A:BUFFER)
+                    ZT4->ZT4_TIPO  := Alltrim(oGet4A:BUFFER)
                     if oCombo5A:NAT == 1 .OR. oCombo5A:NAT == 0
-                        ZCA->ZCA_ATIVO := oCombo5A:AITEMS[1]
+                        ZT4->ZT4_ATIVO := oCombo5A:AITEMS[1]
                     elseif oCombo5A:NAT == 2
-                        ZCA->ZCA_ATIVO := oCombo5A:AITEMS[2]
+                        ZT4->ZT4_ATIVO := oCombo5A:AITEMS[2]
                     ENDIF
-                    ZCA->ZCA_DATA    := CTOD(oGet6A:BUFFER)
-                    ZCA->ZCA_IMPLP   := Alltrim(oGet15A:BUFFER)
-                    ZCA->ZCA_MODLP   := Alltrim(oGet16A:BUFFER)
-                    ZCA->ZCA_TENSLP  := Alltrim(oGet17A:BUFFER)
-                    ZCA->ZCA_CORRLP  := Alltrim(oGet18A:BUFFER)
-                    ZCA->ZCA_POTLP   := Alltrim(oGet19A:BUFFER)
-                    ZCA->ZCA_MODREF  := Alltrim(oGet20A:BUFFER)
-                ZCA -> (MSUNLOCK())
+                    ZT4->ZT4_DATA    := CTOD(oGet6A:BUFFER)
+                    ZT4->ZT4_IMPLP   := Alltrim(oGet15A:BUFFER)
+                    ZT4->ZT4_MODLP   := Alltrim(oGet16A:BUFFER)
+                    ZT4->ZT4_TENSLP  := Alltrim(oGet17A:BUFFER)
+                    ZT4->ZT4_CORRLP  := Alltrim(oGet18A:BUFFER)
+                    ZT4->ZT4_POTLP   := Alltrim(oGet19A:BUFFER)
+                    ZT4->ZT4_MODREF  := Alltrim(oGet20A:BUFFER)
+                ZT4 -> (MSUNLOCK())
             endif
             end transaction
             FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
@@ -4894,32 +4894,32 @@ static function altBtn()
 
     if cTipo == 'I'
         fCarAcols()
-        oMsGetZCAI:ACOLS := aCols
-        oMsGetZCAI:oBrowse:Refresh()
+        oMsGetZT4I:ACOLS := aCols
+        oMsGetZT4I:oBrowse:Refresh()
     elseif cTipo == 'E'
         fCarAcols()
-        oMsGetZCAE:ACOLS := aCols
-        oMsGetZCAE:oBrowse:Refresh()
+        oMsGetZT4E:ACOLS := aCols
+        oMsGetZT4E:oBrowse:Refresh()
     elseif cTipo == 'R'
         fCarAcols()
-        oMsGetZCAR:ACOLS := aCols
-        oMsGetZCAR:oBrowse:Refresh()
+        oMsGetZT4R:ACOLS := aCols
+        oMsGetZT4R:oBrowse:Refresh()
     elseif cTipo == 'L'
         fCarAcols()
-        oMsGetZCAL:ACOLS := aCols
-        oMsGetZCAL:oBrowse:Refresh()
+        oMsGetZT4L:ACOLS := aCols
+        oMsGetZT4L:oBrowse:Refresh()
     endif
 
 FWRestArea(aArea)
 return
 
-static function trazcodZM1()
+static function trazcodZT5()
 
     Local aArea := FwGetArea()
     Local cQry
     Local cNum
 
-    cQry := "SELECT MAX(ZM1_COD) AS TRAZC FROM " + RetSqlName('ZM1')
+    cQry := "SELECT MAX(ZT5_COD) AS TRAZC FROM " + RetSqlName('ZT5')
 
     TCQUERY cQry NEW ALIAS 'QRY_TRAS'
 
@@ -4931,13 +4931,13 @@ static function trazcodZM1()
 
 return (cNum)
 
-static function trazcodZM2()
+static function trazcodZT6()
 
     Local aArea := FwGetArea()
     Local cQry
     Local cNum
 
-    cQry := "SELECT MAX(ZM2_COD) AS TRAZC FROM " + RetSqlName('ZM2')
+    cQry := "SELECT MAX(ZT6_COD) AS TRAZC FROM " + RetSqlName('ZT6')
 
     TCQUERY cQry NEW ALIAS 'QRY_TRAS'
 
@@ -5003,21 +5003,21 @@ User Function RLLP23EXC()
 
             cNameTableExc := oTableTempExc:GetRealName()
 
-            DbSelectArea('ZCA')
+            DbSelectArea('ZT4')
 
                 RecLock(cAliasTempAlt, .T.)
                 IF cTipo == 'I'
-                    (cAliasTempAlt) -> (COD_EXC)   := (aColsAux[oMsGetZCAI:Nat][1]) 
-                    (cAliasTempAlt) -> (DESC_EXC)  := (aColsAux[oMsGetZCAI:Nat][2]) 
+                    (cAliasTempAlt) -> (COD_EXC)   := (aColsAux[oMsGetZT4I:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_EXC)  := (aColsAux[oMsGetZT4I:Nat][2]) 
                     (cAliasTempAlt) -> (TIPO_EXC)  := ('I = Impressora') 
-                    (cAliasTempAlt) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAI:Nat][4]) 
-                    (cAliasTempAlt) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAI:Nat][5]) 
+                    (cAliasTempAlt) -> (ATIVO_EXC) := (aColsAux[oMsGetZT4I:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZT4I:Nat][5]) 
                 elseif cTipo == 'E'
-                    (cAliasTempAlt) -> (COD_EXC)   := (aColsAux[oMsGetZCAE:Nat][1]) 
-                    (cAliasTempAlt) -> (DESC_EXC)  := (aColsAux[oMsGetZCAE:Nat][2]) 
+                    (cAliasTempAlt) -> (COD_EXC)   := (aColsAux[oMsGetZT4E:Nat][1]) 
+                    (cAliasTempAlt) -> (DESC_EXC)  := (aColsAux[oMsGetZT4E:Nat][2]) 
                     (cAliasTempAlt) -> (TIPO_EXC)  := ('E = Estação') 
-                    (cAliasTempAlt) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAE:Nat][4]) 
-                    (cAliasTempAlt) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAE:Nat][5]) 
+                    (cAliasTempAlt) -> (ATIVO_EXC) := (aColsAux[oMsGetZT4E:Nat][4]) 
+                    (cAliasTempAlt) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZT4E:Nat][5]) 
                 endif
                     if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -5071,14 +5071,14 @@ User Function RLLP23EXC()
 
             cNameTableExc := oTableTempExc:GetRealName()
 
-            DbSelectArea('ZCA')
+            DbSelectArea('ZT4')
 
                 RecLock(cAliasTempAlt, .T.)
-                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAR:Nat][1]) 
-                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZCAR:Nat][2]) 
-                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAR:Nat][3]) 
-                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAR:Nat][4]) 
-                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAR:Nat][5]) 
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZT4R:Nat][1]) 
+                    (cAliasTempExc) -> (DESC_EXC)  := (aColsAux[oMsGetZT4R:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZT4R:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZT4R:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZT4R:Nat][5]) 
 
                     if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
@@ -5087,11 +5087,11 @@ User Function RLLP23EXC()
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                         aCombo5EE := {'N=NAO','S=SIM'}
                     endif
-                    (cAliasTempExc) -> (NOMERL_EXC)  := (aColsAux[oMsGetZCAR:Nat][6])
-                    (cAliasTempExc) -> (DIAMRL_EXC)  := (aColsAux[oMsGetZCAR:Nat][7])
-                    (cAliasTempExc) -> (COMPRL_EXC)  := (aColsAux[oMsGetZCAR:Nat][8])
-                    (cAliasTempExc) -> (MATRL_EXC)  :=  (aColsAux[oMsGetZCAR:Nat][9])
-                    (cAliasTempExc) -> (DURERL_EXC)  := (aColsAux[oMsGetZCAR:Nat][10])
+                    (cAliasTempExc) -> (NOMERL_EXC)  := (aColsAux[oMsGetZT4R:Nat][6])
+                    (cAliasTempExc) -> (DIAMRL_EXC)  := (aColsAux[oMsGetZT4R:Nat][7])
+                    (cAliasTempExc) -> (COMPRL_EXC)  := (aColsAux[oMsGetZT4R:Nat][8])
+                    (cAliasTempExc) -> (MATRL_EXC)  :=  (aColsAux[oMsGetZT4R:Nat][9])
+                    (cAliasTempExc) -> (DURERL_EXC)  := (aColsAux[oMsGetZT4R:Nat][10])
 
                 (cAliasTempExc) -> (MSUNLOCK())
 
@@ -5143,14 +5143,14 @@ User Function RLLP23EXC()
 
             cNameTableExc := oTableTempExc:GetRealName()
 
-            DbSelectArea('ZCA')
+            DbSelectArea('ZT4')
 
                 RecLock(cAliasTempExc, .T.)
-                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZCAL:Nat][1]) 
-                    (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZCAL:Nat][2]) 
-                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZCAL:Nat][3]) 
-                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZCAL:Nat][4]) 
-                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZCAL:Nat][5]) 
+                    (cAliasTempExc) -> (COD_EXC)   := (aColsAux[oMsGetZT4L:Nat][1]) 
+                    (cAliasTempExc) -> (NOMELP_EXC):= (aColsAux[oMsGetZT4L:Nat][2]) 
+                    (cAliasTempExc) -> (TIPO_EXC)  := (aColsAux[oMsGetZT4L:Nat][3]) 
+                    (cAliasTempExc) -> (ATIVO_EXC) := (aColsAux[oMsGetZT4L:Nat][4]) 
+                    (cAliasTempExc) -> (DATA_EXC)  := Stod(aColsAux[oMsGetZT4L:Nat][5]) 
                     if (cAliasTempExc) -> (ATIVO_EXC) == 'S'
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                         aCombo5EE := {'S=SIM','N=NAO'}
@@ -5158,12 +5158,12 @@ User Function RLLP23EXC()
                         (cAliasTempExc) -> (ATIVO_NAT)  := "1"
                         aCombo5EE := {'N=NAO','S=SIM'}
                     endif
-                    (cAliasTempExc) -> (IMPRES_EXC)  := ZCA -> (aColsAux[oMsGetZCAL:Nat][6]) 
-                    (cAliasTempExc) -> (MODLP_EXC)   := ZCA -> (aColsAux[oMsGetZCAL:Nat][7]) 
-                    (cAliasTempExc) -> (TENS_EXC)    := ZCA -> (aColsAux[oMsGetZCAL:Nat][8]) 
-                    (cAliasTempExc) -> (CORR_EXC)    := ZCA -> (aColsAux[oMsGetZCAL:Nat][9]) 
-                    (cAliasTempExc) -> (POT_EXC)     := ZCA -> (aColsAux[oMsGetZCAL:Nat][10]) 
-                    (cAliasTempExc) -> (MODREF_EXC)  := ZCA -> (aColsAux[oMsGetZCAL:Nat][11]) 
+                    (cAliasTempExc) -> (IMPRES_EXC)  := ZT4 -> (aColsAux[oMsGetZT4L:Nat][6]) 
+                    (cAliasTempExc) -> (MODLP_EXC)   := ZT4 -> (aColsAux[oMsGetZT4L:Nat][7]) 
+                    (cAliasTempExc) -> (TENS_EXC)    := ZT4 -> (aColsAux[oMsGetZT4L:Nat][8]) 
+                    (cAliasTempExc) -> (CORR_EXC)    := ZT4 -> (aColsAux[oMsGetZT4L:Nat][9]) 
+                    (cAliasTempExc) -> (POT_EXC)     := ZT4 -> (aColsAux[oMsGetZT4L:Nat][10]) 
+                    (cAliasTempExc) -> (MODREF_EXC)  := ZT4 -> (aColsAux[oMsGetZT4L:Nat][11]) 
 
                 (cAliasTempExc) -> (MSUNLOCK())
 
@@ -5969,49 +5969,49 @@ static function excBtn()
 
         if cTipo == 'I'
 
-             cQryIL  := "SELECT ZCA_COD, ZCA_IMPLP FROM " + RetSQLName('ZCA') + " WHERE ZCA_TIPO = 'L' AND ZCA_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+             cQryIL  := "SELECT ZT4_COD, ZT4_IMPLP FROM " + RetSQLName('ZT4') + " WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIL New Alias "QRY_IL"
 
-            cQryIMRL  := "SELECT ZM1_COD,ZM1_IMPRES FROM " + RetSQLName('ZM1') + " WHERE ZM1_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZT5_COD,ZT5_IMPRES FROM " + RetSQLName('ZT5') + " WHERE ZT5_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
-            cQryIMLP  := "SELECT ZM2_COD,ZM2_IMPRES FROM " + RetSQLName('ZM2') + " WHERE ZM2_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMLP  := "SELECT ZT6_COD,ZT6_IMPRES FROM " + RetSQLName('ZT6') + " WHERE ZT6_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMLP New Alias "QRY_IMLP"
 
-            if !Empty(QRY_IL->(ZCA_IMPLP)) .OR. !Empty(QRY_IMRL->(ZM1_IMPRES)) .OR. !Empty(QRY_IMLP->(ZM2_IMPRES))
+            if !Empty(QRY_IL->(ZT4_IMPLP)) .OR. !Empty(QRY_IMRL->(ZT5_IMPRES)) .OR. !Empty(QRY_IMLP->(ZT6_IMPRES))
                 LDsc := .T.
             ENDIF
 
         elseif cTipo == 'E'
 
-            cQryEMRL  := "SELECT ZM1_COD,ZM1_EST FROM " + RetSQLName('ZM1') + " WHERE ZM1_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryEMRL  := "SELECT ZT5_COD,ZT5_EST FROM " + RetSQLName('ZT5') + " WHERE ZT5_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryEMRL New Alias "QRY_EMRL"
 
-            if !Empty(QRY_EMRL->(ZM1_EST))
+            if !Empty(QRY_EMRL->(ZT5_EST))
                 LDsc := .T.
             ENDIF
 
         elseif cTipo == 'R'
 
-            cQryRMRL  := "SELECT ZM1_COD,ZM1_ROLO FROM " + RetSQLName('ZM1') + " WHERE ZM1_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryRMRL  := "SELECT ZT5_COD,ZT5_ROLO FROM " + RetSQLName('ZT5') + " WHERE ZT5_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryRMRL New Alias "QRY_RMRL"
 
-            if !Empty(QRY_RMRL->(ZM1_ROLO))
+            if !Empty(QRY_RMRL->(ZT5_ROLO))
                 LDsc := .T.
             ENDIF
 
         elseif cTipo == 'L'
 
-            cQryLMLP  := "SELECT ZM2_COD,ZM2_LAMP FROM " + RetSQLName('ZM2') + " WHERE ZM2_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryLMLP  := "SELECT ZT6_COD,ZT6_LAMP FROM " + RetSQLName('ZT6') + " WHERE ZT6_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryLMLP New Alias "QRY_LMLP"
 
-            If !Empty(QRY_LMLP->(ZM2_LAMP))
+            If !Empty(QRY_LMLP->(ZT6_LAMP))
                 LDsc := .T.
             ENDIF
 
@@ -6042,13 +6042,13 @@ static function excBtn()
             elseif cTipoItem == 'L = LAMPADA'
                 cTipoItem := 'L'
             endif
-                DbSelectArea('ZCA')
-                ZCA->(DbSetOrder(1))
+                DbSelectArea('ZT4')
+                ZT4->(DbSetOrder(1))
 
-                IF ZCA->(DbSeek(xFilial('ZCA') + cCod + cTipoItem))
-                    RecLock('ZCA', .F.)
+                IF ZT4->(DbSeek(xFilial('ZT4') + cCod + cTipoItem))
+                    RecLock('ZT4', .F.)
                     DbDelete()
-                    ZCA -> (MsUnlock())  
+                    ZT4 -> (MsUnlock())  
                     lEsc := MsgYesNo('Deseja remover mesmo?')
                     if lEsc == .F.
                         DisarmTransaction()
@@ -6057,15 +6057,15 @@ static function excBtn()
                         FwAlertSuccess('REGISTRO REMOVIDO!!')
                         oDlgExc:End()
                     endif
-                ZCA->(DbCloseArea())
+                ZT4->(DbCloseArea())
             endif
             end Transaction
         endif   
 
     if cTipo == 'I'
         fCarAcols()
-        oMsGetZCAI:ACOLS := aCols
-        oMsGetZCAI:oBrowse:Refresh()
+        oMsGetZT4I:ACOLS := aCols
+        oMsGetZT4I:oBrowse:Refresh()
         if lDsc == .F.
             QRY_IL -> (DbCloseArea())
             QRY_IMRL -> (DbCloseArea())
@@ -6073,22 +6073,22 @@ static function excBtn()
         endif
     elseif cTipo == 'E'
         fCarAcols()
-        oMsGetZCAE:ACOLS := aCols
-        oMsGetZCAE:oBrowse:Refresh()
+        oMsGetZT4E:ACOLS := aCols
+        oMsGetZT4E:oBrowse:Refresh()
         if lDsc == .F.
             QRY_EMRL -> (DbCloseArea())
         endif
     elseif cTipo == 'R'
         fCarAcols()
-        oMsGetZCAR:ACOLS := aCols
-        oMsGetZCAR:oBrowse:Refresh()
+        oMsGetZT4R:ACOLS := aCols
+        oMsGetZT4R:oBrowse:Refresh()
         if lDsc == .F.
             QRY_RMRL -> (DbCloseArea())
         endif
     elseif cTipo == 'L'
         fCarAcols()
-        oMsGetZCAL:ACOLS := aCols
-        oMsGetZCAL:oBrowse:Refresh()
+        oMsGetZT4L:ACOLS := aCols
+        oMsGetZT4L:oBrowse:Refresh()
         if lDsc == .F.
             QRY_LMLP -> (DbCloseArea())
         endif
@@ -6114,9 +6114,9 @@ Static function fCarAcolsMRL()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM "+RetSqlName('ZM1')+" WHERE D_E_L_E_T_ = '' AND ZM1_FILIAL = '" + FWCodFil() + "'"
+    cQry := "SELECT * FROM "+RetSqlName('ZT5')+" WHERE D_E_L_E_T_ = '' AND ZT5_FILIAL = '" + FWCodFil() + "'"
 
-        TCQUERY cQry New Alias "QRY_ZM1"
+        TCQUERY cQry New Alias "QRY_ZT5"
 
         Count To nTotal
         ProcRegua(nTotal)
@@ -6125,29 +6125,29 @@ Static function fCarAcolsMRL()
 
         aSize(aColsM, - nTam)
 
-        QRY_ZM1 -> (DbGoTop())
-        while ! QRY_ZM1->(Eof())
+        QRY_ZT5 -> (DbGoTop())
+        while ! QRY_ZT5->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aColsM,{QRY_ZM1->ZM1_COD,;
-                         QRY_ZM1->ZM1_EST,;
-                         QRY_ZM1->ZM1_IMPRES,;
-                         QRY_ZM1->ZM1_USU,;
-                         QRY_ZM1->ZM1_ROLO,;
-                         QRY_ZM1->ZM1_FAB,;
-                         QRY_ZM1->ZM1_DATAIN,;
-                         QRY_ZM1->ZM1_OBS,;
-                         QRY_ZM1->ZM1_DATACAD,;
-                         QRY_ZM1->ZM1_ATIVO,;
-                         QRY_ZM1->ZM1_METRA,;
+            AAdd(aColsM,{QRY_ZT5->ZT5_COD,;
+                         QRY_ZT5->ZT5_EST,;
+                         QRY_ZT5->ZT5_IMPRES,;
+                         QRY_ZT5->ZT5_USU,;
+                         QRY_ZT5->ZT5_ROLO,;
+                         QRY_ZT5->ZT5_FAB,;
+                         QRY_ZT5->ZT5_DATAIN,;
+                         QRY_ZT5->ZT5_OBS,;
+                         QRY_ZT5->ZT5_DATACAD,;
+                         QRY_ZT5->ZT5_ATIVO,;
+                         QRY_ZT5->ZT5_METRA,;
                         .F.;
                         })
 
-            QRY_ZM1 ->(DbSkip())
+            QRY_ZT5 ->(DbSkip())
         enddo
-        QRY_ZM1->(DbCloseArea())
+        QRY_ZT5->(DbCloseArea())
 
         FWRestArea(aArea) 
 return
@@ -6184,7 +6184,7 @@ User function incMRl()
     Private oSay2M
     Private cSay2MM     := 'Código'
     Private oGet2M
-    Private cGet2MM     := Space(TamSX3('ZM1_COD')[1])
+    Private cGet2MM     := Space(TamSX3('ZT5_COD')[1])
     
 
     Private oSay3M
@@ -6212,7 +6212,7 @@ User function incMRl()
     Private oSay7M
     Private cSay7MM    := 'Fabricador'
     Private oGet7M
-    Private xGet7MM    := Space(TamSX3('ZM1_FAB')[1])
+    Private xGet7MM    := Space(TamSX3('ZT5_FAB')[1])
 
     Private oSay8M
     Private cSay8MM    := 'Data instalação'
@@ -6222,7 +6222,7 @@ User function incMRl()
     Private oSay9M
     Private cSay9MM    := 'Observação'
     Private oGet9M
-    Private xGet9MM    := Space(TamSX3('ZM1_OBS')[1])
+    Private xGet9MM    := Space(TamSX3('ZT5_OBS')[1])
 
     Private oSay10M
     Private cSay10MM    := 'Data Cadastramento'
@@ -6237,14 +6237,14 @@ User function incMRl()
     Private oSay12M
     Private cSay12MM    := 'Metragem'
     Private oGet12M
-    Private xGet12MM    := Space(TamSX3('ZM1_METRA')[1])
+    Private xGet12MM    := Space(TamSX3('ZT5_METRA')[1])
 
     Private nEscM 
 
     nEscBD := 2
 
      AADD(aHeaderM,{"Codigo",;      
-                      "ZM1_COD",;      
+                      "ZT5_COD",;      
                       "",;             
                        6,;             
                        0,;             
@@ -6254,7 +6254,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"Impressora",;
-                      "ZM1_IMPRES",;
+                      "ZT5_IMPRES",;
                       "@!",;
                        50,;
                        0,;
@@ -6264,7 +6264,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"Estação Rl",;
-                      "ZM1_EST",;
+                      "ZT5_EST",;
                       "@!",;
                        50,;
                        0,;
@@ -6274,7 +6274,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"Usuario",;
-                      "ZM1_USU",;
+                      "ZT5_USU",;
                       "@!",;
                        50,;
                        0,;
@@ -6284,7 +6284,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"Rolo",;
-                      "ZM1_ROLO",;
+                      "ZT5_ROLO",;
                       "",;
                        50,;
                        0,;
@@ -6294,7 +6294,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"Fabricante do Rolo",;
-                      "ZM1_FAB",;
+                      "ZT5_FAB",;
                       "@!",;
                        50,;
                        0,;
@@ -6304,7 +6304,7 @@ User function incMRl()
                       ""})
         
         AADD(aHeaderM,{"Data Inscrição",;
-                      "ZM1_DATAIN",;
+                      "ZT5_DATAIN",;
                       "@!",;
                        8,;
                        0,;
@@ -6314,7 +6314,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"Observação",;
-                      "ZM1_OBS",;
+                      "ZT5_OBS",;
                       "@!",;
                        100,;
                        0,;
@@ -6324,7 +6324,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"Data Cadastro",;
-                      "ZM1_DATACA",;
+                      "ZT5_DATACA",;
                       "",;
                        8,;
                        0,;
@@ -6334,7 +6334,7 @@ User function incMRl()
                       ""})
 
         AADD(aHeaderM,{"ATIVO",;
-                      "ZM1_ATIVO",;
+                      "ZT5_ATIVO",;
                       "",;
                        1,;
                        0,;
@@ -6344,7 +6344,7 @@ User function incMRl()
                       "S=SIM;N=NÃO"})
 
         AADD(aHeaderM,{"Metragem Rolo",;
-                      "ZM1_METRA",;
+                      "ZT5_METRA",;
                       "",;
                        7,;
                        0,;
@@ -6406,7 +6406,7 @@ User function incMRl()
         oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2M:SetCss(" TSay {Font: Semi-Bold}")
 
-        DbSelectArea('ZM1')
+        DbSelectArea('ZT5')
 
         geraCodM()
 
@@ -6417,7 +6417,7 @@ User function incMRl()
         nObjAltu := 15
         oGet2M   := TGet():New(nObjLinh, nObjColu, {||cGet2MM}, oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
-        ZM1->(DbCloseArea())
+        ZT5->(DbCloseArea())
 
         oGet2M:lActive := .F.
 
@@ -6588,7 +6588,7 @@ User function incMRl()
         nObjAltu := 15
         oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgCadM, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
         
-        oMsGetZCA := MsNewGetDados():New(155,;
+        oMsGetZT4 := MsNewGetDados():New(155,;
                                          005,;
                                          (nJanAltu/2)-6,;
                                          (nJanLarg/2)-3,;
@@ -6606,7 +6606,7 @@ User function incMRl()
                                          aHeaderM,;
                                          aColsM) 
 
-            oMsGetZCA:lActive := .F. 
+            oMsGetZT4:lActive := .F. 
 
         oDlgCadM:Activate()
 
@@ -6616,7 +6616,7 @@ return
 
 static function cadBtnM()
     Local aArea := FWGetArea()
-    Local cAlias := 'ZM1'
+    Local cAlias := 'ZT5'
     Local lEscolha := .F.
 
 // -------------------------------------------------------------------------------
@@ -6638,27 +6638,27 @@ static function cadBtnM()
             else
             begin transaction 
             RecLock(cAlias, .T.)
-                ZM1->ZM1_FILIAL := xFilial('ZM1')
-                ZM1->ZM1_COD     := Alltrim(oGet2M:BUFFER)
-                ZM1->ZM1_IMPRES  := Upper(Alltrim(oGet3M:BUFFER))
-                ZM1->ZM1_EST     := Upper(Alltrim(oGet4M:BUFFER))
-                ZM1->ZM1_USU     := Upper(AllTrim(oGet5M:BUFFER))
-                ZM1->ZM1_ROLO    := Upper(Alltrim(oGet6M:BUFFER))
-                ZM1->ZM1_FAB     := Upper(Alltrim(oGet7M:BUFFER))
-                ZM1->ZM1_DATAIN  :=    CTOD(oGet8M:BUFFER)
-                ZM1->ZM1_OBS     := Upper(Alltrim(oGet9M:BUFFER))
-                ZM1->ZM1_DATACA  :=    CTOD(oGet10M:BUFFER)
+                ZT5->ZT5_FILIAL := xFilial('ZT5')
+                ZT5->ZT5_COD     := Alltrim(oGet2M:BUFFER)
+                ZT5->ZT5_IMPRES  := Upper(Alltrim(oGet3M:BUFFER))
+                ZT5->ZT5_EST     := Upper(Alltrim(oGet4M:BUFFER))
+                ZT5->ZT5_USU     := Upper(AllTrim(oGet5M:BUFFER))
+                ZT5->ZT5_ROLO    := Upper(Alltrim(oGet6M:BUFFER))
+                ZT5->ZT5_FAB     := Upper(Alltrim(oGet7M:BUFFER))
+                ZT5->ZT5_DATAIN  :=    CTOD(oGet8M:BUFFER)
+                ZT5->ZT5_OBS     := Upper(Alltrim(oGet9M:BUFFER))
+                ZT5->ZT5_DATACA  :=    CTOD(oGet10M:BUFFER)
                 if oCombo11M:NAT == 2
-                        ZM1->ZM1_ATIVO := oCombo11M:AITEMS[2]
+                        ZT5->ZT5_ATIVO := oCombo11M:AITEMS[2]
                     elseif oCombo11M:NAT == 3
-                        ZM1->ZM1_ATIVO := oCombo11M:AITEMS[3]
+                        ZT5->ZT5_ATIVO := oCombo11M:AITEMS[3]
                     elseif oCombo11M:nat == 1 .OR. oCombo11M:nat == 0
                         MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)', 'ATENÇÃO')
                         DisarmTransaction()
                         return
                 ENDIF
-                ZM1->ZM1_METRA   := Alltrim(oGet12M:BUFFER)
-            ZM1 -> (MSUNLOCK())
+                ZT5->ZT5_METRA   := Alltrim(oGet12M:BUFFER)
+            ZT5 -> (MSUNLOCK())
             end transaction
                 FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
 
@@ -6666,14 +6666,14 @@ static function cadBtnM()
 
             if lEsc == .F.
                 geraCodM()
-                oGet2M:BUFFER := Space(TamSX3('ZM1_COD')[1])
-                oGet3M:BUFFER := Space(TamSX3('ZM1_IMPRES')[1])
-                oGet4M:BUFFER := Space(TamSX3('ZM1_EST')[1])
-                oGet6M:BUFFER := Space(TamSX3('ZM1_ROLO')[1])
-                oGet7M:BUFFER := Space(TamSX3('ZM1_FAB')[1])
-                oGet9M:BUFFER := Space(TamSX3('ZM1_OBS')[1])
+                oGet2M:BUFFER := Space(TamSX3('ZT5_COD')[1])
+                oGet3M:BUFFER := Space(TamSX3('ZT5_IMPRES')[1])
+                oGet4M:BUFFER := Space(TamSX3('ZT5_EST')[1])
+                oGet6M:BUFFER := Space(TamSX3('ZT5_ROLO')[1])
+                oGet7M:BUFFER := Space(TamSX3('ZT5_FAB')[1])
+                oGet9M:BUFFER := Space(TamSX3('ZT5_OBS')[1])
                 oCombo11M:Nat := 0
-                oGet12M:BUFFER := Space(TamSX3('ZM1_METRA')[1])
+                oGet12M:BUFFER := Space(TamSX3('ZT5_METRA')[1])
             ENDIF
             endif
         else
@@ -6681,8 +6681,8 @@ static function cadBtnM()
         ENDIF
 
         fCarAcolsMRL()
-        oMsGetZCA:ACOLS := aColsM
-        oMsGetZCA:oBrowse:Refresh()
+        oMsGetZT4:ACOLS := aColsM
+        oMsGetZT4:oBrowse:Refresh()
         geraCodM()
 
     FWRestArea(aArea)
@@ -6697,40 +6697,40 @@ Static function geraCodM()
     Local cTira := ''
     Local nRec  
 
-    IF SELECT('ZM1') > 0
+    IF SELECT('ZT5') > 0
 
-    DbSelectArea('ZM1')
+    DbSelectArea('ZT5')
         
-        cQry := "SELECT ZM1_COD AS REC1 FROM "+ RetSqlName('ZM1')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZM1')+" WHERE ZM1_FILIAL = '" + FWCodFil() + "')"
+        cQry := "SELECT ZT5_COD AS REC1 FROM "+ RetSqlName('ZT5')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZT5')+" WHERE ZT5_FILIAL = '" + FWCodFil() + "')"
 
-        TCQUERY cQry NEW ALIAS 'REC_ZM1'
+        TCQUERY cQry NEW ALIAS 'REC_ZT5'
 
-        nRec := (REC_ZM1 -> REC1)
+        nRec := (REC_ZT5 -> REC1)
 
             cNumG := SOMA1(nRec) 
             cTira := cNumG
 
-        REC_ZM1 -> (DbCloseArea())   
+        REC_ZT5 -> (DbCloseArea())   
 
-    ZM1 -> (DbCloseArea())
+    ZT5 -> (DbCloseArea())
 
     cGet2MM := cTira
 
-    ELSEIF SELECT('ZM2') > 0
+    ELSEIF SELECT('ZT6') > 0
 
-    DbSelectArea('ZM2')
-     cQry := "SELECT ZM2_COD AS REC2 FROM "+ RetSqlName('ZM2')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZM2')+" WHERE ZM2_FILIAL = '" + FWCodFil() + "')"
+    DbSelectArea('ZT6')
+     cQry := "SELECT ZT6_COD AS REC2 FROM "+ RetSqlName('ZT6')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT6')+" WHERE ZT6_FILIAL = '" + FWCodFil() + "')"
 
-        TCQUERY cQry NEW ALIAS 'REC_ZM2'
+        TCQUERY cQry NEW ALIAS 'REC_ZT6'
 
-        nRec := (REC_ZM2 -> REC2)
+        nRec := (REC_ZT6 -> REC2)
 
             cNumG := SOMA1(nRec) 
             cTira := cNumG
 
-        REC_ZM2 -> (DbCloseArea())   
+        REC_ZT6 -> (DbCloseArea())   
 
-    ZM2 -> (DbCloseArea())
+    ZT6 -> (DbCloseArea())
 
     xGet2LL := cTira
 
@@ -6774,19 +6774,19 @@ User function altMRL()
 
         cNameTableM := oTableTempAltM:GetRealName()
 
-        DbSelectArea('ZCA')
+        DbSelectArea('ZT4')
 
             RecLock(cAliasTempAltM, .T.)
-                (cAliasTempAltM) -> (COD_EXCM)     := ZM1 -> (ZM1_COD)
-                (cAliasTempAltM) -> (IMP_EXCM)     := ZM1 -> (ZM1_IMPRES)
-                (cAliasTempAltM) -> (EST_EXCM)     := ZM1 -> (ZM1_EST)
-                (cAliasTempAltM) -> (USU_EXCM)     := ZM1 -> (ZM1_USU)
-                (cAliasTempAltM) -> (ROLO_EXCM)    := ZM1 -> (ZM1_ROLO)
-                (cAliasTempAltM) -> (FAB_EXCM)     := ZM1 -> (ZM1_FAB)
-                (cAliasTempAltM) -> (DAIN_EXCM)    := ZM1 -> (ZM1_DATAIN)
-                (cAliasTempAltM) -> (OBS_EXCM)     := ZM1 -> (ZM1_OBS)
-                (cAliasTempAltM) -> (DACA_EXCM)    := ZM1 -> (ZM1_DATACA)
-                (cAliasTempAltM) -> (ATIVO_EXCM)    := ZM1 -> (ZM1_ATIVO)
+                (cAliasTempAltM) -> (COD_EXCM)     := ZT5 -> (ZT5_COD)
+                (cAliasTempAltM) -> (IMP_EXCM)     := ZT5 -> (ZT5_IMPRES)
+                (cAliasTempAltM) -> (EST_EXCM)     := ZT5 -> (ZT5_EST)
+                (cAliasTempAltM) -> (USU_EXCM)     := ZT5 -> (ZT5_USU)
+                (cAliasTempAltM) -> (ROLO_EXCM)    := ZT5 -> (ZT5_ROLO)
+                (cAliasTempAltM) -> (FAB_EXCM)     := ZT5 -> (ZT5_FAB)
+                (cAliasTempAltM) -> (DAIN_EXCM)    := ZT5 -> (ZT5_DATAIN)
+                (cAliasTempAltM) -> (OBS_EXCM)     := ZT5 -> (ZT5_OBS)
+                (cAliasTempAltM) -> (DACA_EXCM)    := ZT5 -> (ZT5_DATACA)
+                (cAliasTempAltM) -> (ATIVO_EXCM)    := ZT5 -> (ZT5_ATIVO)
                 if (cAliasTempAltM) -> (ATIVO_EXCM) == 'S'
                     (cAliasTempAltM) -> (ATIVO_NAT):= "1"
                     aCombo11M := {'S=SIM','N=NAO'}
@@ -6794,7 +6794,7 @@ User function altMRL()
                     (cAliasTempAltM) -> (ATIVO_NAT):= "1"
                     aCombo11M := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAltM) -> (MET_EXCM)     := ZM1 -> (ZM1_METRA)
+                (cAliasTempAltM) -> (MET_EXCM)     := ZT5 -> (ZT5_METRA)
             (cAliasTempAltM) -> (MSUNLOCK())
 
 
@@ -7150,7 +7150,7 @@ return
 Static function btnAltM()
 
     Local aArea := FWGetArea()
-    Local cAlias := 'ZM1'
+    Local cAlias := 'ZT5'
 
     lEscolha := MsgYesNo('DESEJA  ALTERAR O CADASTRO?','ATENÇÃO')
     
@@ -7167,22 +7167,22 @@ Static function btnAltM()
             else
             begin transaction 
             RecLock(cAlias, .F.)
-                ZM1->ZM1_COD       := Alltrim(oGet2M:BUFFER)
-                ZM1->ZM1_IMPRES    := Alltrim(oGet3M:BUFFER)
-                ZM1->ZM1_EST       := Alltrim(oGet4M:BUFFER)
-                ZM1->ZM1_USU       := Alltrim(oGet5M:BUFFER)
-                ZM1->ZM1_ROLO      := Alltrim(oGet6M:BUFFER)
-                ZM1->ZM1_FAB       := Alltrim(oGet7M:BUFFER)
-                ZM1->ZM1_DATAIN    := CTOD(oGet8M:BUFFER)
-                ZM1->ZM1_OBS       := Alltrim(oGet9M:BUFFER)
-                ZM1->ZM1_DATACA    := CTOD(oGet10M:BUFFER)
+                ZT5->ZT5_COD       := Alltrim(oGet2M:BUFFER)
+                ZT5->ZT5_IMPRES    := Alltrim(oGet3M:BUFFER)
+                ZT5->ZT5_EST       := Alltrim(oGet4M:BUFFER)
+                ZT5->ZT5_USU       := Alltrim(oGet5M:BUFFER)
+                ZT5->ZT5_ROLO      := Alltrim(oGet6M:BUFFER)
+                ZT5->ZT5_FAB       := Alltrim(oGet7M:BUFFER)
+                ZT5->ZT5_DATAIN    := CTOD(oGet8M:BUFFER)
+                ZT5->ZT5_OBS       := Alltrim(oGet9M:BUFFER)
+                ZT5->ZT5_DATACA    := CTOD(oGet10M:BUFFER)
                 if oCombo11M:NAT == 1 .OR. oCombo11M:NAT == 0
-                    ZM1->ZM1_ATIVO := oCombo11m:AITEMS[1]
+                    ZT5->ZT5_ATIVO := oCombo11m:AITEMS[1]
                 elseif oCombo11M:NAT == 2
-                    ZM1->ZM1_ATIVO := oCombo11M:AITEMS[2]
+                    ZT5->ZT5_ATIVO := oCombo11M:AITEMS[2]
                 ENDIF
-                ZM1->ZM1_METRA     := Alltrim(oGet12M:BUFFER)
-            ZM1 -> (MSUNLOCK())
+                ZT5->ZT5_METRA     := Alltrim(oGet12M:BUFFER)
+            ZT5 -> (MSUNLOCK())
             end transaction
             FwAlertSuccess('ALTERAÇÃO FEITA COM SUCESSO!!','ATENÇÃO')
             lEsc := MsgYesNo('Deseja Ir para o Menu Principal?(YES/NO)')
@@ -7244,19 +7244,19 @@ User function excMRL()
 
         cNameTableExc := oTableTempExcM:GetRealName()
 
-        DbSelectArea('ZM1')
+        DbSelectArea('ZT5')
 
             RecLock(cAliasTempExc, .T.)
-                (cAliasTempExc) -> (COD_EXCM)     := ZM1 -> (ZM1_COD)
-                (cAliasTempExc) -> (IMP_EXCM)     := ZM1 -> (ZM1_IMPRES)
-                (cAliasTempExc) -> (EST_EXCM)     := ZM1 -> (ZM1_EST)
-                (cAliasTempExc) -> (USU_EXCM)     := ZM1 -> (ZM1_USU)
-                (cAliasTempExc) -> (ROLO_EXCM)    := ZM1 -> (ZM1_ROLO)
-                (cAliasTempExc) -> (FAB_EXCM)     := ZM1 -> (ZM1_FAB)
-                (cAliasTempExc) -> (DAIN_EXCM)    := ZM1 -> (ZM1_DATAIN)
-                (cAliasTempExc) -> (OBS_EXCM)     := ZM1 -> (ZM1_OBS)
-                (cAliasTempExc) -> (DACA_EXCM)    := ZM1 -> (ZM1_DATACA)
-                (cAliasTempExc) -> (ATIVO_EXCM)    := ZM1 -> (ZM1_ATIVO)
+                (cAliasTempExc) -> (COD_EXCM)     := ZT5 -> (ZT5_COD)
+                (cAliasTempExc) -> (IMP_EXCM)     := ZT5 -> (ZT5_IMPRES)
+                (cAliasTempExc) -> (EST_EXCM)     := ZT5 -> (ZT5_EST)
+                (cAliasTempExc) -> (USU_EXCM)     := ZT5 -> (ZT5_USU)
+                (cAliasTempExc) -> (ROLO_EXCM)    := ZT5 -> (ZT5_ROLO)
+                (cAliasTempExc) -> (FAB_EXCM)     := ZT5 -> (ZT5_FAB)
+                (cAliasTempExc) -> (DAIN_EXCM)    := ZT5 -> (ZT5_DATAIN)
+                (cAliasTempExc) -> (OBS_EXCM)     := ZT5 -> (ZT5_OBS)
+                (cAliasTempExc) -> (DACA_EXCM)    := ZT5 -> (ZT5_DATACA)
+                (cAliasTempExc) -> (ATIVO_EXCM)    := ZT5 -> (ZT5_ATIVO)
                 if (cAliasTempExc) -> (ATIVO_EXCM) == 'S'
                     (cAliasTempExc) -> (ATIVO_NAT):= "1"
                     aCombo11M := {'S=SIM','N=NAO'}
@@ -7264,7 +7264,7 @@ User function excMRL()
                     (cAliasTempExc) -> (ATIVO_NAT):= "1"
                     aCombo11M := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempExc) -> (MET_EXCM)     := ZM1 -> (ZM1_METRA)
+                (cAliasTempExc) -> (MET_EXCM)     := ZT5 -> (ZT5_METRA)
             (cAliasTempExc) -> (MSUNLOCK())
 
         
@@ -7623,13 +7623,13 @@ Static function excBtnM()
 
     Local aArea := FWGetArea()
 
-    DbSelectArea('ZM1')
-    ZM1->(DbSetOrder(6))
+    DbSelectArea('ZT5')
+    ZT5->(DbSetOrder(6))
 
         Begin Transaction
-        RecLock('ZM1', .F.)
-            ZM1 -> (DbDelete())
-        ZM1 -> (MsUnlock())  
+        RecLock('ZT5', .F.)
+            ZT5 -> (DbDelete())
+        ZT5 -> (MsUnlock())  
         lEsc := MsgYesNo('Deseja remover mesmo?')
         if lEsc == .F.
             DisarmTransaction()
@@ -7640,7 +7640,7 @@ Static function excBtnM()
         endif
         end Transaction
 
-    ZM1->(DbCloseArea())
+    ZT5->(DbCloseArea())
 
     FWRestArea(aArea)
 return
@@ -7663,9 +7663,9 @@ Static function MLPfCarAcols()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM "+RetSqlName('ZM2')+" WHERE D_E_L_E_T_ = '' AND ZM2_FILIAL = '" + FwcODfiL() + "'"
+    cQry := "SELECT * FROM "+RetSqlName('ZT6')+" WHERE D_E_L_E_T_ = '' AND ZT6_FILIAL = '" + FwcODfiL() + "'"
 
-        TCQUERY cQry New Alias "QRY_ZM2"
+        TCQUERY cQry New Alias "QRY_ZT6"
 
         Count To nTotal
         ProcRegua(nTotal)
@@ -7674,40 +7674,40 @@ Static function MLPfCarAcols()
 
         aSize(aColsL, - nTam)
 
-        QRY_ZM2 -> (DbGoTop())
-        while ! QRY_ZM2->(Eof())
+        QRY_ZT6 -> (DbGoTop())
+        while ! QRY_ZT6->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aColsL,{QRY_ZM2->ZM2_COD,;
-                         QRY_ZM2->ZM2_IMPRES,;
-                         QRY_ZM2->ZM2_USU,;
-                         QRY_ZM2->ZM2_DATAM,;
-                         QRY_ZM2->ZM2_LAMP,;
-                         QRY_ZM2->ZM2_TROCRL,;
-                         QRY_ZM2->ZM2_MATER,;
-                         QRY_ZM2->ZM2_TEMPM,;
-                         QRY_ZM2->ZM2_UMIDAD,;
-                         QRY_ZM2->ZM2_TEMPA,;
-                         QRY_ZM2->ZM2_TEMPD,;
-                         QRY_ZM2->ZM2_TEMPR,;
-                         QRY_ZM2->ZM2_TENS,;
-                         QRY_ZM2->ZM2_HORIME,;
-                         QRY_ZM2->ZM2_START,;
-                         QRY_ZM2->ZM2_CORR,;
-                         QRY_ZM2->ZM2_TEMPT,;
-                         QRY_ZM2->ZM2_SETP,;
-                         QRY_ZM2->ZM2_POT,;
-                         QRY_ZM2->ZM2_OBS,;
-                         QRY_ZM2->ZM2_ATIVO,;
-                         QRY_ZM2->ZM2_DATAC,;
+            AAdd(aColsL,{QRY_ZT6->ZT6_COD,;
+                         QRY_ZT6->ZT6_IMPRES,;
+                         QRY_ZT6->ZT6_USU,;
+                         QRY_ZT6->ZT6_DATAM,;
+                         QRY_ZT6->ZT6_LAMP,;
+                         QRY_ZT6->ZT6_TROCRL,;
+                         QRY_ZT6->ZT6_MATER,;
+                         QRY_ZT6->ZT6_TEMPM,;
+                         QRY_ZT6->ZT6_UMIDAD,;
+                         QRY_ZT6->ZT6_TEMPA,;
+                         QRY_ZT6->ZT6_TEMPD,;
+                         QRY_ZT6->ZT6_TEMPR,;
+                         QRY_ZT6->ZT6_TENS,;
+                         QRY_ZT6->ZT6_HORIME,;
+                         QRY_ZT6->ZT6_START,;
+                         QRY_ZT6->ZT6_CORR,;
+                         QRY_ZT6->ZT6_TEMPT,;
+                         QRY_ZT6->ZT6_SETP,;
+                         QRY_ZT6->ZT6_POT,;
+                         QRY_ZT6->ZT6_OBS,;
+                         QRY_ZT6->ZT6_ATIVO,;
+                         QRY_ZT6->ZT6_DATAC,;
                         .F.;
                         })
 
-            QRY_ZM2 ->(DbSkip())
+            QRY_ZT6 ->(DbSkip())
         enddo
-        QRY_ZM2->(DbCloseArea())
+        QRY_ZT6->(DbCloseArea())
 
         FWRestArea(aArea) 
 return
@@ -7755,7 +7755,7 @@ Local aArea := FWGetArea()
     Private cNome       := ''
     Private cSay4LL     := 'Usuario'
     Private oGet4L
-    Private xGet4LL     := Space(TamSX3('ZM2_USU')[1])
+    Private xGet4LL     := Space(TamSX3('ZT6_USU')[1])
 
     Private oSay5L
     Private cSay5LL     := 'Data Manutenção'
@@ -7782,72 +7782,72 @@ Local aArea := FWGetArea()
     Private oSay9L
     Private cSay9LL    := 'Material'
     Private oGet9L
-    Private xGet9LL    := Space(TamSX3('ZM2_MATER')[1])
+    Private xGet9LL    := Space(TamSX3('ZT6_MATER')[1])
 
     Private oSay10L
     Private cSay10LL    := 'Temp. Ambiente'
     Private oGet10L
-    Private xGet10LL    :=Space(TamSX3('ZM2_TEMPM')[1])
+    Private xGet10LL    :=Space(TamSX3('ZT6_TEMPM')[1])
 
     Private oSay11L
     Private cSay11LL     := 'Umidade Relativa(%)'
     Private oGet11L
-    Private xGeT11LL     := Space(TamSX3('ZM2_UMIDAD')[1])
+    Private xGeT11LL     := Space(TamSX3('ZT6_UMIDAD')[1])
 
     Private oSay12L
     Private cSay12LL    := 'Temp. Antes Lâmpada'
     Private oGet12L
-    Private xGet12LL     := Space(TamSX3('ZM2_TEMPA')[1])
+    Private xGet12LL     := Space(TamSX3('ZT6_TEMPA')[1])
 
     Private oSay13L
     Private cSay13LL    := 'Temp. Depois Lâmpada'
     Private oGet13L
-    Private xGet13LL     := Space(TamSX3('ZM2_TEMPD')[1])
+    Private xGet13LL     := Space(TamSX3('ZT6_TEMPD')[1])
 
     Private oSay14L
     Private cSay14LL    := 'Temp. Refrigeração IST'
     Private oGet14L
-    Private xGet14LL     := Space(TamSX3('ZM2_TEMPR')[1])
+    Private xGet14LL     := Space(TamSX3('ZT6_TEMPR')[1])
 
     Private oSay15L
     Private cSay15LL    := 'Tensão Principal'
     Private oGet15L
-    Private xGet15LL     := Space(TamSX3('ZM2_TENS')[1])
+    Private xGet15LL     := Space(TamSX3('ZT6_TENS')[1])
 
     Private oSay16L
     Private cSay16LL    := 'Horimetro'
     Private oGet16L
-    Private xGet16LL     := Space(TamSX3('ZM2_HORIME')[1])
+    Private xGet16LL     := Space(TamSX3('ZT6_HORIME')[1])
 
     Private oSay17L
     Private cSay17LL    := 'Inicio (StartUps)'
     Private oGet17L
-    Private xGet17LL     := Space(TamSX3('ZM2_START')[1])
+    Private xGet17LL     := Space(TamSX3('ZT6_START')[1])
 
     Private oSay18L
     Private cSay18LL    := 'Corrente'
     Private oGet18L
-    Private xGet18LL     := Space(TamSX3('ZM2_CORR')[1])
+    Private xGet18LL     := Space(TamSX3('ZT6_CORR')[1])
 
     Private oSay19L
     Private cSay19LL    := 'Temp. Trabalho'
     Private oGet19L
-    Private xGet19LL     := Space(TamSX3('ZM2_TEMPT')[1])
+    Private xGet19LL     := Space(TamSX3('ZT6_TEMPT')[1])
 
     Private oSay20L
     Private cSay20LL    := 'Set Point'
     Private oGet20L
-    Private xGet20LL     := Space(TamSX3('ZM2_SETP')[1])
+    Private xGet20LL     := Space(TamSX3('ZT6_SETP')[1])
 
     Private oSay21L
     Private cSay21LL    := 'Potencia'
     Private oGet21L
-    Private xGet21LL     := Space(TamSX3('ZM2_POT')[1])
+    Private xGet21LL     := Space(TamSX3('ZT6_POT')[1])
     
     Private oSay22L
     Private cSay22LL    := 'Observação'
     Private oGet22L
-    Private xGet22LL     := Space(TamSX3('ZM2_OBS')[1])
+    Private xGet22LL     := Space(TamSX3('ZT6_OBS')[1])
 
     Private oSay23L
     Private cSay23LL    := 'Ativo'
@@ -7868,7 +7868,7 @@ Local aArea := FWGetArea()
     nEscBD := 3
 
         AADD(aHeaderL,{"Codigo",;      
-                      "ZM2_COD",;      
+                      "ZT6_COD",;      
                       "",;             
                        6,;             
                        0,;             
@@ -7878,7 +7878,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Impressora",;
-                      "ZM2_IMPRES",;
+                      "ZT6_IMPRES",;
                       "",;
                        50,;
                        0,;
@@ -7888,7 +7888,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Usuario",;
-                      "ZM2_USU",;
+                      "ZT6_USU",;
                       "",;
                        50,;
                        0,;
@@ -7898,7 +7898,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Data Manu.",;
-                      "ZM2_DATAM",;
+                      "ZT6_DATAM",;
                       "",;
                        8,;
                        0,;
@@ -7908,7 +7908,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Lampadas",;
-                      "ZM2_LAMP",;
+                      "ZT6_LAMP",;
                       "",;
                        50,;
                        0,;
@@ -7918,7 +7918,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Troca Lamp",;
-                      "ZM2_TROCLP",;
+                      "ZT6_TROCLP",;
                       "",;
                        1,;
                        0,;
@@ -7928,7 +7928,7 @@ Local aArea := FWGetArea()
                       "S=SIM;N=NÃO"})
         
         AADD(aHeaderL,{"Troca Refletor",;
-                      "ZM2_TROCRL",;
+                      "ZT6_TROCRL",;
                       "",;
                        1,;
                        0,;
@@ -7938,7 +7938,7 @@ Local aArea := FWGetArea()
                       "S=SIM;N=NÃO"})
 
         AADD(aHeaderL,{"Material",;
-                      "ZM2_MATER",;
+                      "ZT6_MATER",;
                       "",;
                        50,;
                        0,;
@@ -7948,7 +7948,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Temp. Lamp.",;
-                      "ZM2_TEMPM",;
+                      "ZT6_TEMPM",;
                       "",;
                        10,;
                        0,;
@@ -7958,7 +7958,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Umidade",;
-                      "ZM2_UMIDAD",;
+                      "ZT6_UMIDAD",;
                       "",;
                        10,;
                        0,;
@@ -7968,7 +7968,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Temp. Antes",;
-                      "ZM2_TEMPA",;
+                      "ZT6_TEMPA",;
                       "",;
                        10,;
                        0,;
@@ -7978,7 +7978,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Temp. Depois",;      
-                      "ZM2_TEMPD",;      
+                      "ZT6_TEMPD",;      
                       "",;             
                        10,;             
                        0,;             
@@ -7988,7 +7988,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Temp. Refrigeração IST",;
-                      "ZM2_TEMPR",;
+                      "ZT6_TEMPR",;
                       "",;
                        10,;
                        0,;
@@ -7998,7 +7998,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Tensão",;
-                      "ZM2_TENS",;
+                      "ZT6_TENS",;
                       "",;
                        10,;
                        0,;
@@ -8008,7 +8008,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Horimetro",;
-                      "ZM2_HORIME",;
+                      "ZT6_HORIME",;
                       "",;
                        10,;
                        0,;
@@ -8018,7 +8018,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"StartUps",;
-                      "ZM2_START",;
+                      "ZT6_START",;
                       "",;
                        10,;
                        0,;
@@ -8028,7 +8028,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Corrente",;
-                      "ZM2_CORR",;
+                      "ZT6_CORR",;
                       "",;
                        10,;
                        0,;
@@ -8038,7 +8038,7 @@ Local aArea := FWGetArea()
                       ""})
         
         AADD(aHeaderL,{"Temp. Trabalho",;
-                      "ZM2_TEMPT",;
+                      "ZT6_TEMPT",;
                       "",;
                        10,;
                        0,;
@@ -8048,7 +8048,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"SetP",;
-                      "ZM2_SETP",;
+                      "ZT6_SETP",;
                       "",;
                        10,;
                        0,;
@@ -8058,7 +8058,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Potencia (mWcm2)",;
-                      "ZM2_POT",;
+                      "ZT6_POT",;
                       "",;
                        10,;
                        0,;
@@ -8068,7 +8068,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"Observação",;
-                      "ZM2_OBS",;
+                      "ZT6_OBS",;
                       "",;
                        100,;
                        0,;
@@ -8078,7 +8078,7 @@ Local aArea := FWGetArea()
                       ""})
 
         AADD(aHeaderL,{"ATIVO",;
-                      "ZM1_ATIVO",;
+                      "ZT5_ATIVO",;
                       "",;
                        1,;
                        0,;
@@ -8088,7 +8088,7 @@ Local aArea := FWGetArea()
                       "S=SIM;N=NÃO"})
 
         AADD(aHeaderL,{"Data Cad.",;
-                      "ZM2_DATAC",;
+                      "ZT6_DATAC",;
                       "",;
                        8,;
                        0,;
@@ -8146,7 +8146,7 @@ Local aArea := FWGetArea()
         oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2L:SetCss(" TSay {Font: Semi-Bold}")
 
-        DbSelectArea('ZM2')
+        DbSelectArea('ZT6')
 
         geraCodM()
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -8156,7 +8156,7 @@ Local aArea := FWGetArea()
         nObjAltu := 15
         oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
-        ZM2->(DbCloseArea())
+        ZT6->(DbCloseArea())
 
         oGet2L:lActive := .F.
 
@@ -8504,7 +8504,7 @@ Local aArea := FWGetArea()
 
         oGet24L:lActive := .F.
 
-        oMsGetZCA := MsNewGetDados():New(200,;
+        oMsGetZT4 := MsNewGetDados():New(200,;
                                          005,;
                                          (nJanAltu/2)-6,;
                                          (nJanLarg/2)-3,;
@@ -8531,7 +8531,7 @@ return
 Static function incBtnMLP()
 
  Local aArea := FWGetArea()
-    Local cAlias := 'ZM2'
+    Local cAlias := 'ZT6'
     Local lEscolha := .F.
 
 // -------------------------------------------------------------------------------
@@ -8558,55 +8558,55 @@ Static function incBtnMLP()
             else
             begin transaction 
             RecLock(cAlias, .T.)
-                ZM2->ZM2_FILIAL := xFilial('ZM1')
-                ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
-                ZM2->ZM2_IMPRES    := Upper(Alltrim(oGet3L:BUFFER))
-                ZM2->ZM2_USU       := Upper(Alltrim(oGet4L:BUFFER))
-                ZM2->ZM2_DATAM     :=    CTOD(oGet5L:BUFFER)
-                ZM2->ZM2_LAMP      := Upper(AllTrim(oGet6L:BUFFER))
+                ZT6->ZT6_FILIAL := xFilial('ZT5')
+                ZT6->ZT6_COD       := Alltrim(oGet2L:BUFFER)
+                ZT6->ZT6_IMPRES    := Upper(Alltrim(oGet3L:BUFFER))
+                ZT6->ZT6_USU       := Upper(Alltrim(oGet4L:BUFFER))
+                ZT6->ZT6_DATAM     :=    CTOD(oGet5L:BUFFER)
+                ZT6->ZT6_LAMP      := Upper(AllTrim(oGet6L:BUFFER))
                 if oCombo7L:NAT == 2
-                        ZM2->ZM2_TROCLP := oCombo7L:AITEMS[2]
+                        ZT6->ZT6_TROCLP := oCombo7L:AITEMS[2]
                     elseif oCombo7L:NAT == 3
-                        ZM2->ZM2_TROCLP := oCombo7L:AITEMS[3]
+                        ZT6->ZT6_TROCLP := oCombo7L:AITEMS[3]
                     elseif oCombo7L:nat == 1 .OR. oCombo7L:nat == 0
                         MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)', 'ATENÇÃO')
                         DisarmTransaction()
                         return
                 ENDIF
                 if oCombo8L:NAT == 2
-                        ZM2->ZM2_TROCRL := oCombo8L:AITEMS[2]
+                        ZT6->ZT6_TROCRL := oCombo8L:AITEMS[2]
                     elseif oCombo8L:NAT == 3
-                        ZM2->ZM2_TROCRL := oCombo8L:AITEMS[3]
+                        ZT6->ZT6_TROCRL := oCombo8L:AITEMS[3]
                     elseif oCombo8L:nat == 1 .OR. oCombo8L:nat == 0
                         MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)', 'ATENÇÃO')
                         DisarmTransaction()
                         return
                 ENDIF
-                ZM2->ZM2_MATER     := Upper(Alltrim(oGet9L:BUFFER))
-                ZM2->ZM2_TEMPM     := Alltrim(oGet10L:BUFFER)
-                ZM2->ZM2_UMIDAD    := AllTrim(oGet11L:BUFFER)
-                ZM2->ZM2_TEMPA     := AllTrim(oGet12L:BUFFER)
-                ZM2->ZM2_TEMPD     := AllTrim(oGet13L:BUFFER)
-                ZM2->ZM2_TEMPR     := Alltrim(oGet14L:BUFFER)
-                ZM2->ZM2_TENS      := Alltrim(oGet15L:BUFFER)
-                ZM2->ZM2_HORIME    := Alltrim(oGet16L:BUFFER)
-                ZM2->ZM2_START     := Alltrim(oGet17L:BUFFER)
-                ZM2->ZM2_CORR      := Alltrim(oGet18L:BUFFER)
-                ZM2->ZM2_TEMPT     := Alltrim(oGet19L:BUFFER)
-                ZM2->ZM2_SETP      := Alltrim(oGet20L:BUFFER)
-                ZM2->ZM2_POT       := Alltrim(oGet21L:BUFFER)
-                ZM2->ZM2_OBS       := Upper(Alltrim(oGet22L:BUFFER))
+                ZT6->ZT6_MATER     := Upper(Alltrim(oGet9L:BUFFER))
+                ZT6->ZT6_TEMPM     := Alltrim(oGet10L:BUFFER)
+                ZT6->ZT6_UMIDAD    := AllTrim(oGet11L:BUFFER)
+                ZT6->ZT6_TEMPA     := AllTrim(oGet12L:BUFFER)
+                ZT6->ZT6_TEMPD     := AllTrim(oGet13L:BUFFER)
+                ZT6->ZT6_TEMPR     := Alltrim(oGet14L:BUFFER)
+                ZT6->ZT6_TENS      := Alltrim(oGet15L:BUFFER)
+                ZT6->ZT6_HORIME    := Alltrim(oGet16L:BUFFER)
+                ZT6->ZT6_START     := Alltrim(oGet17L:BUFFER)
+                ZT6->ZT6_CORR      := Alltrim(oGet18L:BUFFER)
+                ZT6->ZT6_TEMPT     := Alltrim(oGet19L:BUFFER)
+                ZT6->ZT6_SETP      := Alltrim(oGet20L:BUFFER)
+                ZT6->ZT6_POT       := Alltrim(oGet21L:BUFFER)
+                ZT6->ZT6_OBS       := Upper(Alltrim(oGet22L:BUFFER))
                 if oCombo23L:NAT == 2
-                        ZM2->ZM2_ATIVO := oCombo23L:AITEMS[2]
+                        ZT6->ZT6_ATIVO := oCombo23L:AITEMS[2]
                     elseif oCombo23L:NAT == 3
-                        ZM2->ZM2_ATIVO := oCombo23L:AITEMS[3]
+                        ZT6->ZT6_ATIVO := oCombo23L:AITEMS[3]
                     elseif oCombo23L:nat == 1 .OR. oCombo23L:nat == 0
                         MsgAlert('POR FAVOR ESCOLHA UMA OPÇÃO VALIDA NO CAMPO ATIVO!!(SIM/NAO)', 'ATENÇÃO')
                         DisarmTransaction()
                         return
                 ENDIF
-                ZM2->ZM2_DATAC     := CTOD(oGet24L:BUFFER)
-            ZM2 -> (MSUNLOCK())
+                ZT6->ZT6_DATAC     := CTOD(oGet24L:BUFFER)
+            ZT6 -> (MSUNLOCK())
             end transaction
                 FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
 
@@ -8614,29 +8614,29 @@ Static function incBtnMLP()
 
             if lEsc == .F.
                 geraCodM()
-                oGet2L:BUFFER   := Space(TamSX3('ZM2_COD')[1])
-                oGet3L:BUFFER   := Space(TamSX3('ZM2_IMPRES')[1])
-                oGet6L:BUFFER   := Space(TamSX3('ZM2_LAMP')[1])
-                oGet9L:BUFFER   := Space(TamSX3('ZM2_MATER')[1])
-                oGet10L:BUFFER  := Space(TamSX3('ZM2_TEMPM')[1])
-                oGet11L:BUFFER  := Space(TamSX3('ZM2_UMIDAD')[1])
-                oGet12L:BUFFER  := Space(TamSX3('ZM2_TEMPA')[1])
-                oGet13L:BUFFER  := Space(TamSX3('ZM2_TEMPD')[1])
-                oGet14L:BUFFER  := Space(TamSX3('ZM2_TEMPR')[1])
-                oGet15L:BUFFER  := Space(TamSX3('ZM2_TENS')[1])
-                oGet16L:BUFFER  := Space(TamSX3('ZM2_HORIME')[1])
-                oGet17L:BUFFER  := Space(TamSX3('ZM2_START')[1])
-                oGet18L:BUFFER  := Space(TamSX3('ZM2_CORR')[1])
-                oGet19L:BUFFER  := Space(TamSX3('ZM2_TEMPT')[1])
-                oGet20L:BUFFER  := Space(TamSX3('ZM2_SETP')[1])
-                oGet21L:BUFFER  := Space(TamSX3('ZM2_POT')[1])
-                oGet22L:BUFFER  := Space(TamSX3('ZM2_OBS')[1])
+                oGet2L:BUFFER   := Space(TamSX3('ZT6_COD')[1])
+                oGet3L:BUFFER   := Space(TamSX3('ZT6_IMPRES')[1])
+                oGet6L:BUFFER   := Space(TamSX3('ZT6_LAMP')[1])
+                oGet9L:BUFFER   := Space(TamSX3('ZT6_MATER')[1])
+                oGet10L:BUFFER  := Space(TamSX3('ZT6_TEMPM')[1])
+                oGet11L:BUFFER  := Space(TamSX3('ZT6_UMIDAD')[1])
+                oGet12L:BUFFER  := Space(TamSX3('ZT6_TEMPA')[1])
+                oGet13L:BUFFER  := Space(TamSX3('ZT6_TEMPD')[1])
+                oGet14L:BUFFER  := Space(TamSX3('ZT6_TEMPR')[1])
+                oGet15L:BUFFER  := Space(TamSX3('ZT6_TENS')[1])
+                oGet16L:BUFFER  := Space(TamSX3('ZT6_HORIME')[1])
+                oGet17L:BUFFER  := Space(TamSX3('ZT6_START')[1])
+                oGet18L:BUFFER  := Space(TamSX3('ZT6_CORR')[1])
+                oGet19L:BUFFER  := Space(TamSX3('ZT6_TEMPT')[1])
+                oGet20L:BUFFER  := Space(TamSX3('ZT6_SETP')[1])
+                oGet21L:BUFFER  := Space(TamSX3('ZT6_POT')[1])
+                oGet22L:BUFFER  := Space(TamSX3('ZT6_OBS')[1])
             
             ENDIF
             
             MLPfCarAcols()
-            oMsGetZCA:ACOLS := aColsL
-            oMsGetZCA:oBrowse:Refresh()
+            oMsGetZT4:ACOLS := aColsL
+            oMsGetZT4:oBrowse:Refresh()
             geraCodM()
             
             endif
@@ -8697,15 +8697,15 @@ User Function altMLP()
 
         cNameTableL := oTableTempAltL:GetRealName()
 
-        DbSelectArea('ZM2')
+        DbSelectArea('ZT6')
 
             RecLock(cAliasTempAltL, .T.)
-                (cAliasTempAltL) -> (COD_ALTL)     := ZM2 -> (ZM2_COD)
-                (cAliasTempAltL) -> (IMP_ALTL)     := ZM2 -> (ZM2_IMPRES)
-                (cAliasTempAltL) -> (USU_ALTL)     := ZM2 -> (ZM2_USU)
-                (cAliasTempAltL) -> (DATAM_ALTL)   := ZM2 -> (ZM2_DATAM)
-                (cAliasTempAltL) -> (LAMP_ALTL)    := ZM2 -> (ZM2_LAMP)
-                (cAliasTempAltL) -> (TROLP_ALTL)    := ZM2 -> (ZM2_TROCLP)
+                (cAliasTempAltL) -> (COD_ALTL)     := ZT6 -> (ZT6_COD)
+                (cAliasTempAltL) -> (IMP_ALTL)     := ZT6 -> (ZT6_IMPRES)
+                (cAliasTempAltL) -> (USU_ALTL)     := ZT6 -> (ZT6_USU)
+                (cAliasTempAltL) -> (DATAM_ALTL)   := ZT6 -> (ZT6_DATAM)
+                (cAliasTempAltL) -> (LAMP_ALTL)    := ZT6 -> (ZT6_LAMP)
+                (cAliasTempAltL) -> (TROLP_ALTL)    := ZT6 -> (ZT6_TROCLP)
                 if (cAliasTempAltL) -> (TROLP_ALTL) == 'S'
                     (cAliasTempAltL) -> (TROLP_NAT):= "1"
                     aCombo7L := {'S=SIM','N=NAO'}
@@ -8713,7 +8713,7 @@ User Function altMLP()
                     (cAliasTempAltL) -> (TROLP_NAT):= "1"
                     aCombo7L := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAltL) -> (TRORL_ALTL)    := ZM2 -> (ZM2_TROCRL)
+                (cAliasTempAltL) -> (TRORL_ALTL)    := ZT6 -> (ZT6_TROCRL)
                 if (cAliasTempAltL) -> (TRORL_ALTL) == 'S'
                     (cAliasTempAltL) -> (TRORL_NAT):= "1"
                     aCombo8L := {'S=SIM','N=NAO'}
@@ -8721,21 +8721,21 @@ User Function altMLP()
                     (cAliasTempAltL) -> (TRORL_NAT):= "1"
                     aCombo8L := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAltL) -> (MATER_ALTL)     := ZM2 -> (ZM2_MATER)
-                (cAliasTempAltL) -> (TEMPM_ALTL)     := ZM2 -> (ZM2_TEMPM)
-                (cAliasTempAltL) -> (UMIDA_ALTL)     := ZM2 -> (ZM2_UMIDAD)
-                (cAliasTempAltL) -> (TEMPA_ALTL)     := ZM2 -> (ZM2_TEMPA)
-                (cAliasTempAltL) -> (TEMPD_ALTL)     := ZM2 -> (ZM2_TEMPD)
-                (cAliasTempAltL) -> (TEMPR_ALTL)     := ZM2 -> (ZM2_TEMPR)
-                (cAliasTempAltL) -> (TENS_ALTL)      := ZM2 -> (ZM2_TENS)
-                (cAliasTempAltL) -> (HORIM_ALTL)     := ZM2 -> (ZM2_HORIME)
-                (cAliasTempAltL) -> (START_ALTL)     := ZM2 -> (ZM2_START)
-                (cAliasTempAltL) -> (CORR_ALTL)      := ZM2 -> (ZM2_CORR)
-                (cAliasTempAltL) -> (TEMPT_ALTL)     := ZM2 -> (ZM2_TEMPT)
-                (cAliasTempAltL) -> (SETP_ALTL)      := ZM2 -> (ZM2_SETP)
-                (cAliasTempAltL) -> (POT_ALTL)       := ZM2 -> (ZM2_POT)
-                (cAliasTempAltL) -> (OBS_ALTL)       := ZM2 -> (ZM2_OBS)
-                (cAliasTempAltL) -> (ATIVO_ALTL)     := ZM2 -> (ZM2_ATIVO)
+                (cAliasTempAltL) -> (MATER_ALTL)     := ZT6 -> (ZT6_MATER)
+                (cAliasTempAltL) -> (TEMPM_ALTL)     := ZT6 -> (ZT6_TEMPM)
+                (cAliasTempAltL) -> (UMIDA_ALTL)     := ZT6 -> (ZT6_UMIDAD)
+                (cAliasTempAltL) -> (TEMPA_ALTL)     := ZT6 -> (ZT6_TEMPA)
+                (cAliasTempAltL) -> (TEMPD_ALTL)     := ZT6 -> (ZT6_TEMPD)
+                (cAliasTempAltL) -> (TEMPR_ALTL)     := ZT6 -> (ZT6_TEMPR)
+                (cAliasTempAltL) -> (TENS_ALTL)      := ZT6 -> (ZT6_TENS)
+                (cAliasTempAltL) -> (HORIM_ALTL)     := ZT6 -> (ZT6_HORIME)
+                (cAliasTempAltL) -> (START_ALTL)     := ZT6 -> (ZT6_START)
+                (cAliasTempAltL) -> (CORR_ALTL)      := ZT6 -> (ZT6_CORR)
+                (cAliasTempAltL) -> (TEMPT_ALTL)     := ZT6 -> (ZT6_TEMPT)
+                (cAliasTempAltL) -> (SETP_ALTL)      := ZT6 -> (ZT6_SETP)
+                (cAliasTempAltL) -> (POT_ALTL)       := ZT6 -> (ZT6_POT)
+                (cAliasTempAltL) -> (OBS_ALTL)       := ZT6 -> (ZT6_OBS)
+                (cAliasTempAltL) -> (ATIVO_ALTL)     := ZT6 -> (ZT6_ATIVO)
                 if (cAliasTempAltL) -> (ATIVO_ALTL) == 'S'
                     (cAliasTempAltL) -> (ATIVO_NAT):= "1"
                     aCombo24L := {'S=SIM','N=NAO'}
@@ -8743,7 +8743,7 @@ User Function altMLP()
                     (cAliasTempAltL) -> (ATIVO_NAT):= "1"
                     aCombo24L := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAltL) -> (DATAC_ALTL)     := ZM2 -> (ZM2_DATAC)
+                (cAliasTempAltL) -> (DATAC_ALTL)     := ZT6 -> (ZT6_DATAC)
             (cAliasTempAltL) -> (MSUNLOCK())
 
         AADD(aDadosAltL,{(cAliasTempAltL) -> (COD_ALTL)})
@@ -8977,7 +8977,7 @@ Static function dialogAltL(aDadosAltL)
         oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgAltL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2L:SetCss(" TSay {Font: Semi-Bold}")
 
-        DbSelectArea('ZM2')
+        DbSelectArea('ZT6')
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet2LL := aDadosAltL[1][1]
@@ -8987,7 +8987,7 @@ Static function dialogAltL(aDadosAltL)
         nObjAltu := 15
         oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgAltL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
-        ZM2->(DbCloseArea())
+        ZT6->(DbCloseArea())
 
         oGet2L:lActive := .F.
 
@@ -9364,10 +9364,10 @@ return
 Static function altbtnMLP()
 
     Local aArea := FWGetArea()
-    Local cAlias := 'ZM2'
+    Local cAlias := 'ZT6'
     Local cCod := oGet2L:BUFFER
 
-    ZM2->(DbSetOrder(5))
+    ZT6->(DbSetOrder(5))
 
     lEscolha := MsgYesNo('DESEJA  ALTERAR O CADASTRO?','ATENÇÃO')
     
@@ -9394,44 +9394,44 @@ Static function altbtnMLP()
             else
             begin transaction
 
-                ZM2->(DBSeek(xFilial('ZM2') + cCod))
+                ZT6->(DBSeek(xFilial('ZT6') + cCod))
                     RecLock(cAlias, .F.)
-                        ZM2->ZM2_COD       := Alltrim(oGet2L:BUFFER)
-                         ZM2->ZM2_IMPRES    := Alltrim(oGet3L:BUFFER)
-                        ZM2->ZM2_USU       := Alltrim(oGet4L:BUFFER)
-                        ZM2->ZM2_DATAM     :=    CTOD(oGet5L:BUFFER)
-                        ZM2->ZM2_LAMP      := AllTrim(oGet6L:BUFFER)
+                        ZT6->ZT6_COD       := Alltrim(oGet2L:BUFFER)
+                         ZT6->ZT6_IMPRES    := Alltrim(oGet3L:BUFFER)
+                        ZT6->ZT6_USU       := Alltrim(oGet4L:BUFFER)
+                        ZT6->ZT6_DATAM     :=    CTOD(oGet5L:BUFFER)
+                        ZT6->ZT6_LAMP      := AllTrim(oGet6L:BUFFER)
                         if oCombo7L:NAT == 1 .OR. oCombo7L:NAT == 0
-                            ZM2->ZM2_TROCLP := oCombo7L:AITEMS[1]
+                            ZT6->ZT6_TROCLP := oCombo7L:AITEMS[1]
                         elseif oCombo7L:NAT == 2
-                            ZM2->ZM2_TROCLP := oCombo7L:AITEMS[2]
+                            ZT6->ZT6_TROCLP := oCombo7L:AITEMS[2]
                         ENDIF
                         if oCombo8L:NAT == 1 .OR. oCombo8L:NAT == 0
-                            ZM2->ZM2_TROCRL := oCombo8L:AITEMS[1]
+                            ZT6->ZT6_TROCRL := oCombo8L:AITEMS[1]
                         elseif oCombo8L:NAT == 2
-                            ZM2->ZM2_TROCRL := oCombo8L:AITEMS[2]
+                            ZT6->ZT6_TROCRL := oCombo8L:AITEMS[2]
                         ENDIF
-                        ZM2->ZM2_MATER     := Alltrim(oGet9L:BUFFER)
-                        ZM2->ZM2_TEMPM     := Alltrim(oGet10L:BUFFER)
-                        ZM2->ZM2_UMIDAD    := AllTrim(oGet11L:BUFFER)
-                        ZM2->ZM2_TEMPA     := AllTrim(oGet12L:BUFFER)
-                        ZM2->ZM2_TEMPD     := AllTrim(oGet13L:BUFFER)
-                        ZM2->ZM2_TEMPR     := Alltrim(oGet14L:BUFFER)
-                        ZM2->ZM2_TENS      := Alltrim(oGet15L:BUFFER)
-                        ZM2->ZM2_HORIME    := Alltrim(oGet16L:BUFFER)
-                        ZM2->ZM2_START     := Alltrim(oGet17L:BUFFER)
-                        ZM2->ZM2_CORR      := Alltrim(oGet18L:BUFFER)
-                        ZM2->ZM2_TEMPT     := Alltrim(oGet19L:BUFFER)
-                        ZM2->ZM2_SETP      := Alltrim(oGet20L:BUFFER)
-                        ZM2->ZM2_POT       := Alltrim(oGet21L:BUFFER)
-                        ZM2->ZM2_OBS       := Alltrim(oGet22L:BUFFER)
+                        ZT6->ZT6_MATER     := Alltrim(oGet9L:BUFFER)
+                        ZT6->ZT6_TEMPM     := Alltrim(oGet10L:BUFFER)
+                        ZT6->ZT6_UMIDAD    := AllTrim(oGet11L:BUFFER)
+                        ZT6->ZT6_TEMPA     := AllTrim(oGet12L:BUFFER)
+                        ZT6->ZT6_TEMPD     := AllTrim(oGet13L:BUFFER)
+                        ZT6->ZT6_TEMPR     := Alltrim(oGet14L:BUFFER)
+                        ZT6->ZT6_TENS      := Alltrim(oGet15L:BUFFER)
+                        ZT6->ZT6_HORIME    := Alltrim(oGet16L:BUFFER)
+                        ZT6->ZT6_START     := Alltrim(oGet17L:BUFFER)
+                        ZT6->ZT6_CORR      := Alltrim(oGet18L:BUFFER)
+                        ZT6->ZT6_TEMPT     := Alltrim(oGet19L:BUFFER)
+                        ZT6->ZT6_SETP      := Alltrim(oGet20L:BUFFER)
+                        ZT6->ZT6_POT       := Alltrim(oGet21L:BUFFER)
+                        ZT6->ZT6_OBS       := Alltrim(oGet22L:BUFFER)
                         if oCombo23L:NAT == 1 .OR. oCombo23L:NAT == 0
-                            ZM2->ZM2_ATIVO := oCombo23L:AITEMS[1]
+                            ZT6->ZT6_ATIVO := oCombo23L:AITEMS[1]
                         elseif oCombo23L:NAT == 2
-                            ZM2->ZM2_ATIVO := oCombo23L:AITEMS[2]
+                            ZT6->ZT6_ATIVO := oCombo23L:AITEMS[2]
                         ENDIF
-                        ZM2->ZM2_DATAC     := CTOD(oGet24L:BUFFER)
-                    ZM2 -> (MSUNLOCK())
+                        ZT6->ZT6_DATAC     := CTOD(oGet24L:BUFFER)
+                    ZT6 -> (MSUNLOCK())
                     end transaction
                     FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!','ATENÇÃO')
 
@@ -9522,15 +9522,15 @@ User function excMLP()
 
         cNameTableL := oTableTempMLP:GetRealName()
 
-        DbSelectArea('ZM2')
+        DbSelectArea('ZT6')
 
             RecLock(cAliasTempExcL, .T.)
-                (cAliasTempExcL) -> (COD_L)     := ZM2 -> (ZM2_COD)
-                (cAliasTempExcL) -> (IMP_L)     := ZM2 -> (ZM2_IMPRES)
-                (cAliasTempExcL) -> (USU_L)     := ZM2 -> (ZM2_USU)
-                (cAliasTempExcL) -> (DATAM_L)   := ZM2 -> (ZM2_DATAM)
-                (cAliasTempExcL) -> (LAMP_L)    := ZM2 -> (ZM2_LAMP)
-                (cAliasTempExcL) -> (TROLP_L)    := ZM2 -> (ZM2_TROCLP)
+                (cAliasTempExcL) -> (COD_L)     := ZT6 -> (ZT6_COD)
+                (cAliasTempExcL) -> (IMP_L)     := ZT6 -> (ZT6_IMPRES)
+                (cAliasTempExcL) -> (USU_L)     := ZT6 -> (ZT6_USU)
+                (cAliasTempExcL) -> (DATAM_L)   := ZT6 -> (ZT6_DATAM)
+                (cAliasTempExcL) -> (LAMP_L)    := ZT6 -> (ZT6_LAMP)
+                (cAliasTempExcL) -> (TROLP_L)    := ZT6 -> (ZT6_TROCLP)
                 if (cAliasTempExcL) -> (TROLP_L) == 'S'
                     (cAliasTempExcL) -> (TROLP_NAT):= "1"
                     aCombo7L := {'S=SIM','N=NAO'}
@@ -9538,7 +9538,7 @@ User function excMLP()
                     (cAliasTempExcL) -> (TROLP_NAT):= "1"
                     aCombo7L := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempExcL) -> (TRORL_L)    := ZM2 -> (ZM2_TROCRL)
+                (cAliasTempExcL) -> (TRORL_L)    := ZT6 -> (ZT6_TROCRL)
                 if (cAliasTempExcL) -> (TRORL_L) == 'S'
                     (cAliasTempExcL) -> (TRORL_NAT):= "1"
                     aCombo8L := {'S=SIM','N=NAO'}
@@ -9546,21 +9546,21 @@ User function excMLP()
                     (cAliasTempExcL) -> (TRORL_NAT):= "1"
                     aCombo8L := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempAltL) -> (MATER_L)     := ZM2 -> (ZM2_MATER)
-                (cAliasTempAltL) -> (TEMPM_L)     := ZM2 -> (ZM2_TEMPM)
-                (cAliasTempAltL) -> (UMIDA_L)     := ZM2 -> (ZM2_UMIDAD)
-                (cAliasTempAltL) -> (TEMPA_L)     := ZM2 -> (ZM2_TEMPA)
-                (cAliasTempAltL) -> (TEMPD_L)     := ZM2 -> (ZM2_TEMPD)
-                (cAliasTempAltL) -> (TEMPR_L)     := ZM2 -> (ZM2_TEMPR)
-                (cAliasTempAltL) -> (TENS_L)      := ZM2 -> (ZM2_TENS)
-                (cAliasTempAltL) -> (HORIM_L)     := ZM2 -> (ZM2_HORIME)
-                (cAliasTempAltL) -> (START_L)     := ZM2 -> (ZM2_START)
-                (cAliasTempAltL) -> (CORR_L)      := ZM2 -> (ZM2_CORR)
-                (cAliasTempAltL) -> (TEMPT_L)     := ZM2 -> (ZM2_TEMPT)
-                (cAliasTempAltL) -> (SETP_L)      := ZM2 -> (ZM2_SETP)
-                (cAliasTempAltL) -> (POT_L)       := ZM2 -> (ZM2_POT)
-                (cAliasTempAltL) -> (OBS_L)       := ZM2 -> (ZM2_OBS)
-                (cAliasTempAltL) -> (ATIVO_L)     := ZM2 -> (ZM2_ATIVO)
+                (cAliasTempAltL) -> (MATER_L)     := ZT6 -> (ZT6_MATER)
+                (cAliasTempAltL) -> (TEMPM_L)     := ZT6 -> (ZT6_TEMPM)
+                (cAliasTempAltL) -> (UMIDA_L)     := ZT6 -> (ZT6_UMIDAD)
+                (cAliasTempAltL) -> (TEMPA_L)     := ZT6 -> (ZT6_TEMPA)
+                (cAliasTempAltL) -> (TEMPD_L)     := ZT6 -> (ZT6_TEMPD)
+                (cAliasTempAltL) -> (TEMPR_L)     := ZT6 -> (ZT6_TEMPR)
+                (cAliasTempAltL) -> (TENS_L)      := ZT6 -> (ZT6_TENS)
+                (cAliasTempAltL) -> (HORIM_L)     := ZT6 -> (ZT6_HORIME)
+                (cAliasTempAltL) -> (START_L)     := ZT6 -> (ZT6_START)
+                (cAliasTempAltL) -> (CORR_L)      := ZT6 -> (ZT6_CORR)
+                (cAliasTempAltL) -> (TEMPT_L)     := ZT6 -> (ZT6_TEMPT)
+                (cAliasTempAltL) -> (SETP_L)      := ZT6 -> (ZT6_SETP)
+                (cAliasTempAltL) -> (POT_L)       := ZT6 -> (ZT6_POT)
+                (cAliasTempAltL) -> (OBS_L)       := ZT6 -> (ZT6_OBS)
+                (cAliasTempAltL) -> (ATIVO_L)     := ZT6 -> (ZT6_ATIVO)
                 if (cAliasTempExcL) -> (ATIVO_L) == 'S'
                     (cAliasTempExcL) -> (ATIVO_NAT):= "1"
                     aCombo24L := {'S=SIM','N=NAO'}
@@ -9568,7 +9568,7 @@ User function excMLP()
                     (cAliasTempExcL) -> (ATIVO_NAT):= "1"
                     aCombo24L := {'N=NAO','S=SIM'}
                 endif
-                (cAliasTempExcL) -> (DATAC_EXCL)     := ZM2 -> (ZM2_DATAC)
+                (cAliasTempExcL) -> (DATAC_EXCL)     := ZT6 -> (ZT6_DATAC)
             (cAliasTempExcL) -> (MSUNLOCK())
 
         AADD(aDadosExcL,{(cAliasTempExcL) -> (Alltrim(COD_L))})
@@ -10216,12 +10216,12 @@ Static function excBtnMLP()
 
     Local aArea := FWGetArea()
 
-    DbSelectArea('ZM2')
-    ZM2->(DbSetOrder(5))
+    DbSelectArea('ZT6')
+    ZT6->(DbSetOrder(5))
 
         Begin Transaction
-        RecLock('ZM2', .F.)
-            ZM2 -> (DbDelete())
+        RecLock('ZT6', .F.)
+            ZT6 -> (DbDelete())
             lEsc := MsgYesNo('Deseja remover mesmo?')
         if lEsc == .F.
             DisarmTransaction()
@@ -10230,10 +10230,10 @@ Static function excBtnMLP()
             FwAlertSuccess('REGISTRO REMOVIDO!!')
             oDlgExcL:End()
         ENDIF
-        ZM2 -> (MsUnlock())  
+        ZT6 -> (MsUnlock())  
         end Transaction
 
-    ZM2->(DbCloseArea())
+    ZT6->(DbCloseArea())
 
     FWRestArea(aArea)
 return
@@ -10287,7 +10287,7 @@ User function zConsImp()
     Private lTF := .F.
 
     AADD(aHeadAux,{"Codigo",;       
-                  "ZCA_COD",;   
+                  "ZT4_COD",;   
                   "",;          
                    6,;          
                    0,;          
@@ -10297,7 +10297,7 @@ User function zConsImp()
                   ""})
 
     AADD(aHeadAux,{"Descrição",;
-                  "ZCA_DESC",;
+                  "ZT4_DESC",;
                   "@!",;
                    100,;
                    0,;
@@ -10420,9 +10420,9 @@ static function fPopulaImp()
 
     if lTF == .F. 
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
-            TCQUERY cQry New Alias "QRY_ZCA"
+            TCQUERY cQry New Alias "QRY_ZT4"
 
             nTam := Len(aColsAux)
 
@@ -10431,40 +10431,40 @@ static function fPopulaImp()
             Count To nTotal
             ProcRegua(nTotal)
 
-            QRY_ZCA -> (DbGoTop())
-            while ! QRY_ZCA->(Eof())
+            QRY_ZT4 -> (DbGoTop())
+            while ! QRY_ZT4->(Eof())
 
                 nAtual++
                 IncProc("Adicionando")
 
-                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                               QRY_ZCA->ZCA_DESC,;
+                AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                               QRY_ZT4->ZT4_DESC,;
                                .F.;
                                })
 
-                QRY_ZCA ->(DbSkip())
+                QRY_ZT4 ->(DbSkip())
             enddo
-            QRY_ZCA->(DbCloseArea())
+            QRY_ZT4->(DbCloseArea())
         
-    elseIF lTF == .T. //ZM2
+    elseIF lTF == .T. //ZT6
         
         cRec := StrTran(oGetP:BUFFER,"'", '')
 
         if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
         else
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'I' AND (ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND (ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
-            TCQUERY cQry New Alias "QRY_ZCA"
+            TCQUERY cQry New Alias "QRY_ZT4"
 
             Count To nTotal
             ProcRegua(nTotal)
@@ -10473,20 +10473,20 @@ static function fPopulaImp()
 
             aSize(aColsAux, - nTam)
 
-            QRY_ZCA -> (DbGoTop())
-            while ! QRY_ZCA->(Eof())
+            QRY_ZT4 -> (DbGoTop())
+            while ! QRY_ZT4->(Eof())
 
                 nAtual++
                 IncProc("Adicionando")
 
-                AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
-                               AllTrim(QRY_ZCA->ZCA_DESC),;
+                AAdd(aColsAux,{AllTrim(QRY_ZT4->ZT4_COD),;
+                               AllTrim(QRY_ZT4->ZT4_DESC),;
                                .F.;
                               })
 
-                QRY_ZCA ->(DbSkip())
+                QRY_ZT4 ->(DbSkip())
             enddo
-            QRY_ZCA->(DbCloseArea())
+            QRY_ZT4->(DbCloseArea())
         
     endif
 
@@ -10582,7 +10582,7 @@ User function zConsEst()
     Private lTF := .F.
 
     AADD(aHeadAux,{"Codigo",;       
-                  "ZCA_COD",;   
+                  "ZT4_COD",;   
                   "",;          
                    6,;          
                    0,;          
@@ -10592,7 +10592,7 @@ User function zConsEst()
                   ""})
 
     AADD(aHeadAux,{"Descrição",;
-                  "ZCA_DESC",;
+                  "ZT4_DESC",;
                   "@!",;
                    100,;
                    0,;
@@ -10662,9 +10662,9 @@ static function fPopulaEst()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
-            TCQUERY cQry New Alias "QRY_ZCA"
+            TCQUERY cQry New Alias "QRY_ZT4"
 
             nTam := Len(aColsAux)
 
@@ -10673,20 +10673,20 @@ static function fPopulaEst()
             Count To nTotal
             ProcRegua(nTotal)
 
-            QRY_ZCA -> (DbGoTop())
-            while ! QRY_ZCA->(Eof())
+            QRY_ZT4 -> (DbGoTop())
+            while ! QRY_ZT4->(Eof())
 
                 nAtual++
                 IncProc("Adicionando")
 
-                AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                               QRY_ZCA->ZCA_DESC,;
+                AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                               QRY_ZT4->ZT4_DESC,;
                                .F.;
                                })
 
-                QRY_ZCA ->(DbSkip())
+                QRY_ZT4 ->(DbSkip())
             enddo
-            QRY_ZCA->(DbCloseArea())
+            QRY_ZT4->(DbCloseArea())
 
     elseIF lTF == .T.
         
@@ -10694,19 +10694,19 @@ static function fPopulaEst()
 
             if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
         
             elseif nNum == 1
 
-                cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+                cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
             else
 
-                 cQry := "SELECT ZCA_COD,ZCA_DESC FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'E' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+                 cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
             endif
 
-            TCQUERY cQry New Alias "QRY_ZCA"
+            TCQUERY cQry New Alias "QRY_ZT4"
 
             Count To nTotal
             ProcRegua(nTotal)
@@ -10715,20 +10715,20 @@ static function fPopulaEst()
 
             aSize(aColsAux, - nTam)
 
-            QRY_ZCA -> (DbGoTop())
-            while ! QRY_ZCA->(Eof())
+            QRY_ZT4 -> (DbGoTop())
+            while ! QRY_ZT4->(Eof())
 
                 nAtual++
                 IncProc("Adicionando")
 
-                AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
-                               AllTrim(QRY_ZCA->ZCA_DESC),;
+                AAdd(aColsAux,{AllTrim(QRY_ZT4->ZT4_COD),;
+                               AllTrim(QRY_ZT4->ZT4_DESC),;
                                .F.;
                               })
 
-                QRY_ZCA ->(DbSkip())
+                QRY_ZT4 ->(DbSkip())
             enddo
-            QRY_ZCA->(DbCloseArea())
+            QRY_ZT4->(DbCloseArea())
         
 
     endif
@@ -10814,7 +10814,7 @@ User function zConsRl()
     Private lTF := .F.
 
     AADD(aHeadAux,{"Codigo",;       
-                  "ZCA_COD",;   
+                  "ZT4_COD",;   
                   "",;          
                    6,;          
                    0,;          
@@ -10824,7 +10824,7 @@ User function zConsRl()
                   ""})
 
      AADD(aHeadAux,{"Nome Rolo",;
-                      "ZCA_NOMERL",;
+                      "ZT4_NOMERL",;
                       "@!",;
                        50,;
                        0,;
@@ -10894,9 +10894,9 @@ static function fPopulaRl()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aColsAux)
 
@@ -10905,20 +10905,20 @@ static function fPopulaRl()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                           QRY_ZCA->ZCA_NOMERL,;
+            AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                           QRY_ZT4->ZT4_NOMERL,;
                            .F.;
                            })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
     elseIF lTF == .T.
 
@@ -10926,19 +10926,19 @@ static function fPopulaRl()
         
         IF nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
         else
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMERL FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'R' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         Count To nTotal
         ProcRegua(nTotal)
@@ -10947,20 +10947,20 @@ static function fPopulaRl()
 
         aSize(aColsAux, - nTam)
         
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
-                           AllTrim(QRY_ZCA->ZCA_NOMERL),;
+            AAdd(aColsAux,{AllTrim(QRY_ZT4->ZT4_COD),;
+                           AllTrim(QRY_ZT4->ZT4_NOMERL),;
                            .F.;
                           })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
         
     endif
 
@@ -11044,7 +11044,7 @@ User function zConsLp()
     Private lTF := .F.
 
     AADD(aHeadAux,{"Codigo",;       
-                  "ZCA_COD",;   
+                  "ZT4_COD",;   
                   "",;          
                    6,;          
                    0,;          
@@ -11054,7 +11054,7 @@ User function zConsLp()
                   ""})
 
     AADD(aHeadAux,{"Nome Lampada",;
-                 "ZCA_NOMELP",;
+                 "ZT4_NOMELP",;
                  "@!",;
                   50,;
                   0,;
@@ -11064,7 +11064,7 @@ User function zConsLp()
                  ""})
 
     AADD(aHeadAux,{"Impressora Lamp.",;
-                 "ZCA_IMPLP",;
+                 "ZT4_IMPLP",;
                  "@!",;
                   100,;
                   0,;
@@ -11134,9 +11134,9 @@ static function fPopulaLp()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD, ZCA_NOMELP, ZCA_IMPLP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD, ZT4_NOMELP, ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         nTam := Len(aColsAux)
 
@@ -11145,21 +11145,21 @@ static function fPopulaLp()
         Count To nTotal
         ProcRegua(nTotal)
 
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
-                           QRY_ZCA->ZCA_NOMELP,;
-                           QRY_ZCA->ZCA_IMPLP,;
+            AAdd(aColsAux,{QRY_ZT4->ZT4_COD,;
+                           QRY_ZT4->ZT4_NOMELP,;
+                           QRY_ZT4->ZT4_IMPLP,;
                            .F.;
                            })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
 
     elseIF lTF == .T.
         
@@ -11167,19 +11167,19 @@ static function fPopulaLp()
 
         if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_IMPLP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZCA_FILIAL = '" + FwCodFil() + "' "
+            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZT4_FILIAL = '" + FwCodFil() + "' "
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_IMPLP FROM "+RetSqlName('ZCA')+"WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "' "
+            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+"WHERE ZT4_TIPO = 'L' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "' "
 
         ELSE
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_IMPLP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
-        TCQUERY cQry New Alias "QRY_ZCA"
+        TCQUERY cQry New Alias "QRY_ZT4"
 
         Count To nTotal
         ProcRegua(nTotal)
@@ -11188,21 +11188,21 @@ static function fPopulaLp()
 
         aSize(aColsAux, - nTam)
         
-        QRY_ZCA -> (DbGoTop())
-        while ! QRY_ZCA->(Eof())
+        QRY_ZT4 -> (DbGoTop())
+        while ! QRY_ZT4->(Eof())
 
             nAtual++
             IncProc("Adicionando")
 
-            AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
-                           AllTrim(QRY_ZCA->ZCA_NOMELP),;
-                           AllTrim(QRY_ZCA->ZCA_IMPLP),;
+            AAdd(aColsAux,{AllTrim(QRY_ZT4->ZT4_COD),;
+                           AllTrim(QRY_ZT4->ZT4_NOMELP),;
+                           AllTrim(QRY_ZT4->ZT4_IMPLP),;
                            .F.;
                           })
 
-            QRY_ZCA ->(DbSkip())
+            QRY_ZT4 ->(DbSkip())
         enddo
-        QRY_ZCA->(DbCloseArea())
+        QRY_ZT4->(DbCloseArea())
         
     endif
 
@@ -11245,29 +11245,29 @@ Static Function fConfLp()
 
 return 
 
-User Function SelecioZM1()
+User Function SelecioZT5()
 
     Local aArea := FwGetArea()
 
-    DbSelectArea('ZM1')
+    DbSelectArea('ZT5')
 
     menuEscP()
 
-    ZM1->(DbCloseArea())
+    ZT5->(DbCloseArea())
 
     FwRestArea(aArea)
 
 return
 
-User Function ZM2Selecio()
+User Function ZT6Selecio()
 
     Local aArea := FwGetArea()
 
-    DbSelectArea('ZM2')
+    DbSelectArea('ZT6')
 
     menuEscP()
 
-    ZM2->(DbCloseArea())
+    ZT6->(DbCloseArea())
 
     FwRestArea(aArea)
 
@@ -11285,10 +11285,10 @@ Static function menuEscP()
     getParam()
 
     if lRet == .T.
-        if Select('ZM1') > 0
-            FWMsgRun(,{|oSay| proq()}, 'Buscando informações da tabela ZM1990', 'Gerando Excell')
-        ELSEIF SELECT('ZM2') > 0 
-            FWMsgRun(,{|oSay| proq()}, 'Buscando informações da tabela ZM2990', 'Gerando Excell')
+        if Select('ZT5') > 0
+            FWMsgRun(,{|oSay| proq()}, 'Buscando informações da tabela ZT5990', 'Gerando Excell')
+        ELSEIF SELECT('ZT6') > 0 
+            FWMsgRun(,{|oSay| proq()}, 'Buscando informações da tabela ZT6990', 'Gerando Excell')
         endif
     endif
     FwRestArea(aArea)
@@ -11302,11 +11302,11 @@ Static Function proq()
     Local cAlias := ""
     Local aDados := {}
 
-    If SELECT('ZM1') > 0 
+    If SELECT('ZT5') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM1_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + FwCodFil() + "'"  
 
-    cAlias := 'QZC_ZM1'
+    cAlias := 'QZC_ZT5'
 
     TCQUERY cQry NEW ALIAS (cAlias)
 
@@ -11314,17 +11314,17 @@ Static Function proq()
 
     Do While !(cAlias)->(Eof())
     
-    AaDd(aDados,{(cAlias)->ZM1_COD,;
-                 (cAlias)->ZM1_IMPRES,;
-                 (cAlias)->ZM1_EST,;
-                 (cAlias)->ZM1_USU,;
-                 (cAlias)->ZM1_ROLO,;
-                 (cAlias)->ZM1_FAB,;
-                 (cAlias)->ZM1_DATAIN,;
-                 (cAlias)->ZM1_OBS,;
-                 (cAlias)->ZM1_DATACA,;
-                 (cAlias)->ZM1_ATIVO,;
-                 (cAlias)->ZM1_METRA,;
+    AaDd(aDados,{(cAlias)->ZT5_COD,;
+                 (cAlias)->ZT5_IMPRES,;
+                 (cAlias)->ZT5_EST,;
+                 (cAlias)->ZT5_USU,;
+                 (cAlias)->ZT5_ROLO,;
+                 (cAlias)->ZT5_FAB,;
+                 (cAlias)->ZT5_DATAIN,;
+                 (cAlias)->ZT5_OBS,;
+                 (cAlias)->ZT5_DATACA,;
+                 (cAlias)->ZT5_ATIVO,;
+                 (cAlias)->ZT5_METRA,;
                  .F.})
 
         (cAlias)->(DbSkip())
@@ -11336,11 +11336,11 @@ Static Function proq()
 
 //-------------------------------------
 
-    ELSEIF SELECT('ZM2') > 0 
+    ELSEIF SELECT('ZT6') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"'  AND ZM2_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT6') + " WHERE D_E_L_E_T_ = '' AND ZT6_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"'  AND ZT6_FILIAL = '" + FwCodFil() + "'"  
 
-    cAlias := 'QZC_ZM2'
+    cAlias := 'QZC_ZT6'
 
     TCQUERY cQry NEW ALIAS (cAlias)
 
@@ -11348,28 +11348,28 @@ Static Function proq()
 
     Do While !(cAlias)->(Eof())
     
-    AaDd(aDados,{(cAlias)->ZM2_COD,;
-                 (cAlias)->ZM2_IMPRES,;
-                 (cAlias)->ZM2_USU,;
-                 (cAlias)->ZM2_DATAM,;
-                 (cAlias)->ZM2_TROCLP,;
-                 (cAlias)->ZM2_TROCRL,;
-                 (cAlias)->ZM2_LAMP,;
-                 (cAlias)->ZM2_MATER,;
-                 (cAlias)->ZM2_TEMPM,;
-                 (cAlias)->ZM2_UMIDAD,;
-                 (cAlias)->ZM2_TEMPA,;
-                 (cAlias)->ZM2_TEMPD,;
-                 (cAlias)->ZM2_TEMPR,;
-                 (cAlias)->ZM2_TENS,;
-                 (cAlias)->ZM2_HORIME,;
-                 (cAlias)->ZM2_START,;
-                 (cAlias)->ZM2_CORR,;
-                 (cAlias)->ZM2_TEMPT,;
-                 (cAlias)->ZM2_SETP,;
-                 (cAlias)->ZM2_POT,;
-                 (cAlias)->ZM2_ATIVO,;
-                 (cAlias)->ZM2_DATAC,;
+    AaDd(aDados,{(cAlias)->ZT6_COD,;
+                 (cAlias)->ZT6_IMPRES,;
+                 (cAlias)->ZT6_USU,;
+                 (cAlias)->ZT6_DATAM,;
+                 (cAlias)->ZT6_TROCLP,;
+                 (cAlias)->ZT6_TROCRL,;
+                 (cAlias)->ZT6_LAMP,;
+                 (cAlias)->ZT6_MATER,;
+                 (cAlias)->ZT6_TEMPM,;
+                 (cAlias)->ZT6_UMIDAD,;
+                 (cAlias)->ZT6_TEMPA,;
+                 (cAlias)->ZT6_TEMPD,;
+                 (cAlias)->ZT6_TEMPR,;
+                 (cAlias)->ZT6_TENS,;
+                 (cAlias)->ZT6_HORIME,;
+                 (cAlias)->ZT6_START,;
+                 (cAlias)->ZT6_CORR,;
+                 (cAlias)->ZT6_TEMPT,;
+                 (cAlias)->ZT6_SETP,;
+                 (cAlias)->ZT6_POT,;
+                 (cAlias)->ZT6_ATIVO,;
+                 (cAlias)->ZT6_DATAC,;
                  .F.})
 
     (cAlias)->(DbSkip())
@@ -11399,7 +11399,7 @@ Static Function geraExcell(aDados)
 
     If len(aDados) > 0 
 
-        IF SELECT('ZM1') > 0
+        IF SELECT('ZT5') > 0
 
             cAba   := "Manuteçaõd e Rolos"
             cTabela    := "Manutenção de Rolos Periodo"
@@ -11450,7 +11450,7 @@ Static Function geraExcell(aDados)
                 FwAlertSuccess('Arquivo Excell mandado para o endereço c:/Windows/Temp/','Atenção')
             endif
 
-        ELSEIF SELECT('ZM2') > 0 
+        ELSEIF SELECT('ZT6') > 0 
 
             cAba   := "Manuteçaõ de Lampadas Periodo"
             cTabela    := "Manutenção de Lampadas Periodo"
@@ -11550,29 +11550,29 @@ Static function getParam()
 
 return
 
-User Function R2SelecioZM1()
+User Function R2SelecioZT5()
 
     Local aArea := FwGetArea()
 
-    DbSelectArea('ZM1')
+    DbSelectArea('ZT5')
 
     menuEscR2()
 
-    ZM1->(DbCloseArea())
+    ZT5->(DbCloseArea())
 
     FwRestArea(aArea)
 
 return
 
-User Function R2ZM2Selecio()
+User Function R2ZT6Selecio()
 
     Local aArea := FwGetArea()
 
-    DbSelectArea('ZM2')
+    DbSelectArea('ZT6')
 
     menuEscR2()
 
-    ZM2->(DbCloseArea())
+    ZT6->(DbCloseArea())
 
     FwRestArea(aArea)
 
@@ -11596,10 +11596,10 @@ Static function menuEscR2()
     getParamR2()
 
     if lRet == .T.
-        if Select('ZM1') > 0
-            FWMsgRun(,{|oSay| proqR2()}, 'Buscando informações da tabela ZM1990', 'Gerando Excell')
-        ELSEIF SELECT('ZM2') > 0 
-            FWMsgRun(,{|oSay| proqR2()}, 'Buscando informações da tabela ZM2990', 'Gerando Excell')
+        if Select('ZT5') > 0
+            FWMsgRun(,{|oSay| proqR2()}, 'Buscando informações da tabela ZT5990', 'Gerando Excell')
+        ELSEIF SELECT('ZT6') > 0 
+            FWMsgRun(,{|oSay| proqR2()}, 'Buscando informações da tabela ZT6990', 'Gerando Excell')
         endif
     endif
 
@@ -11614,11 +11614,11 @@ Static Function proqR2()
     Local cAlias := ""
     Local aDados := {}
 
-    If SELECT('ZM1') > 0 
+    If SELECT('ZT5') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_EST = '"+ cEst+"' AND ZM1_ROLO = '"+cRolo +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM1_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_IMPRES = '"+ cImp +"' AND ZT5_EST = '"+ cEst+"' AND ZT5_ROLO = '"+cRolo +"' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + FwCodFil() + "'"  
 
-    cAlias := 'QZC_ZM1'
+    cAlias := 'QZC_ZT5'
 
     TCQUERY cQry NEW ALIAS (cAlias)
 
@@ -11626,17 +11626,17 @@ Static Function proqR2()
 
     Do While !(cAlias)->(Eof())
     
-    AaDd(aDados,{(cAlias)->ZM1_COD,;
-                 (cAlias)->ZM1_IMPRES,;
-                 (cAlias)->ZM1_EST,;
-                 (cAlias)->ZM1_USU,;
-                 (cAlias)->ZM1_ROLO,;
-                 (cAlias)->ZM1_FAB,;
-                 (cAlias)->ZM1_DATAIN,;
-                 (cAlias)->ZM1_OBS,;
-                 (cAlias)->ZM1_DATACA,;
-                 (cAlias)->ZM1_ATIVO,;
-                 (cAlias)->ZM1_METRA,;
+    AaDd(aDados,{(cAlias)->ZT5_COD,;
+                 (cAlias)->ZT5_IMPRES,;
+                 (cAlias)->ZT5_EST,;
+                 (cAlias)->ZT5_USU,;
+                 (cAlias)->ZT5_ROLO,;
+                 (cAlias)->ZT5_FAB,;
+                 (cAlias)->ZT5_DATAIN,;
+                 (cAlias)->ZT5_OBS,;
+                 (cAlias)->ZT5_DATACA,;
+                 (cAlias)->ZT5_ATIVO,;
+                 (cAlias)->ZT5_METRA,;
                  .F.})
 
     (cAlias)->(DbSkip())
@@ -11646,11 +11646,11 @@ Static Function proqR2()
 
     R2geraExcell(aDados)
 
-    ELSEIF SELECT('ZM2') > 0 
+    ELSEIF SELECT('ZT6') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_IMPRES = '"+ cImp +"' AND ZM2_LAMP = '"+ cL + "' AND ZM2_TROCLP = '"+ cLamp+"' AND ZM2_TROCRL = '"+cRef +"' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM2_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT6') + " WHERE D_E_L_E_T_ = '' AND ZT6_IMPRES = '"+ cImp +"' AND ZT6_LAMP = '"+ cL + "' AND ZT6_TROCLP = '"+ cLamp+"' AND ZT6_TROCRL = '"+cRef +"' AND ZT6_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT6_FILIAL = '" + FwCodFil() + "'"  
 
-    cAlias := 'QZC_ZM2'
+    cAlias := 'QZC_ZT6'
 
     TCQUERY cQry NEW ALIAS (cAlias)
 
@@ -11658,28 +11658,28 @@ Static Function proqR2()
 
     Do While !(cAlias)->(Eof())
     
-    AaDd(aDados,{(cAlias)->ZM2_COD,;
-                 (cAlias)->ZM2_IMPRES,;
-                 (cAlias)->ZM2_USU,;
-                 (cAlias)->ZM2_DATAM,;
-                 (cAlias)->ZM2_TROCLP,;
-                 (cAlias)->ZM2_TROCRL,;
-                 (cAlias)->ZM2_LAMP,;
-                 (cAlias)->ZM2_MATER,;
-                 (cAlias)->ZM2_TEMPM,;
-                 (cAlias)->ZM2_UMIDAD,;
-                 (cAlias)->ZM2_TEMPA,;
-                 (cAlias)->ZM2_TEMPD,;
-                 (cAlias)->ZM2_TEMPR,;
-                 (cAlias)->ZM2_TENS,;
-                 (cAlias)->ZM2_HORIME,;
-                 (cAlias)->ZM2_START,;
-                 (cAlias)->ZM2_CORR,;
-                 (cAlias)->ZM2_TEMPT,;
-                 (cAlias)->ZM2_SETP,;
-                 (cAlias)->ZM2_POT,;
-                 (cAlias)->ZM2_ATIVO,;
-                 (cAlias)->ZM2_DATAC,;
+    AaDd(aDados,{(cAlias)->ZT6_COD,;
+                 (cAlias)->ZT6_IMPRES,;
+                 (cAlias)->ZT6_USU,;
+                 (cAlias)->ZT6_DATAM,;
+                 (cAlias)->ZT6_TROCLP,;
+                 (cAlias)->ZT6_TROCRL,;
+                 (cAlias)->ZT6_LAMP,;
+                 (cAlias)->ZT6_MATER,;
+                 (cAlias)->ZT6_TEMPM,;
+                 (cAlias)->ZT6_UMIDAD,;
+                 (cAlias)->ZT6_TEMPA,;
+                 (cAlias)->ZT6_TEMPD,;
+                 (cAlias)->ZT6_TEMPR,;
+                 (cAlias)->ZT6_TENS,;
+                 (cAlias)->ZT6_HORIME,;
+                 (cAlias)->ZT6_START,;
+                 (cAlias)->ZT6_CORR,;
+                 (cAlias)->ZT6_TEMPT,;
+                 (cAlias)->ZT6_SETP,;
+                 (cAlias)->ZT6_POT,;
+                 (cAlias)->ZT6_ATIVO,;
+                 (cAlias)->ZT6_DATAC,;
                  .F.})
 
     (cAlias)->(DbSkip())
@@ -11709,7 +11709,7 @@ Static Function R2geraExcell(aDados)
 
     If len(aDados) > 0 
 
-        IF SELECT('ZM1') > 0
+        IF SELECT('ZT5') > 0
 
             cAba   := "Manuteção e Rolos Imp-Est-Rl"
             cTabela    := "Manutenção de Rolos Imp-Est-Rl"
@@ -11760,7 +11760,7 @@ Static Function R2geraExcell(aDados)
                 FwAlertSuccess('Arquivo Excell mandado para o endereço c:/Windows/Temp/','ATENÇÃO')
             endif
 
-        ELSEIF SELECT('ZM2') > 0 
+        ELSEIF SELECT('ZT6') > 0 
 
             cAba   := "Manuteção de Lampadas Imp-Lp"
             cTabela    := "Manutenção de Lampadas Imp-Lp"
@@ -11856,7 +11856,7 @@ Static function getParamR2()
     Private aColsRl     := {}
     Private lTf         := .F.
 
-    If SELECT('ZM1') > 0
+    If SELECT('ZT5') > 0
 
     fPopulaImp()
 
@@ -11900,7 +11900,7 @@ Static function getParamR2()
         Sleep(10)
     endif
     
-    ELSEIF SELECT('ZM2') > 0 
+    ELSEIF SELECT('ZT6') > 0 
 
     fPopulaImp()
 
@@ -11942,15 +11942,15 @@ Static function getParamR2()
 
 return
 
-User Function R3SelecioZM1()
+User Function R3SelecioZT5()
 
     Local aArea := FwGetArea()
 
-    DbSelectArea('ZM1')
+    DbSelectArea('ZT5')
 
     menuEscR3()
 
-    ZM1->(DbCloseArea())
+    ZT5->(DbCloseArea())
 
     FwRestArea(aArea)
 
@@ -11969,8 +11969,8 @@ Static function menuEscR3()
     getParamR3()
 
     if lRet == .T.
-        if Select('ZM1') > 0
-            FWMsgRun(,{|oSay| proqR3()}, 'Buscando informações da tabela ZM1990', 'Gerando Excell')
+        if Select('ZT5') > 0
+            FWMsgRun(,{|oSay| proqR3()}, 'Buscando informações da tabela ZT5990', 'Gerando Excell')
         endif
     endif
 
@@ -11985,11 +11985,11 @@ Static Function proqR3()
     Local cAlias := ""
     Local aDados := {}
 
-    If SELECT('ZM1') > 0 
+    If SELECT('ZT5') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM1') + " WHERE D_E_L_E_T_ = '' AND ZM1_IMPRES = '"+ cImp +"' AND ZM1_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM1_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_IMPRES = '"+ cImp +"' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + FwCodFil() + "'"  
 
-    cAlias := 'QZC_ZM1'
+    cAlias := 'QZC_ZT5'
 
     TCQUERY cQry NEW ALIAS (cAlias)
 
@@ -11997,17 +11997,17 @@ Static Function proqR3()
 
     Do While !(cAlias)->(Eof())
     
-    AaDd(aDados,{(cAlias)->ZM1_COD,;
-                 (cAlias)->ZM1_IMPRES,;
-                 (cAlias)->ZM1_EST,;
-                 (cAlias)->ZM1_USU,;
-                 (cAlias)->ZM1_ROLO,;
-                 (cAlias)->ZM1_FAB,;
-                 (cAlias)->ZM1_DATAIN,;
-                 (cAlias)->ZM1_OBS,;
-                 (cAlias)->ZM1_DATACA,;
-                 (cAlias)->ZM1_ATIVO,;
-                 (cAlias)->ZM1_METRA,;
+    AaDd(aDados,{(cAlias)->ZT5_COD,;
+                 (cAlias)->ZT5_IMPRES,;
+                 (cAlias)->ZT5_EST,;
+                 (cAlias)->ZT5_USU,;
+                 (cAlias)->ZT5_ROLO,;
+                 (cAlias)->ZT5_FAB,;
+                 (cAlias)->ZT5_DATAIN,;
+                 (cAlias)->ZT5_OBS,;
+                 (cAlias)->ZT5_DATACA,;
+                 (cAlias)->ZT5_ATIVO,;
+                 (cAlias)->ZT5_METRA,;
                  .F.})
 
     (cAlias)->(DbSkip())
@@ -12033,7 +12033,7 @@ Static function getParamR3()
     Private aColsImp    := {}
     Private lTf         := .F.
 
-    If SELECT('ZM1') > 0
+    If SELECT('ZT5') > 0
 
         fPopulaImp()
 
