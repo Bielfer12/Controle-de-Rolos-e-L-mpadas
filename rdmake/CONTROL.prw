@@ -11063,6 +11063,16 @@ User function zConsLp()
                  "C",;
                  ""})
 
+    AADD(aHeadAux,{"Impressora Lamp.",;
+                 "ZCA_IMPLP",;
+                 "@!",;
+                  100,;
+                  0,;
+                 "AlwaysTrue()",;
+                 "",;
+                 "C",;
+                 ""})
+
     //Cria os objetos
     cJanTitulo := 'CONSULTA DE ITENS '
     oDlgCE := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
@@ -11124,7 +11134,7 @@ static function fPopulaLp()
 
     if lTF == .F.
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD, ZCA_NOMELP, ZCA_IMPLP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         TCQUERY cQry New Alias "QRY_ZCA"
 
@@ -11143,6 +11153,7 @@ static function fPopulaLp()
 
             AAdd(aColsAux,{QRY_ZCA->ZCA_COD,;
                            QRY_ZCA->ZCA_NOMELP,;
+                           QRY_ZCA->ZCA_IMPLP,;
                            .F.;
                            })
 
@@ -11156,15 +11167,15 @@ static function fPopulaLp()
 
         if nNum == 2
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZCA_FILIAL = '" + FwCodFil() + "' "
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_IMPLP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZCA_FILIAL = '" + FwCodFil() + "' "
 
         elseif nNum == 1
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+"WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "' "
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_IMPLP FROM "+RetSqlName('ZCA')+"WHERE ZCA_TIPO = 'L' AND ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "' "
 
         ELSE
 
-            cQry := "SELECT ZCA_COD,ZCA_NOMELP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZCA_COD,ZCA_NOMELP,ZCA_IMPLP FROM "+RetSqlName('ZCA')+" WHERE ZCA_TIPO = 'L' AND (ZCA_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZCA_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZCA_FILIAL = '" + FwCodFil() + "'"
 
         endif
 
@@ -11185,6 +11196,7 @@ static function fPopulaLp()
 
             AAdd(aColsAux,{AllTrim(QRY_ZCA->ZCA_COD),;
                            AllTrim(QRY_ZCA->ZCA_NOMELP),;
+                           AllTrim(QRY_ZCA->ZCA_IMPLP),;
                            .F.;
                           })
 
@@ -11578,6 +11590,7 @@ Static function menuEscR2()
     Private cImp   
     Private cEst   
     Private cRolo  
+    Private cL 
     Private lRet := .T.
 
     getParamR2()
@@ -11635,7 +11648,7 @@ Static Function proqR2()
 
     ELSEIF SELECT('ZM2') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_IMPRES = '"+ cImp +"' AND ZM2_TROCLP = '"+ cLamp+"' AND ZM2_TROCRL = '"+cRef +"' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM2_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZM2') + " WHERE D_E_L_E_T_ = '' AND ZM2_IMPRES = '"+ cImp +"' AND ZM2_LAMP = '"+ cL + "' AND ZM2_TROCLP = '"+ cLamp+"' AND ZM2_TROCRL = '"+cRef +"' AND ZM2_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZM2_FILIAL = '" + FwCodFil() + "'"  
 
     cAlias := 'QZC_ZM2'
 
@@ -11838,6 +11851,7 @@ Static function getParamR2()
     Private aColsLP           := {'S=SIM','N=NÃO'}
     Private aColsAux    := {}
     Private aColsImp    := {}
+    Private aColsL      := {}
     Private aColsEst    := {}
     Private aColsRl     := {}
     Private lTf         := .F.
@@ -11896,7 +11910,16 @@ Static function getParamR2()
 
     next
 
+    fPopulaLp()
+
+    for nI := 1 to len(aColsAux)
+
+        AADD(aColsL,aColsAux[nI][2])
+
+    next
+
     aAdd(aParamBox, {2, "Impressora"    , 0        ,  aColsImp , 80, ".T.",.T.})
+    aAdd(aParamBox, {2, "Lâmpada"       , 0        ,  aColsL , 80, ".T.",.T.})
     aAdd(aParamBox, {2, "Troca lampada" , 0        ,  aColsLP  , 80, ".T.",.T.})
     aAdd(aParamBox, {2, "Troca Refletor", 0        ,  aColsRef , 80, ".T.",.T.})
     aAdd(aParamBox, {1, "Data De"       , CTOD('') ,  "", ".T.", "", ".T.", 80,  .T.})
@@ -11905,11 +11928,12 @@ Static function getParamR2()
     lRet := ParamBox(aParamBox,cTitulo,aParams,,,,nPosX,nPosY,,.T.,.T.)
 
     if (lRet)
-        cImp   := aParams[1]
-        cRef   := aParams[2]
-        cLamp  := aParams[3]
-        cData1 := DTOS(aParams[4])
-        cData2 := DTOS(aParams[5])
+        cImp    := aParams[1]
+        cL      := aParams[2]
+        cLamp   := aParams[3]
+        cRef    := aParams[4]
+        cData1  := DTOS(aParams[5])
+        cData2  := DTOS(aParams[6])
     else
         Sleep(10)
     endif
