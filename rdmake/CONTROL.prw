@@ -8,7 +8,7 @@
 User Function CLRLLP23()
 
     Local aArea          := FWGetArea()
-    
+
     Local nObjLarg       := 0
     Local nObjAltu       := 0
     Local nObjColu       := 0
@@ -91,11 +91,10 @@ User Function CLRLLP23()
     oDlg:Activate(,,,lCentraliz,,,)
      
     FWRestArea(aArea)
-
 Return
 
 Static function ESCM()
-    //escolha inicio
+
     Local aArea       := FWGetArea()
     Local oBrowseM
     Local aSeek       := {}
@@ -1223,6 +1222,52 @@ return
     // -------------------------------------------------------------------------------
 
 User Function IMPRESS()
+    
+    Local aArea         := FWGetArea()
+
+    Local aTamanho      := MsAdvSize()
+    Local nJanLarg      := aTamanho[5]
+    Local nJanAltu      := aTamanho[6] 
+    Local lDimPixels    := .T.
+    Local nPosTop       := 0
+    Local nPosLeft      := 0
+
+    Local cFont          := 'Tahoma'
+    Local oFontPadrao  
+
+    Local cJanTitulo    := ''
+   
+    Private aHeader     := {}
+    Private aCols       := {}
+
+    Private oDlgI
+
+    Private oSay1I
+    Private cSay1II     := ""
+    Private oBtn1I
+    Private cBtn1II     := 'INCLUIR'
+    Private oBtn2I
+    Private cBtn2II     := 'ALTERAR'
+    Private oBtn3I
+    Private cBtn3II     := 'VISUALIZAR'
+    Private oBtn4I
+    Private cBtn4II     := 'EXCLUIR'
+    Private oBtn5I
+    Private cBtn5II     := 'FECHAR'
+
+    Private cTipo       := 'I'
+
+    Private oMsGetZT4I
+    Private oMsGetZT4E
+    Private oMsGetZT4R
+    Private oMsGetZT4L
+
+    Private lRefresh := .T.
+
+    // -------------------------------------------------------------------------------
+    // 
+    //              TELA IMPRESSORA - GABRIEL
+    // 
     // -------------------------------------------------------------------------------
 
 
@@ -1326,8 +1371,42 @@ User Function IMPRESS()
 RETURN
 
 User Function EST()
-    // -------------------------------------------------------------------------------
+        Local aArea         := FWGetArea()
 
+    Local aTamanho      := MsAdvSize()
+    Local nJanLarg      := aTamanho[5]
+    Local nJanAltu      := aTamanho[6] 
+    Local lDimPixels    := .T.
+    Local nPosTop       := 0
+    Local nPosLeft      := 0
+
+    Local cFont          := 'Tahoma'
+    Local oFontPadrao  
+
+    Local cJanTitulo    := ''
+   
+    Private aHeader     := {}
+    Private aCols       := {}
+
+    Private oDlgE
+
+    Private oSay1I
+    Private cSay1II     := ""
+    Private oBtn1I
+    Private cBtn1II     := 'INCLUIR'
+    Private oBtn2I
+    Private cBtn2II     := 'ALTERAR'
+    Private oBtn3I
+    Private cBtn3II     := 'VISUALIZAR'
+    Private oBtn4I
+    Private cBtn4II     := 'EXCLUIR'
+    Private oBtn5I
+    Private cBtn5II     := 'FECHAR'
+
+    Private cTipo       := 'E'
+
+    Private oMsGetZT4
+    Private lRefresh := .T.
 
         AADD(aHeader,{"Codigo",;       
                       "ZT4_COD",;     
@@ -2709,6 +2788,7 @@ User Function CadBtnTipo()
 return
 
 static Function zPCPP03()
+
     Local aArea     := GetArea()
     Local cRotAux                             // Nome da Rotina
     Local cUserAux  := UsrRetName()               // Nome do Usuário
@@ -2776,27 +2856,29 @@ Static Function ValidaCmpI()
 
         if cFunc == 'T'
             cTir := StrTran(oGet15T:BUFFER,"'", '')
-            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15T:BUFFER 
         elseif cFunc == 'A'
             cTir := StrTran(oGet15A:BUFFER,"'", '')
-            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15A:BUFFER 
         endif
 
     elseif nEscBD == 2
 
         cTir := StrTran(oGet3M:BUFFER,"'", '')
-        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3M:BUFFER
 
     elseif nEscBD == 3
 
         cTir := StrTran(oGet3L:BUFFER,"'", '')
-        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3L:BUFFER
          
     endif
+
+
 
         TCQUERY cQryVI New Alias "QRY_VCPI"
         cImp := QRY_VCPI->ZT4_COD
@@ -2820,22 +2902,25 @@ Static Function ValidaCmpE()
     Local aArea := FWGetArea()
     Local cQryVE
     Local lFN
-    Local cImp 
+    Local cEst 
     Local cRec
+    Local cRec2
 
     if nEscBD == 2
 
         cTir := StrTran(oGet4M:BUFFER,"'", '')
-        cQryVE := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + cTir + "' AND  ZT4_TIPO = 'E' AND D_E_L_E_T_ = ''"
+        cQryVE := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_TIPO = 'E' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
         cRec := oGet4M:BUFFER
+        
+        cRec2 := StrTran(cRec,"ÇÃ", 'CA')
 
     endif
 
         TCQUERY cQryVE New Alias "QRY_VCPE"
-        cImp := QRY_VCPE->ZT4_COD
-        if Empty(cRec)
+        cEst := QRY_VCPE->ZT4_COD
+        if Empty(cRec2)
             lFN := .T. 
-        elseif Empty(cImp)
+        elseif Empty(cEst)
             lFN := .F.
             MsgAlert('REGISTRO DIGITADO INCORRETAMENTE OU NÃO EXISTE NO BANCO DE DADOS!')
         else
@@ -2853,22 +2938,22 @@ Static Function ValidaCmpR()
     Local aArea := FWGetArea()
     Local cQryVR
     Local lFN
-    Local cImp 
+    Local cRl
     Local cRec
 
     if nEscBD == 2
         
         cTir := StrTran(oGet6M:BUFFER,"'", '')
-        cQryVR := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMERL = '" + cTir + "' AND  ZT4_TIPO = 'R' AND D_E_L_E_T_ = ''"
+        cQryVR := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMERL = '"+cTir+"') AND  ZT4_TIPO = 'R' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
         cRec := oGet6M:BUFFER
 
     endif
 
         TCQUERY cQryVR New Alias "QRY_VCPR"
-        cImp := QRY_VCPR->ZT4_COD
+        cRl := QRY_VCPR->ZT4_COD
         if Empty(cRec)
             lFN := .T. 
-        elseif Empty(cImp)
+        elseif Empty(cRl)
             lFN := .F.
             MsgAlert('REGISTRO DIGITADO INCORRETAMENTE OU NÃO EXISTE NO BANCO DE DADOS!')
         else
@@ -2886,22 +2971,20 @@ Static Function ValidaCmpL()
     Local aArea := FWGetArea()
     Local cQryVL
     Local lFN
-    Local cImp 
+    Local cLp 
     Local cRec
 
     if nEscBD == 3
-
         cTir := StrTran(oGet6L:BUFFER,"'", '')
-        cQryVL := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMELP = '" + cTir + "' AND  ZT4_TIPO = 'L' AND D_E_L_E_T_ = ''"
+        cQryVL := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMELP = '"+cTir+"') AND  ZT4_TIPO = 'L' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
         cRec := oGet6L:BUFFER
-
     endif
 
         TCQUERY cQryVL New Alias "QRY_VCPL"
-        cImp := QRY_VCPL->ZT4_COD
-        if Empty(cRec)
+        cLp := QRY_VCPL->ZT4_COD
+        if Empty(cLp)
             lFN := .T. 
-        elseif Empty(cImp)
+        elseif Empty(cLp)
             lFN := .F.
             MsgAlert('REGISTRO DIGITADO INCORRETAMENTE OU NÃO EXISTE NO BANCO DE DADOS!')
         else
@@ -2927,7 +3010,7 @@ Static Function fCarAcols()
     // -------------------------------------------------------------------------------
 
     if cTipo == 'I'
-        cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%I%' AND ZT4_FILIAL = '" + FWCodFil() + "'AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4') + " WHERE ZT4_TIPO LIKE '%I%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -2963,7 +3046,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'E'
     
-        cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%E%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+        cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%E%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -3000,7 +3083,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'R'
 
-     cQry := "SELECT ZT4_COD,ZT4_NOMERL,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_DESC,ZT4_DIAMRL,ZT4_COMPRL,ZT4_MATRL,ZT4_DURERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%R%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZT4_COD,ZT4_NOMERL,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_DESC,ZT4_DIAMRL,ZT4_COMPRL,ZT4_MATRL,ZT4_DURERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%R%' AND ZT4_FILIAL = '" + xFilial('ZT4') + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -3042,7 +3125,7 @@ Static Function fCarAcols()
 
     elseif cTipo == 'L'
 
-     cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_IMPLP,ZT4_MODLP,ZT4_TENSLP,ZT4_CORRLP,ZT4_POTLP,ZT4_MODREF FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%L%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+     cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_IMPLP,ZT4_MODLP,ZT4_TENSLP,ZT4_CORRLP,ZT4_POTLP,ZT4_MODREF FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%L%' AND ZT4_FILIAL = '" + xFilial('ZT4') + "' AND D_E_L_E_T_ = ''"
 
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -3100,7 +3183,7 @@ Static function CadBtnSalv()
 
         if lEscolha = .T.
 
-            cQry := "SELECT ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND D_E_L_E_T_ = '' "
+            cQry := "SELECT ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = '' "
 
             IF cTipo = 'I'
                 cQry += "AND ZT4_TIPO = 'I'"
@@ -3156,7 +3239,7 @@ Static function CadBtnSalv()
     
 
         if lEscolha = .T.
-            cQry := "SELECT ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMERL = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "'AND ZT4_TIPO = 'R' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMERL = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "'AND ZT4_TIPO = 'R' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQry New Alias "QRY_CHK"
 
@@ -3215,7 +3298,7 @@ Static function CadBtnSalv()
 
         if lEscolha = .T.
 
-            cQry := "SELECT ZT4_NOMELP FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMELP = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZT4_TIPO = 'L' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_NOMELP FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMELP = '" + StrTran(Alltrim(oGet3T:BUFFER),"'",'') + "' AND ZT4_TIPO = 'L' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQry New Alias "QRY_CHK"
 
@@ -3303,7 +3386,7 @@ Static function geraCod()
 
             if cTipo == 'I'
 
-                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_FILIAL = '" + xFilial('ZT4') + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
@@ -3322,7 +3405,7 @@ Static function geraCod()
 
             elseif cTipo == 'E'
 
-                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_FILIAL = '" + xFilial('ZT4') + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
@@ -3340,7 +3423,7 @@ Static function geraCod()
     // -------------------------------------------------------------------------------
             elseif cTipo == 'R'
 
-                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_FILIAL = '" + xFilial('ZT4') + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
@@ -3357,7 +3440,7 @@ Static function geraCod()
     // 
     // -------------------------------------------------------------------------------
             elseif cTipo == 'L'
-                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_FILIAL = '" + FWCodFil() + "')"
+                cQry := "SELECT ZT4_COD AS REC FROM "+ RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L'  AND R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_FILIAL = '" + xFilial('ZT4') + "')"
 
                 TCQUERY cQry NEW ALIAS 'REC_ZT4'
 
@@ -3393,9 +3476,9 @@ Static function natEsc()
     If cTipo == 'I' .OR. cTipo ==  'E'
         
         If cTipo == 'I'
-            cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_FILIAL = '" + xFilial() + "' AND D_E_L_E_T_ = ''"
         ELSEIF cTipo ==  'E'
-            cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_DESC,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_FILIAL = '" + xFilial() + "' AND D_E_L_E_T_ = ''"
         endif
         
         TCQUERY cQry New Alias "QRY_ZT4"
@@ -3448,7 +3531,7 @@ Static function natEsc()
     
     ELSEIF cTipo == 'R'
         
-            cQry := "SELECT ZT4_COD,ZT4_NOMERL,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_DESC,ZT4_DIAMRL,ZT4_COMPRL,ZT4_MATRL,ZT4_DURERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%R%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_DESC,ZT4_DIAMRL,ZT4_COMPRL,ZT4_MATRL,ZT4_DURERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%R%' AND ZT4_FILIAL = '" + XfILIAL('ZT4') + "' AND D_E_L_E_T_ = ''"
         
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -3492,7 +3575,7 @@ Static function natEsc()
 
     ELSEIF cTipo == 'L'
         
-            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_IMPLP,ZT4_MODLP,ZT4_TENSLP,ZT4_CORRLP,ZT4_POTLP,ZT4_MODREF FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%L%' AND ZT4_FILIAL = '" + FWCodFil() + "' AND D_E_L_E_T_ = ''"
+            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_TIPO,ZT4_ATIVO,ZT4_DATA,ZT4_IMPLP,ZT4_MODLP,ZT4_TENSLP,ZT4_CORRLP,ZT4_POTLP,ZT4_MODREF FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO LIKE '%L%' AND ZT4_FILIAL = '" + xFilial('ZT4') + "' AND D_E_L_E_T_ = ''"
         
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -4530,33 +4613,33 @@ static function altBtn()
     
     if cTipo == 'I'
 
-            cQryIL  := "SELECT ZT4_COD, ZT4_IMPLP FROM " + RetSQLName('ZT4') + " WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIL  := "SELECT ZT4_COD, ZT4_IMPLP FROM " + RetSQLName('ZT4') + " WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '" + cNomeB + "'AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIL New Alias "QRY_IL"
 
-            cQryIMRL  := "SELECT ZT5_COD,ZT5_IMPRES FROM " + RetSQLName('ZT5') + " WHERE ZT5_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZT5_COD,ZT5_IMPRES FROM " + RetSQLName('ZT5') + " WHERE ZT5_IMPRES = '" + cNomeB + "'AND ZT5_FILIAL = '"+xFilial('ZT5')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
-            cQryIMLP  := "SELECT ZT6_COD,ZT6_IMPRES FROM " + RetSQLName('ZT6') + " WHERE ZT6_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMLP  := "SELECT ZT6_COD,ZT6_IMPRES FROM " + RetSQLName('ZT6') + " WHERE ZT6_IMPRES = '" + cNomeB + "'AND ZT6_FILIAL = '"+xFilial('ZT6')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMLP New Alias "QRY_IMLP"
 
         elseif cTipo == 'E'
 
-            cQryEMRL  := "SELECT ZT5_COD,ZT5_EST FROM " + RetSQLName('ZT5') + " WHERE ZT5_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryEMRL  := "SELECT ZT5_COD,ZT5_EST FROM " + RetSQLName('ZT5') + " WHERE ZT5_EST = '" + cNomeB + "' AND ZT5_FILIAL = '"+xFilial('ZT5')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryEMRL New Alias "QRY_EMRL"
 
         elseif cTipo == 'R'
 
-            cQryRMRL  := "SELECT ZT5_COD,ZT5_ROLO FROM " + RetSQLName('ZT5') + " WHERE ZT5_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryRMRL  := "SELECT ZT5_COD,ZT5_ROLO FROM " + RetSQLName('ZT5') + " WHERE ZT5_ROLO = '" + cNomeB + "' AND ZT5_FILIAL = '"+xFilial('ZT5')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryRMRL New Alias "QRY_RMRL"
 
         elseif cTipo == 'L'
 
-            cQryLMLP  := "SELECT ZT6_COD,ZT6_LAMP FROM " + RetSQLName('ZT6') + " WHERE ZT6_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryLMLP  := "SELECT ZT6_COD,ZT6_LAMP FROM " + RetSQLName('ZT6') + " WHERE ZT6_LAMP = '" + cNomeB + "' AND ZT6_FILIAL = '"+xFilial('ZT6')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryLMLP New Alias "QRY_LMLP"
 
@@ -4824,7 +4907,7 @@ static function trazcodZT5()
     Local cQry
     Local cNum
 
-    cQry := "SELECT MAX(ZT5_COD) AS TRAZC FROM " + RetSqlName('ZT5')
+    cQry := "SELECT MAX(ZT5_COD) AS TRAZC FROM " + RetSqlName('ZT5') + " WHERE ZT5_FILIAL = '"+xFilial('ZT5')+"'"
 
     TCQUERY cQry NEW ALIAS 'QRY_TRAS'
 
@@ -4842,7 +4925,7 @@ static function trazcodZT6()
     Local cQry
     Local cNum
 
-    cQry := "SELECT MAX(ZT6_COD) AS TRAZC FROM " + RetSqlName('ZT6')
+    cQry := "SELECT MAX(ZT6_COD) AS TRAZC FROM " + RetSqlName('ZT6') + " WHERE ZT6_FILIAL = '"+xFilial('ZT6')+"'"
 
     TCQUERY cQry NEW ALIAS 'QRY_TRAS'
 
@@ -5861,15 +5944,15 @@ static function excBtn()
 
         if cTipo == 'I'
 
-             cQryIL  := "SELECT ZT4_COD, ZT4_IMPLP FROM " + RetSQLName('ZT4') + " WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+             cQryIL  := "SELECT ZT4_COD, ZT4_IMPLP FROM " + RetSQLName('ZT4') + " WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '" + cNomeB + "'AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIL New Alias "QRY_IL"
 
-            cQryIMRL  := "SELECT ZT5_COD,ZT5_IMPRES FROM " + RetSQLName('ZT5') + " WHERE ZT5_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMRL  := "SELECT ZT5_COD,ZT5_IMPRES FROM " + RetSQLName('ZT5') + " WHERE ZT5_IMPRES = '" + cNomeB + "'AND ZT5_FILIAL = '"+xFilial('ZT5')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMRL New Alias "QRY_IMRL"
 
-            cQryIMLP  := "SELECT ZT6_COD,ZT6_IMPRES FROM " + RetSQLName('ZT6') + " WHERE ZT6_IMPRES = '" + cNomeB + "'AND D_E_L_E_T_ = ''"
+            cQryIMLP  := "SELECT ZT6_COD,ZT6_IMPRES FROM " + RetSQLName('ZT6') + " WHERE ZT6_IMPRES = '" + cNomeB + "'AND ZT6_FILIAL = '"+xFilial('ZT6')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryIMLP New Alias "QRY_IMLP"
 
@@ -5879,7 +5962,7 @@ static function excBtn()
 
         elseif cTipo == 'E'
 
-            cQryEMRL  := "SELECT ZT5_COD,ZT5_EST FROM " + RetSQLName('ZT5') + " WHERE ZT5_EST = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryEMRL  := "SELECT ZT5_COD,ZT5_EST FROM " + RetSQLName('ZT5') + " WHERE ZT5_EST = '" + cNomeB + "' AND ZT5_FILIAL = '"+xFilial('ZT5')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryEMRL New Alias "QRY_EMRL"
 
@@ -5889,7 +5972,7 @@ static function excBtn()
 
         elseif cTipo == 'R'
 
-            cQryRMRL  := "SELECT ZT5_COD,ZT5_ROLO FROM " + RetSQLName('ZT5') + " WHERE ZT5_ROLO = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryRMRL  := "SELECT ZT5_COD,ZT5_ROLO FROM " + RetSQLName('ZT5') + " WHERE ZT5_ROLO = '" + cNomeB + "' AND ZT5_FILIAL = '"+xFilial('ZT5')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryRMRL New Alias "QRY_RMRL"
 
@@ -5899,7 +5982,7 @@ static function excBtn()
 
         elseif cTipo == 'L'
 
-            cQryLMLP  := "SELECT ZT6_COD,ZT6_LAMP FROM " + RetSQLName('ZT6') + " WHERE ZT6_LAMP = '" + cNomeB + "' AND D_E_L_E_T_ = ''"
+            cQryLMLP  := "SELECT ZT6_COD,ZT6_LAMP FROM " + RetSQLName('ZT6') + " WHERE ZT6_LAMP = '" + cNomeB + "' AND ZT6_FILIAL = '"+xFilial('ZT6')+"' AND D_E_L_E_T_ = ''"
 
             TCQUERY cQryLMLP New Alias "QRY_LMLP"
 
@@ -6006,7 +6089,7 @@ Static function fCarAcolsMRL()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM "+RetSqlName('ZT5')+" WHERE D_E_L_E_T_ = '' AND ZT5_FILIAL = '" + FWCodFil() + "'"
+    cQry := "SELECT * FROM "+RetSqlName('ZT5')+" WHERE D_E_L_E_T_ = '' AND ZT5_FILIAL = '" + xFilial('ZT5') + "'"
 
         TCQUERY cQry New Alias "QRY_ZT5"
 
@@ -6433,6 +6516,21 @@ User function incMRl()
         nObjAltu := 15
         oGet9M  := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet9MM := u, xGet9MM)} , oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
+                oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
+        nObjColu := 380
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12M:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        nObjLinh := 125
+        nObjColu := 380
+        nObjLarg := 30
+        nObjAltu := 15
+        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgCadM, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
+
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 500
@@ -6465,21 +6563,6 @@ User function incMRl()
         nObjAltu := 20
         oCombo11M   := TComboBox():New(nObjLinh, nObjColu,, aCombo11M, nObjLarg, nObjAltu,oDlgCadM,,{||},,,,lDimPixels,oFontPadrao)
 
-        oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
-        nObjColu := 380
-        nObjLarg := 50
-        nObjAltu := 20
-        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
-        oSay12M:SetCss(" TSay {Font: Semi-Bold}")
-
-        oFontPadrao  := TFont():New(cFont, , -16)
-        nObjLinh := 125
-        nObjColu := 380
-        nObjLarg := 30
-        nObjAltu := 15
-        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgCadM, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
-        
         oMsGetZT4 := MsNewGetDados():New(155,;
                                          005,;
                                          (nJanAltu/2)-6,;
@@ -6593,7 +6676,7 @@ Static function geraCodM()
 
     DbSelectArea('ZT5')
         
-        cQry := "SELECT ZT5_COD AS REC1 FROM "+ RetSqlName('ZT5')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZT5')+" WHERE ZT5_FILIAL = '" + FWCodFil() + "')"
+        cQry := "SELECT ZT5_COD AS REC1 FROM "+ RetSqlName('ZT5')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZT5')+" WHERE ZT5_FILIAL = '" + xFilial('ZT5') + "')"
 
         TCQUERY cQry NEW ALIAS 'REC_ZT5'
 
@@ -6611,7 +6694,7 @@ Static function geraCodM()
     ELSEIF SELECT('ZT6') > 0
 
     DbSelectArea('ZT6')
-     cQry := "SELECT ZT6_COD AS REC2 FROM "+ RetSqlName('ZT6')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT6')+" WHERE ZT6_FILIAL = '" + FWCodFil() + "')"
+     cQry := "SELECT ZT6_COD AS REC2 FROM "+ RetSqlName('ZT6')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT6')+" WHERE ZT6_FILIAL = '" + xFilial('ZT6') + "')"
 
         TCQUERY cQry NEW ALIAS 'REC_ZT6'
 
@@ -6892,7 +6975,7 @@ static function dialogAltM(aDadosAltM)
         nObjLarg := 80
         nObjAltu := 15
         lHasButton := .T.
-        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgAltM, nObjLarg, nObjAltu,,{||ValidaCmpE},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
+        oGet4M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , cGet4MM := u, cGet4MM)} , oDlgAltM, nObjLarg, nObjAltu,,{||ValidaCmpE()},,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,lHasButton)
         oGet4M:cF3 := 'U_zConsEst()' 
         oGet4M:SetCSS("TGet{ color: #000000; selection-background-color: #369CB5;    background-color: #FFFFFF;     padding-left: 3px;     padding-right: 3px;     border-top-left-radius:3px;    border-bottom-left-radius:3px;    border: 1px solid #C5C9CA;    border-right: 0px; }QPushButton{ border: 1px solid #C5C9CA;   background-color: #FFFFFF;    border-left: 0px;   border-top-right-radius:3px;   border-bottom-right-radius:3px;    outline: none; }TGet:disabled { color: #000000;     border: 1px solid #E8EBF21;    border-right: 0px;    border-top-right-radius: 0px;    border-bottom-right-radius: 0px;    background-color: #E8EBF1;}QPushButton:disabled{ background-color: #E8EBF1; }tLabel{color: #000000;}")
 
@@ -6985,6 +7068,23 @@ static function dialogAltM(aDadosAltM)
 
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
+        nObjColu := 380
+        nObjLarg := 50
+        nObjAltu := 20
+        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
+        oSay12M:SetCss(" TSay {Font: Semi-Bold}")
+
+        oFontPadrao  := TFont():New(cFont, , -16)
+        xGet12MM := aDadosAltM[12][1]
+        nObjLinh := 125
+        nObjColu := 380
+        nObjLarg := 30
+        nObjAltu := 15
+        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao,,, lDimPixels,,,,,,,,,,,,,, .T.)
+
+
+        oFontPadrao  := TFont():New(cFont, , -14)
+        nObjLinh := 115
         nObjColu := 500
         nObjLarg := 50
         nObjAltu := 20
@@ -7017,22 +7117,6 @@ static function dialogAltM(aDadosAltM)
         nObjAltu := 20
         oCombo11M   := TComboBox():New(nObjLinh, nObjColu,,aCombo11M, nObjLarg, nObjAltu, oDlgAltM,,{||cCombo11MM},,,,lDimPixels,oFontPadrao)
 
-        oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 115
-        nObjColu := 380
-        nObjLarg := 50
-        nObjAltu := 20
-        oSay12M   := TSay():New(nObjLinh, nObjColu, {|| cSay12MM}, oDlgAltM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
-        oSay12M:SetCss(" TSay {Font: Semi-Bold}")
-
-        oFontPadrao  := TFont():New(cFont, , -16)
-        xGet12MM := aDadosAltM[12][1]
-        nObjLinh := 125
-        nObjColu := 380
-        nObjLarg := 30
-        nObjAltu := 15
-        oGet12M   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet12MM := u, xGet12MM)} , oDlgAltM, nObjLarg, nObjAltu,,,,, oFontPadrao,,, lDimPixels,,,,,,,,,,,,,, .T.)
-
         oDlgAltM:Activate()
 
         FWRestArea(aArea)
@@ -7050,7 +7134,9 @@ Static function btnAltM()
 
             DbSelectArea(cAlias)
 
-        if (oGet3M:BUFFER == aDadosAltM[2][1]) .AND. (oGet4M:BUFFER == aDadosAltM[3][1]) .AND. (oGet6M:BUFFER == aDadosAltM[5][1]) .AND. (oGet7M:BUFFER == aDadosAltM[6][1]) .AND. (oGet8M:BUFFER == aDadosAltM[7][1]) .AND. (oGet9M:BUFFER == aDadosAltM[8][1]) .AND.(oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (oGet12M:BUFFER == aDadosAltM[12][1])
+        if (oGet3M:BUFFER == AllTrim(aDadosAltM[2][1])) .AND. (Alltrim(oGet4M:BUFFER) == AllTrim(aDadosAltM[3][1])) .AND. (Alltrim(oGet6M:BUFFER) == AllTrim(aDadosAltM[5][1])) .AND. ;
+           (Alltrim(oGet7M:BUFFER) == AllTrim(aDadosAltM[6][1])) .AND. (Alltrim(oGet8M:BUFFER) == AllTrim(aDadosAltM[7][1])) .AND. (Alltrim(oGet9M:BUFFER) == AllTrim(aDadosAltM[8][1])) .AND.;
+           (oCombo11M:Nat == 0 .OR. oCombo11M:Nat == Val(aDadosAltM[10][1])) .AND. (Alltrim(oGet12M:BUFFER)   == AllTrim(aDadosAltM[12][1]))
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
             ELSEIF Empty(oGet3M:BUFFER) .OR. Empty(oGet4M:BUFFER) .OR. Empty(oGet6M:BUFFER) .OR. Empty(oGet7M:BUFFER) .OR. (Empty(oGet8M:BUFFER) .OR. (oGet8M:BUFFER == "  /  /    "))  .OR. Empty(oGet9M:BUFFER) .OR. Empty(oGet12M:BUFFER)
                 Alert('HÁ CAMPOS SEM NADA ESCRITO!!')
@@ -7555,7 +7641,7 @@ Static function MLPfCarAcols()
     Local nTotal := 0
     Local nAtual := 0 
 
-    cQry := "SELECT * FROM "+RetSqlName('ZT6')+" WHERE D_E_L_E_T_ = '' AND ZT6_FILIAL = '" + FwcODfiL() + "'"
+    cQry := "SELECT * FROM "+RetSqlName('ZT6')+" WHERE D_E_L_E_T_ = '' AND ZT6_FILIAL = '" + xFilial('ZT6') + "'"
 
         TCQUERY cQry New Alias "QRY_ZT6"
 
@@ -10312,7 +10398,7 @@ static function fPopulaImp()
 
     if lTF == .F. 
 
-            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
             TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -10344,15 +10430,15 @@ static function fPopulaImp()
 
         if nNum == 2
 
-            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
         else
 
-            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND (ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'I' AND (ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_COD LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
         endif
 
@@ -10554,7 +10640,7 @@ static function fPopulaEst()
 
     if lTF == .F.
 
-            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
             TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -10586,15 +10672,15 @@ static function fPopulaEst()
 
             if nNum == 2
 
-            cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+                cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
         
             elseif nNum == 1
 
-                cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+                cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
             else
 
-                 cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+                 cQry := "SELECT ZT4_COD,ZT4_DESC FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'E' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_DESC LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
             endif
 
@@ -10786,7 +10872,7 @@ static function fPopulaRl()
 
     if lTF == .F.
 
-            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -10818,15 +10904,15 @@ static function fPopulaRl()
         
         IF nNum == 2
 
-            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_NOMERL LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
         elseif nNum == 1
 
-            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
         else
 
-            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+            cQry := "SELECT ZT4_COD,ZT4_NOMERL FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'R' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_NOMERL LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
         endif
 
@@ -11023,10 +11109,24 @@ static function fPopulaLp()
     Local cQry := ''
     Local nTotal := 0
     Local nAtual := 0 
+    lOCAL cCpoLAMP
+    lOCAL cCpoIMP
+
+    cCpoIMP := oGet3L:BUFFER
+    cCpoLAMP := oGet3L:BUFFER
 
     if lTF == .F.
+        if !empty(cCpoIMP)
+            if nEscBD == 3
 
-            cQry := "SELECT ZT4_COD, ZT4_NOMELP, ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+                cTir := StrTran(oGet6L:BUFFER,"'", '')
+                cQry := "SELECT ZT4_COD, ZT4_NOMELP, ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '"+cCpoIMP+"' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
+                cRec := oGet6L:BUFFER
+
+            endif
+        else
+             cQry := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = '1000000000000'"
+        endif
 
         TCQUERY cQry New Alias "QRY_ZT4"
 
@@ -11056,19 +11156,23 @@ static function fPopulaLp()
     elseIF lTF == .T.
         
         cRec := StrTran(oGetP:BUFFER,"'", '')
+        if !empty(cCpoIMP)
 
-        if nNum == 2
+            if nNum == 2
 
-            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_NOMELP LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = ''AND ZT4_FILIAL = '" + FwCodFil() + "' "
+                cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_NOMELP LIKE '%"+ Alltrim(cRec) +"%'  AND ZT4_IMPLP = '"+cCpoIMP+"' AND D_E_L_E_T_ = ''AND ZT4_FILIAL = '" + xFilial('ZT4') + "' "
 
-        elseif nNum == 1
+            elseif nNum == 1
 
-            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+"WHERE ZT4_TIPO = 'L' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "' "
+                cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_COD LIKE '%"+ Alltrim(cRec) +"%'  AND ZT4_IMPLP = '"+cCpoIMP+"' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "' "
 
-        ELSE
+            ELSE
 
-            cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
+                cQry := "SELECT ZT4_COD,ZT4_NOMELP,ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND (ZT4_COD LIKE '%"+ Alltrim(cRec) +"%' OR ZT4_NOMELP LIKE '%"+ Alltrim(cRec) +"%') AND ZT4_IMPLP = '"+cCpoIMP+"' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
 
+            endif
+        else
+            cQry := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = '1000000000000'"
         endif
 
         TCQUERY cQry New Alias "QRY_ZT4"
@@ -11122,7 +11226,7 @@ Static Function fConfLp()
             if nEscL == 7
                 oGet6L:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             elseif nEscL == 8
-                oGet6L:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
+                oGet6L:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2])
             endif
 
             oDlgCE:End()
@@ -11135,7 +11239,7 @@ Static Function fConfLp()
 
     FwRestArea(aArea)
 
-return 
+return
 
 User Function SelecioZT5()
 
@@ -11196,7 +11300,7 @@ Static Function proq()
 
     If SELECT('ZT5') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + xFilial('ZT5') + "'"  
 
     cAlias := 'QZC_ZT5'
 
@@ -11230,7 +11334,7 @@ Static Function proq()
 
     ELSEIF SELECT('ZT6') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZT6') + " WHERE D_E_L_E_T_ = '' AND ZT6_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"'  AND ZT6_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT6') + " WHERE D_E_L_E_T_ = '' AND ZT6_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"'  AND ZT6_FILIAL = '" + xFilial('ZT6') + "'"  
 
     cAlias := 'QZC_ZT6'
 
@@ -11508,7 +11612,7 @@ Static Function proqR2()
 
     If SELECT('ZT5') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_IMPRES = '"+ cImp +"' AND ZT5_EST = '"+ cEst+"' AND ZT5_ROLO = '"+cRolo +"' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_IMPRES = '"+ cImp +"' AND ZT5_EST = '"+ cEst+"' AND ZT5_ROLO = '"+cRolo +"' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + xFilial('ZT5') + "'"  
 
     cAlias := 'QZC_ZT5'
 
@@ -11540,7 +11644,7 @@ Static Function proqR2()
 
     ELSEIF SELECT('ZT6') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZT6') + " WHERE D_E_L_E_T_ = '' AND ZT6_IMPRES = '"+ cImp +"' AND ZT6_LAMP = '"+ cL + "' AND ZT6_TROCLP = '"+ cLamp+"' AND ZT6_TROCRL = '"+cRef +"' AND ZT6_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT6_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT6') + " WHERE D_E_L_E_T_ = '' AND ZT6_IMPRES = '"+ cImp +"' AND ZT6_LAMP = '"+ cL + "' AND ZT6_TROCLP = '"+ cLamp+"' AND ZT6_TROCRL = '"+cRef +"' AND ZT6_DATAC BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT6_FILIAL = '" + xFilial('ZT6') + "'"  
 
     cAlias := 'QZC_ZT6'
 
@@ -11879,7 +11983,7 @@ Static Function proqR3()
 
     If SELECT('ZT5') > 0 
 
-    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_IMPRES = '"+ cImp +"' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + FwCodFil() + "'"  
+    cQry := "SELECT * FROM " + RetSqlName('ZT5') + " WHERE D_E_L_E_T_ = '' AND ZT5_IMPRES = '"+ cImp +"' AND ZT5_DATACA BETWEEN '"  + cData1 + "' AND '" + cData2 +"' AND ZT5_FILIAL = '" + xFilial('ZT5') + "'"  
 
     cAlias := 'QZC_ZT5'
 
