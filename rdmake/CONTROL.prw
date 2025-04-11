@@ -124,7 +124,7 @@ Static function ESCM()
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},3 } )
         cCampoAux1 := "ZT5_EST"
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},4 } )
-        cCampoAux1 := "ZT5_USU"
+        cCampoAux1 := "ZT5_USU"     
         aAdd(aSeek,{GetSX3Cache(cCampoAux1, "X3_TITULO"), {{"", GetSX3Cache(cCampoAux1, "X3_TIPO"), GetSX3Cache(cCampoAux1, "X3_TAMANHO"), GetSX3Cache(cCampoAux1, "X3_DECIMAL"), AllTrim(GetSX3Cache(cCampoAux1, "X3_TITULO")), AllTrim(GetSX3Cache(cCampoAux1, "X3_PICTURE"))}},5 } )
         
         oBrowseM := FWMBrowse():New()
@@ -145,8 +145,6 @@ Static function ESCM()
         oBrowseM:SetFilter(cCpoFil, &cTopFun, &cBotFun)
 
         oBrowseM:Activate()
-
-        ZT5->(DbCloseArea())
 
     ELSEif oCombo3:Nat == 3
 
@@ -184,8 +182,6 @@ Static function ESCM()
 
         oBrowseM:Activate()
 
-        ZT6->(DbCloseArea())
-
     elseif oCombo3:Nat == 1 .OR. oCombo3:Nat == 0
         MsgAlert('ESCOLHA UMA OPÇÃO VALIDA','ATENÇÃO')
     endif
@@ -204,6 +200,9 @@ Static Function MenuDef()
     Private aSubRelaLp := {}
 
     if SELECT('ZT5') > 0 
+
+        DbSelectArea('ZT5')
+
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_incMRl"        , 0, 3})
         AADD(aRotina,    {"Alterar"                 , "U_altMRL"        , 0, 4})
@@ -222,7 +221,12 @@ Static Function MenuDef()
         AADD(aSubRelaRl, {"Impres/Est/Rolos"       ,'U_R2SelecioZT5()'  , 0, 3})
         AADD(aSubRelaRl, {"Resumo(Status)"         ,'U_R3SelecioZT5()'  , 0, 3})
 
-    elseif SELECT('ZT6') > 0     
+        ZT5 -> (DbCloseArea())
+
+    elseif SELECT('ZT6') > 0  
+
+        DbSelectArea('ZT6')
+
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_incMLP"        , 0, 3})
         AADD(aRotina,    {"Alterar"                 , "U_altMLP"        , 0, 4})
@@ -239,6 +243,8 @@ Static Function MenuDef()
 
         AADD(aSubRelaLp, {"Período"                ,'U_ZT6Selecio()'    , 0, 3})
         AADD(aSubRelaLp, {"Impres/Lamp"            ,'U_R2ZT6Selecio()' , 0, 3})
+
+        ZT6 -> (DbCloseArea())
 
     endif
 
@@ -2876,7 +2882,7 @@ Static Function ValidaCmpI()
         cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3L:BUFFER
         oGet6L:BUFFER := Space(TamSX3('ZT4_MODLP')[1])
-        
+
     endif
 
 
@@ -6330,8 +6336,6 @@ User function incMRl()
 
         Processa({|| fCarAcolsMRL()}, "Processando")
 
-        nEscM := 5
-
         cJanTitulo := 'MANUTENÇÃO DE ROLOS - INCLUSÃO'
         oDlgCadM := TDialog():New(nPosTop, nPosLeft, nJanAltu, nJanLarg, cJanTitulo,,,,,,,,,lDimpixels)
 
@@ -6361,7 +6365,7 @@ User function incMRl()
         nObjLarg := 65
         nObjAltu := 20
         oBtn1M   := TButton():New(nObjLinh, nObjColu, cBtn1MM, oDlgCadM,{|| oDlgCadM:End()}, nObjLarg, nObjAltu,,oFontPadrao,,lDimPixels)    
-                
+
         nObjColu := (nJanLarg/2) - 0115
         nObjLarg := 65
         nObjAltu := 20
@@ -6381,7 +6385,7 @@ User function incMRl()
         oSay2M   := TSay():New(nObjLinh, nObjColu, {|| cSay2MM}, oDlgCadM,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2M:SetCss(" TSay {Font: Semi-Bold}")
 
-        DbSelectArea('ZT5')
+        // DbSelectArea('ZT5')
 
         geraCodM()
 
@@ -6392,7 +6396,7 @@ User function incMRl()
         nObjAltu := 15
         oGet2M   := TGet():New(nObjLinh, nObjColu, {||cGet2MM}, oDlgCadM, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
-        ZT5->(DbCloseArea())
+        // ZT5->(DbCloseArea())
 
         oGet2M:lActive := .F.
 
@@ -6674,8 +6678,6 @@ Static function geraCodM()
 
     IF SELECT('ZT5') > 0
 
-    DbSelectArea('ZT5')
-        
         cQry := "SELECT ZT5_COD AS REC1 FROM "+ RetSqlName('ZT5')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+ RetSqlName('ZT5')+" WHERE ZT5_FILIAL = '" + xFilial('ZT5') + "')"
 
         TCQUERY cQry NEW ALIAS 'REC_ZT5'
@@ -6687,13 +6689,12 @@ Static function geraCodM()
 
         REC_ZT5 -> (DbCloseArea())   
 
-    ZT5 -> (DbCloseArea())
-
     cGet2MM := cTira
 
     ELSEIF SELECT('ZT6') > 0
 
-    DbSelectArea('ZT6')
+    // DbSelectArea('ZT6')
+
      cQry := "SELECT ZT6_COD AS REC2 FROM "+ RetSqlName('ZT6')+" WHERE R_E_C_N_O_ = (SELECT MAX(R_E_C_N_O_) FROM "+RetSqlName('ZT6')+" WHERE ZT6_FILIAL = '" + xFilial('ZT6') + "')"
 
         TCQUERY cQry NEW ALIAS 'REC_ZT6'
@@ -6705,7 +6706,7 @@ Static function geraCodM()
 
         REC_ZT6 -> (DbCloseArea())   
 
-    ZT6 -> (DbCloseArea())
+    // ZT6 -> (DbCloseArea())
 
     xGet2LL := cTira
 
@@ -8124,7 +8125,7 @@ User function incMLP()
         oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgCadL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2L:SetCss(" TSay {Font: Semi-Bold}")
 
-        DbSelectArea('ZT6')
+        // DbSelectArea('ZT6')
 
         geraCodM()
         oFontPadrao  := TFont():New(cFont, , -16)
@@ -8134,7 +8135,7 @@ User function incMLP()
         nObjAltu := 15
         oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgCadL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
-        ZT6->(DbCloseArea())
+        // ZT6->(DbCloseArea())
 
         oGet2L:lActive := .F.
 
@@ -8955,7 +8956,7 @@ Static function dialogAltL(aDadosAltL)
         oSay2L   := TSay():New(nObjLinh, nObjColu, {|| cSay2LL}, oDlgAltL,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay2L:SetCss(" TSay {Font: Semi-Bold}")
 
-        DbSelectArea('ZT6')
+        // DbSelectArea('ZT6')
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet2LL := aDadosAltL[1][1]
@@ -8965,7 +8966,7 @@ Static function dialogAltL(aDadosAltL)
         nObjAltu := 15
         oGet2L   := TGet():New(nObjLinh, nObjColu, {||xGet2LL}, oDlgAltL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,)
 
-        ZT6->(DbCloseArea())
+        // ZT6->(DbCloseArea())
 
         oGet2L:lActive := .F.
 
