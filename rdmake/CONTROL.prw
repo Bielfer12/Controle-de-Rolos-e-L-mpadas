@@ -146,6 +146,8 @@ Static function ESCM()
 
         oBrowseM:Activate()
 
+        ZT5->(DbCloseArea())
+
     ELSEif oCombo3:Nat == 3
 
         DbSelectArea('ZT6')
@@ -182,11 +184,14 @@ Static function ESCM()
 
         oBrowseM:Activate()
 
+        ZT6->(DbCloseArea())
+
     elseif oCombo3:Nat == 1 .OR. oCombo3:Nat == 0
         MsgAlert('ESCOLHA UMA OPÇÃO VALIDA','ATENÇÃO')
     endif
 
     FWRestArea(aArea)
+
 
 return
 
@@ -200,8 +205,6 @@ Static Function MenuDef()
     Private aSubRelaLp := {}
 
     if SELECT('ZT5') > 0 
-
-        DbSelectArea('ZT5')
 
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_incMRl"        , 0, 3})
@@ -221,11 +224,8 @@ Static Function MenuDef()
         AADD(aSubRelaRl, {"Impres/Est/Rolos"       ,'U_R2SelecioZT5()'  , 0, 3})
         AADD(aSubRelaRl, {"Resumo(Status)"         ,'U_R3SelecioZT5()'  , 0, 3})
 
-        ZT5 -> (DbCloseArea())
 
     elseif SELECT('ZT6') > 0  
-
-        DbSelectArea('ZT6')
 
         AADD(aRotina,    {"Visualizar"              , "AXVISUAL"        , 0, 2})
         AADD(aRotina,    {"Incluir"                 , "U_incMLP"        , 0, 3})
@@ -243,8 +243,6 @@ Static Function MenuDef()
 
         AADD(aSubRelaLp, {"Período"                ,'U_ZT6Selecio()'    , 0, 3})
         AADD(aSubRelaLp, {"Impres/Lamp"            ,'U_R2ZT6Selecio()' , 0, 3})
-
-        ZT6 -> (DbCloseArea())
 
     endif
 
@@ -6222,6 +6220,8 @@ User function incMRl()
 
     Private nEscM 
 
+    nEscM := 5
+
     nEscBD := 2
 
      AADD(aHeaderM,{"Codigo",;      
@@ -10737,7 +10737,7 @@ Static Function fConfEst()
                 oGet4M:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
             elseif nEscM == 6
                 oGet4M:BUFFER := Alltrim(aColsAux[oMsNew:Nat][2]) 
-            elseif cEscM == 9
+            elseif nEscM == 9
                 cEst := Alltrim(aColsAux[oMsNew:Nat][2]) 
             endif
 
