@@ -238,7 +238,7 @@ Static Function MenuDef()
         endif
 
         AADD(aSubRelaLp, {"Período"                ,'U_ZT6Selecio()'    , 0, 3})
-        AADD(aSubRelaLp, {"Impres/Lamp"            , 'U_R2ZT6Selecio()' , 0, 3})
+        AADD(aSubRelaLp, {"Impres/Lamp"            ,'U_R2ZT6Selecio()' , 0, 3})
 
     endif
 
@@ -2856,26 +2856,27 @@ Static Function ValidaCmpI()
 
         if cFunc == 'T'
             cTir := StrTran(oGet15T:BUFFER,"'", '')
-            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15T:BUFFER 
         elseif cFunc == 'A'
             cTir := StrTran(oGet15A:BUFFER,"'", '')
-            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+            cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
             cRec := oGet15A:BUFFER 
         endif
 
     elseif nEscBD == 2
 
         cTir := StrTran(oGet3M:BUFFER,"'", '')
-        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3M:BUFFER
 
     elseif nEscBD == 3
 
         cTir := StrTran(oGet3L:BUFFER,"'", '')
-        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
+        cQryVI := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND ZT4_TIPO = 'I' AND D_E_L_E_T_ = ''"
         cRec := oGet3L:BUFFER
-         
+        oGet6L:BUFFER := Space(TamSX3('ZT4_MODLP')[1])
+        
     endif
 
 
@@ -2909,7 +2910,7 @@ Static Function ValidaCmpE()
     if nEscBD == 2
 
         cTir := StrTran(oGet4M:BUFFER,"'", '')
-        cQryVE := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_TIPO = 'E' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
+        cQryVE := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_DESC = '"+cTir+"') AND ZT4_TIPO = 'E' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
         cRec := oGet4M:BUFFER
         
         cRec2 := StrTran(cRec,"ÇÃ", 'CA')
@@ -2942,11 +2943,9 @@ Static Function ValidaCmpR()
     Local cRec
 
     if nEscBD == 2
-        
         cTir := StrTran(oGet6M:BUFFER,"'", '')
         cQryVR := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD in (SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_NOMERL = '"+cTir+"') AND  ZT4_TIPO = 'R' AND ZT4_FILIAL = '"+xFilial('ZT4')+"' AND D_E_L_E_T_ = ''"
         cRec := oGet6M:BUFFER
-
     endif
 
         TCQUERY cQryVR New Alias "QRY_VCPR"
@@ -3208,7 +3207,7 @@ Static function CadBtnSalv()
                 RecLock(cAlias, .T.)
                     ZT4->ZT4_FILIAL := xFilial('ZT4')
                     ZT4->ZT4_COD   := Alltrim(oGet2T:BUFFER)
-                    ZT4->ZT4_DESC  := AllTrim(oGet3T:BUFFER)
+                    ZT4->ZT4_DESC  := FWNoAccent(AllTrim(oGet3T:BUFFER))
                     ZT4->ZT4_TIPO  := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
                         ZT4->ZT4_ATIVO := oCombo5T:AITEMS[2]
@@ -3260,7 +3259,7 @@ Static function CadBtnSalv()
                 RecLock(cAlias, .T.)
                     ZT4->ZT4_FILIAL := xFilial('ZT4')
                     ZT4->ZT4_COD   := Alltrim(oGet2T:BUFFER)
-                    ZT4->ZT4_DESC  := Alltrim(oGet9T:BUFFER)
+                    ZT4->ZT4_DESC  := FWNoAccent(Alltrim(oGet9T:BUFFER))
                     ZT4->ZT4_TIPO  := Alltrim(oGet4T:BUFFER)
                     if oCombo5T:NAT == 2
                         ZT4->ZT4_ATIVO := oCombo5T:AITEMS[2]
@@ -3272,11 +3271,11 @@ Static function CadBtnSalv()
                         Return
                     ENDIF
                     ZT4->ZT4_DATA    := CTOD(oGet6T:BUFFER)
-                    ZT4->ZT4_NOMERL  := Alltrim(oGet3T:BUFFER)
+                    ZT4->ZT4_NOMERL  := FWNoAccent(Alltrim(oGet3T:BUFFER))
                     ZT4->ZT4_DIAMRL  := AllTrim(oGet10T:BUFFER)
                     ZT4->ZT4_COMPRL  := AllTrim(oGet11T:BUFFER)
-                    ZT4->ZT4_MATRL   := Alltrim(oGet12T:BUFFER)
-                    ZT4->ZT4_DURERL  := AllTrim(oGet13T:BUFFER)
+                    ZT4->ZT4_MATRL   := FWNoAccent(Alltrim(oGet12T:BUFFER))
+                    ZT4->ZT4_DURERL  := FWNoAccent(AllTrim(oGet13T:BUFFER))
                 ZT4 -> (MSUNLOCK())
                 end transaction
                 FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!')
@@ -3319,7 +3318,7 @@ Static function CadBtnSalv()
                     RecLock(cAlias, .T.)
                         ZT4->ZT4_FILIAL := xFilial('ZT4')
                         ZT4->ZT4_COD     := Alltrim(oGet2T:BUFFER)
-                        ZT4->ZT4_NOMELP  := Upper(Alltrim(oGet3T:BUFFER))
+                        ZT4->ZT4_NOMELP  := FWNoAccent(Upper(Alltrim(oGet3T:BUFFER)))
                         ZT4->ZT4_TIPO    := Alltrim(oGet4T:BUFFER)
                         if oCombo5T:NAT == 2
                             ZT4->ZT4_ATIVO := oCombo5T:AITEMS[2]
@@ -3332,11 +3331,11 @@ Static function CadBtnSalv()
                         ENDIF
                         ZT4->ZT4_DATA    := CTOD(oGet6T:BUFFER)
                         ZT4->ZT4_IMPLP   := Upper(Alltrim(oGet15T:BUFFER))
-                        ZT4->ZT4_MODLP   := Upper(Alltrim(oGet16T:BUFFER))
+                        ZT4->ZT4_MODLP   := FWNoAccent(Upper(Alltrim(oGet16T:BUFFER)))
                         ZT4->ZT4_TENSLP  := Alltrim(oGet17T:BUFFER)
                         ZT4->ZT4_CORRLP  := Alltrim(oGet18T:BUFFER)
                         ZT4->ZT4_POTLP   := Alltrim(oGet19T:BUFFER)
-                        ZT4->ZT4_MODREF  := Upper(Alltrim(oGet20T:BUFFER))
+                        ZT4->ZT4_MODREF  := FWNoAccent(Upper(Alltrim(oGet20T:BUFFER)))
                     ZT4 -> (MSUNLOCK())
                     end transaction
                     FwAlertSuccess('CADASTRO FEITO COM SUCESSO!!')
@@ -4673,10 +4672,10 @@ static function altBtn()
                                     QRY_IMLP -> (DbCloseArea())
                                     return
                                 else
-                                    ZT4->ZT4_DESC  := Alltrim(oGet3A:BUFFER)
+                                    ZT4->ZT4_DESC  := FWNoAccent(Alltrim(oGet3A:BUFFER))
                                 endif
                             else
-                                ZT4->ZT4_DESC  := Alltrim(oGet3A:BUFFER)
+                                ZT4->ZT4_DESC  := FWNoAccent(Alltrim(oGet3A:BUFFER))
                             ENDIF
 
                         elseif cTipo = 'E'
@@ -4686,7 +4685,7 @@ static function altBtn()
                                 QRY_EMRL -> (DbCloseArea())
                                 return
                             else
-                                ZT4->ZT4_DESC  := Alltrim(oGet3A:BUFFER)
+                                ZT4->ZT4_DESC  := FWNoAccent(Alltrim(oGet3A:BUFFER))
                             ENDIF
                         endif
 
@@ -4739,7 +4738,8 @@ static function altBtn()
 
             DbSelectArea(cAlias)
 
-            if (oGet3A:BUFFER == aDados[7][1]) .AND. (oCombo5A:Nat == 0 .OR. oCombo5A:Nat == Val(aDados[6][1])) .AND. (oGet9A:BUFFER == aDados[2][1]) .AND. (oGet10A:BUFFER == aDados[8][1]) .AND. (oGet11A:BUFFER == aDados[9][1]) .AND. (oGet12A:BUFFER == aDados[10][1]) .AND. (oGet13A:BUFFER == aDados[11][1])
+            if (oGet3A:BUFFER == aDados[2][1]) .AND. (oCombo5A:Nat == 0 .OR. oCombo5A:Nat == Val(aDados[6][1])) .AND. (oGet9A:BUFFER == aDados[7][1]) .AND. ;
+               (oGet10A:BUFFER == aDados[8][1]) .AND. (oGet11A:BUFFER == aDados[9][1]) .AND. (oGet12A:BUFFER == aDados[10][1]) .AND. (oGet13A:BUFFER == aDados[11][1])
                 ALERT('VOCE NÃO MUDOU NADA NOS CAMPOS!!','ATENÇÃO')
             ELSEIF Empty(oGet3A:BUFFER) .OR. Empty(oGet9A:BUFFER) .OR. Empty(oGet10A:BUFFER) .OR. Empty(oGet11A:BUFFER) .OR. Empty(oGet12A:BUFFER) .OR. Empty(oGet13A:BUFFER)
                 Alert('HÁ CAMPOS SEM NADA ESCRITO!!')
@@ -4750,7 +4750,7 @@ static function altBtn()
             IF ZT4->(DbSeek(xFilial('ZT4') + cCod + cItemTipo))
                 RecLock(cAlias, .F.)
                     ZT4->ZT4_COD   := Alltrim(oGet2A:BUFFER)
-                    ZT4->ZT4_DESC  := Alltrim(oGet9A:BUFFER)
+                    ZT4->ZT4_DESC  := FWNoAccent(Alltrim(oGet9A:BUFFER))
                     ZT4->ZT4_TIPO  := Alltrim(oGet4A:BUFFER)
                     if oCombo5A:NAT == 1 .OR. oCombo5A:NAT == 0
                         ZT4->ZT4_ATIVO := oCombo5A:AITEMS[1]
@@ -4765,16 +4765,16 @@ static function altBtn()
                             DisarmTransaction()
                             return
                         else 
-                            ZT4->ZT4_NOMERL  := Alltrim(oGet3A:BUFFER)
+                            ZT4->ZT4_NOMERL  := FWNoAccent(Alltrim(oGet3A:BUFFER))
                         endif
                     else
-                        ZT4->ZT4_NOMERL  := Alltrim(oGet3A:BUFFER)
+                        ZT4->ZT4_NOMERL  := FWNoAccent(Alltrim(oGet3A:BUFFER))
                     endif
 
                     ZT4->ZT4_DIAMRL  := Alltrim(oGet10A:BUFFER)
                     ZT4->ZT4_COMPRL  := Alltrim(oGet11A:BUFFER)
-                    ZT4->ZT4_MATRL   := Alltrim(oGet12A:BUFFER)
-                    ZT4->ZT4_DURERL  := Alltrim(oGet13A:BUFFER)
+                    ZT4->ZT4_MATRL   := FWNoAccent(Alltrim(oGet12A:BUFFER))
+                    ZT4->ZT4_DURERL  := FWNoAccent(Alltrim(oGet13A:BUFFER))
                 ZT4 -> (MSUNLOCK())
             endif
             end transaction
@@ -4834,10 +4834,10 @@ static function altBtn()
                             DisarmTransaction()
                             return
                         else 
-                            ZT4->ZT4_NOMELP  := Alltrim(oGet3A:BUFFER)
+                            ZT4->ZT4_NOMELP  := FWNoAccent(Alltrim(oGet3A:BUFFER))
                         endif
                     else
-                        ZT4->ZT4_NOMELP  := Alltrim(oGet3A:BUFFER)
+                        ZT4->ZT4_NOMELP  := FWNoAccent(Alltrim(oGet3A:BUFFER))
                     endif
 
                     ZT4->ZT4_TIPO  := Alltrim(oGet4A:BUFFER)
@@ -4848,11 +4848,11 @@ static function altBtn()
                     ENDIF
                     ZT4->ZT4_DATA    := CTOD(oGet6A:BUFFER)
                     ZT4->ZT4_IMPLP   := Alltrim(oGet15A:BUFFER)
-                    ZT4->ZT4_MODLP   := Alltrim(oGet16A:BUFFER)
+                    ZT4->ZT4_MODLP   := FWNoAccent(Alltrim(oGet16A:BUFFER))
                     ZT4->ZT4_TENSLP  := Alltrim(oGet17A:BUFFER)
                     ZT4->ZT4_CORRLP  := Alltrim(oGet18A:BUFFER)
                     ZT4->ZT4_POTLP   := Alltrim(oGet19A:BUFFER)
-                    ZT4->ZT4_MODREF  := Alltrim(oGet20A:BUFFER)
+                    ZT4->ZT4_MODREF  := FWNoAccent(Alltrim(oGet20A:BUFFER))
                 ZT4 -> (MSUNLOCK())
             endif
             end transaction
@@ -6619,9 +6619,9 @@ static function cadBtnM()
                 ZT5->ZT5_EST     := Upper(Alltrim(oGet4M:BUFFER))
                 ZT5->ZT5_USU     := Upper(AllTrim(oGet5M:BUFFER))
                 ZT5->ZT5_ROLO    := Upper(Alltrim(oGet6M:BUFFER))
-                ZT5->ZT5_FAB     := Upper(Alltrim(oGet7M:BUFFER))
+                ZT5->ZT5_FAB     := FwNoAccent(Upper(Alltrim(oGet7M:BUFFER)))
                 ZT5->ZT5_DATAIN  :=    CTOD(oGet8M:BUFFER)
-                ZT5->ZT5_OBS     := Upper(Alltrim(oGet9M:BUFFER))
+                ZT5->ZT5_OBS     := FwNoAccent(Upper(Alltrim(oGet9M:BUFFER)))
                 ZT5->ZT5_DATACA  :=    CTOD(oGet10M:BUFFER)
                 if oCombo11M:NAT == 2
                         ZT5->ZT5_ATIVO := oCombo11M:AITEMS[2]
@@ -7150,9 +7150,9 @@ Static function btnAltM()
                 ZT5->ZT5_EST       := Alltrim(oGet4M:BUFFER)
                 ZT5->ZT5_USU       := Alltrim(oGet5M:BUFFER)
                 ZT5->ZT5_ROLO      := Alltrim(oGet6M:BUFFER)
-                ZT5->ZT5_FAB       := Alltrim(oGet7M:BUFFER)
+                ZT5->ZT5_FAB       := FwNoAccent(Alltrim(oGet7M:BUFFER))
                 ZT5->ZT5_DATAIN    := CTOD(oGet8M:BUFFER)
-                ZT5->ZT5_OBS       := Alltrim(oGet9M:BUFFER)
+                ZT5->ZT5_OBS       := FwNoAccent(Alltrim(oGet9M:BUFFER))
                 ZT5->ZT5_DATACA    := CTOD(oGet10M:BUFFER)
                 if oCombo11M:NAT == 1 .OR. oCombo11M:NAT == 0
                     ZT5->ZT5_ATIVO := oCombo11m:AITEMS[1]
@@ -8560,7 +8560,7 @@ Static function incBtnMLP()
                         DisarmTransaction()
                         return
                 ENDIF
-                ZT6->ZT6_MATER     := Upper(Alltrim(oGet9L:BUFFER))
+                ZT6->ZT6_MATER     := FwNoAccent(Upper(Alltrim(oGet9L:BUFFER)))
                 ZT6->ZT6_TEMPM     := Alltrim(oGet10L:BUFFER)
                 ZT6->ZT6_UMIDAD    := AllTrim(oGet11L:BUFFER)
                 ZT6->ZT6_TEMPA     := AllTrim(oGet12L:BUFFER)
@@ -8573,7 +8573,7 @@ Static function incBtnMLP()
                 ZT6->ZT6_TEMPT     := Alltrim(oGet19L:BUFFER)
                 ZT6->ZT6_SETP      := Alltrim(oGet20L:BUFFER)
                 ZT6->ZT6_POT       := Alltrim(oGet21L:BUFFER)
-                ZT6->ZT6_OBS       := Upper(Alltrim(oGet22L:BUFFER))
+                ZT6->ZT6_OBS       := FwNoAccent(Upper(Alltrim(oGet22L:BUFFER)))
                 if oCombo23L:NAT == 2
                         ZT6->ZT6_ATIVO := oCombo23L:AITEMS[2]
                     elseif oCombo23L:NAT == 3
@@ -9389,7 +9389,7 @@ Static function altbtnMLP()
                         elseif oCombo8L:NAT == 2
                             ZT6->ZT6_TROCRL := oCombo8L:AITEMS[2]
                         ENDIF
-                        ZT6->ZT6_MATER     := Alltrim(oGet9L:BUFFER)
+                        ZT6->ZT6_MATER     := FwNoAccent(Alltrim(oGet9L:BUFFER))
                         ZT6->ZT6_TEMPM     := Alltrim(oGet10L:BUFFER)
                         ZT6->ZT6_UMIDAD    := AllTrim(oGet11L:BUFFER)
                         ZT6->ZT6_TEMPA     := AllTrim(oGet12L:BUFFER)
@@ -9402,7 +9402,7 @@ Static function altbtnMLP()
                         ZT6->ZT6_TEMPT     := Alltrim(oGet19L:BUFFER)
                         ZT6->ZT6_SETP      := Alltrim(oGet20L:BUFFER)
                         ZT6->ZT6_POT       := Alltrim(oGet21L:BUFFER)
-                        ZT6->ZT6_OBS       := Alltrim(oGet22L:BUFFER)
+                        ZT6->ZT6_OBS       := FwNoAccent(Alltrim(oGet22L:BUFFER))
                         if oCombo23L:NAT == 1 .OR. oCombo23L:NAT == 0
                             ZT6->ZT6_ATIVO := oCombo23L:AITEMS[1]
                         elseif oCombo23L:NAT == 2
@@ -11020,6 +11020,7 @@ User function zConsLp()
     Private oDlgCE
 
     Private lTF := .F.
+    Private lTR := .F.
 
     AADD(aHeadAux,{"Codigo",;       
                   "ZT4_COD",;   
@@ -11064,7 +11065,7 @@ User function zConsLp()
 
     oGrp2  := TGroup():New(028, 003, (nJanAltu/2)-28, (nJanLarg/2)-3,'GRID', oDlgCE,,, lDimPixels)
 
-    fPopulaLp()
+    fPopulaLp(lTR)
 
     oMsNew := MsNewGetDados():New(    035,;                                        
                                       006,;                                        
@@ -11101,9 +11102,9 @@ User function zConsLp()
 
     FwRestArea(aArea)
 
-return 
+return (lTr)
 
-static function fPopulaLp()
+static function fPopulaLp(lTr)
 
     Local aArea := FWGetArea()
     Local cQry := ''
@@ -11112,20 +11113,21 @@ static function fPopulaLp()
     lOCAL cCpoLAMP
     lOCAL cCpoIMP
 
-    cCpoIMP := oGet3L:BUFFER
-    cCpoLAMP := oGet3L:BUFFER
-
     if lTF == .F.
-        if !empty(cCpoIMP)
-            if nEscBD == 3
-
-                cTir := StrTran(oGet6L:BUFFER,"'", '')
-                cQry := "SELECT ZT4_COD, ZT4_NOMELP, ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '"+cCpoIMP+"' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
-                cRec := oGet6L:BUFFER
-
+        if lTR == .F.
+            cCpoIMP := oGet3L:BUFFER
+            cCpoLAMP := oGet3L:BUFFER
+            if !empty(cCpoIMP)
+                if nEscBD == 3
+                        cTir := StrTran(oGet6L:BUFFER,"'", '')
+                        cQry := "SELECT ZT4_COD, ZT4_NOMELP, ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND ZT4_IMPLP = '"+cCpoIMP+"' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + xFilial('ZT4') + "'"
+                        cRec := oGet6L:BUFFER
+                endif
+            else
+                cQry := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = '1000000000000'"
             endif
         else
-             cQry := "SELECT ZT4_COD FROM "+RetSqlName('ZT4')+" WHERE ZT4_COD = '1000000000000'"
+                cQry := "SELECT ZT4_COD, ZT4_NOMELP, ZT4_IMPLP FROM "+RetSqlName('ZT4')+" WHERE ZT4_TIPO = 'L' AND D_E_L_E_T_ = '' AND ZT4_FILIAL = '" + FwCodFil() + "'"
         endif
 
         TCQUERY cQry New Alias "QRY_ZT4"
@@ -11906,7 +11908,8 @@ Static function getParamR2()
 
     next
 
-    fPopulaLp()
+    lTR := .T.
+    fPopulaLp(lTR)
 
     for nI := 1 to len(aColsAux)
 
