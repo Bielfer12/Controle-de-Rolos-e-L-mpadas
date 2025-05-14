@@ -8463,7 +8463,7 @@ User function incMLP()
         nObjLinh := 170
         nObjColu := 510
         nObjLarg := 50
-        nObjAltu := 24
+        nObjAltu := 60
         oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -9313,7 +9313,7 @@ Static function dialogAltL(aDadosAltL)
         nObjLinh := 160
         nObjColu := 510
         nObjLarg := 50
-        nObjAltu := 15
+        nObjAltu := 60
         oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgAltL,,{||cCombo23LL},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -10006,7 +10006,7 @@ Static function dialogExcL(aDadosExcL)
         oGet14L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 25
         nObjLarg := 80
         nObjAltu := 20
@@ -10015,7 +10015,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet15LL := aDadosExcL[16][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 25
         nObjLarg := 50
         nObjAltu := 15
@@ -10024,7 +10024,7 @@ Static function dialogExcL(aDadosExcL)
         oGet15L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 90
         nObjLarg := 80
         nObjAltu := 20
@@ -10033,7 +10033,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet16LL := aDadosExcL[17][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 90
         nObjLarg := 50
         nObjAltu := 15
@@ -10042,7 +10042,7 @@ Static function dialogExcL(aDadosExcL)
         oGet16L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 150
         nObjLarg := 80
         nObjAltu := 20
@@ -10051,7 +10051,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet17LL := aDadosExcL[18][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 150
         nObjLarg := 50
         nObjAltu := 15
@@ -10060,7 +10060,7 @@ Static function dialogExcL(aDadosExcL)
         oGet17L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 210
         nObjLarg := 80
         nObjAltu := 20
@@ -10069,7 +10069,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet18LL := aDadosExcL[19][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 210
         nObjLarg := 50
         nObjAltu := 15
@@ -10078,7 +10078,7 @@ Static function dialogExcL(aDadosExcL)
         oGet18L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 270
         nObjLarg := 80
         nObjAltu := 20
@@ -10087,7 +10087,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet19LL := aDadosExcL[20][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 270
         nObjLarg := 50
         nObjAltu := 15
@@ -10096,7 +10096,7 @@ Static function dialogExcL(aDadosExcL)
         oGet19L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 330
         nObjLarg := 80
         nObjAltu := 20
@@ -10105,7 +10105,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet20LL := aDadosExcL[21][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 15
@@ -10114,7 +10114,7 @@ Static function dialogExcL(aDadosExcL)
         oGet20L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 390
         nObjLarg := 80
         nObjAltu := 20
@@ -10123,7 +10123,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet21LL := aDadosExcL[22][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 390
         nObjLarg := 50
         nObjAltu := 15
@@ -10132,7 +10132,7 @@ Static function dialogExcL(aDadosExcL)
         oGet21L:lActive := .F.
 
          oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 450
         nObjLarg := 80
         nObjAltu := 20
@@ -10141,7 +10141,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet22LL := aDadosExcL[23][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 450
         nObjLarg := 50
         nObjAltu := 15
@@ -10150,7 +10150,7 @@ Static function dialogExcL(aDadosExcL)
         oGet22L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 510
         nObjLarg := 80
         nObjAltu := 20
@@ -10159,16 +10159,16 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         cCombo23LL := aDadosExcL[24][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 510
         nObjLarg := 50
-        nObjAltu := 15
+        nObjAltu := 60
         oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo23LL},,,,lDimPixels,oFontPadrao)
 
         oCombo23L:lActive := .F.
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 20
@@ -10177,7 +10177,7 @@ Static function dialogExcL(aDadosExcL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet24LL := aDadosExcL[26][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 15
