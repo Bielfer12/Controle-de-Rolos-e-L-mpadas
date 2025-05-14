@@ -580,7 +580,7 @@ static function dialogVisu(aDadosExc)
     Private xGet18EE   
 
     Private oSay19E
-    Private cSay19EE    := 'Potencia'
+    Private cSay19EE    := 'Potencia(mJ/Cm2)'
     Private oGet19E
     Private xGet19EE    
 
@@ -1180,7 +1180,7 @@ static function dialogVisu(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 330
-        nObjLarg := 50
+        nObjLarg := 80
         nObjAltu := 20
         oSay19E   := TSay():New(nObjLinh, nObjColu, {|| cSay19EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19E:SetCss(" TSay {Font: Semi-Bold}")
@@ -1189,7 +1189,7 @@ static function dialogVisu(aDadosExc)
         xGet19EE  := aDadosExc[11][1]
         nObjLinh := 125
         nObjColu := 330
-        nObjLarg := 30
+        nObjLarg := 60
         nObjAltu := 15
         oGet19E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19EE := u, xGet19EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
@@ -1197,7 +1197,7 @@ static function dialogVisu(aDadosExc)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 370
+        nObjColu := 400
         nObjLarg := 50
         nObjAltu := 20
         oSay20E   := TSay():New(nObjLinh, nObjColu, {|| cSay20EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -1206,7 +1206,7 @@ static function dialogVisu(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet20EE  := aDadosExc[12][1]
         nObjLinh := 125
-        nObjColu := 370
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
         oGet20E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20EE := u, xGet20EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
@@ -2018,7 +2018,7 @@ User Function CadBtnTipo()
     Private xGet18TT    := Space(TamSX3('ZT4_CORRLP')[1])
 
     Private oSay19T
-    Private cSay19TT    := 'Potencia'
+    Private cSay19TT    := 'Potencia(mJ/Cm2)'
     Private oGet19T
     Private xGet19TT    := Space(TamSX3('ZT4_POTLP')[1])
 
@@ -2752,7 +2752,7 @@ User Function CadBtnTipo()
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 330
-        nObjLarg := 50
+        nObjLarg := 80
         nObjAltu := 20
         oSay19T   := TSay():New(nObjLinh, nObjColu, {|| cSay19TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19T:SetCss(" TSay {Font: Semi-Bold}")
@@ -2760,13 +2760,13 @@ User Function CadBtnTipo()
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
         nObjColu := 330
-        nObjLarg := 30
+        nObjLarg := 60
         nObjAltu := 15
         oGet19T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19TT := u, xGet19TT)} , oDlgCad, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 385
+        nObjColu := 400
         nObjLarg := 50
         nObjAltu := 20
         oSay20T   := TSay():New(nObjLinh, nObjColu, {|| cSay20TT}, oDlgCad,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -2774,7 +2774,7 @@ User Function CadBtnTipo()
 
         oFontPadrao  := TFont():New(cFont, , -16)
         nObjLinh := 125
-        nObjColu := 385
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
         oGet20T   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20TT := u, xGet20TT)} , oDlgCad, nObjLarg, nObjAltu,'@!',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
@@ -3955,7 +3955,7 @@ static Function dialogAlt(aDados)
     Private xGet18AA   
 
     Private oSay19A
-    Private cSay19AA    := 'Potencia'
+    Private cSay19AA    := 'Potencia(mJ/Cm2)'
     Private oGet19A
     Private xGet19AA    
 
@@ -4560,7 +4560,7 @@ static Function dialogAlt(aDados)
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 330
-        nObjLarg := 50
+        nObjLarg := 80
         nObjAltu := 20
         oSay19A   := TSay():New(nObjLinh, nObjColu, {|| cSay19AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19A:SetCss(" TSay {Font: Semi-Bold}")
@@ -4569,13 +4569,13 @@ static Function dialogAlt(aDados)
         xGet19AA  := aDados[11][1]
         nObjLinh := 125
         nObjColu := 330
-        nObjLarg := 30
+        nObjLarg := 60
         nObjAltu := 15
         oGet19A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19AA := u, xGet19AA)} , oDlgAlt, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 370
+        nObjColu := 400
         nObjLarg := 50
         nObjAltu := 20
         oSay20A   := TSay():New(nObjLinh, nObjColu, {|| cSay20AA}, oDlgAlt,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -4584,7 +4584,7 @@ static Function dialogAlt(aDados)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet20AA  := aDados[12][1]
         nObjLinh := 125
-        nObjColu := 370
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
         oGet20A   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20AA := u, xGet20AA)} , oDlgAlt, nObjLarg, nObjAltu,'@!',,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
@@ -5275,7 +5275,7 @@ static function dialogEXC(aDadosExc)
     Private xGet18EE   
 
     Private oSay19E
-    Private cSay19EE    := 'Potencia'
+    Private cSay19EE    := 'Potencia(mJ/Cm2)'
     Private oGet19E
     Private xGet19EE    
 
@@ -5894,7 +5894,7 @@ static function dialogEXC(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
         nObjColu := 330
-        nObjLarg := 50
+        nObjLarg := 80
         nObjAltu := 20
         oSay19E   := TSay():New(nObjLinh, nObjColu, {|| cSay19EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
         oSay19E:SetCss(" TSay {Font: Semi-Bold}")
@@ -5903,7 +5903,7 @@ static function dialogEXC(aDadosExc)
         xGet19EE  := aDadosExc[11][1]
         nObjLinh := 125
         nObjColu := 330
-        nObjLarg := 30
+        nObjLarg := 60
         nObjAltu := 15
         oGet19E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19EE := u, xGet19EE)} , oDlgExc, nObjLarg, nObjAltu, ,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
@@ -5911,7 +5911,7 @@ static function dialogEXC(aDadosExc)
 
          oFontPadrao  := TFont():New(cFont, , -14)
         nObjLinh := 115
-        nObjColu := 370
+        nObjColu := 400
         nObjLarg := 50
         nObjAltu := 20
         oSay20E   := TSay():New(nObjLinh, nObjColu, {|| cSay20EE}, oDlgExc,,oFontPadrao,,,,lDimpixels,CLR_BLACK,,nObjLarg,nObjAltu) 
@@ -5920,7 +5920,7 @@ static function dialogEXC(aDadosExc)
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet20EE  := aDadosExc[12][1]
         nObjLinh := 125
-        nObjColu := 370
+        nObjColu := 400
         nObjLarg := 80
         nObjAltu := 15
         oGet20E   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20EE := u, xGet20EE)} , oDlgExc, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
@@ -7819,7 +7819,7 @@ User function incMLP()
     Private xGet20LL     := Space(TamSX3('ZT6_SETP')[1])
 
     Private oSay21L
-    Private cSay21LL    := 'Potencia'
+    Private cSay21LL    := 'Potencia(mJ/Cm2)'
     Private oGet21L
     Private xGet21LL     := Space(TamSX3('ZT6_POT')[1])
     
@@ -8036,7 +8036,7 @@ User function incMLP()
                       "C",;
                       ""})
 
-        AADD(aHeaderL,{"Potencia (mWcm2)",;
+        AADD(aHeaderL,{"Potencia",;
                       "ZT6_POT",;
                       "",;
                        10,;
@@ -8223,7 +8223,7 @@ User function incMLP()
         nObjLinh := 131
         nObjColu := 25
         nObjLarg := 100
-        nObjAltu := 20
+        nObjAltu := 60
         oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -8238,7 +8238,7 @@ User function incMLP()
         nObjLinh := 131
         nObjColu := 140
         nObjLarg := 80
-        nObjAltu := 20
+        nObjAltu := 60  
         oCombo8L := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgCadL,,{||},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -8835,7 +8835,7 @@ Static function dialogAltL(aDadosAltL)
     Private xGet10LL    
 
     Private oSay11L
-    Private cSay11LL     := 'Umidade Relativa(%)'
+    Private cSay11LL     := 'Umidade Relativa'
     Private oGet11L
     Private xGeT11LL     
 
@@ -8860,32 +8860,32 @@ Static function dialogAltL(aDadosAltL)
     Private xGet15LL     
 
     Private oSay16L
-    Private cSay16LL    := 'Horimetro (Horas)'
+    Private cSay16LL    := 'Horimetro'
     Private oGet16L
     Private xGet16LL     
 
     Private oSay17L
-    Private cSay17LL    := 'Inicio (StartUps)'
+    Private cSay17LL    := 'Inicio(StartUp)'
     Private oGet17L
     Private xGet17LL     
 
     Private oSay18L
-    Private cSay18LL    := 'Corrente (A)'
+    Private cSay18LL    := 'Corrente'
     Private oGet18L
     Private xGet18LL    
 
     Private oSay19L
-    Private cSay19LL    := 'Temp. Trabalho(°C)'
+    Private cSay19LL    := 'Temp. Trabalho'
     Private oGet19L
     Private xGet19LL     
 
     Private oSay20L
-    Private cSay20LL    := 'Set Point (%)'
+    Private cSay20LL    := 'Set Point'
     Private oGet20L
     Private xGet20LL     
 
     Private oSay21L
-    Private cSay21LL    := 'Potencia (mWcm2)'
+    Private cSay21LL    := 'Potencia(mJ/Cm2)'
     Private oGet21L
     Private xGet21LL     
     
@@ -9057,7 +9057,7 @@ Static function dialogAltL(aDadosAltL)
         nObjLinh := 125
         nObjColu := 25
         nObjLarg := 100
-        nObjAltu := 15
+        nObjAltu := 60
         oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgAltL,,{||cCombo7LL},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -9073,7 +9073,7 @@ Static function dialogAltL(aDadosAltL)
         nObjLinh := 125
         nObjColu := 140
         nObjLarg := 80
-        nObjAltu := 15
+        nObjAltu := 60
         oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgAltL,,{||cCombo8LL},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
@@ -9173,7 +9173,7 @@ Static function dialogAltL(aDadosAltL)
         oGet14L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet14LL := u, xGet14LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 25
         nObjLarg := 80
         nObjAltu := 20
@@ -9182,14 +9182,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet15LL := aDadosAltL[16][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 25
         nObjLarg := 50
         nObjAltu := 15
         oGet15L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet15LL := u, xGet15LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 90
         nObjLarg := 80
         nObjAltu := 20
@@ -9198,14 +9198,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet16LL := aDadosAltL[17][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 90
         nObjLarg := 50
         nObjAltu := 15
         oGet16L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet16LL := u, xGet16LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 150
         nObjLarg := 80
         nObjAltu := 20
@@ -9214,14 +9214,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet17LL := aDadosAltL[18][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 150
         nObjLarg := 50
         nObjAltu := 15
         oGet17L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet17LL := u, xGet17LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 210
         nObjLarg := 80
         nObjAltu := 20
@@ -9230,14 +9230,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet18LL := aDadosAltL[19][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 210
         nObjLarg := 50
         nObjAltu := 15
         oGet18L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet18LL := u, xGet18LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 270
         nObjLarg := 80
         nObjAltu := 20
@@ -9246,14 +9246,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet19LL := aDadosAltL[20][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 270
         nObjLarg := 50
         nObjAltu := 15
         oGet19L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet19LL := u, xGet19LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 330
         nObjLarg := 80
         nObjAltu := 20
@@ -9262,14 +9262,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet20LL := aDadosAltL[21][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 330
         nObjLarg := 50
         nObjAltu := 15
         oGet20L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet20LL := u, xGet20LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 390
         nObjLarg := 80
         nObjAltu := 20
@@ -9278,14 +9278,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet21LL := aDadosAltL[22][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 390
         nObjLarg := 50
         nObjAltu := 15
         oGet21L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet21LL := u, xGet21LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
          oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 450
         nObjLarg := 80
         nObjAltu := 20
@@ -9294,14 +9294,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet22LL := aDadosAltL[23][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 450
         nObjLarg := 50
         nObjAltu := 15
         oGet22L   := TGet():New(nObjLinh, nObjColu,{|u| Iif(PCount() > 0 , xGet22LL := u, xGet22LL)} , oDlgAltL, nObjLarg, nObjAltu, , , ,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,, .T.)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 510
         nObjLarg := 80
         nObjAltu := 20
@@ -9310,14 +9310,14 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         cCombo23LL := aDadosAltL[24][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 510
         nObjLarg := 50
         nObjAltu := 15
         oCombo23L   := TComboBox():New(nObjLinh, nObjColu,,aCombo23L, nObjLarg, nObjAltu, oDlgAltL,,{||cCombo23LL},,,,lDimPixels,oFontPadrao)
 
         oFontPadrao  := TFont():New(cFont, , -14)
-        nObjLinh := 145
+        nObjLinh := 150
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 20
@@ -9326,7 +9326,7 @@ Static function dialogAltL(aDadosAltL)
 
         oFontPadrao  := TFont():New(cFont, , -16)
         xGet24LL := aDadosAltL[26][1]
-        nObjLinh := 155
+        nObjLinh := 160
         nObjColu := 570
         nObjLarg := 80
         nObjAltu := 15
@@ -9660,7 +9660,7 @@ Static function dialogExcL(aDadosExcL)
     Private xGet10LL    
 
     Private oSay11L
-    Private cSay11LL     := 'Umidade Relativa(%)'
+    Private cSay11LL     := 'Umidade Relativa'
     Private oGet11L
     Private xGeT11LL     
 
@@ -9685,32 +9685,32 @@ Static function dialogExcL(aDadosExcL)
     Private xGet15LL     
 
     Private oSay16L
-    Private cSay16LL    := 'Horimetro (Horas)'
+    Private cSay16LL    := 'Horimetro'
     Private oGet16L
     Private xGet16LL     
 
     Private oSay17L
-    Private cSay17LL    := 'Inicio (StartUps)'
+    Private cSay17LL    := 'Inicio(StartUps)'
     Private oGet17L
     Private xGet17LL     
 
     Private oSay18L
-    Private cSay18LL    := 'Corrente (A)'
+    Private cSay18LL    := 'Corrente'
     Private oGet18L
     Private xGet18LL    
 
     Private oSay19L
-    Private cSay19LL    := 'Temp. Trabalho(°C)'
+    Private cSay19LL    := 'Temp. Trabalho'
     Private oGet19L
     Private xGet19LL     
 
     Private oSay20L
-    Private cSay20LL    := 'Set Point (%)'
+    Private cSay20LL    := 'Set Point'
     Private oGet20L
     Private xGet20LL     
 
     Private oSay21L
-    Private cSay21LL    := 'Potencia (mWcm2)'
+    Private cSay21LL    := 'Potência(mJ/Cm2)'
     Private oGet21L
     Private xGet21LL     
     
@@ -9856,7 +9856,7 @@ Static function dialogExcL(aDadosExcL)
         nObjLinh := 90
         nObjColu := 465
         nObjLarg := 100
-        nObjAltu := 15
+        nObjAltu := 20
         oGet6L   := TGet():New(nObjLinh, nObjColu,{||xGet6LL} , oDlgExcL, nObjLarg, nObjAltu,,,,, oFontPadrao, , , lDimPixels,,,,,,,,,,,,,,.T.)
         
         oGet6L:lActive := .F.
@@ -9874,7 +9874,7 @@ Static function dialogExcL(aDadosExcL)
         nObjLinh := 125
         nObjColu := 25
         nObjLarg := 100
-        nObjAltu := 15
+        nObjAltu := 60
         oCombo7L   := TComboBox():New(nObjLinh, nObjColu,,aCombo7L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo7LL},,,,lDimPixels,oFontPadrao)
 
         oCombo7L:lActive := .F.
@@ -9892,7 +9892,7 @@ Static function dialogExcL(aDadosExcL)
         nObjLinh := 125
         nObjColu := 140
         nObjLarg := 80
-        nObjAltu := 15
+        nObjAltu := 60
         oCombo8L   := TComboBox():New(nObjLinh, nObjColu,,aCombo8L, nObjLarg, nObjAltu, oDlgExcL,,{||cCombo8LL},,,,lDimPixels,oFontPadrao)
 
         oCombo8L:lActive := .F.
