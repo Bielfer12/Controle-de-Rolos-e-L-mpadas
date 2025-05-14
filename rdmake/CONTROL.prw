@@ -7701,7 +7701,7 @@ User function incMLP()
     Local lDimPixels    := .T.
     Local nPosTop       := 0
     Local nPosLeft      := 0
-    Local cFont          := 'Tahoma'
+    Local cFont         := 'Tahoma'
     Local oFontPadrao  
     Local nObjLarg      := 0
     Local nObjAltu      := 0
